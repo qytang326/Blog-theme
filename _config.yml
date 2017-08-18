@@ -1,0 +1,103 @@
+# Site settings
+title: Quanyin Blog
+SEOTitle: Quanyin Tang的博客 | Quanyin Blog
+header-img: /img/bg-default.jpg    #默认底图
+email: qytang326@gmail.com
+description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博客，与你一起发现更大的世界。"
+keyword: ""
+url: "https://qytang326.github.io"              # your host, for absolute URL
+baseurl: "/gh-pages-theme"                             # for example, '/blog' if your blog hosted on 'host/blog'
+repository: qytang326/qytang326.github.io
+
+
+# SNS settings
+RSS: false
+#RSS: feed.xml
+weibo_username:     778950326
+zhihu_username:     qytang326
+github_username:    qytang326
+#twitter_username:   
+#facebook_username:  
+linkedin_username:  quanyin-tang-56a543b1
+email: qytang326@gmail.com
+
+
+# Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/      # 自定义永久链接,或者使用#permalink: pretty
+paginate: 10                                    #每页展示项目数
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: no                          # if you want to customize anchor. check out line:181 of `post.html` 取消#显示
+categories_path: categories
+tags_path: tags
+archive_path: archives
+about_path: about
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: 
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+markdown: kramdown
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Disqus settings
+#disqus_username: qytang326
+
+# Netease setttings
+netease_comment: false
+
+
+
+# Analytics settings
+# Baidu Analytics 
+# ba_track_id: [your track id]
+
+# Google Analytics
+ga_track_id: 'UA-102057505-1'            # Format: UA-xxxxxx-xx
+ga_domain: auto                         #  自定义的域名,默认的是 auto,
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "自由而无用，<br>离开世界之前，一切都是过程"
+sidebar-avatar: /img/avatar-qytang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+#daovoice
+daovoice: true
+daovoice_appid: f72737da
+daovoice_userid: NO_89757
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# Friends
+friends: [
+    {
+         title: "Quanyin",
+         href: "//qytang326.github.io/"
+    }
+]
