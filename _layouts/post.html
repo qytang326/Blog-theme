@@ -40,7 +40,7 @@ layout: default
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}; <span data-hk-page="current"> - </span> views</span>
                 </div>
             </div>
         </div>
@@ -59,6 +59,19 @@ layout: default
                 post-container">
 
 				{{ content }}
+                
+                <p class="text-right">
+				<a href="/">{{ page.author }}</a>
+				<span class="time">
+				/
+				<time>{{ page.date | date:"%Y-%m-%d" }}</time>
+				<style>span.test {color: #0085A5;font-weight: bold;}</style>
+				</span>/&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
+                <br>
+				<span>
+					<strong><em>Published under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a>.
+					</em></strong>
+				</span>
 
                 <hr style="visibility: hidden;">
 
@@ -205,7 +218,7 @@ layout: default
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
-          visible: 'always',
+         //visible: 'always',
           placement: 'right',
          // icon: '#'
         };
@@ -223,4 +236,13 @@ layout: default
         }
     }
 </style>
+{% endif %}
+{% if page.mathjax %}
+<!-- mathjax, Doc: http://docs.mathjax.org/en/latest/start.html -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 {% endif %}

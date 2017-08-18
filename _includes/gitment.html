@@ -1,15 +1,17 @@
+{% if site.Gitment %}
 <div id="container"></div>
 <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  //id: '页面 ID', // 页面ID，可选。默认为 location.href
-  owner: 'qytang326', //你的 Github ID
-  repo: 'qytang326.github.io', // 存储评论的 repo
+  id: '{{page.url}}', // 页面ID，可选。默认为 location.href
+  owner: '{{site.github_username}}', //你的 Github ID
+  repo: '{{site.repo_for_gitment}}', // 存储评论的 repo
   oauth: {
-    client_id: '0cc800db4cf94e87e6fb', //你的 client ID
-    client_secret: '940c596cd1d016b3a8bf3abb3eee42af3a8c6bda', //你的 client secret
+    client_id: '{{site.oauth_client_id}}', //你的 client ID
+    client_secret: '{{site.oauth_client_secret}}', //你的 client secret
   },
 })
 gitment.render('container')
 </script>
+{% endif %}

@@ -65,6 +65,19 @@ layout: default
                 col-md-10 col-md-offset-1 ">
 
 				{{ content }}
+                
+                <p class="text-right">
+				<a href="/">{{ page.author }}</a>
+				<span class="time">
+				/
+				<time>{{ page.date | date:"%Y-%m-%d" }}</time>
+				<style>span.test {color: #0085A5;font-weight: bold;}</style>
+				</span>/&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
+                <br>
+				<span>
+					<strong><em>Published under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a>.
+					</em></strong>
+				</span>               
 
                 <hr style="visibility: hidden;">
 

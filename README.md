@@ -2,7 +2,7 @@
 
 Fork 自[@Huxpro](https://github.com/Huxpro/huxpro.github.io),感谢！
 
-### [我的博客在这里 &rarr;](http://qytang326.github.io)
+### [我的博客在这里 &rarr;](http://Quanyin.ml)
 **郑重声明:** 本博客所有文章均采用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，分享、演绎需准守以下原则:
 
 1. 署名: 您需要标出原文链接和作者信息;如果更改了原文章内容,需要说明.
@@ -33,7 +33,7 @@ Licensed under the[Apache License, Version 2.0](/LICENSE)开源证书.
 ## 支持
 
 * 你可以自由的fork。如果你能将主题作者和github 的地址保留在你的页面底部，我将非常感谢你。
-* 如果你喜欢我的这个博客模板，请在`qytang326.github.io`这个repository点个赞——右上角**star**一下。
+* 如果你喜欢我的这个博客模板，请在`gh-pages-theme`这个repository点个赞——右上角**star**一下。
 
 ## 说明文档
 
