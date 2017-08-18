@@ -87,7 +87,8 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 daovoice: true
 daovoice_appid: f72737da
 daovoice_userid: NO_89757
-
+#pageviews
+pageviews: true
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
