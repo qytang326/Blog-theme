@@ -7,7 +7,7 @@ description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博
 keyword: ""
 url: "http://quanyin.ml"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog' /gh-pages-theme
-
+repo: gh-pages-theme
 
 # SNS settings
 RSS: false

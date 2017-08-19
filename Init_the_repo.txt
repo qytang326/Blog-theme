@@ -1,4 +1,4 @@
-rm -rf .git* &&
+rm -rf .git &&
 
 git init &&
 

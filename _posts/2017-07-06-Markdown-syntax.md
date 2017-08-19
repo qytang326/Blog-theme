@@ -29,7 +29,7 @@ tags:
   [Github]: https://github.com/riku/Markdown-Syntax-CN
   [GitCafe]: http://gitcafe.com/riku/Markdown-Syntax-CN/
 
-## Markdown语法说明(简体中文版)([快速入门](/Elements/Markdown-syntax-basic.html))
+## Markdown语法说明(简体中文版)([快速入门](/Source/Markdown-syntax-basic.html))
 * * *
 *   [概述](#overview)
     *   [宗旨](#philosophy)
