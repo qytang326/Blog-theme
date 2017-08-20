@@ -7,6 +7,7 @@ var gitment = new Gitment({
   id: '{{page.url}}', // 页面ID，可选。默认为 location.href
   owner: '{{site.github_username}}', //你的 Github ID
   repo: '{{site.repo_for_gitment}}', // 存储评论的 repo
+  title: '{{page.title}}',//issue页的标题
   oauth: {
     client_id: '{{site.oauth_client_id}}', //你的 client ID
     client_secret: '{{site.oauth_client_secret}}', //你的 client secret

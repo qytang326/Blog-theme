@@ -5,7 +5,7 @@ header-img: img/bg-default.jpg    #默认底图
 email: qytang326@gmail.com
 description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博客，与你一起发现更大的世界。"
 keyword: ""
-url: "http://quanyin.ml"              # your host, for absolute URL
+url: "http://Blog.Quanyin.ml"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog' /gh-pages-theme
 repo: gh-pages-theme
 
@@ -37,9 +37,13 @@ about_path: about
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 gems: 
+  - jekyll-github-metadata
   - jekyll-paginate
+  - Jekyll-Mentions
   - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
+  - jemoji
 
 
 
@@ -76,8 +80,9 @@ oauth_client_secret: b79e08fb1496dea7decb39b8e9960de6f934078f   #Gihub OAuth的 
 ga_track_id: 'UA-102057505-1'            # Format: UA-xxxxxx-xx
 ga_domain: auto                         #  自定义的域名,默认的是 auto,
 
-
-
+## 站点验证 html标记
+baidu-site-verification: "oqfer5r1f5"
+google-site-verification: "WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4"
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "自由而无用，<br>离开世界之前，一切都是过程"
@@ -89,15 +94,39 @@ sidebar-avatar: /img/avatar-qytang.jpg      # use absolute URL, seeing it's used
 featured-tags: true                     # whether or not using Feature-Tags
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
 
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
 #daovoice
 daovoice: true
 daovoice_appid: f72737da
 daovoice_userid: NO_89757
+
+#不蒜子计数
+busuanzi: true
+
 #pageviews
 pageviews: true
-# Progressive Web Apps
-chrome-tab-theme-color: "#000000"
-service-worker: true
+
+#页面点击小红心
+click-love: true
+
+#背景动画
+background-particle: true
+
+#鼠标特效
+convas-nest: true
+
+#推送到百度、360等以增加收录
+push-for-include: true
+#百度 需要验证
+push-to-baidu: false
+#360
+push-to-360: true
+
+
 
 
 
@@ -105,7 +134,7 @@ service-worker: true
 friends: [
     {
          title: "Quanyin",
-         href: "http://quanyin.ml/"
+         href: "http://Blog.Quanyin.ml/"
     },
     {
          title: "Hux",

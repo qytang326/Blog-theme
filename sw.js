@@ -21,20 +21,27 @@ const PRECACHE_LIST = [
   "./js/snackbar.js",
   "./img/icon_wechat.png",
   "./img/avatar-qytang.jpg",
+  "./img/avatar.jpg",
   "./img/bg-home.jpg",
   "./img/bg-404.jpg",
   "./css/Quanyin-blog.min.css",
   "./css/syntax.css",
   "./css/bootstrap.min.css"
+  "./js/",
+  "./css/",
+  "./img/",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
   // "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"
 ]
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
-  "quanyin.tk",
-  "quanyin.ml",
-  "quanyin.eu.org",
+  "qytang326.github.io",
+  "Blog.Quanyin.tk",
+  "Quanyin.tk",
+  "Blog.Quanyin.ml",
+  "Quanyin.ml",
+  "Quanyin.eu.org",
   "cdnjs.cloudflare.com"
 ]
 const DEPRECATED_CACHES = ['precache-v1', 'runtime', 'main-precache-v1', 'main-runtime']
