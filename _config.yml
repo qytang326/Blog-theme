@@ -1,30 +1,19 @@
-# Site settings
+###### Site settings
 title: Quanyin Blog 主题模板
-SEOTitle: Quanyin Tang的博客| Quanyin Blog
-header-img: img/bg-default.jpg    #默认底图
+SEOTitle: Quanyin Tang的博客 | Quanyin Blog
+header-img: /Source/images/background/bg-default.jpg    #默认底图,使用相对链接
 email: qytang326@gmail.com
 description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博客，与你一起发现更大的世界。"
-keyword: ""
-url: "http://Blog.Quanyin.ml"              # your host, for absolute URL
+keyword: "Quanyin, Quanyin Blog, Quanyin 博客, Quanyin Tang, Quanyin Tang的博客"
+url: "http://theme.Quanyin.ml"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog' /gh-pages-theme
-repo: gh-pages-theme
-
-# SNS settings
-RSS: false
-#RSS: feed.xml
-weibo_username:     778950326
-zhihu_username:     qytang326
-github_username:    qytang326
-#twitter_username:   
-#facebook_username:  
-linkedin_username:  quanyin-tang-56a543b1
-email: qytang326@gmail.com
+repo: qytang326.github.io
 
 
-# Build settings
+##### Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
-permalink: /blog/:year/:month/:day/:title/      #自定义永久链接,或者使用#permalink: pretty
+permalink: /:year/:month/:day/:title/      #自定义永久链接,或者使用#permalink: pretty
 paginate: 10                                    #每页展示项目数
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html` 取消#显示
@@ -32,112 +21,107 @@ categories_path: categories
 tags_path: tags
 archive_path: archives
 about_path: about
-
-
-# Gems
+### Gems
 # from PR#40, to support local preview for Jekyll 3.0
+timezone: CN
 gems: 
-  - jekyll-github-metadata
   - jekyll-paginate
-  - Jekyll-Mentions
+  - jekyll-github-metadata
+  - Jekyll-mentions
   - jekyll-sitemap
-  - jekyll-gist
+  - jekyll-gist  
   - jekyll-feed
   - jemoji
-
-
-
-# Markdown settings
+### Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-  syntax_highlighter: rouge
 
 
-
-# Disqus settings
-#disqus_username: qytang326
-
-# Netease setttings
-netease_comment: false
-
-# Gitment settings
-Gitment: true
-repo_for_gitment: Blog-Comment
-oauth_client_id: 547ad10017b50756cc95           #Gihub OAuth的 client ID
-oauth_client_secret: b79e08fb1496dea7decb39b8e9960de6f934078f   #Gihub OAuth的 client secret
-
-
-
-# Analytics settings
-# Baidu Analytics 
-# ba_track_id: [your track id]
-
-# Google Analytics
-ga_track_id: 'UA-102057505-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto                         #  自定义的域名,默认的是 auto,
-
-## 站点验证 html标记
-baidu-site-verification: "oqfer5r1f5"
-google-site-verification: "WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4"
-# Sidebar settings
+#### 插件设置与开关 
+### Sidebar settings 侧边栏
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "自由而无用，<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-qytang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
-
-# Featured Tags
+sidebar-avatar: /Source/images/avatar.jpg  # use absolute URL, seeing it's used in both `/` and `/about/`
+catalog: true                           # 文章侧边栏目录
+keynote-catalog: false
+### Featured Tags 推荐Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
-
-
-# Progressive Web Apps
+featured-condition-size: 2              # A tag will be featured if the size of it is more than this condition value
+## Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
+## 网易云音乐
+netease-music: true
+netease-music_url: "//music.163.com/outchain/player?type=0&id=804530027&auto=1&height=430"
+##不蒜子计数
+busuanzi: true
+busuanzi_fixcount: true #初始数值修正
+##pageviews
+hit-kounter: true
+##页面点击小红心
+click-love: true
+##背景动画-特效
+canvas-nest: true
+###推送到百度、360等以增加收录
+push-for-include: true
+##百度 需要验证
+push-to-baidu: true
+##360
+push-to-360: true
 
+
+#### 以下内容需要个人信息
+# SNS settings 具体设置见_include/footer.html
+RSS: true           #RSS: feed.xml
+weibo_username:     778950326
+zhihu_username:     qytang326
+github_username:    qytang326
+#twitter_username:   
+#facebook_username:  
+linkedin_username:  quanyin-tang-56a543b1
+
+### 评论系统 具体设置与格式在_layout/post.html
+# Disqus settings 
+#disqus_username: qytang326
+# Netease setttings 
+netease_comment: false
+# Gitment settings
+Gitment: true
+repo_for_gitment: Blog-Comment                  # 存放Issue的地方
+oauth_client_id: 547ad10017b50756cc95           #Gihub OAuth的 client ID,与CNAME有关
+oauth_client_secret: b79e08fb1496dea7decb39b8e9960de6f934078f   #Gihub OAuth的 client secret 与CNAME有关
 #daovoice
 daovoice: true
 daovoice_appid: f72737da
 daovoice_userid: NO_89757
 
-#不蒜子计数
-busuanzi: true
 
-#pageviews
-pageviews: true
-
-#页面点击小红心
-click-love: true
-
-#背景动画
-background-particle: true
-
-#鼠标特效
-convas-nest: true
-
-#推送到百度、360等以增加收录
-push-for-include: true
-#百度 需要验证
-push-to-baidu: false
-#360
-push-to-360: true
-
-
-
-
+### 统计与分析 Analytics settings
+# Baidu Analytics 
+# ba_track_id: [your track id]
+# Google Analytics
+ga_track_id: 'UA-105172812-2'            # Format: UA-xxxxxx-xx
+ga_domain: auto                         #  自定义的域名,默认的是 auto,
+## 站点验证 html标记
+baidu-site-verification: yHqjnTuMbD       #与域名有关,在_include/head.html中,下同  
+google-site-verification: WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4 
 
 # Friends
 friends: [
     {
          title: "Quanyin",
-         href: "http://Blog.Quanyin.ml/"
+         href: "https://qytang326.github.io/"
     },
     {
-         title: "Hux",
+         title: "Hux Blog",
          href: "https://huangxuan.me/"
+    },
+    {   
+        title: "BruceZhaoR",
+        href: "http://brucezhaor.github.io"
     }
 ]

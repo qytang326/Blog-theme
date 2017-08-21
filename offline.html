@@ -1,13 +1,13 @@
 ---
 layout: default
 description: "阅读过的页面可以在离线时访问哦 ;)"
-header-img: "img/bg-offline.jpg"
+header-img: "/Source/images/background/bg-offline.jpg"
 permalink: /offline.html
 ---
 
 
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+<header class="intro-header" style="background-image: url({{ site.baseurl }}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %})">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

@@ -2,7 +2,7 @@
 layout: page
 title : Archives
 description: "你看到的，是我所有文章"
-header-img: "img/bg-archives.jpg"
+header-img: "/Source/images/background/bg-archives.jpg"
 ---
 
 	{% for post in site.posts  %}
@@ -16,7 +16,7 @@ header-img: "img/bg-archives.jpg"
 		<ul>
 		{% endif %}
 	<!-- Mod Here -->
-		<li><span>{{ post.date | date: "%F" }}</span> &raquo;<a class="site-heading" href="{{ baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+		<li><span>{{ post.date | date: "%F" }}</span> &raquo; <a class="site-heading post-preview post-title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 	
 		{% if forloop.last %}
 		</ul>

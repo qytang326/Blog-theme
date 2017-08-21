@@ -1,6 +1,6 @@
 ---
 layout: page
-header-img: "img/bg-home.jpg"
+header-img: "/Source/images/background/bg-home.jpg"
 description: "博学而笃志，切问而近思。一只苦逼的物理狗"
 ---
 
@@ -22,7 +22,9 @@ description: "博学而笃志，切问而近思。一只苦逼的物理狗"
     </a>
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}; 
+        {% if site.hit-kounter %}
         浏览量: <span data-hk-page="{{ post.url | prepend: site.url }}"> - </span> 次
+        {% endif %}
     </p>
 </div>
 <hr>

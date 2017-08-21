@@ -14,22 +14,25 @@ const CACHE_NAMESPACE = 'main-'
 const CACHE = CACHE_NAMESPACE + 'precache-then-runtime';
 const PRECACHE_LIST = [
   "./",
+  "./Source/images/",
+  "./js/",
+  "./css/",
   "./offline.html",
   "./js/jquery.min.js",
   "./js/bootstrap.min.js",
   "./js/Quanyin-blog.min.js",
   "./js/snackbar.js",
-  "./img/icon_wechat.png",
-  "./img/avatar-qytang.jpg",
-  "./img/avatar.jpg",
-  "./img/bg-home.jpg",
-  "./img/bg-404.jpg",
+  "./js/click-love.js",
   "./css/Quanyin-blog.min.css",
   "./css/syntax.css",
-  "./css/bootstrap.min.css"
-  "./js/",
-  "./css/",
-  "./img/",
+  "./css/bootstrap.min.css",
+  "./Source/images/avatar.jpg",
+  "./Source/images/icons/icon_wechat.png",
+  "./Source/images/background/bg-home.jpg",
+  "./Source/images/background/bg-offline.jpg",
+  "./Source/images/background/bg-404.jpg",
+  "./Source/images/background/bg-about.jpg",
+  "./Source/images/background/bg-tags.jpg",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
   // "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"
@@ -37,11 +40,6 @@ const PRECACHE_LIST = [
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   "qytang326.github.io",
-  "Blog.Quanyin.tk",
-  "Quanyin.tk",
-  "Blog.Quanyin.ml",
-  "Quanyin.ml",
-  "Quanyin.eu.org",
   "cdnjs.cloudflare.com"
 ]
 const DEPRECATED_CACHES = ['precache-v1', 'runtime', 'main-precache-v1', 'main-runtime']
@@ -142,7 +140,7 @@ var fetchHelper = {
   fetchThenCache: function(request){
     // Requests with mode "no-cors" can result in Opaque Response,
     // Requests to Allow-Control-Cross-Origin: * can't include credentials.
-    const init = { mode: "cors", credentials: "omit" } 
+    const init = { mode: "cors", credentials: "omit" }
 
     const fetched = fetch(request, init)
     const fetchedCopy = fetched.then(resp => resp.clone());
@@ -152,12 +150,12 @@ var fetchHelper = {
     Promise.all([fetchedCopy, caches.open(CACHE)])
       .then(([response, cache]) => response.ok && cache.put(request, response))
       .catch(_ => {/* eat any errors */})
-    
+
     return fetched;
   },
 
   cacheFirst: function(url){
-    return caches.match(url) 
+    return caches.match(url)
       .then(resp => resp || this.fetchThenCache(url))
       .catch(_ => {/* eat any errors */})
   }
@@ -197,7 +195,7 @@ self.addEventListener('fetch', event => {
     const cached = caches.match(event.request);
     const fetched = fetch(getCacheBustingUrl(event.request), { cache: "no-store" });
     const fetchedCopy = fetched.then(resp => resp.clone());
-    
+
     // Call respondWith() with whatever we get first.
     // Promise.race() resolves with first one settled (even rejected)
     // If the fetch fails (e.g disconnected), wait for the cache.
@@ -254,7 +252,7 @@ function sendMessageToClientsAsync(msg) {
 /**
  * if content modified, we can notify clients to refresh
  * TODO: Gh-pages rebuild everything in each release. should find a workaround (e.g. ETag with cloudflare)
- * 
+ *
  * @param  {Promise<response>} cachedResp  [description]
  * @param  {Promise<response>} fetchedResp [description]
  * @return {Promise}

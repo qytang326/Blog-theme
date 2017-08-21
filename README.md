@@ -1,9 +1,17 @@
-# Quanyin blog 
+# Quanyin Blog 主题模板
+> 这里是我博客的主题模板，给个 [Star](https://github.com/qytang326/qytang326.github.io), 谢谢！点击右上角直接 [Fork](https://github.com/qytang326/gh-pages-theme#fork-destination-box)! 或者clone到本地然后给个 [Star](https://github.com/qytang326/qytang326.github.io) ! :blush:
 
-Fork 自[@Huxpro](https://github.com/Huxpro/huxpro.github.io),感谢！
+   ```
+    git clone git@github.com:qytang326/gh-pages-theme.git
+   ```
 
-### [我的博客在这里 &rarr;](http://Quanyin.ml)
-**郑重声明:** 本博客所有文章均采用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，分享、演绎需准守以下原则:
+>Fork 自[@Huxpro](//github.com/Huxpro/huxpro.github.io),感谢！
+
+### [我的博客在这里 &rarr;](//qytang326.github.io)
+
+>如果要Fork，[模板在这里 gh-pages-theme &rarr;](https://github.com/qytang326/gh-pages-theme), Fork到你自己的`用户名.github.io`下,修改`_config.yml`以及`CNAME`文件即可~
+
+**郑重声明:** 本博客所有文章均采用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](//creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，分享、演绎需准守以下原则:
 
 1. 署名: 您需要标出原文链接和作者信息;如果更改了原文章内容,需要说明.
 2. 非商业使用: 您不得将本作品用于商业目的.
@@ -13,7 +21,7 @@ Fork 自[@Huxpro](https://github.com/Huxpro/huxpro.github.io),感谢！
 
 **关于博客样式主题及开源证书**
 
-修改自[Hux](http://huangxuan.me). powered by [Jekyll](https://github.com/mojombo/jekyll) and [Jekyll-bootstrap](http://jekyllbootstrap.com).
+修改自[Hux](//huangxuan.me). powered by [Jekyll](//github.com/mojombo/jekyll) and [Jekyll-bootstrap](//jekyllbootstrap.com).
 
 Licensed under the[Apache License, Version 2.0](/LICENSE)开源证书.
 
@@ -28,14 +36,16 @@ Licensed under the[Apache License, Version 2.0](/LICENSE)开源证书.
 
 使用`bundle exec jekyll server`的同学在更新jekyll后，需要输入`bundle update`来更新依赖的包.
 
-参考文档：[using jekyll with pages](https://help.github.com/articles/using-jekyll-with-pages/) & [Upgrading from 2.x to 3.x](http://jekyllrb.com/docs/upgrading/2-to-3/)
+参考文档：[using jekyll with pages](//help.github.com/articles/using-jekyll-with-pages/) & [Upgrading from 2.x to 3.x](//jekyllrb.com/docs/upgrading/2-to-3/)
 
 ## 支持
 
 * 你可以自由的fork。如果你能将主题作者和github 的地址保留在你的页面底部，我将非常感谢你。
-* 如果你喜欢我的这个博客模板，请在`gh-pages-theme`这个repository点个赞——右上角**star**一下。
+* 如果你喜欢我的这个博客模板，请在`Quanyin-Blog`这个repository点个赞——右上角**star**一下。
 
 ## 说明文档
+
+>下面的说明来自Huxpro，许多我新增加功能以及模块设置的说明，有空在写！
 
 * 开始
 	* [环境要求](#environment)
@@ -59,7 +69,7 @@ Licensed under the[Apache License, Version 2.0](/LICENSE)开源证书.
 
 如果你安装了jekyll，那你只需要在命令行输入`jekyll serve`就能在本地浏览器预览主题。你还可以输入`jekyll serve --watch`，这样可以边修改边自动运行修改后的文件。
 
-经 [@BrucZhaoR](https://github.com/BruceZhaoR)的测试，好像两个命令都是可以的自动运行修改后的文件的，刷新后可以实时预览。官方文件是建议安装bundler，这样你在本地的效果就跟在github上面是一样的。详情请见这里：https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll
+经 [@BrucZhaoR](//github.com/BruceZhaoR)的测试，好像两个命令都是可以的自动运行修改后的文件的，刷新后可以实时预览。官方文件是建议安装bundler，这样你在本地的效果就跟在github上面是一样的。详情请见这里：//help.github.com/articles/using-jekyll-with-pages/#installing-jekyll
 
 
 #### Get Started
@@ -80,7 +90,7 @@ weibo_username:                # 你的微博账号，底部链接会自动更�
 # paginate: 10              # 一页你准备放几篇文章
 ```
 
-Jekyll官方网站还有很多的参数可以调，比如设置文章的链接形式...网址在这里：[Jekyll - Official Site](http://jekyllrb.com/) 中文版的在这里：[Jekyll中文](http://jekyllcn.com/).
+Jekyll官方网站还有很多的参数可以调，比如设置文章的链接形式...网址在这里：[Jekyll - Official Site](//jekyllrb.com/) 中文版的在这里：[Jekyll中文](//jekyllcn.com/).
 
 #### write-posts
 
@@ -95,7 +105,7 @@ title:      "Hello World"
 subtitle:   "Hello World, Hello Blog"
 date:       2017-07-7 12:00:00
 author:     "Quanyin Tang"
-header-img: "img/post-bg-XXXX.jpg"
+header-img: "Source/images/background/post-bg-default.jpg"
 tags:
     - Life
 ---
@@ -105,17 +115,17 @@ tags:
 #### SideBar
 
 看右边:
-![](http://qytang326.github.io/img/blog-sidebar.jpg)
+![](//qytang326.github.io/Source/images/blog-sidebar.jpg)
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
 ```
 # Sidebar settings
 sidebar: true  #添加侧边栏
 sidebar-about-description: "简单的描述一下你自己"
-sidebar-avatar: /img/avatar-qytang.jpg     #你的大头贴，请使用绝对地址.
+sidebar-avatar: /Source/images/avatar.jpg     #你的大头贴，请使用绝对地址.
 ```
 
-侧边栏是响应式布局的，当屏幕尺寸小于992px的时候，侧边栏就会移动到底部。具体请见bootstrap栅格系统 <http://v3.bootcss.com/css/>
+侧边栏是响应式布局的，当屏幕尺寸小于992px的时候，侧边栏就会移动到底部。具体请见bootstrap栅格系统 <//v3.bootcss.com/css/>
 
 
 #### Mini About Me
@@ -124,7 +134,7 @@ Mini-About-Me 这个模块将在你的头像下面，展示你所有的社交账
 
 #### Featured Tags
 
-看到这个网站 [Medium](http://medium.com) 的推荐标签非常的炫酷，所以我将他加了进来。
+看到这个网站 [Medium](//medium.com) 的推荐标签非常的炫酷，所以我将他加了进来。
 这个模块现在是独立的，可以呈现在所有页面，包括主页和发表的每一篇文章标题的头上。
 
 ```
@@ -149,11 +159,11 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 friends: [
     {
         title: "Foo Blog",
-        href: "http://foo.github.io/"
+        href: "//foo.github.io/"
     },
     {
         title: "Bar Blog",
-        href: "http://bar.github.io"
+        href: "//bar.github.io"
     }
 ]
 ```
@@ -163,7 +173,7 @@ friends: [
 
 HTML5幻灯片的排版：
 
-![](http://qytang326.github.io/img/blog-keynote.jpg)
+![](//qytang326.github.io/Source/images/blog-keynote.jpg)
 
 这部分是用于占用html格式的幻灯片的，一般用到的是 Reveal.js, Impress.js, Slides, Prezi 等等.我认为一个现代化的博客怎么能少了放html幻灯的功能呢~
 
@@ -172,7 +182,7 @@ HTML5幻灯片的排版：
 ```
 ---
 layout:     keynote
-iframe:     "http://huangxuan.me/js-module-7day/"
+iframe:     "//huangxuan.me/js-module-7day/"
 ---
 ```
 
@@ -181,12 +191,12 @@ iframe在不同的设备中，将会自动的调整大小。保留内边距是�
 
 #### Comment
 
-博客不仅支持多说[Duoshuo](http://duoshuo.com)评论系统，也支持[Disqus](http://disqus.com)评论系统。
+博客不仅支持多说[Duoshuo](//duoshuo.com)评论系统，也支持[Disqus](//disqus.com)评论系统。
 
-`Disqus`优点是：国际比较流行，界面也很大气、简介，如果有人评论，还能实时通知，直接回复通知的邮件就行了；缺点是：评论必须要去注册一个disqus账号，分享一般只有Facebook和Twitter，另外在墙内加载速度略慢了一点。想要知道长啥样，可以看以前的版本点[这里](http://brucezhaor.github.io/about.html) 最下面就可以看到。
+`Disqus`优点是：国际比较流行，界面也很大气、简介，如果有人评论，还能实时通知，直接回复通知的邮件就行了；缺点是：评论必须要去注册一个disqus账号，分享一般只有Facebook和Twitter，另外在墙内加载速度略慢了一点。想要知道长啥样，可以看以前的版本点[这里](//brucezhaor.github.io/about.html) 最下面就可以看到。
 
 `多说` 优点是：支持国内各主流社交软件(微博，微信，豆瓣，QQ空间 ...)一键分享按钮功能，另外登陆比较方便，管理界面也是纯中文的，相对于disqus全英文的要容易操作一些；缺点是：就是界面丑了一点。
-当然你是可以自定义界面的css的，详情请看多说开发者文档 http://dev.duoshuo.com/docs/5003ecd94cab3e7250000008 。
+当然你是可以自定义界面的css的，详情请看多说开发者文档 //dev.duoshuo.com/docs/5003ecd94cab3e7250000008 。
 
 **首先**，你需要去注册一个账号，不管是disqus还是多说的。**不要直接使用我的啊！**
 
@@ -219,7 +229,7 @@ ga_domain: auto			# 默认的是 auto, 这里我是自定义了的域名，你�
 
 JavaScript 的压缩混淆、Less 的编译、Apache 2.0 许可通告的添加与 watch 代码改动，这些任务都揽括其中。简单的在命令行中输入 `grunt` 就可以执行默认任务来帮你构建文件了。如果你想搞一搞 JavaScript 或 Less 的话，`grunt watch` 会帮助到你的。
 
-**如果你可以理解 `_include/` 和 `_layouts/`文件夹下的代码（这里是整个界面布局的地方），你就可以使用 Jekyll 使用的模版引擎 [Liquid](https://github.com/Shopify/liquid/wiki)的语法直接修改/添加代码，来进行更有创意的自定义界面啦！**
+**如果你可以理解 `_include/` 和 `_layouts/`文件夹下的代码（这里是整个界面布局的地方），你就可以使用 Jekyll 使用的模版引擎 [Liquid](//github.com/Shopify/liquid/wiki)的语法直接修改/添加代码，来进行更有创意的自定义界面啦！**
 
 #### Header Image
 

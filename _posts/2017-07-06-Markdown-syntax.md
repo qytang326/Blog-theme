@@ -5,7 +5,6 @@ subtitle:       Markdown语法，转自Wow!Ubuntu
 date:           2017-07-06
 author:         Quanyin Tang
 description:    Markdown语法，转自Wow!Ubuntu
-catalog:        true
 categories: 
                 - 学习
                 - 转载

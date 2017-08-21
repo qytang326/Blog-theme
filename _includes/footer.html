@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     {% if site.RSS %}
                     <li>
-                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                        <a target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -16,7 +16,7 @@
                     {% endif %}
                     {% if site.twitter_username %}
                     <li>
-                        <a href="//twitter.com/{{ site.twitter_username }}">
+                        <a target="_blank" href="//twitter.com/{{ site.twitter_username }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -87,9 +87,11 @@
                     Powered by <a href="//github.com/mojombo/jekyll">Jekyll</a> and <a href="//getbootstrap.com/">Bootstrap</a>. 
 					<br>
                     -->
-                    <!-- 不蒜子两行计数代码 -->
-                    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>                   
-                    <span id="busuanzi_container_site_pv" style='display:none'>   | 您是本站第 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 位访客</span>
+                    <!-- 不蒜子计数 -->
+                    {% if site.busuanzi %}                   
+                    <span id="busuanzi_container_site_uv" style='display:none'>   | 访客数: <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></span>
+                    <span id="busuanzi_container_site_pv" style='display:none'>   | 总访问量: <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></span>                  
+                    {% endif %}
                     <br>
                     <span class="text-center">Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | 
                     <iframe 
@@ -176,48 +178,9 @@
     })
 </script>
 
-<!-- Google Analytics -->
-<!-- 
-{% if site.ga_track_id %}
-<script>
-    // dynamic User by Quanyin
-    var _gaId = '{{ site.ga_track_id }}';
-    var _gaDomain = '{{ site.ga_domain }}';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-{% endif %}
--->
-
-
-<!-- Baidu Tongji -->
-{% if site.ba_track_id %}
-<script>
-    // dynamic User by Quanyin
-    var _baId = '{{ site.ba_track_id }}';
-
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-{% endif %}
-
-
 
 <!-- Side Catalog -->
-{% if page.catalog %}
+{% if site.catalog or page.catalog %}
 <script type="text/javascript">
     function generateCatalog (selector) {
         var P = $('div.post-container'),a,n,t,l,i,c;
@@ -264,10 +227,12 @@
 {% endif %}
 
 <!-- 不蒜子计数初始值纠正 -->
+{% if site.busuanzi and site.busuanzi_fixcount %}
 <script>
     $(document).ready(function() {
         var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-        var countOffset = 1995;  // 初始化首次数据
+        var pv_countOffset = 1995;  // 初始化首次数据
+        var uv_countOffset = 326;  // 初始化首次数据
         function fixCount() {            
  /*           if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
             {
@@ -278,28 +243,22 @@
  */         
             if ($("#busuanzi_container_site_pv").css("display") != "none")
             {
-                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); // 加上初始数据 
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pv_countOffset); // 加上初始数据 
                 clearInterval(int); // 停止检测
-            }  
+            }
+            if ($("#busuanzi_container_site_uv").css("display") != "none")
+            {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uv_countOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }                 
         }          	
     });
 </script> 
+{% endif %}
 
 <!-- daovoice -->
 {% if site.daovoice %}
 <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f72737da.js","daovoice");</script>
-<!-- 注册用户
-<script type="text/javascript">
-daovoice('init', {
-  app_id:"{{ site.daovoice_appid }}",
-  user_id:"{{ site.daovoice_userid }}", // 必填: 该用户在您系统上的唯一ID
-  email: "daovoice@example.com", // 选填:  该用户在您系统上的主邮箱
-  name: "", // 选填: 用户名
-  signed_up: 1449821660 // 选填: 用户的注册时间，用Unix时间戳表示
-});
-daovoice('update');
-</script>
--->
 <!-- 非注册用户-->
 <script type="text/javascript">
     daovoice('init', {
@@ -309,52 +268,41 @@ daovoice('update');
 </script>
 {% endif %}
 
-<!-- pageviews-->
-{% if site.pageviews %}
-<script src="//cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
-<script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
-{% endif %}
-
 <!-- 页面点击小红心 -->
 {% if site.click-love %}
 <script type="text/javascript" src="/js/click-love.js"></script>
 {% endif %}
 
-<!-- 鼠标特效 -->
+<!-- 动态背景-鼠标特效 --> <!--只能位于<body></body>之间-->
 {% if site.canvas-nest %}
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<!--  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script> -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js"></script> -->
 {% endif %}
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 
-<!-- 是否自动推送到到百度、360等以增加收录-->
-{% if site.push-for-include %}
-
-<!-- 百度收录-->
-{% if site.push-to-baidu %}
+<!-- Back To Top -->
+{% if site.back-to-top %}
+<div id="back-top">
+  <a href="#section" data-toggle="tooltip" data-placement="top" title="top">
+  <i class="fa fa-chevron-up" aria-hidden="true"></i>
+  </a>
+</div>
+<!-- <script type="text/javascript" src="/Source/js/jquery.min.js"></script> -->
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https'){
-   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-  }
-  else{
-  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp,s);
-})();
+	$('#back-top').hide();
+	$(document).ready(function () {
+	$(window).scroll(function () {
+    if ($(this).scrollTop() > 250) {
+      $('#back-top').fadeIn();
+    } else {
+      $('#back-top').fadeOut();
+    }
+  });
+  $('#back-top a').click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  });
+});
 </script>
-<!-- 360收录-->
-{% if site.push-to-360 %}
-<script>
-(function(){
-   var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989":"https://jspassport.ssl.qhimg.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989";
-   document.write('<script src="' + src + '" id="sozz"><\/script>');
-})();
-</script>
-{% endif %}
-{% endif %}
-{% endif %}
-
-   
+{% endif %} 

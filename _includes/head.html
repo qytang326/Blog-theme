@@ -1,8 +1,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="google-site-verification" content="{{site.google-site-verification}}" />
-    <meta name="baidu-site-verification" content="{{site.baidu-site-verification}}" />
+    {% if site.google-site-verification %}
+    <meta name="google-site-verification" content="{{ site.google-site-verification }}" />
+    {% endif %}
+    {% if site.baidu-site-verification %}
+    <meta name="baidu-site-verification" content="{{ site.baidu-site-verification }}" />
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
     <meta name="keywords"  content="{{ site.keyword }}">
@@ -14,7 +18,7 @@
     <link rel="manifest" href="{{ site.baseurl }}/Source/pwa/manifest.json">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/img/favicon.ico">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/Source/images/icons/favicon.ico">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
@@ -47,8 +51,81 @@
         <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+        
+    <!-- Google Analytics -->
+    {% if site.ga_track_id %}
+    <script>
+        // dynamic User by Quanyin
+        var _gaId = '{{ site.ga_track_id }}';
+        var _gaDomain = '{{ site.ga_domain }}';
 
-    <!-- ga & ba script hoook -->
+        // Originial
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', _gaId, _gaDomain);
+        ga('send', 'pageview');
+    </script>
+    {% endif %}
+
+    <!-- Baidu Tongji -->
+    {% if site.ba_track_id %}
+    <script>
+        // dynamic User by Quanyin
+        var _baId = '{{ site.ba_track_id }}';
+        // Originial
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?" + _baId;
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    {% endif %}
+    
+    <!-- 是否自动推送到到百度、360等以增加收录-->
+    {% if site.push-for-include %}
+    <!-- 百度收录-->
+    {% if site.push-to-baidu %}
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp,s);
+    })();
+    </script>
+    {% endif %}
+    <!-- 360收录-->
+    {% if site.push-to-360 %}
+    <script>
+    (function(){
+       var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989":"https://jspassport.ssl.qhimg.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989";
+       document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+    </script>
+    {% endif %}
+    {% endif %}
+  
+    <!-- pageviews-->
+    {% if site.hit-kounter %}
+    <script src="//cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+    <script src="//jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+    {% endif %}
+    
+    <!-- busuanzi -->
+    {% if site.busuanzi %}
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>    
+    {% endif %}
     
     <script></script>
     

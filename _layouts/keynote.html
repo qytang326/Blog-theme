@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- Image to hack wechat -->
-<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/Source/images/icons/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -75,7 +75,7 @@ layout: default
 				</span>/&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
                 <br>
 				<span>
-					<strong><em>Published under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a>.
+					<strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a>.
 					</em></strong>
 				</span>               
 
@@ -109,8 +109,29 @@ layout: default
                 </div>
                 <!-- disqus 评论框 end -->
                 {% endif %}
+                
+                <!-- gitment 评论-->
+                <div class="comment">{% include gitment.html %}</div>                
 
             </div>
+
+            <!-- Side Catalog Container -->
+                {% if site.keynote-catalog or page.catalog %}
+                    <div class="
+                        col-lg-2 col-lg-offset-0
+                        visible-lg-block
+                        sidebar-container
+                        catalog-container">
+                        <div class="side-catalog">
+                            <hr class="hidden-sm hidden-xs">
+                            <h5>
+                                <a class="catalog-toggle" href="#">CATALOG</a>
+                            </h5>
+                            <ul class="catalog-body"></ul>
+                        </div>
+                    </div>
+                {% endif %}
+            
 
             <!-- Sidebar Container -->
             <div class="sidebar-container
@@ -133,7 +154,7 @@ layout: default
                     </div>
                 </section>
                 {% endif %}
-                <div class="comment">{% include gitment.html %}</div>
+
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
