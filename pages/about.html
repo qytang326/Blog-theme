@@ -2,6 +2,7 @@
 layout: page
 title: "About Me"
 description: "Hey, this is Quanyin."
+permalink: /about/
 header-img: "/Source/images/background/bg-about.jpg"
 ---
 
@@ -63,18 +64,35 @@ header-img: "/Source/images/background/bg-about.jpg"
     _render();
 </script>
 
-
-<!-- 网易云音乐 auto=1 为自动播放 暂不支持https,链接地址必须包含http 
+{% if site.BGM %}
+<!--{% if site.netease-music %}
+-- 网易云音乐 auto=1 为自动播放 暂不支持https,链接地址必须包含http 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=1&id=1678955&auto=1&height=430"></iframe>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=420 height=100 src="//music.163.com/outchain/player?type=2&id=27090046&auto=1&height=66"></iframe>
--->
-{% if site.netease-music %}
 <div class="post-container text-center">
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" align="middle" width="420" height="260"  src="{{site.netease-music_url}}"></iframe>
 </div>
+{% endif %}-->
+{% if site.APlayer %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>	
+<!--<script src="//api.i-meto.com/music/player.js"></script>-->
+<script src="/js/meting.aplayer.js"></script>
+<div class="aplayer post-container" 
+    data-id="{{site.APlayer.data-id}}" 
+    data-server="{{site.APlayer.data-server}}" 
+    data-type="{{site.APlayer.data-type}}" 
+    data-mode="{{site.APlayer.data-mode}}" 
+    data-autoplay="{{site.APlayer.data-autoplay}}" >
+</div>
 {% endif %}
+{% endif %}
+
+{% if site.Gitment %}
+<div class="comment">{% include gitment.html %}</div>
+{% endif %}
+
+{% if site.disqus.username %}
 <!-- disqus 评论框 start -->
-{% if site.disqus_username %}
 <div class="comment">
     <div id="disqus_thread" class="disqus-thread">
 

@@ -6,25 +6,19 @@ email: qytang326@gmail.com
 description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博客，与你一起发现更大的世界。"
 keyword: "Quanyin, Quanyin Blog, Quanyin 博客, Quanyin Tang, Quanyin Tang的博客"
 url: "http://theme.Quanyin.ml"              # your host, for absolute URL
+#enforce_url: "theme.quanyin.ml"
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog' /gh-pages-theme
 repo: qytang326.github.io
 
 
 ##### Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
 permalink: /:year/:month/:day/:title/      #自定义永久链接,或者使用#permalink: pretty
 paginate: 10                                    #每页展示项目数
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html` 取消#显示
-categories_path: categories
-tags_path: tags
-archive_path: archives
-about_path: about
 ### Gems
-# from PR#40, to support local preview for Jekyll 3.0
-timezone: CN
-gems: 
+plugins: 
   - jekyll-paginate
   - jekyll-github-metadata
   - Jekyll-mentions
@@ -33,8 +27,6 @@ gems:
   - jekyll-feed
   - jemoji
 ### Markdown settings
-# replace redcarpet to kramdown,
-# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 kramdown:
@@ -54,9 +46,19 @@ featured-condition-size: 2              # A tag will be featured if the size of 
 ## Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
-## 网易云音乐
-netease-music: true
-netease-music_url: "//music.163.com/outchain/player?type=0&id=804530027&auto=1&height=430"
+
+#About Me 背景音乐
+BGM: true       
+## 网易云音乐   8月24日：弃用,效果不好，改用APlayer
+#netease-music: false
+#netease-music_url: "//music.163.com/outchain/player?type=0&id=804530027&auto=1&height=430"
+## APlayer, Doc: https://APlayer.js.org/docs/#/?id=options
+APlayer:
+    data-id: 804530027      #歌曲/专辑/歌单ID
+    data-server: netease    #可选参数 netease(网易云音乐)tencent(qq音乐)xiami(虾米音乐)kugou(酷狗音乐)baidu(百度音乐)
+    data-type: playlist     #类型:song/album/playlist/search
+    data-mode: circulation  #播放模式:random/single/circulation/order
+    data-autoplay: true     #自动播放？
 ##不蒜子计数
 busuanzi: true
 busuanzi_fixcount: true #初始数值修正
@@ -84,14 +86,14 @@ github_username:    qytang326
 #facebook_username:  
 linkedin_username:  quanyin-tang-56a543b1
 
-### 评论系统 具体设置与格式在_layout/post.html
+### Comment System 具体设置与格式在_layout/post.html
 # Disqus settings 
 #disqus_username: qytang326
 # Netease setttings 
 netease_comment: false
-# Gitment settings
+# Gitment settings 
 Gitment: true
-repo_for_gitment: Blog-Comment                  # 存放Issue的地方
+repo_for_gitment: Blog-Comment                  #存放Issue的地方
 oauth_client_id: 547ad10017b50756cc95           #Gihub OAuth的 client ID,与CNAME有关
 oauth_client_secret: b79e08fb1496dea7decb39b8e9960de6f934078f   #Gihub OAuth的 client secret 与CNAME有关
 #daovoice
@@ -102,11 +104,11 @@ daovoice_userid: NO_89757
 
 ### 统计与分析 Analytics settings
 # Baidu Analytics 
-# ba_track_id: [your track id]
+ba_track_id: '366e0ea844c9db65fe3dd420933f2677'
 # Google Analytics
 ga_track_id: 'UA-105172812-2'            # Format: UA-xxxxxx-xx
 ga_domain: auto                         #  自定义的域名,默认的是 auto,
-## 站点验证 html标记
+## site-verification——html method 
 baidu-site-verification: yHqjnTuMbD       #与域名有关,在_include/head.html中,下同  
 google-site-verification: WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4 
 
@@ -121,7 +123,7 @@ friends: [
          href: "https://huangxuan.me/"
     },
     {   
-        title: "BruceZhaoR",
-        href: "http://brucezhaor.github.io"
+         title: "BruceZhaoR",
+         href: "http://brucezhaor.github.io"
     }
 ]

@@ -8,7 +8,7 @@
 <script src="/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: '{{ page.url | replace:'index.html','' |split: "/" | last|downcase }}', // 页面ID，可选。默认为 location.href
+  id: '{{ page.url | replace:'index.html',''| replace:'.html','' |split: "/" | last|downcase }}', // 页面ID，可选。默认为 location.href
   owner: '{{site.github_username}}', //你的 Github ID
   repo: '{{site.repo_for_gitment}}', // 存储评论的 repo
   title: '{{page.title}}',//issue页的标题
