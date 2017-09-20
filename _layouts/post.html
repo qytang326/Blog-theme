@@ -70,6 +70,7 @@ layout: default
                 <br>
 				<span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong>
 				</span>
+				</p>
 
                 <hr style="visibility: hidden;">
 
@@ -91,6 +92,8 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
+				
+
 
 
                 {% if site.disqus_username %}
@@ -142,7 +145,7 @@ layout: default
                     <div class="tags">
                         <a title="{{ page.title }}" href="//raw.githubusercontent.com/{{ site.repository }}/master/{{ page.path }}">源码</a>
         				{% for tag in site.tags %}
-                            {% if tag[1].size >= {{site.featured-condition-size}} %}
+                            {% if tag[1].size >= site.featured-condition-size %}
                 				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                     {{ tag[0] }}
                                 </a>
@@ -166,6 +169,7 @@ layout: default
         </div>
     </div>
 </article>
+				
 
 
 {% if site.netease_comment %}

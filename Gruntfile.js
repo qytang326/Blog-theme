@@ -7,6 +7,10 @@ module.exports = function(grunt) {
             main: {
                 src: 'js/<%= pkg.name %>.js',
                 dest: 'js/<%= pkg.name %>.min.js'
+            },
+			build: {
+                src: 'js/<%= pkg.name %>.js',
+                dest: 'js/<%= pkg.name %>.min.js'
             }
         },
         less: {
@@ -66,6 +70,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'less', 'usebanner']);

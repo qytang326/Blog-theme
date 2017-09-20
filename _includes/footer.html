@@ -8,8 +8,8 @@
                     <li>
                         <a target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-rss fa-stack-1x fa-inverse"></em> 
                             </span>
                         </a>
                     </li>
@@ -18,8 +18,8 @@
                     <li>
                         <a target="_blank" href="//twitter.com/{{ site.twitter_username }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-twitter fa-stack-1x fa-inverse"></em> 
                             </span>
                         </a>
                     </li>
@@ -30,8 +30,8 @@
                     <li>
                         <a target="_blank" href="//www.zhihu.com/people/{{ site.zhihu_username }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-stack-1x fa-inverse">知</i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-stack-1x fa-inverse">知</em> 
                             </span>
                         </a>
                     </li>
@@ -40,8 +40,8 @@
                     <li>
                         <a target="_blank" href="//weibo.com/{{ site.weibo_username }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-weibo fa-stack-1x fa-inverse"></em> 
                             </span>
                         </a>
                     </li>
@@ -52,8 +52,8 @@
                     <li>
                         <a target="_blank" href="//www.facebook.com/{{ site.facebook_username }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-facebook fa-stack-1x fa-inverse"></em> 
                             </span>
                         </a>
                     </li>
@@ -62,8 +62,8 @@
                     <li>
                         <a target="_blank" href="//github.com/{{ site.github_username }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-github fa-stack-1x fa-inverse"></em> 
                             </span>
                         </a>
                     </li>
@@ -72,8 +72,8 @@
                     <li>
                         <a target="_blank" href="//www.linkedin.com/in/{{ site.linkedin_username }}">
                             <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                <em class="fa fa-circle fa-stack-2x"></em> 
+                                <em class="fa fa-linkedin fa-stack-1x fa-inverse"></em> 
                             </span>
                         </a>
                     </li>
@@ -82,15 +82,15 @@
         
 				<style>p.copyright.text-muted {color: #bfbfbf;} </style>
 				<p class="copyright text-muted text-center"><span class="text-center">
-                    Copyright &copy; 2017-{{ site.time | date: '%Y' }} <a href="{{site.url}}">Quanyin Blog</a>  
+                    Copyright &copy; 2017-{{ site.time | date: '%Y' }} <a href="{{site.homepage or site.url}}">Quanyin Blog</a>  
                     <!--
                     Powered by <a href="//github.com/mojombo/jekyll">Jekyll</a> and <a href="//getbootstrap.com/">Bootstrap</a>. 
 					<br>
                     -->
                     <!-- 不蒜子计数 -->
                     {% if site.busuanzi %}                   
-                    <span id="busuanzi_container_site_uv" style='display:none'>   | 访客数: <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></span>
-                    <span id="busuanzi_container_site_pv" style='display:none'>   | 总访问量: <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></span>                  
+                    <span id="busuanzi_container_site_uv" style='display:none'>   | 访客数: <span id="busuanzi_value_site_uv"><em class="fa fa-spinner fa-spin"></em> </span></span>
+                    <span id="busuanzi_container_site_pv" style='display:none'>   | 总访问量: <span id="busuanzi_value_site_pv"><em class="fa fa-spinner fa-spin"></em> </span></span>                  
                     {% endif %}
                     <br>
                     <span class="text-center">Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | 
@@ -102,7 +102,8 @@
                     </span>
                     <br>
 					<span class="label label-primary label-md text-center"><strong>转载请标明作者和出处并告知</strong></span>
-                </p>                
+                </p>
+                <p class="copyright text-muted" id="count">                
             </div>
         </div>
     </div>
@@ -256,6 +257,22 @@
 </script> 
 {% endif %}
 
+<!-- 网站运行时间记录 -->
+<script>
+    window.setInterval('counter()',1000);
+    function counter(){
+        var date=new Date();
+        var startDate=new Date(2017,7,6,0,0,0);
+        var time=(date-startDate)/1000;
+        var day=Math.floor(time/(24*60*60));
+        var hour=Math.floor(time%(24*60*60)/(60*60));
+        var minute=Math.floor(time%(24*60*60)%(60*60)/60);
+        var second=Math.floor(time%(24*60*60)%(60*60)%60);
+        var str="我的博客已经默默运行了" + day + "天" + hour +"时" + minute + "分" + second + "秒";
+        document.getElementById('count').innerHTML=str;
+    }
+</script>
+
 <!-- daovoice -->
 {% if site.daovoice %}
 <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f72737da.js","daovoice");</script>
@@ -276,14 +293,14 @@
 <!-- 动态背景-鼠标特效 --> <!--只能位于<body></body>之间-->
 {% if site.canvas-nest %}
 <!--  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script> -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js"></script> -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js"></script>
 {% endif %}
 
 <!-- Back To Top -->
 {% if site.back-to-top %}
 <div id="back-top">
   <a href="#section" data-toggle="tooltip" data-placement="top" title="top">
-  <i class="fa fa-chevron-up" aria-hidden="true"></i>
+  <em class="fa fa-chevron-up" aria-hidden="true"></em> 
   </a>
 </div>
 <!-- <script type="text/javascript" src="/Source/js/jquery.min.js"></script> -->

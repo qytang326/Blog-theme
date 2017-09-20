@@ -5,13 +5,15 @@ header-img: /Source/images/background/bg-default.jpg    #默认底图,使用相�
 email: qytang326@gmail.com
 description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博客，与你一起发现更大的世界。"
 keyword: "Quanyin, Quanyin Blog, Quanyin 博客, Quanyin Tang, Quanyin Tang的博客"
-url: "http://theme.Quanyin.ml"              # your host, for absolute URL
+url: "https://theme.quanyin.ml"              # your host, for absolute URL
 #enforce_url: "theme.quanyin.ml"
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog' /gh-pages-theme
+homepage: "https://quanyin.eu.org"
 repo: qytang326.github.io
 
 
 ##### Build settings
+encoding: utf-8
 highlighter: rouge
 permalink: /:year/:month/:day/:title/      #自定义永久链接,或者使用#permalink: pretty
 paginate: 10                                    #每页展示项目数
@@ -21,7 +23,7 @@ anchorjs: true                          # if you want to customize anchor. check
 plugins: 
   - jekyll-paginate
   - jekyll-github-metadata
-  - Jekyll-mentions
+  - jekyll-mentions
   - jekyll-sitemap
   - jekyll-gist  
   - jekyll-feed
@@ -125,5 +127,9 @@ friends: [
     {   
          title: "BruceZhaoR",
          href: "http://brucezhaor.github.io"
-    }
+    },    
+    {   
+         title: "CCMG",
+         href: "https://fudanccmg.github.io"
+    },
 ]

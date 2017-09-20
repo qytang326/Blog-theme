@@ -1,5 +1,5 @@
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     {% if site.enforce_ssl %}
     <script type="text/javascript">
     var host = "{{site.enforce_ssl}}";
@@ -131,7 +131,10 @@
     
     <!-- busuanzi -->
     {% if site.busuanzi %}
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>    
+	<!--
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	-->
+    <script async src="/js/busuanzi.pure.mini.js"></script>    
     {% endif %}
     
     <script></script>

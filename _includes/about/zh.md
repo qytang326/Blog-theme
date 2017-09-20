@@ -7,7 +7,14 @@ Hey，我是Quanyin，一枚苦逼物理狗，多出没于[博客](//qytang326.g
 
 一些作品和开源软件项目，?? 戳 [](link)、[Github](//github.com/qytang326)。 
 
+##### 技能
 
-##### Talks
+- C语言
+- Linux Shell
+- Python
+- MATLAB
 
-- [Markdown](//qytang326.github.io/2017/07/06/Markdown-syntax/) ・ Some Description
+##### 目前在学
+- Python科学计算
+- 机器学习
+
