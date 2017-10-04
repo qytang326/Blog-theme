@@ -3,9 +3,7 @@
 @import "sidebar.less";
 @import "side-catalog.less";
 @import "snackbar.less";
-
 // Global Components
-
 body {
 	.sans-serif;
 	font-size: 16px;
@@ -14,13 +12,10 @@ body {
 	//-webkit-user-select:text; //对于 Blog 还是先不开启这句。
 	overflow-x : hidden;
 }
-
 // -- Typography
-
 p {
 	margin: 30px 0;
 }
-
 h1,
 h2,
 h3,
@@ -45,14 +40,12 @@ a {
 		color: @brand-primary;
 	}
 }
-
 a img {
 	&:hover,
 	&:focus {
 		cursor: zoom-in;
 	}
 }
-
 article{
 	overflow-x : hidden;
 }
@@ -65,7 +58,6 @@ blockquote {
 		margin: 0;
 	}
 }
-
 // Utils Style Class can be used in Markdown.
 small.img-hint{
 	display: block;
@@ -79,7 +71,6 @@ img.shadow{
 	box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
 }
 // Utils Style End
-
 // Select 
 select{
 	-webkit-appearance:none;
@@ -93,13 +84,10 @@ select{
 		font-size:14px;
 	}
 }
-
-
 // override table style in bootstrap
 .table th, .table td{
 	border: 1px solid #eee !important;
 }
-
 hr.small {
 	max-width: 100px;
 	margin: 15px auto;
@@ -117,12 +105,10 @@ pre code{
 	white-space: pre;	// save it but no-wrap;
 	word-wrap: normal;	// no-wrap
 }
-
 // In the list of posts
 .postlist-container{
 	margin-bottom: 15px;
 }
-
 // In the post.
 .post-container{
 	a{	
@@ -200,11 +186,7 @@ pre code{
 		}
 	}
 }
-
-
-
 // Navigation
-
 // materialize, mobile only
 @media only screen and (max-width: 767px) {
 	/**
@@ -279,7 +261,6 @@ pre code{
 		}
 	}
 }
-
 .navbar-custom {
 	// materialize
 	background: none;

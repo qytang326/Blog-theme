@@ -1,142 +1,69 @@
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {% if site.enforce_ssl %}
-    <script type="text/javascript">
-    var host = "{{site.enforce_ssl}}";
-    if ((host == window.location.host) && (window.location.protocol != "https:"))
-        window.location.protocol = "https";
-    </script>
+        <script type="text/javascript">
+            var host = "{{site.enforce_ssl}}";
+            if ((host == window.location.host) && (window.location.protocol != "https:"))
+                window.location.protocol = "https";
+        </script>
     {% endif %}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     {% if site.google-site-verification %}
-    <meta name="google-site-verification" content="{{ site.google-site-verification }}" />
+        <meta name="google-site-verification" content="{{ site.google-site-verification }}" />
     {% endif %}
     {% if site.baidu-site-verification %}
-    <meta name="baidu-site-verification" content="{{ site.baidu-site-verification }}" />
+        <meta name="baidu-site-verification" content="{{ site.baidu-site-verification }}" />
     {% endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description }}">
-    <meta name="keywords"  content="{{ site.keyword }}">
-    <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
     
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="keywords"  content="{{ site.keyword }}" />
+    <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}" />
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
-
+      
     <!-- Web App Manifest -->
-    <link rel="manifest" href="{{ site.baseurl }}/Source/pwa/manifest.json">
+    <link rel="manifest" href="{{ site.baseurl }}/Source/pwa/manifest.json" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/Source/images/icons/favicon.ico">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/Source/images/icons/favicon.ico" />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ "/css/Quanyin-blog.min.css" | prepend: site.baseurl }}">
-
+    <!-- Bootstrap Core CSS 
+    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}" />
+    -->
+    <!-- Custom CSS 
+    <link rel="stylesheet" href="{{ "/css/Quanyin-blog.min.css" | prepend: site.baseurl }}" />
+    -->
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
+    <!-- <link rel="stylesheet" href="{{ "/css/syntax.min.css" | prepend: site.baseurl }}" /> -->
 
     <!-- Custom Fonts -->
-    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Quanyin change font-awesome CDN to qiniu -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    <!-- Quanyin Delete, sad but pending in China
-    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- Quanyin change font-awesome CDN to qiniu 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     -->
+    <!-- Quanyin Delete, sad but pending in China
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+    -->
+
+    <link rel="preload" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /></noscript>
+    <link rel="preload" href="{{ "/css/Quanyin-blog.min.css" | prepend: site.baseurl }}" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="{{ "/css/Quanyin-blog.min.css" | prepend: site.baseurl }}" /></noscript>
+    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" /></noscript>
+    <link rel="preload" href="/css/syntax.min.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/syntax.min.css" /></noscript>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:-->
     <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-        
-    <!-- Google Analytics -->
-    {% if site.ga_track_id %}
-    <script>
-        // dynamic User by Quanyin
-        var _gaId = '{{ site.ga_track_id }}';
-        var _gaDomain = '{{ site.ga_domain }}';
-
-        // Originial
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', _gaId, _gaDomain);
-        ga('send', 'pageview');
-    </script>
-    {% endif %}
-
-    <!-- Baidu Tongji -->
-    {% if site.ba_track_id %}
-    <script>
-        // dynamic User by Quanyin
-        var _baId = '{{ site.ba_track_id }}';
-        // Originial
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?"+ _baId;
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm,s);
-        })();
-    </script>
-    {% endif %}
-    
-    <!-- 是否自动推送到到百度、360等以增加收录-->
-    {% if site.push-for-include %}
-    <!-- 百度收录-->
-    {% if site.push-to-baidu %}
-    <script>
-    (function(){
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https'){
-       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      }
-      else{
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp,s);
-    })();
-    </script>
-    {% endif %}
-    <!-- 360收录-->
-    {% if site.push-to-360 %}
-    <script>
-    (function(){
-       var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989":"https://jspassport.ssl.qhimg.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989";
-       document.write('<script src="' + src + '" id="sozz"><\/script>');
-    })();
-    </script>
-    {% endif %}
-    {% endif %}
-  
-    <!-- pageviews-->
-    {% if site.hit-kounter %}
-    <script src="//cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
-    <script src="//jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
-    {% endif %}
-    
-    <!-- busuanzi -->
-    {% if site.busuanzi %}
-	<!--
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	-->
-    <script async src="/js/busuanzi.pure.mini.js"></script>    
-    {% endif %}
-    
-    <script></script>
-    
+        <script type="text/javascript" src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" async="async"></script>
+        <script type="text/javascript" src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" async="async"></script>
+    <![endif]-->    
 </head>

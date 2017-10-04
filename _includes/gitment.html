@@ -1,22 +1,24 @@
 {% if site.Gitment %}
 <div id="container"></div>
-<!--改为使用本地文件
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<!--改为使用本地文件 注意:不能异步加载gitment.js
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css" />
+<script type="text/javascript" src="//imsun.github.io/gitment/dist/gitment.browser.js" async="async"></script>
+<link rel="stylesheet" href="/css/gitment.min.css" />
 -->
-<link rel="stylesheet" href="/css/gitment.css">
-<script src="/js/gitment.js"></script>
+<link rel="preload" href="{{ "/css/gitment.min.css" | prepend: site.baseurl }}" as="style" onload="this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="{{ "/css/gitment.min.css" | prepend: site.baseurl }}" /></noscript>
+<script  type="text/javascript" src="/js/gitment.min.js" ></script>
 <script>
 var gitment = new Gitment({
-  id: '{{ page.url | replace:'index.html',''| replace:'.html','' |split: "/" | last|downcase }}', // 页面ID，可选。默认为 location.href
-  owner: '{{site.github_username}}', //你的 Github ID
-  repo: '{{site.repo_for_gitment}}', // 存储评论的 repo
-  title: '{{page.title}}',//issue页的标题
+  id: '{{ page.url | replace:'index.html',''| replace:'.html','' |split: "/" | last|downcase }}', /* 页面ID，可选。默认为 location.href */
+  owner: '{{site.github_username}}', /* 你的 Github ID */
+  repo: '{{site.repo_for_gitment}}', /* 存储评论的 repo */
+  title: '{{page.title}}',/*issue页的标题 */
   oauth: {
-    client_id: '{{site.oauth_client_id}}', //你的 client ID
-    client_secret: '{{site.oauth_client_secret}}', //你的 client secret
+    client_id: '{{site.oauth_client_id}}', /*你的 client ID */
+    client_secret: '{{site.oauth_client_secret}}', /*你的 client secret */
   },
-})
+});
 gitment.render('container')
 </script>
 {% endif %}

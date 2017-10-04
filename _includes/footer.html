@@ -47,7 +47,6 @@
                     </li>
                     {% endif %}
 
-
                     {% if site.facebook_username %}
                     <li>
                         <a target="_blank" href="//www.facebook.com/{{ site.facebook_username }}">
@@ -94,11 +93,15 @@
                     {% endif %}
                     <br>
                     <span class="text-center">Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | 
+                    <!--
                     <iframe 
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="50px" height="20px"
                         src="//ghbtns.com/github-btn.html?user={{site.github_username}}&repo={{site.repo}}&type=star&count=false" >
-                    </iframe>
+                    </iframe> -->
+                        <a href="//github.com/qytang326/qytang326.github.io">
+                            <img src="/Source/images/icons/github-star.jpg" width="50px" height="20px" border="0" alt=" " />
+                        </a>
                     </span>
                     <br>
 					<span class="label label-primary label-md text-center"><strong>转载请标明作者和出处并告知</strong></span>
@@ -109,20 +112,29 @@
     </div>
 </footer>
 
+<!-- For loadCSS 异步加载css -->
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+</script>
+
 <!-- jQuery -->
-<script src="{{ "/js/jquery.min.js" | prepend: site.baseurl }}"></script>
+<!-- <script src="{{ "/js/jquery.min.js" | prepend: site.baseurl }}"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
-<script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ "/js/Quanyin-blog.min.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/js/Quanyin-blog.min.js" | prepend: site.baseurl }}" async="async"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
-<script src="{{ "/js/snackbar.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/sw-registration.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/js/snackbar.min.js" | prepend: site.baseurl }}"  async="async"></script>
+    <script type="text/javascript" src="{{ "/js/sw-registration.min.js" | prepend: site.baseurl }}"  async="async"></script>
 {% endif %}
 
 <!-- async load function -->
@@ -147,23 +159,21 @@
      - //help.github.com/articles/creating-and-highlighting-code-blocks/
      - //github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
+
 <!--
     <script>
-        async("//cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
+        async("//cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})
     </script>
-    <link href="//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet" />
 -->
-
 
 <!-- jquery.tagcloud.js -->
 <script>
-    // only load tagcloud.js in tag.html
+    /* only load tagcloud.js in tag.html */
     if($('#tag_cloud').length !== 0){
-        async('{{ "/js/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
+        async('{{ "/js/jquery.tagcloud.min.js" | prepend: site.baseurl }}',function(){
             $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
+                /* size: {start: 1, end: 1, unit: 'em'}, */
                 color: {start: '#bbbbee', end: '#0085a1'},
             };
             $('#tag_cloud a').tagcloud();
@@ -178,7 +188,6 @@
         if($nav) FastClick.attach($nav);
     })
 </script>
-
 
 <!-- Side Catalog -->
 {% if site.catalog or page.catalog %}
@@ -199,17 +208,17 @@
 
     generateCatalog(".catalog-body");
 
-    // toggle side catalog
+    /* toggle side catalog */
     $(".catalog-toggle").click((function(e){
         e.preventDefault();
         $('.side-catalog').toggleClass("fold")
-    }))
+    }));
 
     /*
      * Doc: //github.com/davist11/jQuery-One-Page-Nav
      * Fork by Quanyin to support padding
      */
-    async("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
+    async("{{ '/js/jquery.nav.min.js' | prepend: site.baseurl }}", function () {
         $('.catalog-body').onePageNav({
             currentClass: "active",
             changeHash: !1,
@@ -231,26 +240,19 @@
 {% if site.busuanzi and site.busuanzi_fixcount %}
 <script>
     $(document).ready(function() {
-        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-        var pv_countOffset = 1995;  // 初始化首次数据
-        var uv_countOffset = 326;  // 初始化首次数据
+        var int = setInterval(fixCount, 50);  /* 50ms周期检测函数 */
+        var pv_countOffset = 1995;  /* 初始化首次数据 */
+        var uv_countOffset = 326;  /* 初始化首次数据 */
         function fixCount() {            
- /*           if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-            {
-                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + 11114); 
-                // alert('aaaaaaaaa');
-                clearInterval(int);
-            }          
- */         
             if ($("#busuanzi_container_site_pv").css("display") != "none")
             {
-                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pv_countOffset); // 加上初始数据 
-                clearInterval(int); // 停止检测
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pv_countOffset); /*加上初始数据 */ 
+                clearInterval(int); /* 停止检测 */
             }
             if ($("#busuanzi_container_site_uv").css("display") != "none")
             {
-                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uv_countOffset); // 加上初始数据 
-                clearInterval(int); // 停止检测
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uv_countOffset); /* 加上初始数据 */
+                clearInterval(int); /* 停止检测 */
             }                 
         }          	
     });
@@ -275,40 +277,141 @@
 
 <!-- daovoice -->
 {% if site.daovoice %}
-<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f72737da.js","daovoice");</script>
-<!-- 非注册用户-->
-<script type="text/javascript">
-    daovoice('init', {
-      app_id: "{{ site.daovoice_appid }}",
-    });
-    daovoice('update');
-</script>
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f72737da.js","daovoice");</script>
+    <!-- 非注册用户-->
+    <script type="text/javascript">
+        daovoice('init', {
+          app_id: "{{ site.daovoice_appid }}",
+        });
+        daovoice('update');
+    </script>
 {% endif %}
 
 <!-- 页面点击小红心 -->
 {% if site.click-love %}
-<script type="text/javascript" src="/js/click-love.js"></script>
+    <!-- <script type="text/javascript" src="/js/click-love.js" async="async"></script> -->
+    <script type="text/javascript">
+    !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+    </script>
 {% endif %}
 
 <!-- 动态背景-鼠标特效 --> <!--只能位于<body></body>之间-->
 {% if site.canvas-nest %}
-<!--  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script> -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+    <!--  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"  async="async"></script> -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js"  async="async"></script>
 {% endif %}
 
-<!-- Back To Top -->
-{% if site.back-to-top %}
+<!-- Google Analytics -->
+{% if site.ga_track_id %}
+    <script>
+    window.onload=function(){
+        /* dynamic User by Quanyin */
+        var _gaId = '{{ site.ga_track_id }}';
+        var _gaDomain = '{{ site.ga_domain }}';
+
+        /* Originial */
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', _gaId, _gaDomain);
+        ga('send', 'pageview');
+        }
+    </script>
+{% endif %}
+
+<!-- Baidu Tongji -->
+{% if site.ba_track_id %}
+    <script>
+        /* dynamic User by Quanyin */
+        var _baId = '{{ site.ba_track_id }}';
+        /* Originial */
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?"+ _baId;
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm,s);
+        })();
+    </script>
+{% endif %}
+
+<!-- 是否自动推送到到百度、360等以增加收录-->
+{% if site.push-for-include %}
+    <!-- 百度收录-->
+    {% if site.push-to-baidu %}
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+           bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else{
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp,s);
+        })();
+        </script>
+    {% endif %}
+    <!-- 360收录-->
+    {% if site.push-to-360 %}
+        <script>
+        (function(){
+           var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989":"https://jspassport.ssl.qhimg.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989";
+           document.write('<script src="' + src + '" id="sozz"><\/script>');
+        })();
+        </script>
+    {% endif %}
+{% endif %}
+
+<!-- pageviews-->
+{% if site.hit-kounter %}
+    <script type="text/javascript" src="//cdn1.lncld.net/static/js/av-min-1.5.0.js"  async="async"></script>
+    <script type="text/javascript" src="//jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.3.0.js"  async="async"></script>
+{% endif %}
+
+<!-- busuanzi -->
+{% if site.busuanzi %}
+<!--
+<script type="text/javascript" async="async"src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+-->
+    <script type="text/javascript" async="async" src="/js/busuanzi.pure.mini.js"></script>    
+{% endif %}
+
+<style type="text/css">
+#back-top {
+  position: fixed;
+  bottom: 30px;
+  margin-left: 1040px;
+}
+#back-top a {
+  width: 54px;
+  height: 54px;
+  display: block;
+  background: #ddd url(/Source/images/icons/Back-Top_Arrow.png) no-repeat center center;
+  background-color: #aaa;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+}
+#back-top a:hover {
+  background-color: #777;
+}
+</style>
 <div id="back-top">
-  <a href="#section" data-toggle="tooltip" data-placement="top" title="top">
-  <em class="fa fa-chevron-up" aria-hidden="true"></em> 
-  </a>
+  <a href="#top" title="回到顶部"></a>
 </div>
-<!-- <script type="text/javascript" src="/Source/js/jquery.min.js"></script> -->
 <script>
-	$('#back-top').hide();
-	$(document).ready(function () {
-	$(window).scroll(function () {
-    if ($(this).scrollTop() > 250) {
+$("#back-top").hide();
+$(document).ready(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
       $('#back-top').fadeIn();
     } else {
       $('#back-top').fadeOut();
@@ -322,4 +425,3 @@
   });
 });
 </script>
-{% endif %} 

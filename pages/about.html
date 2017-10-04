@@ -65,53 +65,55 @@ header-img: "/Source/images/background/bg-about.jpg"
 </script>
 
 {% if site.BGM %}
-<!--{% if site.netease-music %}
--- 网易云音乐 auto=1 为自动播放 暂不支持https,链接地址必须包含http 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=1&id=1678955&auto=1&height=430"></iframe>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=420 height=100 src="//music.163.com/outchain/player?type=2&id=27090046&auto=1&height=66"></iframe>
-<div class="post-container text-center">
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" align="middle" width="420" height="260"  src="{{site.netease-music_url}}"></iframe>
-</div>
-{% endif %}-->
-{% if site.APlayer %}
-<script src="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>	
-<!--<script src="//api.i-meto.com/music/player.js"></script>-->
-<script src="/js/meting.aplayer.js"></script>
-<div class="aplayer post-container" 
-    data-id="{{site.APlayer.data-id}}" 
-    data-server="{{site.APlayer.data-server}}" 
-    data-type="{{site.APlayer.data-type}}" 
-    data-mode="{{site.APlayer.data-mode}}" 
-    data-autoplay="{{site.APlayer.data-autoplay}}" >
-</div>
-{% endif %}
+    {% if site.netease-music %}
+    <!-- 网易云音乐 auto=1 为自动播放 暂不支持https,链接地址必须包含http -->
+    <div class="post-container text-center">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" align="middle" width="420" height="260"  src="{{site.netease-music_url}}"></iframe>
+    </div>
+    {% endif %}
+    {% if site.APlayer %} <!--不能用异步加载-->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>	
+    <!-- 改用本地化
+    <script src="//api.i-meto.com/music/player.js"></script>
+    <script type="text/javascript"  src="/js/meting.aplayer.js"></script>
+    -->
+    <script type="text/javascript" >
+        function ready(e){(document.attachEvent?"complete"===document.readyState:"loading"!==document.readyState)?e():document.addEventListener("DOMContentLoaded",e)}ready(function(){function e(e,t){var a=[],r=e.dataset;a.element=e,a.music=t,a.showlrc=a.music[0].lrc?3:0,a.narrow="true"===r.narrow,a.autoplay="true"===r.autoplay,a.mutex="false"!==r.mutex,a.mode=r.mode||"circulation",a.preload=r.preload||"auto",a.listmaxheight=r.listmaxheight||"340px",a.theme=r.theme||"#e6d0b2",new APlayer(a)}console.log("\n %c Meting 1.1.0 %c https://i-meto.com/ghost-aplayer/ \n\n","color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;","background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");var t="https://api.i-meto.com/meting/api";"undefined"!=typeof meting_api&&(t=meting_api);var a=document.querySelectorAll(".aplayer");Array.prototype.forEach.call(a,function(a){var r=a.dataset.id;if(r){var n=new XMLHttpRequest;n.open("GET",t+"?server="+a.dataset.server+"&type="+a.dataset.type+"&id="+r+"&r="+Math.random(),!0),n.onload=function(){if(n.status>=200&&n.status<400){var t=JSON.parse(n.responseText);e(a,t)}},n.send()}else{var o=[];o.title=a.dataset.title,o.author=a.dataset.author,o.url=a.dataset.url,o.pic=a.dataset.pic,o.lrc=a.dataset.lrc,e(a,[o])}})});
+    </script>
+    <div class="aplayer post-container" 
+        data-id="{{site.APlayer.data-id}}" 
+        data-server="{{site.APlayer.data-server}}" 
+        data-type="{{site.APlayer.data-type}}" 
+        data-mode="{{site.APlayer.data-mode}}" 
+        data-autoplay="{{site.APlayer.data-autoplay}}" >
+    </div>
+    {% endif %}
 {% endif %}
 
 {% if site.Gitment %}
-<div class="comment">{% include gitment.html %}</div>
+    <div class="comment">{% include gitment.html %}</div>
 {% endif %}
 
 {% if site.disqus.username %}
-<!-- disqus 评论框 start -->
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
+    <!-- disqus 评论框 start -->
+    <div class="comment">
+        <div id="disqus_thread" class="disqus-thread">
 
+        </div>
     </div>
-</div>
-<!-- disqus 评论框 end -->
+    <!-- disqus 评论框 end -->
+    <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = "{{site.disqus_username}}";
+        var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+        var disqus_url = "{{site.url}}{{page.url}}";
 
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <!-- disqus 公共JS代码 end -->
 {% endif %}

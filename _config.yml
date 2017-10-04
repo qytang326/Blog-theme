@@ -19,8 +19,17 @@ permalink: /:year/:month/:day/:title/      #自定义永久链接,或者使用#p
 paginate: 10                                    #每页展示项目数
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html` 取消#显示
+compress_html:                          # 压缩html
+  switch: false
+  clippings:      []
+  comments:       ["<!--", "-->"]
+  endings:        []
+  blanklines: false
+  profile: false
+  startings:      [html, head, body]
 ### Gems
 plugins: 
+  - github-pages
   - jekyll-paginate
   - jekyll-github-metadata
   - jekyll-mentions
@@ -52,8 +61,8 @@ service-worker: true
 #About Me 背景音乐
 BGM: true       
 ## 网易云音乐   8月24日：弃用,效果不好，改用APlayer
-#netease-music: false
-#netease-music_url: "//music.163.com/outchain/player?type=0&id=804530027&auto=1&height=430"
+netease-music: false
+netease-music_url: "//music.163.com/outchain/player?type=0&id=804530027&auto=1&height=430"
 ## APlayer, Doc: https://APlayer.js.org/docs/#/?id=options
 APlayer:
     data-id: 804530027      #歌曲/专辑/歌单ID
@@ -71,11 +80,11 @@ click-love: true
 ##背景动画-特效
 canvas-nest: true
 ###推送到百度、360等以增加收录
-push-for-include: true
+push-for-include: false
 ##百度 需要验证
-push-to-baidu: true
+push-to-baidu: false
 ##360
-push-to-360: true
+push-to-360: false
 
 
 #### 以下内容需要个人信息

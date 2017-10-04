@@ -73,11 +73,11 @@ jQuery(document).ready(function($) {
 
 
                 //adjust the appearance of side-catalog
-                $catalog.show()
+                $catalog.show();
                 if (currentTop > (bannerHeight + 41)) {
-                    $catalog.addClass('fixed')
+                    $catalog.addClass('fixed');
                 } else {
-                    $catalog.removeClass('fixed')
+                    $catalog.removeClass('fixed');
                 }
             });
     }
