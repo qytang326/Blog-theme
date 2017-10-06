@@ -65,7 +65,7 @@ layout: default
 				{{ content }}
                 
                 <p class="text-right">
-				<a href="/">{{ page.author }}</a>
+				<a href="{{page.author_homepage |default: site.homepage}}">{{ page.author }}</a>
 				<span class="time">
 				/
 				<time>{{ page.date | date:"%Y-%m-%d" }}</time>
@@ -181,13 +181,13 @@ layout: default
     }
     document.addEventListener('DOMContentLoaded', function(){
         resize();
-    })
+    });
     window.addEventListener('load', function(){
         resize();
-    })
+    });
     window.addEventListener('resize', function(){
         resize();
-    })
+    });
     resize();
 </script>
 

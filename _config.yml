@@ -17,7 +17,7 @@ encoding: utf-8
 highlighter: rouge
 permalink: /:year/:month/:day/:title/      #自定义永久链接,或者使用#permalink: pretty
 paginate: 10                                    #每页展示项目数
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","Gemfile","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html` 取消#显示
 compress_html:                          # 压缩html
   switch: false

@@ -4,6 +4,7 @@ title:          Markdown 语法说明
 subtitle:       Markdown语法，转自Wow!Ubuntu
 date:           2017-07-06
 author:         Quanyin Tang
+author_homepage: "https://quanyin.eu.org"
 description:    Markdown语法，转自Wow!Ubuntu
 categories: 
                 - 学习

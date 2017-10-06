@@ -5,6 +5,7 @@ description: "文章分类"
 permalink: /categories/
 header-img: "/Source/images/background/bg-categories.jpg"
 ---
+<!-- 来自BruceZhao-->
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url({{ site.baseurl }}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %})">
     <div class="container">
@@ -27,7 +28,7 @@ header-img: "/Source/images/background/bg-categories.jpg"
       {% if categories_list.first[0] == null %}
         {% for category in categories_list %}
             <li>
-                <a href="{{ site.baseurl }}/{{ site.categories_path }}#{{ category | replace:' ','-' }}-ref" data-toggle="tab">
+                <a href="{{ site.baseurl }}/{{ site.categories_path }}#{{ category | replace:' ','-' }}" data-toggle="tab">
                     {{ category | capitalize }} <span class="badge pull-right">{{ site.categories[category].size }}</span>
                </a>
             </li>
@@ -35,7 +36,7 @@ header-img: "/Source/images/background/bg-categories.jpg"
       {% else %}
         {% for category in categories_list %}
             <li>
-                <a href="{{ site.baseurl }}/{{ site.categories_path }}#{{ category[0] | replace:' ','-' }}-ref" data-toggle="tab">
+                <a href="{{ site.baseurl }}/{{ site.categories_path }}#{{ category[0] | replace:' ','-' }}" data-toggle="tab">
                     {{ category[0] | capitalize }} <span class="badge pull-right">{{ category[1].size }}</span>
                 </a>
             </li>
@@ -49,7 +50,7 @@ header-img: "/Source/images/background/bg-categories.jpg"
 
 <div class="tab-content col-sm-8 col-xs-7">
   {% for category in site.categories %}
-    <div class="tab-pane" id="{{ category[0] | replace:' ','-' }}-ref">
+    <div class="tab-pane" id="{{ category[0] | replace:' ','-' }}">
       <h3 style="margin-top: 0px">Posts in {{ category[0] | capitalize }}</h3>
       <ul class="list-unstyled ">
         {% assign pages_list = category[1] %}

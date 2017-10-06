@@ -56,7 +56,7 @@ layout: default
 				{{ content }}
                 
                 <p class="text-right">
-				<a href="/">{{ page.author }}</a>
+				<a href="{{page.author_homepage |default: site.homepage}}">{{ page.author }}</a>
 				<span class="time">
 				/
 				<time>{{ page.date | date:"%Y-%m-%d" }}</time>
@@ -232,5 +232,5 @@ layout: default
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
-<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/config/TeX-MML-AM_CHTML.js"></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML""></script>
 {% endif %}
