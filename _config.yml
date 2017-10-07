@@ -57,6 +57,7 @@ featured-condition-size: 2              # A tag will be featured if the size of 
 ## Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
+tota11y: true       #An accessibility visualization toolkit,http://khan.github.io/tota11y/
 
 #About Me 背景音乐
 BGM: true       
@@ -96,6 +97,9 @@ github_username:    qytang326
 #twitter_username:   
 #facebook_username:  
 linkedin_username:  quanyin-tang-56a543b1
+GPG:
+  UID: 1501145A
+  Finger: 1E4D 482B 213A DE78 2BDB  E875 4D6F B720 1501 145A
 
 ### Comment System 具体设置与格式在_layout/post.html
 # Disqus settings 
