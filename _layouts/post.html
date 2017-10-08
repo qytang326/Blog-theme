@@ -56,7 +56,7 @@ layout: default
 				{{ content }}
                 
                 <p class="text-right">
-				<a href="{{page.author_homepage |default: site.homepage}}">{{ page.author }}</a>
+				<a href="{{page.author_homepage |default: site.homepage}}">{{ page.author |default: site.Author }}</a>
 				<span class="time">
 				/
 				<time>{{ page.date | date:"%Y-%m-%d" }}</time>

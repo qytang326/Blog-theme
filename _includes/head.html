@@ -1,6 +1,8 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Page-Enter" content="revealTrans(duration=10,transition= 50)">
+    <meta http-equiv="Page-Exit" content="revealTrans(duration=20，transition=6)">
     {% if site.enforce_ssl %}
         <script type="text/javascript">
             var host = "{{site.enforce_ssl}}";
@@ -17,6 +19,9 @@
     {% endif %}
     
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="none">
+    <meta name="author" content="{{ site.Author }},{{ site.Email }}">
+    <meta name="copyright" content="{{ site.Author }}">
     <meta name="description" content="{{ site.description }}" />
     <meta name="keywords"  content="{{ site.keyword }}" />
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}" />

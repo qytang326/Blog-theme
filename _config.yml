@@ -2,7 +2,8 @@
 title: Quanyin Blog 主题模板
 SEOTitle: Quanyin Tang的博客 | Quanyin Blog
 header-img: /Source/images/background/bg-default.jpg    #默认底图,使用相对链接
-email: qytang326@gmail.com
+Author: Quanyin Tang
+Email: qytang326@gmail.com
 description: "博学而笃志，切问而近思| 这里是 @Quanyin 的个人博客，与你一起发现更大的世界。"
 keyword: "Quanyin, Quanyin Blog, Quanyin 博客, Quanyin Tang, Quanyin Tang的博客"
 url: "https://theme.quanyin.ml"              # your host, for absolute URL
@@ -97,9 +98,10 @@ github_username:    qytang326
 #twitter_username:   
 #facebook_username:  
 linkedin_username:  quanyin-tang-56a543b1
-GPG:
-  UID: 1501145A
+PGP:
+  KeyID: 1501145A
   Finger: 1E4D 482B 213A DE78 2BDB  E875 4D6F B720 1501 145A
+Keybase_id: qytang326
 
 ### Comment System 具体设置与格式在_layout/post.html
 # Disqus settings 
