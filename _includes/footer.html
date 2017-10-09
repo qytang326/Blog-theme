@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     {% if site.RSS %}
                     <li>
-                        <a target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                        <a target="_blank" rel=noreferrer href="{{ "/feed.xml" | prepend: site.baseurl }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-rss fa-stack-1x fa-inverse"></em> 
@@ -16,7 +16,7 @@
                     {% endif %}
                     {% if site.twitter_username %}
                     <li>
-                        <a target="_blank" href="//twitter.com/{{ site.twitter_username }}">
+                        <a target="_blank" rel=noreferrer href="//twitter.com/{{ site.twitter_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-twitter fa-stack-1x fa-inverse"></em> 
@@ -28,7 +28,7 @@
                     <!-- add Weibo, Zhihu by Quanyin, add target = "_blank" to <a> by Quanyin -->
                     {% if site.zhihu_username %}
                     <li>
-                        <a target="_blank" href="//www.zhihu.com/people/{{ site.zhihu_username }}">
+                        <a target="_blank" rel=noreferrer href="//www.zhihu.com/people/{{ site.zhihu_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-stack-1x fa-inverse">知</em> 
@@ -38,7 +38,7 @@
                     {% endif %}
                     {% if site.weibo_username %}
                     <li>
-                        <a target="_blank" href="//weibo.com/{{ site.weibo_username }}">
+                        <a target="_blank" rel=noreferrer href="//weibo.com/{{ site.weibo_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-weibo fa-stack-1x fa-inverse"></em> 
@@ -49,7 +49,7 @@
 
                     {% if site.facebook_username %}
                     <li>
-                        <a target="_blank" href="//www.facebook.com/{{ site.facebook_username }}">
+                        <a target="_blank" rel=noreferrer href="//www.facebook.com/{{ site.facebook_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-facebook fa-stack-1x fa-inverse"></em> 
@@ -59,7 +59,7 @@
                     {% endif %}
                     {% if site.github_username %}
                     <li>
-                        <a target="_blank" href="//github.com/{{ site.github_username }}">
+                        <a target="_blank" rel=noreferrer href="//github.com/{{ site.github_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-github fa-stack-1x fa-inverse"></em> 
@@ -69,7 +69,7 @@
                     {% endif %}
                     {% if site.linkedin_username %}
                     <li>
-                        <a target="_blank" href="//www.linkedin.com/in/{{ site.linkedin_username }}">
+                        <a target="_blank" rel=noreferrer href="//www.linkedin.com/in/{{ site.linkedin_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-linkedin fa-stack-1x fa-inverse"></em> 
@@ -126,15 +126,18 @@
 
 <!-- Bootstrap Core JavaScript -->
 <!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Custom Theme JavaScript -->
 <script type="text/javascript" src="{{ "/js/Quanyin-blog.min.js" | prepend: site.baseurl }}" async="async"></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
+    <!-- 合并
     <script type="text/javascript" src="{{ "/js/snackbar.min.js" | prepend: site.baseurl }}"  async="async"></script>
     <script type="text/javascript" src="{{ "/js/sw-registration.min.js" | prepend: site.baseurl }}"  async="async"></script>
+    -->
+    <script type="text/javascript" src="{{ "/js/snackbar-sw-registration.min.js" | prepend: site.baseurl }}"  async="async"></script>
 {% endif %}
 
 <!-- async load function -->
@@ -176,7 +179,8 @@
                 /* size: {start: 1, end: 1, unit: 'em'}, */
                 color: {start: '#bbbbee', end: '#0085a1'},
             };
-            $('#tag_cloud a').tagcloud();
+            $("#tag_cloud").find("a").tagcloud();
+            /* $('#tag_cloud a').tagcloud(); */
         })
     }
 </script>
@@ -417,7 +421,8 @@ $(document).ready(function () {
       $('#back-top').fadeOut();
     }
   });
-  $('#back-top a').click(function () {
+  /* $('#back-top a').click(function () { */
+    $('#back-top').find('a').click(function () {
     $('body,html').animate({
       scrollTop: 0
     }, 800);
