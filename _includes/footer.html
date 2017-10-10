@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     {% if site.RSS %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                        <a target="_blank" rel="noreferrer" href="{{ '/feed.xml' | prepend: site.baseurl }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-rss fa-stack-1x fa-inverse"></em> 
@@ -16,7 +16,7 @@
                     {% endif %}
                     {% if site.twitter_username %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="//twitter.com/{{ site.twitter_username }}">
+                        <a target="_blank" rel="noreferrer" href="//twitter.com/{{ site.twitter_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-twitter fa-stack-1x fa-inverse"></em> 
@@ -28,7 +28,7 @@
                     <!-- add Weibo, Zhihu by Quanyin, add target = "_blank" to <a> by Quanyin -->
                     {% if site.zhihu_username %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="//www.zhihu.com/people/{{ site.zhihu_username }}">
+                        <a target="_blank" rel="noreferrer" href="//www.zhihu.com/people/{{ site.zhihu_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-stack-1x fa-inverse">知</em> 
@@ -38,7 +38,7 @@
                     {% endif %}
                     {% if site.weibo_username %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="//weibo.com/{{ site.weibo_username }}">
+                        <a target="_blank" rel="noreferrer" href="//weibo.com/{{ site.weibo_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-weibo fa-stack-1x fa-inverse"></em> 
@@ -49,7 +49,7 @@
 
                     {% if site.facebook_username %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="//www.facebook.com/{{ site.facebook_username }}">
+                        <a target="_blank" rel="noreferrer" href="//www.facebook.com/{{ site.facebook_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-facebook fa-stack-1x fa-inverse"></em> 
@@ -59,7 +59,7 @@
                     {% endif %}
                     {% if site.github_username %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="//github.com/{{ site.github_username }}">
+                        <a target="_blank" rel="noreferrer" href="//github.com/{{ site.github_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-github fa-stack-1x fa-inverse"></em> 
@@ -69,7 +69,7 @@
                     {% endif %}
                     {% if site.linkedin_username %}
                     <li>
-                        <a target="_blank" rel=noreferrer href="//www.linkedin.com/in/{{ site.linkedin_username }}">
+                        <a target="_blank" rel="noreferrer" href="//www.linkedin.com/in/{{ site.linkedin_username }}">
                             <span class="fa-stack fa-lg">
                                 <em class="fa fa-circle fa-stack-2x"></em> 
                                 <em class="fa fa-linkedin fa-stack-1x fa-inverse"></em> 
@@ -79,7 +79,7 @@
                     {% endif %}
                 </ul>
         
-                <style>p.copyright.text-muted {color: #bfbfbf;} </style>
+                <!--<style>p.copyright.text-muted {color: #bfbfbf;} </style>-->
                 <p class="copyright text-muted text-center"><span class="text-center">
                     Copyright &copy; 2017-{{ site.time | date: '%Y' }} <a href="{{site.homepage or site.url}}">Quanyin Blog</a>  
                     <!--
@@ -100,20 +100,30 @@
                         src="//ghbtns.com/github-btn.html?user={{site.github_username}}&repo={{site.repo}}&type=star&count=false" >
                     </iframe> -->
                         <a href="//github.com/qytang326/qytang326.github.io">
-                            <img src="/Source/images/icons/github-star.jpg" width="50px" height="20px" border="0" alt=" " />
+                        <!--改用base64 编码<img src="/Source/images/icons/github-star.jpg" width="50px" height="20px" border="0" alt=" " /> -->
+                         <img src='data:img/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUEBAQEAwUEBAQGBQUGCA0ICAcHCBALDAkNExAUExIQEhIUFx0ZFBYcFhISGiMaHB4fISEhFBkkJyQgJh0gISD/2wBDAQUGBggHCA8ICA8gFRIVICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCAAUADIDASIAAhEBAxEB/8QAGwABAAICAwAAAAAAAAAAAAAAAAUGBAcCAwj/xAAyEAABAwMCBAQFAgcAAAAAAAAB
+AgMEBRESAAYHEyEiFBYxQRUyU5LRF2EjMzVCUXOx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAIREBAAAEBgMAAAAAAAAAAAAAAAERIUECMXGBkdGh8PH/2gAMAwEAAhEDEQA/APUdbrNC2xs97cte
+S2mLHYS664WwtSybAAX9SSbAa1SeKO/RWcv0Ol/B/m5n92GOWeeGHp1t6e2WrZxe23Ud0cGlwqUjnSo5jywziVc0IIKk4j16EnH3tbXOo8U4tP4RL3q7QlvpC/CiLHfaeQXCrAdyVHsy6WIyHukaC3bc
+qm3d17bhbhorbD0GYjNBLQBBvYpI9iCCCP8AOoWFvHb8+tyoLVDliHGefjOVUx2zEQ4yLuJWoKKm7de5aUpNuhPS8bwP25U9s8JqfCrLRjzJDrktUcjEsharhJHsbWJHte2oeBs6sw+LXmOi0KZtxuS+
+78WwntOwKi1ZXLcSgHmB0qUCbpSkd/Uk3Vm8teVtNbadvbh/UdvMbgTWaRGp0h1bLb0p5pm6wT29xFlEdcT1sRcamXqptSNUmabIn0pma/hy463W0uOZ3xskm5yxVaw62OtLjaG+07Jpe3nNtTHWo1Nm
+091qNMjMqW6taVNrU9zM/Dn3QkhRKO5BTYG87F2xWKVupupVSneHbTtyBT81LbUpLzZWXW+0k9Lp6jtPsTrdNvvUOYM4qZe1h34TsmfNZmPMtSilttakpTc9ADYDTWJP/qcr/av/AKdNRUq7WJUGQuG0
+htTbJwSVg3sOg9DrG+NO428FEtnzf5Z+f1y9fX99NNB3eY530mPtV+dPMc76TH2q/OmmgeY530mPtV+dPMU4g/w2B+4SfzppoJJNFhvoS85zCtwZKOXqT1Ommmg//9k=' width="50px" height="20px" border="0" alt=" "/>
                         </a>
                     </span>
                     <br>
                     <span class="label label-primary label-md text-center"><strong>转载请标明作者和出处并告知</strong></span>
-                </p>
-                <p class="copyright text-muted" id="count">                
+                    <!-- 网站运行时间统计-->
+                    <p class="copyright text-muted" id="count"></p> 
+                </p>                    
+                </span>                
             </div>
         </div>
     </div>
 </footer>
 
 <!-- For loadCSS 异步加载css 
-<script>
+<script type="text/javascript" >
 /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 !function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
 /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
@@ -142,7 +152,7 @@
 {% endif %}
 
 <!-- async load function -->
-<script>
+<script type="text/javascript">
     function async(u, c) {
       var d = document, t = 'script',
           o = d.createElement(t),
@@ -165,14 +175,14 @@
 -->
 
 <!--
-    <script>
+    <script type="text/javascript">
         async("//cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){hljs.initHighlightingOnLoad();})
     </script>
     <link href="//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet" />
 -->
 
 <!-- jquery.tagcloud.js -->
-<script>
+<script type="text/javascript">
     /* only load tagcloud.js in tag.html */
     if($('#tag_cloud').length !== 0){
         async('{{ "/js/jquery.tagcloud.min.js" | prepend: site.baseurl }}',function(){
@@ -180,21 +190,21 @@
                 /* size: {start: 1, end: 1, unit: 'em'}, */
                 color: {start: '#bbbbee', end: '#0085a1'},
             };
-            $("#tag_cloud").find("a").tagcloud();
-            /* $('#tag_cloud a').tagcloud(); */
+         /* $('#tag_cloud a').tagcloud(); */
+            $('#tag_cloud').find('a').tagcloud();
         })
     }
 </script>
 
 <!--fastClick.js -->
-<script>
+<script type="text/javascript">
     async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
 </script>
 
-<!-- Side Catalog -->
+<!-- Side Catalog  -->
 {% if site.catalog or page.catalog %}
 <script type="text/javascript">
     function generateCatalog (selector) {
@@ -241,8 +251,9 @@
 </script>
 {% endif %}
 
+
 <!-- 网站运行时间记录 -->
-<script>
+<script type="text/javascript">
     window.setInterval('counter()',1000);
     function counter(){
         var date=new Date();
@@ -259,7 +270,7 @@
 
 <!-- 不蒜子计数初始值纠正 -->
 {% if site.busuanzi and site.busuanzi_fixcount %}
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         var int = setInterval(fixCount, 50);  /* 50ms周期检测函数 */
         var pv_countOffset = 1995;  /* 初始化首次数据 */
@@ -282,7 +293,7 @@
 
 <!-- daovoice -->
 {% if site.daovoice %}
-    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f72737da.js","daovoice");</script>
+    <script type="text/javascript">(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/{{ site.daovoice_appid }}.js","daovoice");</script>
     <!-- 非注册用户-->
     <script type="text/javascript">
         daovoice('init', {
@@ -310,7 +321,7 @@
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
-    <script>
+    <script type="text/javascript">
     window.onload=function(){
         /* dynamic User by Quanyin */
         var _gaId = '{{ site.ga_track_id }}';
@@ -319,7 +330,7 @@
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        })(window,document,'script','/js/Quanyin-global.min.js','ga');
         ga('create', _gaId, _gaDomain);
         ga('send', 'pageview');
         }
@@ -328,7 +339,7 @@
 
 <!-- Baidu Tongji -->
 {% if site.ba_track_id %}
-    <script>
+    <script type="text/javascript">
         /* dynamic User by Quanyin */
         var _baId = '{{ site.ba_track_id }}';
         /* Originial */
@@ -346,7 +357,7 @@
 {% if site.push-for-include %}
     <!-- 百度收录-->
     {% if site.push-to-baidu %}
-        <script>
+        <script type="text/javascript">
         (function(){
             var bp = document.createElement('script');
             var curProtocol = window.location.protocol.split(':')[0];
@@ -363,7 +374,7 @@
     {% endif %}
     <!-- 360收录-->
     {% if site.push-to-360 %}
-        <script>
+        <script type="text/javascript">
         (function(){
            var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989":"https://jspassport.ssl.qhimg.com/11.0.1.js?d7af82f5d5a7d431d4b53f4d0069f989";
            document.write('<script src="' + src + '" id="sozz"><\/script>');
@@ -410,10 +421,11 @@
 }
 </style>
 -->
+<!-- 出问题了,禁用
 <div id="back-top">
   <a href="#top" title="回到顶部"></a>
 </div>
-<script>
+<script type="text/javascript">
 $("#back-top").hide();
 $(document).ready(function () {
   $(window).scroll(function () {
@@ -432,7 +444,18 @@ $(document).ready(function () {
   });
 });
 </script>
+-->
 
 {% if site.tota11y %}
-<script type="text/javascript" async="async"src="//cdnjs.cloudflare.com/ajax/libs/tota11y/0.1.6/tota11y.min.js"></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/tota11y/0.1.6/tota11y.min.js"></script>
+{% endif %}
+
+{% if site.alexa %}
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"{{site.alexa}}", domain:"quanyin.eu.org",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account={{site.alexa}}" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->  
 {% endif %}

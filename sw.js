@@ -12,33 +12,34 @@ const CACHE_NAMESPACE = 'main-';
 const CACHE = CACHE_NAMESPACE + 'precache-then-runtime';
 const PRECACHE_LIST = [
   "./",
-  "./js/jquery.min.js",
   "./js/jquery.nav.min.js",
   "./js/jquery.tagcloud.min.js",
   "./js/gitment.min.js",
-  "./js/bootstrap.min.js",
-  "./js/Quanyin-blog.min.js",
-  "./js/snackbar.min.js",
-  "./js/click-love.js",
-  "./css/Quanyin-blog.min.css",
-  "./css/syntax.min.css",
-  "./css/bootstrap.min.css",
+  "./js/busuanzi.pure.min.js",
+  "./js/Quanyin-global.min.js",
+  "./js/snackbar-sw-registration.min.js",
+  "./css/Quanyin-global.min.css",
   "./css/gitment.min.css",
   "./Source/images/avatar.jpg",
-  "./Source/images/icons/icon_wechat.jpg",
   "./Source/images/background/bg-home.jpg",
   "./Source/images/background/bg-offline.jpg",
   "./Source/images/background/bg-404.jpg",
   "./Source/images/background/bg-about.jpg",
   "./Source/images/background/bg-tags.jpg",
-  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
-  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
-  "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"
+  "./Source/images/background/bg-categories.jpg",
+  "./Source/images/background/post-bg-default.jpg",
+  "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js",
+  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.6.3",
+  "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
+  "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+  "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",
 ];
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   "qytang326.github.io",
-  "cdnjs.cloudflare.com"
+  "cdnjs.cloudflare.com",
+  "maxcdn.bootstrapcdn.com",
 ];
 const DEPRECATED_CACHES = ['precache-v1', 'runtime', 'main-precache-v1', 'main-runtime'];
 

@@ -4,15 +4,14 @@ title:          MathJax with Jekyll【转载】
 subtitle:       "在jekyll中使用MathJax生成漂亮公式"
 mathjax:        true
 date:           2016-01-07
+lastmod:        2017-10-13
 author:         "Bruce Zhao"
 author_homepage: "https://brucezhaor.github.io"
 header-img:     "/Source/images/background/post-bg-mathjax-logo.svg"
 description:    "看到许多博客里面的公式都是图片截图，在小赵眼里觉得很low。于是乎，小赵就开始寻找在jekyll中生成漂亮公式的方法- MathJax"
 catalog:        true
-categories:     
-                - 转载
-tags:
-                - Example
+categories:     [Github,转载]
+tags:           [Example,Github-pages,转载]
 ---
 
 
@@ -48,6 +47,12 @@ tags:
 
 {% endhighlight %}
 
+或者:
+
+```javascript
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+```
+
 
 ### 其次
 
@@ -58,13 +63,13 @@ tags:
 这是原始LaTeX公式语法：
 
 ```
-$$ \int_a^b f(x)\,dx $$ #Inline公式
+```#Inline公式```       $$ \int_a^b f(x)\,dx $$ 
 
-\\[\int_0^{+\infty} x^n e^{-x} \,dx = n! \\]  另起一行居中公式
+```#另起一行居中公式```       \\[\int_0^{+\infty} x^n e^{-x} \,dx = n! \\]  
 
-\\( p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\)  Inline公式
+```#Inline公式```       \\( p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\)  
 
-\\[ p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\]  另起一行居中公式
+```#另起一行居中公式```       \\[ p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\]  
 
 $$ F(x) = P\{ X <= x \} = \int_{-\infty}^x f(x)\,dx $$
 
@@ -74,22 +79,22 @@ $$ F(x) = P\{ X <= x \} = \int_{-\infty}^x f(x)\,dx $$
 
 这是对应生成的公式样子：
 
-$$ \int_a^b f(x)\,dx $$ #Inline公式
+```Inline公式```       $$ \int_a^b f(x)\,dx $$ 
 
-\\[\int_0^{+\infty} x^n e^{-x} \,dx = n! \\] #另起一行居中公式
+```另起一行居中公式```       \\[\int_0^{+\infty} x^n e^{-x} \,dx = n! \\]  
 
-\\( p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\) #Inline公式
+```Inline公式```       \\( p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\)  
 
-\\[ p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\] #另起一行居中公式
+```另起一行居中公式```       \\[ p\{X=x\}=f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\]  
 
-$$ F(x) = P\{ X <= x \} = \int_{-\infty}^x f(x)dx $$
+$$ F(x) = P\{ X <= x \} = \int_{-\infty}^x f(x)\,dx $$
 
 \\[ f(x,y,z) = 3y^2 z \left( 3 + \frac{7x+5}{1 + y^2} \right). \\]
 
 ### **炫酷吗** 右键选择 Math Settings -> zoom trigger -> click 点击就能放大公式了。
 
-## 最后
+> 转自[Bruce Zhao]("https://brucezhaor.github.io"),有改动,[原文链接](https://brucezhaor.github.io/blog/2016/01/07/Mathjax-with-jekyll/)
 
-欢迎大家在下面的多说评论框拍砖以及分享，支持各种主流社交账号登陆。虽然界面相比之前的disqus丑了一点，但是毕竟在国内，你懂的。想知道disqus的界面的同学请点击  <a target="_blank" href="http://brucezhaor.github.io/about.html">这里</a>
+
 
 

@@ -20,12 +20,12 @@ timezone: Asia/Shanghai
 highlighter: rouge
 permalink: /:year/:month/:day/:title/      #自定义永久链接,或者使用#permalink: pretty
 paginate: 10                                    #每页展示项目数
-exclude: ["less","node_modules","Gruntfile.js","package.json","Gemfile","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","*lock*","Gemfile","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html` 取消#显示
 compress_html:                          # 压缩html
   switch: false
   clippings:      []
-  comments:       ["<!--", "-->"]
+  comments:       ["<!--","-->"]
   endings:        []
   blanklines: false
   profile: false
@@ -35,8 +35,8 @@ plugins:
   - github-pages
   - jekyll-paginate
   - jekyll-github-metadata
-  - jekyll-mentions
-  - jekyll-sitemap
+#  - jekyll-mentions
+  - jekyll-sitemap #改为手动生成
   - jekyll-gist  
   - jekyll-feed
   - jemoji

@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        expand: true,
         uglify: {
             main1: {
                 src: 'js/jquery.nav.js',
@@ -17,11 +18,17 @@ module.exports = function(grunt) {
                 src: 'js/snackbar-sw-registration.js',
                 dest: 'js/snackbar-sw-registration.min.js'
                     },  
-            */                
+                         
             main4: {
+                src: 'js/lazy-load-img.js',
+                dest: 'js/lazy-load-img.min.js'
+                    },
+            */
+            jsglobal: {
                 src: 'js/Quanyin-global.js',
                 dest: 'js/Quanyin-global.min.js'
                     }
+               
                 },                
         concat: {
  /*           options: {
@@ -33,7 +40,7 @@ module.exports = function(grunt) {
                 dest: 'js/snackbar-sw-registration.js',
                     },
             dist2: {
-                src: ['js/loadCSS.js', 'js/csspreload.js'],
+                src: ['js/loadCSS.js', 'js/cssrelpreload.js','js/analytics.js'],
                 dest: 'js/plugin.js',
                     },                    
             dist3: {
@@ -62,10 +69,24 @@ module.exports = function(grunt) {
                     "css/Quanyin-global.min.css": "less/Quanyin-global.less"
                         }
                     }
-                },
-        banner: '/*! <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' */\n',
+                },  
+        imagemin:{  
+            /* 压缩图片大小 */  
+            dist:{  
+                options: {  
+                    optimizationLevel: 3 /* 定义 PNG 图片优化水平  */
+                         },  
+                files: [  
+                       {  
+                    expand: true,  
+                    cwd: 'Source',  
+                    src: ['**/*.{png,jpg,jpeg,ico}'], /* 优化 img 目录下所有 png/jpg/jpeg 图片   */
+                    dest: 'Source/' /* 优化后的图片保存位置，覆盖旧图片，并且不作提示  */ 
+                    }  
+                    ]  
+                }  
+            },    
+        banner: '/*! <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>) || Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> */',
         usebanner: {
             dist: {
                 options: {
@@ -73,7 +94,7 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    src: ['css/Quanyin-global.css', 'css/Quanyin-global.min.css', 'js/Quanyin-global.min.js']
+                    src: ['css/Quanyin-global.css', 'css/Quanyin-global.min.css', 'js/Quanyin-global.min.js','js/Quanyin-global.min.js']
                 }
             }
         },
@@ -95,7 +116,7 @@ module.exports = function(grunt) {
         },
     });
 
-    // Load the plugins.
+    /* Load the plugins. */
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -105,7 +126,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    // Default task(s).
-    grunt.registerTask('default', ['concat','uglify','jshint','less', 'usebanner']);
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    /* Default task(s). */
+    grunt.registerTask('default', ['concat','uglify','less', 'usebanner']); /* 默认不进行图片压缩,原因有点慢 */
+    grunt.registerTask('img', ['imagemin']);
 
 };

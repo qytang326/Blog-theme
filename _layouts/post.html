@@ -59,19 +59,21 @@ layout: default
 				<a href="{{page.author_homepage |default: site.homepage}}">{{ page.author |default: site.Author }}</a>
 				<span class="time">
 				/
-				<time>{{ page.date | date:"%Y-%m-%d" }}</time>
+				<time>{{ page.date | date:"%Y-%m-%d" }}</time></span>
+                {% if site.hit-kounter %}
 				<style>span.test {color: #0085A5;font-weight: bold;}</style>
-				</span>{% if site.hit-kounter %}/&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views{% endif %}
+				/&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
+                {% endif %}
                 <br>
 				<span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong>
 				</span>
 				</p>
-                <hr style="visibility: hidden;">
+                <hr style="visibility: hidden;" />
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
                         <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
-                        Previous<br>
+                        Previous<br/>
                         <span>{{page.previous.title}}</span>
                         </a>
                     </li>
@@ -79,7 +81,7 @@ layout: default
                     {% if page.next.url %}
                     <li class="next">
                         <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
-                        Next<br>
+                        Next<br/>
                         <span>{{page.next.title}}</span>
                         </a>
                     </li>
@@ -110,7 +112,7 @@ layout: default
                 sidebar-container
                 catalog-container">
                 <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
+                    <hr class="hidden-sm hidden-xs" />
                     <h5>
                         <a class="catalog-toggle" href="#">CATALOG</a>
                     </h5>
@@ -128,7 +130,7 @@ layout: default
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
                 <section>
-                    <hr class="hidden-sm hidden-xs">
+                    <hr class="hidden-sm hidden-xs" />
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <a title="{{ page.title }}" href="//raw.githubusercontent.com/{{ site.repository }}/master/{{ page.path }}">源码</a>
@@ -145,11 +147,11 @@ layout: default
                 
                 <!-- Friends Blog -->
                 {% if site.friends %}
-                <hr>
+                <hr/>
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
                     {% for friend in site.friends %}
-                        <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+                        <li><a target="_blank" rel="noreferrer"  href="{{friend.href}}">{{friend.title}}</a></li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -205,7 +207,7 @@ layout: default
 </script>
 <!-- anchor-js, Doc://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js",function(){
         anchors.options = {
          /* visible: 'always', */
           placement: 'right',
@@ -232,5 +234,10 @@ layout: default
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
-<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML""></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossOrigin="anonymous"></script>
+{% endif %}
+
+<!-- lazyload img https://github.com/aFarkas/lazysizes -->
+{% if page.lazyload %}
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.0/lazysizes.min.js" crossOrigin="anonymous" ></script>
 {% endif %}

@@ -11,7 +11,7 @@
 
 >如果要Fork，[模板在这里 gh-pages-theme &rarr;](https://github.com/qytang326/gh-pages-theme), Fork到你自己的`用户名.github.io`下,修改`_config.yml`以及`CNAME`文件即可~
 
-**郑重声明:** 本博客所有文章均采用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](//creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)，分享、演绎需准守以下原则:
+**郑重声明:** 本博客所有文章均采用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](//creativecommons.org/licenses/by-nc-sa/4.0/)，分享、演绎需准守以下原则:
 
 1. 署名: 您需要标出原文链接和作者信息;如果更改了原文章内容,需要说明.
 2. 非商业使用: 您不得将本作品用于商业目的.
@@ -23,7 +23,7 @@
 
 修改自[Hux](//huangxuan.me). powered by [Jekyll](//github.com/mojombo/jekyll) and [Jekyll-bootstrap](//jekyllbootstrap.com).
 
-Licensed under the[Apache License, Version 2.0](/LICENSE)开源证书.
+Licensed under the [Apache License, Version 2.0](/LICENSE) 开源证书.
 
 ### 配置本地环境
 

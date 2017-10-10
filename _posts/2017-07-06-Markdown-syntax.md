@@ -3,15 +3,12 @@ layout:         post
 title:          Markdown 语法说明
 subtitle:       Markdown语法，转自Wow!Ubuntu
 date:           2017-07-06
+lastmod:        2017-10-13
 author:         Quanyin Tang
 author_homepage: "https://quanyin.eu.org"
 description:    Markdown语法，转自Wow!Ubuntu
-categories: 
-                - 学习
-                - 转载
-tags: 
-                - Markdown
-                - Example
+categories:     [Markdown,Example,转载] 
+tags:           [Markdown,Example,转载]
 ---
 
 << [访问 Wow!Ubuntu](http://wowubuntu.com)

@@ -17,7 +17,7 @@ description: "博学而笃志，切问而近思。一只苦逼的物理狗"
         </h3>
         {% endif %}
         <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+            {{ post.content | prepend: post.description| strip_html | truncate:200 }}
         </div>
     </a>
     <p class="post-meta">

@@ -12,14 +12,18 @@
     "devDependencies": {
         "grunt": "^0.4.5",
         "grunt-banner": "^0.2.3",
+        "grunt-contrib": "^0.11.0",
         "grunt-contrib-concat": "^1.0.1",
         "grunt-contrib-connect": "^1.0.2",
         "grunt-contrib-cssmin": "^2.2.1",
+        "grunt-contrib-imagemin": "^2.0.1",
         "grunt-contrib-jshint": "^1.1.0",
         "grunt-contrib-less": "^0.11.4",
         "grunt-contrib-sass": "^1.0.0",
         "grunt-contrib-uglify": "^0.5.1",
-        "grunt-contrib-watch": "^0.6.1"
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-htmllint": "^0.2.7",
+        "jsmin": "^1.0.1"
     },
     "scripts": {
         "preview": "cd _site; python -m SimpleHTTPServer 8020",
@@ -30,7 +34,5 @@
         "push": "git push origin master --tag",
         "cafe": "git co gitcafe-pages; git merge master; git push gitcafe gitcafe-pages:gitcafe-pages --tag; git co master;"
     },
-    "dependencies": {
-        "jsmin": "^1.0.1"
-    }
+    "dependencies": {}
 }
