@@ -1,7 +1,9 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    {% if site.publish %}
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    {% endif %}
     <!--<meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />-->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     {% if site.enforce_ssl %}
@@ -61,12 +63,12 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
     -->
 
-    <link rel="preload" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /></noscript>
-    <link rel="preload" href="{{ "/css/Quanyin-blog.min.css" | prepend: site.baseurl }}" as="style" onload="this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="{{ "/css/Quanyin-blog.min.css" | prepend: site.baseurl }}" /></noscript>
-    <link rel="preload" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" /></noscript>
+    <link rel="preload" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /></noscript>
+    <link rel="preload" type="text/css" href="{{ "/css/Quanyin-global.min.css" | prepend: site.baseurl }}" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" type="text/css" href="{{ "/css/Quanyin-global.min.css" | prepend: site.baseurl }}" /></noscript>
+    <link rel="preload" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" /></noscript>
     <!-- 合并到 Quanyin-blog.css 
     <link rel="preload" href="/css/syntax.min.css" as="style" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/syntax.min.css" /></noscript>

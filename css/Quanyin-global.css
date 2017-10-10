@@ -1,5 +1,4 @@
-/*!
- * Quanyin Blog v1.0.0 (https://qytang326.github.io)
+/*! Quanyin Blog v1.0.0 (https://qytang326.github.io)
  * Copyright 2017 Quanyin Tang <qytang326@gmail.com>
  */
 
@@ -542,6 +541,39 @@ pre,
 .highlight .gc {
   color: #999;
   background-color: #EAF2F5;
+}
+/* Back to top */
+#back-top {
+  position: fixed;
+  bottom: 30px;
+  margin-left: 1040px;
+}
+#back-top a {
+  width: 54px;
+  height: 54px;
+  display: block;
+  background: #dddddd url(/Source/images/icons/Back-Top_Arrow.png) no-repeat center center;
+  background-color: #aaa;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+}
+#back-top a:hover {
+  background-color: #777;
+}
+/* load-CommentGitment */
+#load-CommentGitment {
+  background-color: #FFFFFF;
+  padding: 9px;
+  margin: 0 auto;
+  position: relative;
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
+  border: solid 2px #2D2D2D;
 }
 body {
   /* Quanyin learn from
