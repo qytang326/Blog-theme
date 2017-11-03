@@ -52,22 +52,31 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
-
-				{{ content }}
+                
+                <!-- Multi-Lingual -->
+                {% if page.multilingual %}
+                <!-- Language Selector -->
+                <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+                    <option value="0" selected> 中文 Chinese </option>
+                    <option value="1"> 英文 English </option>
+                </select>
+                {% endif %}
+                
+                {{ content }}
                 
                 <p class="text-right">
-				<a href="{{page.author_homepage |default: site.homepage}}">{{ page.author |default: site.Author }}</a>
-				<span class="time">
-				/
-				<time>{{ page.date | date:"%Y-%m-%d" }}</time></span>
+                <a href="{{page.author_homepage |default: site.homepage}}">{{ page.author |default: site.Author }}</a>
+                <span class="time">
+                /
+                <time>{{ page.date | date:"%Y-%m-%d" }}</time></span>
                 {% if site.hit-kounter %}
-				<style>span.test {color: #0085A5;font-weight: bold;}</style>
-				/&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
+                <style>span.test {color: #0085A5;font-weight: bold;}</style>
+                /&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
                 {% endif %}
                 <br>
-				<span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong>
-				</span>
-				</p>
+                <span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong>
+                </span>
+                </p>
                 <hr style="visibility: hidden;" />
                 <ul class="pager">
                     {% if page.previous.url %}
@@ -134,14 +143,14 @@ layout: default
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         <a title="{{ page.title }}" href="//raw.githubusercontent.com/{{ site.repository }}/master/{{ page.path }}">源码</a>
-        				{% for tag in site.tags %}
+                        {% for tag in site.tags %}
                             {% if tag[1].size >= site.featured-condition-size %}
-                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                                <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                     {{ tag[0] }}
                                 </a>
                             {% endif %}
-        				{% endfor %}
-        			</div>
+                        {% endfor %}
+                    </div>
                 </section>
                 {% endif %}
                 

@@ -34,10 +34,10 @@ compress_html:                          # 压缩html
 plugins: 
   - github-pages
   - jekyll-paginate
-  - jekyll-github-metadata
+#  - jekyll-github-metadata
 #  - jekyll-mentions
   - jekyll-sitemap #改为手动生成
-  - jekyll-gist  
+#  - jekyll-gist  
   - jekyll-feed
   - jemoji
 ### Markdown settings

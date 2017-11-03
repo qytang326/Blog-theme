@@ -74,7 +74,8 @@ module.exports = function(grunt) {
             /* 压缩图片大小 */  
             dist:{  
                 options: {  
-                    optimizationLevel: 3 /* 定义 PNG 图片优化水平  */
+                    optimizationLevel: 3, /* 定义 PNG 图片优化水平  */
+                    progressive:true,
                          },  
                 files: [  
                        {  
