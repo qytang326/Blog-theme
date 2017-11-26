@@ -33,8 +33,7 @@ tags:           [Example,Github-pages,转载]
 
 你需要将一段script加入到_layout/post.html 里面。我是不会告诉你这段代码是从knited的html里面copy过来的(在最后面)。
 
-{% highlight javascript %}
-
+```javascript
 // mathjax 
 <script>
   (function () {
@@ -44,8 +43,7 @@ tags:           [Example,Github-pages,转载]
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
-
-{% endhighlight %}
+```
 
 或者:
 
