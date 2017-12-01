@@ -1,21 +1,20 @@
 
-> 自由而无用,  
-> 离开世界之前,一切都是过程。
+> Anything for Nothing, chase the soul devoted to liberty rather than utility.  
+> Before dead, everything is nothing but the process.
 
-Hey,I'm Quanyin,一枚苦逼物理狗,多出没于[Blog](//qytang326.github.io)、[Weibo](weibo.com/)、[Zhihu](https://www.zhihu.com/people/qytang326)、[Github](http://github.com/qytan326)等地带,绝招尚在开发中。
+Hey,I'm Quanyin,major in Physics. You can find me in [Blog](//qytang326.github.io)、[Weibo](weibo.com/)、[Zhihu](//www.zhihu.com/people/qytang326)、[Github](//github.com/qytan326)。
 
-目前复旦大学理论物理研究生在读,研究方向为计算凝聚态物理,隶属于[CCMG](//www.physics.fudan.edu.cn/tps/people/xggong/)。
+I am currently a graduate student at the Department of Physics, Fudan University, supervised by Prof. [Xingao Gong](//phys.fudan.edu.cn/f7/43/c7605a63299/page.htm). I obtained my BS degree in Physics from Fudan University in 2017. My research focuses on [Computional Condensed Matter Physics](//www.physics.fudan.edu.cn/tps/people/xggong/).
 
-一些作品和开源软件项目,?? 戳 [](link)、[Github](//github.com/qytang326)。 
 
-##### 技能
+##### Skills
 
-- C语言
+- C language
 - Linux Shell
 - Python
 - MATLAB
 
-##### 目前在学
-- Python科学计算
-- 机器学习
+##### Learning
+- Python for Scientific Calculation
+- Machine Learning
 

@@ -28,20 +28,19 @@
     <meta name="robots" content="all" />
     <meta name="author" content="{{ site.Author }},{{ site.Email }}" />
     <meta name="copyright" content="{{ site.Author }}" />
-    <meta name="description" content="{{ site.description }}" />
-    <meta name="keywords"  content="{{ site.keyword }}" />
+    <meta name="description" content="{{ page.description | append: " —— " | append: site.description }}" />
+    <meta name="keywords"  content="{{ page.keyword | append: site.keyword }}" />
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}" />
-    
-    <meta property="og:title" content ="{{ site.SEOTitle }}" />
+    <meta property="og:title" content ="{{ page.title | append: " —— " | append: site.SEOTitle }}" />
     <meta property="og:type" content ="Blog" />
-    <meta property="og:url" content ="{{site.homepage}}" />
+    <meta property="og:url" content ="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | default: site.homepage }}" />
     <meta property="og:image" content ="/Source/images/icons/fav.ico" />
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
       
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/Source/pwa/manifest.json" />
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/Source/images/icons/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
