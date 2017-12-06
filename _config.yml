@@ -32,7 +32,7 @@ compress_html:                          # 压缩html
   startings:      [html, head, body]
 ### Gems
 plugins: 
-  - github-pages
+#  - github-pages
   - jekyll-paginate
 #  - jekyll-github-metadata
 #  - jekyll-mentions

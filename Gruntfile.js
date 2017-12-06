@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-    // Project configuration.
+    /* Project configuration. */
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         expand: true,
@@ -80,13 +80,40 @@ module.exports = function(grunt) {
                 files: [  
                        {  
                     expand: true,  
-                    cwd: 'Source',  
+                    cwd: 'Source/images/',  
                     src: ['**/*.{png,jpg,jpeg,ico}'], /* 优化 img 目录下所有 png/jpg/jpeg 图片   */
-                    dest: 'Source/' /* 优化后的图片保存位置，覆盖旧图片，并且不作提示  */ 
+                    dest: 'Source/images/' /* 优化后的图片保存位置，覆盖旧图片，并且不作提示  */ 
                     }  
                     ]  
                 }  
-            },    
+            },
+        image: {
+          static: {
+            options: {
+              optipng: true,
+              pngquant: true,
+              zopflipng: true,
+              pngout:true,
+              jpegRecompress: true,
+              mozjpeg: true,
+              jpegoptim:true,
+              guetzli: true,
+              gifsicle: true,
+              svgo: true
+            },
+            files: {
+              '/favicon.ico': 'favicon.ico'
+            } 
+          },
+          dynamic: {
+            files: [{
+              expand: true,
+              cwd: 'Source/images/',
+              src: ['**/*.{png,jpg,gif,svg.ico}'],
+              dest: 'Source/images/'
+            }]
+          }
+        },            
         banner: '/*! <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>) || Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> */',
         usebanner: {
             dist: {
@@ -128,8 +155,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-image');
     /* Default task(s). */
     grunt.registerTask('default', ['concat','uglify','less', 'usebanner']); /* 默认不进行图片压缩,原因有点慢 */
-    grunt.registerTask('img', ['imagemin']);
+    grunt.registerTask('img', ['imagemin','image']);
 
 };

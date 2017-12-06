@@ -23,6 +23,7 @@
         "grunt-contrib-uglify": "^0.5.1",
         "grunt-contrib-watch": "^0.6.1",
         "grunt-htmllint": "^0.2.7",
+        "grunt-image": "^4.1.0",
         "jsmin": "^1.0.1"
     },
     "scripts": {

@@ -28,10 +28,10 @@
     <meta name="robots" content="all" />
     <meta name="author" content="{{ site.Author }},{{ site.Email }}" />
     <meta name="copyright" content="{{ site.Author }}" />
-    <meta name="description" content="{{ page.description | append: " —— " | append: site.description }}" />
     <meta name="keywords"  content="{{ page.keyword | append: site.keyword }}" />
+    <meta name="description" content="{{ page.description | default: 'Blog'  | append: " —— " | append: site.description }}" />
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}" />
-    <meta property="og:title" content ="{{ page.title | append: " —— " | append: site.SEOTitle }}" />
+    <meta property="og:title" content ="{{ page.title | default: 'Home' | append: " —— " | append: site.SEOTitle }}" />
     <meta property="og:type" content ="Blog" />
     <meta property="og:url" content ="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | default: site.homepage }}" />
     <meta property="og:image" content ="/Source/images/icons/fav.ico" />
