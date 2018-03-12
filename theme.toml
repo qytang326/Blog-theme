@@ -1,0 +1,22 @@
+name = "Quanyin"
+license = "Apache 2.0"
+licenselink = "https://github.com/qytang326/Blog-theme/master/LICENSE.md"
+description = "Quanyin Blog theme"
+homepage = "https://github.com/qytang326/Blog-theme"
+tags = ["blog", "bootstrap"]
+features = ["blog", "bootstrap"]
+min_version = 0.18
+
+[author]
+  name = "Quanyin Tang"
+  homepage = "https://qytang326.github.io"
+
+# original theme
+[original]
+  name = "Startbootstrap Clean Blog"
+  homepage = "http://startbootstrap.com/template-overviews/clean-blog/"
+  repo = "https://github.com/IronSummitMedia/startbootstrap-clean-blog"
+[original_2]
+  name = "Huxpro Blog"
+  homepage = "https://huxpro.github.io"
+  repo = "https://github.com/huxpro/huxpro.github.io"

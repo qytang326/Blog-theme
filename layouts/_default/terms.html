@@ -1,0 +1,19 @@
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+{{ partial "header.html" . }}
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {{ $data := .Data.Plural }}
+            {{ $terms := .Data.Terms.ByCount }}
+            {{ $length := len $terms }}
+            <div id='tag_cloud' class="tags">
+            {{ range $key, $value := $terms }}
+                <a href="{{ $data | relLangURL }}/{{ $value.Term | urlize }}/" rel="{{ len $value.Pages }}">{{ $value.Term }}</a>
+            {{ end }}
+            </div>      
+        </div>
+    </div>
+</div>
+{{ partial "footer.html" . }}

@@ -1,0 +1,21 @@
+<!-- 参考Even -->
+<ul class="pager">
+    {{ with .PrevInSection }}
+    <li class="previous">
+        <a href="{{ .URL }}" data-toggle="tooltip" data-placement="top" title="{{.Title}}">
+        Previous
+        <br/>
+        <span>{{.Title}}</span>
+        </a>
+    </li>
+    {{ end }}
+    {{ with .NextInSection }}
+    <li class="next">
+        <a href="{{ .URL}}" data-toggle="tooltip" data-placement="top" title="{{.Title}}">
+        Next
+        <br/>
+        <span>{{.Title}}</span>
+        </a>
+    </li>
+    {{ end }}
+</ul>

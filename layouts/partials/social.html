@@ -1,0 +1,32 @@
+<!-- SNS 链接 -->
+{{ if .Site.Params.RSS }}
+<li>
+  <a target="_blank" rel="noreferrer" href="{{ .RSSLink }}">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em> 
+      <em class="fa fa-rss fa-stack-1x fa-inverse"></em> 
+    </span>
+  </a>
+</li>
+{{ end }}                  
+{{ with .Site.Params.email }}
+<li>
+  <a href="mailto:{{ . }}">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-envelope-o fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+{{ end }}
+{{ range $name, $path := .Site.Params.social }}
+<li>
+  <a target="_blank" rel="noreferrer" href="{{ $path | safeURL }}">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-{{ $name }} fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+{{ end }}
+

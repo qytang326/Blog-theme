@@ -1,0 +1,10 @@
+<!-- Friends Blog 友链-->
+{{ if .Site.Params.friend }}
+<hr/>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+{{ range .Site.Params.friend }}
+    <li><a target="_blank" rel="noreferrer"  href="{{ .url }}">{{ .title }}</a></li>
+{{ end }}
+</ul>
+{{ end }}

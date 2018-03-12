@@ -1,0 +1,19 @@
+<!-- Short About -->
+{{ if .Site.Params.sidebar }}
+<hr/>
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
+        {{ if .Site.Params.sidebar_avatar }}
+        <img src="{{.Site.Params.sidebar_avatar}}" alt=" " />
+        {{ end }}
+        {{ if .Site.Params.sidebar_about_description }}
+        <p>{{ .Site.Params.sidebar_about_description | markdownify }}</p>
+        {{ end }}
+        <!-- SNS Link -->
+        <ul class="list-inline text-center">
+            {{ partial  "social.html" . }}
+        </ul>
+    </div>
+</section>
+{{end}}

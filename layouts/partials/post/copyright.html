@@ -1,0 +1,10 @@
+<p class="text-right">
+    <a href="{{ or .Params.author_homepage  .Site.Params.homepage }}">{{ if isset .Params "author" }} {{ .Params.author }}{{else}}{{ .Site.Params.Author }}{{end}}</a>
+    <span class="time">/<time>{{ dateFormat "2006-01-02" .Date }}</time></span>
+    {{ if .Site.Params.hit_kounter }}
+    <style>span.test {color: #0085A5;font-weight: bold;}</style>
+    /&nbsp;<span data-hk-page="current" class="test"> - </span>&nbsp;views
+    {{ end }}
+    <br/>
+    <span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong></span>
+</p>

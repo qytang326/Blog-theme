@@ -1,0 +1,12 @@
+<!-- Page Header 抬头的图片 -->
+<header class="intro-header" style="background-image: url('{{.Site.BaseURL}}{{or .Params.image (.Site.Params.default_header_image) }}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 site-heading">
+                <h1>{{ or .Params.Title .Site.Title }}</h1>
+                <!-- <hr class="small" > -->
+                {{ with or .Description .Site.Params.Description }}<span class="subheading">{{ . | markdownify}}</span>{{ end }}
+            </div>
+        </div>
+    </div>
+</header>

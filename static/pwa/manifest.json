@@ -1,0 +1,19 @@
+{
+  "name": "Quanyin Blog",
+  "short_name": "Quanyin Blog",
+  "description": "博学而笃志，切问而近思.",
+  "icons": [{
+    "src": "/img/icons/128.jpg",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "/img/icons/512.jpg",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#fff",
+  "theme_color": "#000",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

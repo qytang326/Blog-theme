@@ -1,0 +1,26 @@
+{{ partial "head.html" .}}
+{{ partial "navbar.html" .}}
+{{ partial "header.html" .}}
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 postlist-container">
+            <!-- Pager -->
+            {{/* (index .Site.Paginate) */}}
+            {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+            {{ range $paginator.Pages }}
+                {{ .Render "summary" }}
+            {{ end }}
+            <ul class="pager">
+                {{ with $paginator.Prev }}
+                <li class="previous"><a href="{{ .URL }}">&larr; Newer Posts</a></li>
+                {{  end }}
+                {{ with $paginator.Next }}
+                <li class="next"><a href="{{ .URL }}">Older Posts &rarr;</a></li>
+                {{ end }}
+            </ul>          
+        </div>
+    <!-- Sidebar Container -->
+    {{ partial "sidebar.html" . }}
+</div>
+{{ partial "footer.html" .}}

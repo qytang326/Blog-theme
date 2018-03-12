@@ -1,0 +1,46 @@
+{{ if and .IsPage (or .Params.comment (and .Site.Params.gitment.enable (ne .Params.comment false))) }}
+<div class="comment">
+    <div id="container"></div>
+    <link rel="preload" href="{{ .Site.BaseURL }}/css/gitment.min.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/gitment.min.css" /></noscript>
+    <script  type="text/javascript" src="{{ .Site.BaseURL }}/js/gitment.min.js" ></script>
+    <!-- 10月8日,gitment改用点击加载的方式-->
+    <div style="text-align:center; text-muted">
+        <button class="btn btn-default text-muted" id="load-CommentGitment" onclick="CommentGitment.load();">点击加载评论</button>
+    </div>
+    <!-- 整合到 plugin.less -> plugin.css -> Quanyin-global.css
+    <style type="text/css">
+    #load-CommentGitment {
+        background-color:#FFFFFF;
+        padding:9px;
+        margin:0 auto;
+        position:relative;
+        font-size:16px;
+        color:#555;
+        text-decoration:none;
+        border: solid 2px #2D2D2D;
+    }
+    </style>
+    -->
+    <script >
+    var CommentGitment = {
+        load:function CommentGitment(){
+            (function () {
+            var gitment = new Gitment({
+              id: '{{ .File.BaseFileName }}', /* 页面ID，可选。默认为 location.href */
+              owner: '{{ .Site.Params.gitment.github_username}}', /* 你的 Github ID */
+              repo: '{{ .Site.Params.gitment.repo_for_gitment}}', /* 存储评论的 repo */
+              title: '{{ .Title }}',/*issue页的标题 */
+              oauth: {
+                client_id: '{{.Site.Params.gitment.oauth_client_id}}', /*你的 client ID */
+                client_secret: '{{.Site.Params.gitment.oauth_client_secret}}', /*你的 client secret */
+              },
+            });
+            gitment.render('container');
+            }());
+        $('#load-CommentGitment').remove(); /*加载后移除按钮 */
+          }
+      }
+    </script>
+</div>
+{{ end }}

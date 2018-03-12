@@ -1,0 +1,16 @@
+<!-- Featured Tags -->
+{{ if .Site.Params.featured_tags }}
+<hr/>
+<section>
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        {{ $name := .Data.Plural }}
+        {{ $terms := .Data.Terms.ByCount }}
+        {{ range $key, $value := $terms }}
+            <a href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}/" title="{{ $value.Term }}" rel="{{ len $value.Pages }}">
+                {{ $value.Term }}
+            </a>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

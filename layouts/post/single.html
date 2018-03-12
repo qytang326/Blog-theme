@@ -1,0 +1,143 @@
+{{ partial "head.html" .}}
+{{ partial "navbar.html" .}}
+<!-- Page Header -->
+<!-- KeyNote -->
+{{ if .Params.iframe }}
+<style type="text/css">
+    header.intro-header{
+        height: 500px;
+        overflow: hidden;
+    }
+    header iframe{
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    /* Override Nav Style */
+    {{ if  eq .Params.navcolor "invert" }}
+        .navbar-custom .nav li a,
+        .navbar-custom .nav li a:hover,
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-brand:hover {color:#777;}
+        .navbar-default .navbar-toggle .icon-bar {background-color:#777;}
+    {{ end }}
+</style>
+<header class="intro-header" >
+    <iframe src="{{ .Params.iframe }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                     <div class="post-heading">
+                       <div class="tags">{{ partial "post/tags.html" . }}</div>
+                       <h1>{{ .Title }}</h1>
+                       <h2 class="subheading">{{ .Params.subtitle }}</h2>
+                       <span class="meta">{{ partial "post/readtime.html" . }}<br/>{{ partial "post/meta.html" . }}</span>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </iframe>
+</header>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+<!-- resize header to fullscreen keynotes -->
+<script>
+    var $header = document.getElementsByTagName("header")[0];
+    function resize(){
+        /*
+         * leave 85px to both
+         * - told/imply users that there has more content below
+         * - let user can scroll in mobile device, seeing the keynote-view is unscrollable
+         */
+        $header.style.height = (window.innerHeight-85) + 'px';
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+        resize();
+    });
+    window.addEventListener('load', function(){
+        resize();
+    });
+    window.addEventListener('resize', function(){
+        resize();
+    });
+    resize();
+</script>
+{{ else }}
+<!-- Common Post -->
+<!-- Set your background image for this header on the line below. -->
+<style type="text/css">
+header.intro-header{
+    position: relative;
+    background-image: url({{ .Site.BaseURL }}{{ if isset .Params "image" }}{{.Params.image  }}{{ else }}{{ .Site.Params.default_post_header_image }}{{ end }})
+}
+header.intro-header .header-mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0, {{ or .Params.header_mask 0.3 }});
+}
+</style>
+<header class="intro-header" >
+<div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+         <div class="post-heading">
+           <div class="tags">{{ partial "post/tags.html" . }}</div>
+           <h1>{{ .Title }}</h1>
+           <h2 class="subheading">{{ .Params.subtitle }}</h2>
+           <span class="meta">{{ partial "post/meta.html" . }}</span>
+         </div>
+       </div>
+    </div>
+  </div>
+</header>
+{{end}}
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                <!-- Multi-Lingual 移植 待完成-->
+                {{ if .Params.multilingual }}
+                    <!-- Language Selector -->
+                    <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+                        <option value="0" selected> 中文 Chinese </option>
+                        <option value="1"> 英文 English </option>
+                    </select>
+                {{ end }}
+
+                {{ .Content }}
+              
+                {{ partial "post/copyright.html" . }}
+                <hr style="visibility: hidden;" />
+                <!-- Pager -->
+                {{ partial "post/pager.html" .}}
+                <!-- Comment -->
+                {{ partial "comments.html" .}}
+                <!-- Reward -->
+                {{ partial "post/reward.html" . }}
+            </div>                
+            <!-- Catalog -->
+            <!-- TOC -->
+            {{ partial "post/toc.html" . }}
+            <!-- 文章末尾 -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+                {{ partial "FeaturedTags.html" . }}
+                {{ partial "friends.html" . }}
+            </div>
+        </div>
+    </div>
+</article>
+{{ partial "post/plugin.html" .}}
+{{ partial "footer.html" .}}

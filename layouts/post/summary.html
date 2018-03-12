@@ -1,0 +1,11 @@
+<div class="post-preview">
+    <a href="{{ .Permalink }}">
+        <h2 class="post-title">{{ .Title }}</h2>
+        <h3 class="post-subtitle">{{ .Params.subtitle }}</h3>
+        <div class="post-content-preview">
+            {{ .Summary }}
+        </div>
+    </a>
+    <p class="post-meta">{{ partial "post/meta.html" .}}</p>
+</div>
+<hr>

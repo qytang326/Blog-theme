@@ -1,0 +1,48 @@
+{{ if .Site.Params.anchorjs }}
+<!-- anchor-js, Doc://bryanbraun.github.io/anchorjs/ -->
+<!-- async load function -->
+<script type="text/javascript">
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js",function(){
+        anchors.options = {
+         /* visible: 'always', */
+          placement: 'right',
+         /* icon: '#' */
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+{{ end }}
+
+{{ if .Params.mathjax }}
+<!-- mathjax, Doc: http://docs.mathjax.org/en/latest/start.html -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossOrigin="anonymous"></script>
+{{ end }}
+
+{{ if .Params.lazyload }}
+<!-- lazyload img https://github.com/aFarkas/lazysizes -->
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.0/lazysizes.min.js" crossOrigin="anonymous" ></script>
+{{ end }}
