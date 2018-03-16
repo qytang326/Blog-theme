@@ -3,6 +3,26 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         expand: true,
+                
+        concat: {           /* js 文件合并 */
+ /*           options: {
+            separator: ';',
+                      },
+*/                    
+            dist: {
+                src: ['static/js/snackbar.js', 'static/js/sw-registration.js'],
+                dest: 'static/js/snackbar-sw-registration.js',
+                    },
+            plugin: {
+                src: ['static/js/loadCSS.js', 'static/js/cssrelpreload.js'], /* 移除 analytic.js*/
+                dest: 'static/js/plugin.js',
+                    },                    
+            global: {
+                src: ['static/js/Quanyin-Blog.js','static/js/plugin.js'],
+                dest: 'static/js/Quanyin-global.js',
+                    },        
+                },
+                
         uglify: {   /* js文件压缩 */
             main1: {
                 src: 'static/js/jquery.nav.js',
@@ -21,28 +41,21 @@ module.exports = function(grunt) {
                 src: 'static/js/Quanyin-global.js',
                 dest: 'static/js/Quanyin-global.min.js'
                     }
-                },                
-        concat: {           /* js 文件合并 */
- /*           options: {
-            separator: ';',
-                      },
-*/                    
-            dist1: {
-                src: ['static/js/snackbar.js', 'js/sw-registration.js'],
-                dest: 'static/js/snackbar-sw-registration.js',
-                    },
-            dist2: {
-                src: ['static/js/loadCSS.js', 'js/cssrelpreload.js','js/analytics.js'],
-                dest: 'static/js/plugin.js',
-                    },                    
-            dist3: {
-                src: ['static/js/Quanyin-Blog.js','js/plugin.js'],
-                dest: 'static/js/Quanyin-global.js',
-                    },        
-                },
+                }, 
+                
         jshint: {
-          all: ['static/js/Quanyin-global.js']
-        },                
+            files: ['Gruntfile.js', 'static/**/*.js'],
+            options: {
+                globals: {
+                  jQuery: true,
+                  /*console: true,
+                  module: true,
+                  document: true,
+                  */      },
+                    esversion: 6,
+                    },
+                },        
+        
         less: { /*less文件生成css */
             expanded: {
                 options: {

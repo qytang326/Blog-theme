@@ -4,7 +4,7 @@ rm -rf examplesite/public
 
 cd examplesite
 
-hugo --baseUrl="https://qytang326.coding.me/Blog-theme"
+hugo --baseUrl="https://qytang326.coding.me/Blog-theme" -t Blog-Theme-Hugo
 
 cd public
 
@@ -28,7 +28,7 @@ rm -rf examplesite/public
 
 cd examplesite/
 
-hugo --baseUrl="https://theme.quanyin.ml"
+hugo --baseUrl="https://theme.quanyin.ml" -t Blog-Theme-Hugo
 
 cd public
 
