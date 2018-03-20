@@ -1,0 +1,20 @@
+<!-- /post/ 所有post文章列表 -->
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+{{ partial "header.html" . }}
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
+        {{ range .Data.Pages.GroupByDate "2006" }}
+        <legend id="{{ .Key }}">{{ .Key }}</legend><!--按年分类 -->
+        <ul>
+            {{ range .Pages }}
+                <li><span>{{ .Date.Format "01-02" }}</span> &raquo; <a class="site-heading post-preview post-title" href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+        </div>
+    </div>
+</div>
+{{ partial "footer.html" . }}

@@ -24,17 +24,16 @@
     {{ range $key, $value := $terms }}
     <div class="tab-pane" id="{{ $key | urlize }}">
       <h3 style="margin-top: 0px">Posts in {{ $value.Term | humanize}}</h3>
-      <ul class="list-unstyled ">
-              <div class="one-tag-list">
-                      {{ range $value.Pages }}
-                  <li>
-                        <a href="{{ .URL }}">{{ .Title }}<span class="text-muted post-title"> &raquo;  {{ dateFormat "2006-01-02" .Date }}</span></a> 
-                  </li>
-                      {{end}}
-              </div>
-      </ul>
+        <ul class="list-unstyled">
+            {{ range $value.Pages }}
+            <div class="postlist-container">
+                <li>
+                    <a href="{{ .URL }}">{{ .Title }}</a><span> &raquo; {{ dateFormat "2006-01-02" .Date }}</span> 
+                </li>
+            </div>
+            {{end}}
+        </ul>
     </div>
     {{end}}
 </div>
 {{ partial "footer.html" . }}
-
