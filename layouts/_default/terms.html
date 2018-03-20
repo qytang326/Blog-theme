@@ -2,18 +2,39 @@
 {{ partial "navbar.html" . }}
 {{ partial "header.html" . }}
 <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {{ $data := .Data.Plural }}
-            {{ $terms := .Data.Terms.ByCount }}
-            {{ $length := len $terms }}
-            <div id='tag_cloud' class="tags">
-            {{ range $key, $value := $terms }}
-                <a href="{{ $data | relLangURL }}/{{ $value.Term | urlize }}/" rel="{{ len $value.Pages }}">{{ $value.Term }}</a>
-            {{ end }}
-            </div>      
-        </div>
+<div class="col-sm-2 col-sm-offset-2 col-xs-5">
+    <ul class="nav nav-tabs-vertical">
+    {{ $data := .Data.Plural }}
+    {{ $terms := .Data.Terms.ByCount }}
+    {{ $length := len $terms }}
+    {{ range $key, $value := $terms }}
+            <li>
+                <a href="{{ $data | relLangURL }}#{{ $key | urlize }}" data-toggle="tab">
+                     {{ $value.Term | humanize}} <span class="badge pull-right">{{ len $value.Pages }}</span>
+               </a>
+            </li>
+    {{end}}
+    </ul>
+</div>
+<!-- Tab panes -->
+<div class="tab-content col-sm-8 col-xs-7">
+    {{ $data := .Data.Plural }}
+    {{ $terms := .Data.Terms.ByCount }}
+    {{ $length := len $terms }}
+    {{ range $key, $value := $terms }}
+    <div class="tab-pane" id="{{ $key | urlize }}">
+      <h3 style="margin-top: 0px">Posts in {{ $value.Term | humanize}}</h3>
+      <ul class="list-unstyled ">
+              <div class="one-tag-list">
+                      {{ range $value.Pages }}
+                  <li>
+                        <a href="{{ .URL }}">{{ .Title }}<span class="text-muted post-title"> &raquo;  {{ dateFormat "2006-01-02" .Date }}</span></a> 
+                  </li>
+                      {{end}}
+              </div>
+      </ul>
     </div>
+    {{end}}
 </div>
 {{ partial "footer.html" . }}
+
