@@ -63,8 +63,9 @@
     })
 </script>
 
+<!--  For Post -->
 <!-- Side TOC -->
-{{ if .Site.Params.toc }} 
+{{ if and .IsPage (or .Params.toc (and .Site.Params.toc (ne .Params.toc false))) }}
 <script type="text/javascript">
     function generateCatalog (selector) {
         /* interop with multilangual */
@@ -116,6 +117,48 @@
     });
 </script>
 {{ end }}
+
+{{ if .Params.mathjax }}
+<!-- mathjax, Doc: http://docs.mathjax.org/en/latest/start.html -->
+<!-- <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script> -->
+<!-- http://www.gohugo.org/doc/tutorials/mathjax/ -->
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossOrigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+<script type="text/x-mathjax-config">
+<!--   MathJax.Hub.Queue(function() {
+    /* Fix <code> tags after MathJax finishes running. This is a
+     hack to overcome a shortcoming of Markdown. Discussion at
+     https://github.com/mojombo/jekyll/issues/199 
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});*/  -->
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+{{ end }}
+
+{{ if .Params.lazyload }}
+<!-- lazyload img https://github.com/aFarkas/lazysizes -->
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.1/lazysizes.min.js" crossOrigin="anonymous" ></script>
+{{ end }}
+
 <!--多语言支持,待移植-->
 
 <!-- 网站运行时间记录 -->

@@ -1333,6 +1333,24 @@ img::-moz-selection {
   text-decoration: none;
   border: solid 2px #2D2D2D;
 }
+/* For Mathjax */
+code.has-jax {
+  font: inherit;
+  font-size: 100%;
+  background: inherit;
+  border: inherit;
+  color: #404040;
+}
+/* For anchor-js  */
+/* place left on bigger screen */
+@media all and (min-width: 800px) {
+  .anchorjs-link {
+    position: absolute;
+    left: -0.75em;
+    font-size: 1.1em;
+    margin-top: -0.1em;
+  }
+}
 /* Background */
 .chroma {
   color: #f8f8f2;

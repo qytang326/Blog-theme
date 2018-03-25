@@ -21,6 +21,7 @@
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
 </script>
+<!--  移到plugin.less中去，合并到Quanyin-global.css中
 <style>
     /* place left on bigger screen */
     @media all and (min-width: 800px) {
@@ -31,18 +32,5 @@
             margin-top : -0.1em;
         }
     }
-</style>
-{{ end }}
-
-{{ if .Params.mathjax }}
-<!-- mathjax, Doc: http://docs.mathjax.org/en/latest/start.html -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossOrigin="anonymous"></script>
-{{ end }}
-
-{{ if .Params.lazyload }}
-<!-- lazyload img https://github.com/aFarkas/lazysizes -->
-<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.1/lazysizes.min.js" crossOrigin="anonymous" ></script>
+</style> -->
 {{ end }}
