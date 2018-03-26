@@ -6,10 +6,13 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 postlist-container">
             <!-- Language Selector -->
-            <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+            <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)" hidden>
                 <option value="0" selected> 中文 Chinese </option>
                 <option value="1"> 英文 English </option>
             </select>
+            <!-- 按钮 -->
+            <h3 id="zh1"><a class="label label-default" onclick="onLanChange('1')">中文 Chinese </a></h3>
+            <h3 id="en1" hidden><a class="label label-default" onclick="onLanChange('0')">英文 English </a></h3>
             <!-- Chinese Version -->
             <div class="zh post-container">
                 {{ partial "about/zh.md" . | markdownify }}
@@ -34,20 +37,28 @@
                     $select.selectedIndex = 1;
                     $en.style.display = "block";
                     $zh.style.display = "none";
+                    $("#en1").show();
+                    $("#zh1").hide();
                 /* zh by default */
                 }else{
                     /* not trigger onChange, otherwise cause a loop call. */
                     $select.selectedIndex = 0;
                     $zh.style.display = "block";
                     $en.style.display = "none";
+                    $("#zh1").show();
+                    $("#en1").hide();
                 }
             }
             /* handle select change */
             function onLanChange(index){
                 if(index == 0){
                     window.location.hash = "#zh";
+                    $("#zh1").show();
+                    $("#en1").hide();
                 }else{
                     window.location.hash = "#en";
+                    $("#zh1").hide();
+                    $("#en1").show();
                 }
             }
             /* init */

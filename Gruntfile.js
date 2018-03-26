@@ -9,42 +9,53 @@ module.exports = function(grunt) {
             separator: ';',
                       },
 */                    
-            dist: {
-                src: ['static/js/snackbar.js', 'static/js/sw-registration.js'],
-                dest: 'static/js/snackbar-sw-registration.js',
-                    },
+            sw: {
+                src: ['src/js/snackbar.js', 'src/js/sw-registration.js'],
+                dest: 'src/js/snackbar-sw-registration.js',
+                    },                  
             plugin: {
-                src: ['static/js/loadCSS.js', 'static/js/cssrelpreload.js'], /* 移除 analytic.js*/
-                dest: 'static/js/plugin.js',
+                src: ['src/js/loadCSS.js', 'src/js/cssrelpreload.js'], /* 移除 analytic.js*/
+                dest: 'src/js/plugin.js',
                     },                    
             global: {
-                src: ['static/js/Quanyin-Blog.js','static/js/plugin.js'],
-                dest: 'static/js/Quanyin-global.js',
+                src: ['src/js/Quanyin-Blog.js','src/js/plugin.js'],
+                dest: 'src/js/Quanyin-global.js',
                     },        
                 },
                 
-        uglify: {   /* js文件压缩 */
-            main1: {
-                src: 'static/js/jquery.nav.js',
+        uglify: {   /* js文件压缩 使用grunt-contrib-uglify-es */
+            sw: {
+                src: 'src/sw.js',
+                dest: 'static/sw.min.js'
+                    },
+            snackbar: {
+                src: 'src/js/snackbar-sw-registration.js',
+                dest: 'static/js/snackbar-sw-registration.min.js'
+                    },                    
+            nav: {
+                src: 'src/js/jquery.nav.js',
                 dest: 'static/js/jquery.nav.min.js'
                     },
-            main2: {
-                src: 'static/js/jquery.tagcloud.js',
+            tagcloud: {
+                src: 'src/js/jquery.tagcloud.js',
                 dest: 'static/js/jquery.tagcloud.min.js'
                     },
-            main3: {
-                src: 'static/js/gitment.js',
+            gitment: {
+                src: 'src/js/gitment.js',
                 dest: 'static/js/gitment.min.js'
                     },
-            /* snackbar-sw-registration.js只能单独处理 */
+            busuanzi: {
+                src: 'src/js/busuanzi.pure.js',
+                dest: 'static/js/busuanzi.pure.mini.js'
+                    },
             jsglobal: {
-                src: 'static/js/Quanyin-global.js',
+                src: 'src/js/Quanyin-global.js',
                 dest: 'static/js/Quanyin-global.min.js'
                     }
                 }, 
                 
         jshint: {
-            files: ['Gruntfile.js', 'static/**/*.js'],
+            files: ['Gruntfile.js', 'static/**/*.js','src/**/*.js'],
             options: {
                 globals: {
                   jQuery: true,
@@ -62,7 +73,7 @@ module.exports = function(grunt) {
                     paths: ["static/css"]
                 },
                 files: {
-                    "static/css/Quanyin-global.css": "static/less/Quanyin-global.less"
+                    "src/css/Quanyin-global.css": "src/less/Quanyin-global.less"
                         }
                       },
             minified: {
@@ -71,8 +82,8 @@ module.exports = function(grunt) {
                     cleancss: true
                 },
                 files: {
-                    "static/css/Quanyin-global.min.css": "static/less/Quanyin-global.less",
-                    "static/css/gitment.min.css": "static/less/gitment.less",
+                    "static/css/Quanyin-global.min.css": "src/less/Quanyin-global.less",
+                    "static/css/gitment.min.css": "src/less/gitment.less",
                         }
                     }
                 },            
@@ -84,7 +95,7 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    src: ['static/css/Quanyin-global.css', 'static/css/Quanyin-global.min.css', 'static/js/Quanyin-global.js','static/js/Quanyin-global.min.js']
+                    src: ['src/css/Quanyin-global.css', 'static/css/Quanyin-global.min.css', 'src/js/Quanyin-global.js','static/js/Quanyin-global.min.js']
                 }
             }
         },
@@ -97,8 +108,8 @@ module.exports = function(grunt) {
                 },
             },
             less: {
-                files: ['static/less/*.less'],
-                tasks: ['static/less'],
+                files: ['src/less/*.less'],
+                tasks: ['src/less'],
                 options: {
                     spawn: false,
                 }
@@ -112,7 +123,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     /* Default task(s). */
