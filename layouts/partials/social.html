@@ -1,7 +1,7 @@
 <!-- SNS 链接 -->
 {{ if .Site.Params.RSS }}
 <li>
-  <a target="_blank" rel="noreferrer" href="{{ .RSSLink }}">
+  <a target="_blank" rel="noreferrer" href="{{ .Site.RSSLink }}">
     <span class="fa-stack fa-lg">
       <em class="fa fa-circle fa-stack-2x"></em> 
       <em class="fa fa-rss fa-stack-1x fa-inverse"></em> 
@@ -9,7 +9,7 @@
   </a>
 </li>
 {{ end }}                  
-{{ with .Site.Params.email }}
+{{ with .Site.Author.email }}
 <li>
   <a href="mailto:{{ . }}">
     <span class="fa-stack fa-lg">

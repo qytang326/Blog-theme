@@ -4,13 +4,14 @@ subtitle = ""
 description = ""
 date = {{ .Date }}
 
-author = "Quanyin Tang"
-author_homepage = "quanyin.eu.org"
+authors = "Quanyin Tang"
+homepage = "https://quanyin.eu.org"
 
-keywords = "Blog,"
+keywords = ["Blog",]
 tags = ["Blog",]
 categories = ["默认分类",]
 
+iframe = ""
 image = "/img/post-bg-default.jpg"
 header_mask = 0.3 
 

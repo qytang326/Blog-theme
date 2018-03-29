@@ -77,7 +77,7 @@
 <style type="text/css">
 header.intro-header{
     position: relative;
-    background-image: url({{ .Site.BaseURL }}{{ if isset .Params "image" }}{{.Params.image  }}{{ else }}{{ .Site.Params.default_post_header_image }}{{ end }})
+    background-image: url({{ .Site.BaseURL }}{{ if isset .Params "image" }}{{.Params.image  }}{{ else }}{{ .Site.Params.def_post_img }}{{ end }})
 }
 header.intro-header .header-mask{
     width: 100%;

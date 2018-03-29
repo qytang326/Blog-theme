@@ -1,5 +1,5 @@
 {{ if .IsHome }}
-    Posted by <a href="{{or .Params.author_homepage}}">{{ or .Params.Author .Site.Params.Author }}</a> on {{ dateFormat .Site.Params.DateForm .Date }}
+    Posted by <a href="{{or .Params.homepage .Site.Author.homepage }}">{{ or .Params.authors .Site.Author.name }}</a> on {{ dateFormat .Site.Params.DateForm .Date }}
 {{ else }}
-    Posted by {{ or .Params.Author .Site.Params.Author }} on {{ dateFormat .Site.Params.DateForm .Date }}
+    Posted by {{ or .Params.authors .Site.Author.name }} on {{ dateFormat .Site.Params.DateForm .Date }}
 {{ end }}

@@ -12,7 +12,7 @@ git init
 
 git add .
 
-git commit -m "deploy"
+git commit -m "%DATE%: %1"
 
 git remote add coding git@git.coding.net:qytang326/Blog-theme.git
 
@@ -36,7 +36,7 @@ git init
 
 git add .
 
-git commit -m "deploy"
+git commit -m "%DATE%: %1"
 
 git remote add origin git@github.com:qytang326/Blog-theme.git
 
