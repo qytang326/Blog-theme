@@ -1,6 +1,6 @@
 {{ if .Site.Params.anchorjs }}
 <!-- anchor-js, Doc://bryanbraun.github.io/anchorjs/ -->
-<!-- async load function -->
+<!-- 重复了 async load function
 <script type="text/javascript">
     function async(u, c) {
       var d = document, t = 'script',
@@ -10,7 +10,7 @@
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
     }
-</script>
+</script>-->
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js",function(){
         anchors.options = {
@@ -21,6 +21,7 @@
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
 </script>
+
 <!--  移到plugin.less中去，合并到Quanyin-global.css中
 <style>
     /* place left on bigger screen */
@@ -33,4 +34,207 @@
         }
     }
 </style> -->
+{{ end }}
+{{ if .Params.iframe }}
+<!-- resize header to fullscreen keynotes -->
+<script>
+    var $header = document.getElementsByTagName("header")[0];
+    function resize(){
+        /*
+         * leave 85px to both
+         * - told/imply users that there has more content below
+         * - let user can scroll in mobile device, seeing the keynote-view is unscrollable
+         */
+        $header.style.height = (window.innerHeight-85) + 'px';
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+        resize();
+    });
+    window.addEventListener('load', function(){
+        resize();
+    });
+    window.addEventListener('resize', function(){
+        resize();
+    });
+    resize();
+</script>
+{{ end }}
+
+<!-- Side TOC -->
+{{ if and .IsPage (or .Params.toc (and .Site.Params.toc (ne .Params.toc false))) }}
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        /* interop with multilangual */
+        if ("{{ .Params.multilingual }}") {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+        /* init */
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        /* clean */
+        $(selector).html('');
+        /* appending */
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+    generateCatalog(".catalog-body");
+    /* toggle side catalog */
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }));
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async('{{ .Site.BaseURL }}/js/jquery.nav.min.js', function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+{{ end }}
+
+{{ if .Params.mathjax }}
+<!-- mathjax, Doc: http://docs.mathjax.org/en/latest/start.html -->
+<!-- <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script> -->
+<!-- http://www.gohugo.org/doc/tutorials/mathjax/ -->
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossOrigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+<script type="text/x-mathjax-config">
+<!--   MathJax.Hub.Queue(function() {
+    /* Fix <code> tags after MathJax finishes running. This is a
+     hack to overcome a shortcoming of Markdown. Discussion at
+     https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});*/  -->
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+{{ end }}
+
+{{ if .Params.lazyload }}
+<!-- lazyload img https://github.com/aFarkas/lazysizes -->
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.1/lazysizes.min.js" crossOrigin="anonymous" ></script>
+{{ end }}
+
+<!-- flowchart 与语法高亮chroma冲突 不能正确显示-->
+{{ if and (or .Params.flowchartDiagrams.enable (and .Site.Params.flowchartDiagrams.enable (ne .Params.flowchartDiagrams.enable false))) (or .IsPage .IsHome) }}
+<script>
+  {{ if .Params.flowchartDiagrams.options }}
+  window.flowchartDiagramsOptions = {{ .Params.flowchartDiagrams.options | safeJS }};
+  {{ else if .Site.Params.flowchartDiagrams.options }}
+  window.flowchartDiagramsOptions = {{ .Site.Params.flowchartDiagrams.options | safeJS }};
+  {{ end }}
+</script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/flowchart/1.10.0/flowchart.min.js" crossorigin="anonymous"></script>
+{{ end }}
+
+<!-- js-sequence-diagrams 与语法高亮chroma冲突 不能正确显示 -->
+{{ if and (or .Params.sequenceDiagrams.enable (and .Site.Params.sequenceDiagrams.enable (ne .Params.sequenceDiagrams.enable false))) (or .IsPage .IsHome) }}
+<script>
+  {{ if .Params.sequenceDiagrams.options }}
+  window.sequenceDiagramsOptions = {{ .Params.sequenceDiagrams.options | safeJS }};
+  {{ else if .Site.Params.sequenceDiagrams.options }}
+  window.sequenceDiagramsOptions = {{ .Site.Params.sequenceDiagrams.options | safeJS }};
+  {{ end }}
+</script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" async="async" src="//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js" crossorigin="anonymous"></script>
+<!--手写主题<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css"  crossorigin="anonymous">-->
+{{ end }}
+<!--多语言支持,待移植-->
+{{ if .Params.multilingual }}
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    /* get nodes */
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+    /* bind hashchange event
+       Changes at v1.7.2: change the language flag from hash-basing to in-memory basing
+       due to its confliction with catalog anchors.
+       window.addEventListener('hashchange', _render);
+       handle render */
+    function _render(_hash){
+        var _hash = _hash || window.location.hash;
+        /* en */
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $en.classList.add("active");
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            $("#en1").show();
+            $("#zh1").hide();
+        /* zh by default */
+        }else{
+            /* not trigger onChange, otherwise cause a loop call. */
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $zh.classList.add("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
+            $("#zh1").show();
+            $("#en1").hide();
+        }
+        /* interop with catalog  */
+        if ("{{ .Params.toc }}") generateCatalog(".catalog-body");
+    }
+    /* handle select change */
+    function onLanChange(index){
+        if(index == 0){
+            _hash = "#zh";
+            $("#zh1").show();
+            $("#en1").hide();
+        }else{
+            _hash = "#en";
+            $("#zh1").hide();
+            $("#en1").show();
+        }
+        _render(_hash)
+    }
+    /* init */
+    _render();
+</script>
 {{ end }}

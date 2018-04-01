@@ -1,5 +1,5 @@
-{{ partial "head.html" .}}
-{{ partial "navbar.html" .}}
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
 <!-- Page Header -->
 <!-- KeyNote -->
 {{ if .Params.iframe }}
@@ -49,28 +49,6 @@
         }
     }
 </style> -->
-<!-- resize header to fullscreen keynotes -->
-<script>
-    var $header = document.getElementsByTagName("header")[0];
-    function resize(){
-        /*
-         * leave 85px to both
-         * - told/imply users that there has more content below
-         * - let user can scroll in mobile device, seeing the keynote-view is unscrollable
-         */
-        $header.style.height = (window.innerHeight-85) + 'px';
-    }
-    document.addEventListener('DOMContentLoaded', function(){
-        resize();
-    });
-    window.addEventListener('load', function(){
-        resize();
-    });
-    window.addEventListener('resize', function(){
-        resize();
-    });
-    resize();
-</script>
 {{ else }}
 <!-- Common Post -->
 <!-- Set your background image for this header on the line below. -->
@@ -101,22 +79,26 @@ header.intro-header .header-mask{
     </div>
   </div>
 </header>
-{{end}}
+{{ end }}
 
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> 
                 <!-- Multi-Lingual 移植 待完成-->
                 {{ if .Params.multilingual }}
-                    <!-- Language Selector -->
-                    <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-                        <option value="0" selected> 中文 Chinese </option>
-                        <option value="1"> 英文 English </option>
-                    </select>
-                {{ end }}
-
+                <div class="postlist-container">
+                <!-- Language Selector -->
+                <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)" hidden>
+                    <option value="0" selected> 中文 Chinese </option>
+                    <option value="1"> 英文 English </option>
+                </select>
+                <!-- 按钮 -->
+                <a style="font-size:16px;" id="zh1" class="label label-default"  onclick="onLanChange('1')">中文 Chinese </a>
+                <a style="font-size:16px;" id="en1" class="label label-default"  onclick="onLanChange('0')" hidden>英文 English </a></div>
+                {{ end }}                
+                <div class="post-container">
                 {{ .Content }}
               
                 {{ partial "post/copyright.html" . }}
@@ -127,7 +109,8 @@ header.intro-header .header-mask{
                 {{ partial "comments.html" .}}
                 <!-- Reward -->
                 {{ partial "post/reward.html" . }}
-            </div>                
+                </div>   
+            </div>            
             <!-- Catalog -->
             <!-- TOC -->
             {{ partial "post/toc.html" . }}
@@ -139,5 +122,6 @@ header.intro-header .header-mask{
         </div>
     </div>
 </article>
-{{ partial "post/plugin.html" .}}
-{{ partial "footer.html" .}}
+{{ partial "footer.html" . }}
+{{ partial "post/plugin.html" . }}
+{{ partial "foot.html" . }}

@@ -20,7 +20,7 @@
             <!-- English Version -->
             <div class="en post-container">
                 {{ partial "about/en.md" . | markdownify }}
-            </div> 
+            </div>
             <!-- Handle Language Change -->
             <script type="text/javascript">
             /* get nodes */
@@ -63,7 +63,7 @@
             }
             /* init */
             _render();
-            </script> 
+            </script>
             {{ with .Site.Params.netease_music.url }}
             <!-- 网易云音乐 auto=1 为自动播放 暂不支持https,链接地址必须包含http -->
             <div class="post-container text-center">
@@ -71,7 +71,7 @@
             </div>
             {{ end }}
             {{ if .Site.Params.APlayer }} <!--不能用异步加载-->
-            <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>-->	
+            <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>-->
             <!-- 改用本地化
             <script src="//api.i-meto.com/music/player.js"></script>
             <script type="text/javascript"  src="{{ .Site.BaseURL }}/js/meting.aplayer.js"></script>
@@ -81,14 +81,14 @@
             </script>
             -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.9.1/dist/APlayer.min.css">
-            <script src="https://cdn.jsdelivr.net/npm/aplayer@1.9.1/dist/APlayer.min.js"></script>            
-            
-            <div class="aplayer post-container" 
-                data-id="{{.Site.Params.APlayer.id}}" 
-                data-server="{{.Site.Params.APlayer.server}}" 
-                data-type="{{.Site.Params.APlayer.type}}" 
-                data-mode="{{.Site.Params.APlayer.mode}}" 
-                data-autoplay="{{.Site.Params.APlayer.autoplay}}" >
+            <script src="https://cdn.jsdelivr.net/npm/aplayer@1.9.1/dist/APlayer.min.js"></script>
+
+            <div class="aplayer post-container"
+                data-id="{{ .Site.Params.APlayer.id }}"
+                data-server="{{ .Site.Params.APlayer.server }}"
+                data-type="{{ .Site.Params.APlayer.type }}"
+                data-mode="{{ .Site.Params.APlayer.mode }}"
+                data-autoplay="{{ .Site.Params.APlayer.autoplay }}" >
             </div>
             <script src="https://cdn.jsdelivr.net/npm/meting@1.1.1/dist/Meting.min.js"></script>
             {{ end }}
@@ -99,3 +99,4 @@
     </div>
 </div>
 {{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

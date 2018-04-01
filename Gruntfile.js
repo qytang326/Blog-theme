@@ -3,26 +3,26 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         expand: true,
-                
+
         concat: {           /* js 文件合并 */
  /*           options: {
             separator: ';',
                       },
-*/                    
+*/
             sw: {
                 src: ['src/js/snackbar.js', 'src/js/sw-registration.js'],
                 dest: 'src/js/snackbar-sw-registration.js',
-                    },                  
+                    },
             plugin: {
-                src: ['src/js/loadCSS.js', 'src/js/cssrelpreload.js'], /* 移除 analytic.js*/
+                src: ['src/js/cssrelpreload.js'], /* 移除 analytic.js , loadcss.js ,不再依赖 */
                 dest: 'src/js/plugin.js',
-                    },                    
+                    },
             global: {
                 src: ['src/js/Quanyin-Blog.js','src/js/plugin.js'],
                 dest: 'src/js/Quanyin-global.js',
-                    },        
+                    },
                 },
-                
+
         uglify: {   /* js文件压缩 使用grunt-contrib-uglify-es */
             sw: {
                 src: 'src/sw.js',
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             snackbar: {
                 src: 'src/js/snackbar-sw-registration.js',
                 dest: 'static/js/snackbar-sw-registration.min.js'
-                    },                    
+                    },
             nav: {
                 src: 'src/js/jquery.nav.js',
                 dest: 'static/js/jquery.nav.min.js'
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
                 src: 'src/js/Quanyin-global.js',
                 dest: 'static/js/Quanyin-global.min.js'
                     }
-                }, 
-                
+                },
+
         jshint: {
             files: ['Gruntfile.js', 'static/**/*.js','src/**/*.js'],
             options: {
@@ -65,8 +65,8 @@ module.exports = function(grunt) {
                   */      },
                     esversion: 6,
                     },
-                },        
-        
+                },
+
         less: { /*less文件生成css */
             expanded: {
                 options: {
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
                     "static/css/gitment.min.css": "src/less/gitment.less",
                         }
                     }
-                },            
+                },
         banner: '/*! <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>) || Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> */',
         usebanner: {
             dist: {
@@ -127,5 +127,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     /* Default task(s). */
-    grunt.registerTask('default', ['concat','uglify','less', 'usebanner']); 
+    grunt.registerTask('default', ['concat','uglify','less', 'usebanner']);
 };

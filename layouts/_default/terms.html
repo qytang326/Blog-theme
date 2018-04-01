@@ -13,7 +13,7 @@
                      {{ $value.Term | humanize}} <span class="badge pull-right">{{ len $value.Pages }}</span>
                </a>
             </li>
-    {{end}}
+    {{ end }}
     </ul>
 </div>
 <!-- Tab panes -->
@@ -28,12 +28,13 @@
             {{ range $value.Pages }}
             <div class="postlist-container">
                 <li>
-                    <a href="{{ .URL }}">{{ .Title }}</a><span> &raquo; {{ dateFormat "2006-01-02" .Date }}</span> 
+                    <a href="{{ .URL }}">{{ .Title }}</a><span> &raquo; {{ dateFormat "2006-01-02" .Date }}</span>
                 </li>
             </div>
-            {{end}}
+            {{ end }}
         </ul>
     </div>
-    {{end}}
+    {{ end }}
 </div>
 {{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

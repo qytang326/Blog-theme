@@ -28,12 +28,12 @@
             (function () {
             var gitment = new Gitment({
               id: '{{ .File.BaseFileName }}', /* 页面ID，可选。默认为 location.href */
-              owner: '{{ .Site.Params.gitment.github_username}}', /* 你的 Github ID */
-              repo: '{{ .Site.Params.gitment.repo_for_gitment}}', /* 存储评论的 repo */
+              owner: '{{ .Site.Params.gitment.github_username }}', /* 你的 Github ID */
+              repo: '{{ .Site.Params.gitment.repo_for_gitment }}', /* 存储评论的 repo */
               title: '{{ .Title }}',/*issue页的标题 */
               oauth: {
-                client_id: '{{.Site.Params.gitment.oauth_client_id}}', /*你的 client ID */
-                client_secret: '{{.Site.Params.gitment.oauth_client_secret}}', /*你的 client secret */
+                client_id: '{{ .Site.Params.gitment.oauth_client_id }}', /*你的 client ID */
+                client_secret: '{{ .Site.Params.gitment.oauth_client_secret }}', /*你的 client secret */
               },
             });
             gitment.render('container');
