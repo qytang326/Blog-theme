@@ -21,9 +21,30 @@
   background-color: #777;
 }
 */
-
+.back2top {
+  z-index:99;
+  background:#000;
+  width:36px;
+  height:36px;
+  display:block;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  cursor:pointer;
+  border-radius:2px;
+  opacity:.6;
+  }
+.back2top:before {
+  content:"";
+  position:absolute;
+  right:8px;
+  top:10px;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:15px solid #fff;
+  }
 /* load-CommentGitment */
-#load-CommentGitment {
+/* #load-CommentGitment {
     background-color:#FFFFFF;
     padding:9px;
     margin:0 auto;
@@ -32,7 +53,7 @@
     color:#555;
     text-decoration:none;
     border: solid 2px #2D2D2D;
-}
+}*/
 
 /* For Mathjax */
 code.has-jax {font: inherit;
@@ -53,4 +74,252 @@ code.has-jax {font: inherit;
     }
 }
 
+/* reward */
+/*
+.toolbar {
+  width: 410px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.toolbar .wechatpay {
+  background: url(/img/reward/WechatPay-QR.jpg) no-repeat center #fff;
+  background-size:cover;
+  width:200px;
+  height: 258px;
+}
+.toolbar .alipay {
+  background: url(/img/reward/Alipay-QR.jpg) no-repeat center #fff;
+  background-size:cover;
+  width:200px;
+  height: 258px;
+  margin-left: 10px;
+}
+.reward{
+  display:block;
+  margin: 20px auto;
+  text-decoration:none;
+  color:#666;
+  font-size:16px;
+  line-height:2;
+  background: url(/img/icons/paybutton.png) no-repeat center  #fff;
+  background-size:cover;
+  width: 219px;
+  height: 80px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 10px;
+  -webkit-transition: border 500ms ease-in 0ms;
+  -moz-transition: border 500ms ease-in 0ms;
+  -ms-transition: border 500ms ease-in 0ms;
+  -o-transition: border 500ms ease-in 0ms;
+  transition: border 500ms ease-in 0ms;
+}
+.reward:hover {
+  border: 1px solid orange;
+  -webkit-transition: border 300ms ease-in 0ms;
+  -moz-transition: border 300ms ease-in 0ms;
+  -ms-transition: border 300ms ease-in 0ms;
+  -o-transition: border 300ms ease-in 0ms;
+  transition: border 300ms ease-in 0ms;
+}
+.reward .paycode{
+  display:none;
+  position:relative;
+  z-index: 99999;
+  margin:-90% -100%;
+  padding:20px;
+  width:617px;
+  text-align:center;
+  box-shadow:5px 5px 40px rgba(0,0,0,0.5);
+  background:white;
+  overflow:hidden;
 
+}
+.reward:hover .paycode{
+  display:block;
+  color: #999;
+}
+*/
+
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  outline: 0;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 20px;
+}
+.modal-footer {
+  padding: 20px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn2 + .btn2 {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.modal-footer .btn2-group .btn2 + .btn2 {
+  margin-left: -1px;
+}
+.modal-footer .btn2-block + .btn2-block {
+  margin-left: 0;
+}
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+
+.btn2-primary {
+  color: #ffffff;
+  background-color: #2fa4e7;
+  border-color: #2fa4e7;
+  font-family: inherit;
+  }
+
+.btn2 {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      padding: 8px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border-radius: 4px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      }
+}
+.reward {
+      font-family: inherit;
+      font-size: 28px;
+      line-height: 58px;
+      position: relative;
+      display: block;
+      width: 60px;
+      height: 60px;
+      -webkit-user-select: none;
+      text-align: center;
+      vertical-align: middle;
+      color: rgb(255, 255, 255);
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      margin: 0px auto;
+      padding: 0px;
+      border-width: 1px;
+      border-style: solid;
+      /* border-color: rgb(241, 182, 14);*/
+      border-color:#777;
+      border-radius: 50%;
+      /* background: linear-gradient(rgb(252, 205, 96) 0px, rgb(251, 174, 18) 100%, rgb(41, 137, 216) 100%, rgb(32, 124, 202) 100%);*/
+      background:#777;
+  }

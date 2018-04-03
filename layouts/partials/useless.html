@@ -1,5 +1,5 @@
 <!-- jquery.tagcloud.js -->
-<script type="text/javascript">
+<script>
     /* only load tagcloud.js in tag.html */
     if($('#tag_cloud').length !== 0){
         async('{{ .Site.BaseURL }}/js/jquery.tagcloud.min.js',function(){
@@ -15,7 +15,7 @@
 
 <!-- Side Catalog -->
 {{ if and .Params.catalog false }} <!-- 增加Params.catalog 参考even-->
-<script type="text/javascript">
+<script>
     function generateCatalog (selector) {
         /* interop with multilangual */
         if ({{ .Params.multilingual }}) {

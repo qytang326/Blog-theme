@@ -3,13 +3,13 @@
     <div id="container"></div>
     <link rel="preload" href="{{ .Site.BaseURL }}/css/gitment.min.css" as="style" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/gitment.min.css" /></noscript>
-    <script  type="text/javascript" src="{{ .Site.BaseURL }}/js/gitment.min.js" ></script>
+    <script  src="{{ .Site.BaseURL }}/js/gitment.min.js" ></script>
     <!-- 10月8日,gitment改用点击加载的方式-->
-    <div style="text-align:center; text-muted">
-        <button class="label label-default" id="load-CommentGitment" onclick="CommentGitment.load();">点击加载评论</button>
+    <div class="text-muted text-center">
+        <button class="reward" id="load-CommentGitment" onclick="CommentGitment.load();">评</button>
     </div>
     <!-- 整合到 plugin.less -> plugin.css -> Quanyin-global.css
-    <style type="text/css">
+    <style>
     #load-CommentGitment {
         background-color:#FFFFFF;
         padding:9px;

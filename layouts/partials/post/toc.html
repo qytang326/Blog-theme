@@ -1,7 +1,7 @@
 {{ if or .Params.toc (and .Site.Params.toc (ne .Params.toc false)) }}
 <div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
     <div class="side-catalog">
-        <hr class="hidden-sm hidden-xs" />
+        <hr class="hidden-sm hidden-xs" >
             {{ $globalAutoCollapseToc := .Site.Params.autoCollapseToc | default true }}
         <ul class="catalog-body{{ if not (or .Params.autoCollapseToc (and $globalAutoCollapseToc (ne .Params.autoCollapseToc false))) }} always-active{{ end }}">
             {{.TableOfContents}}</ul>

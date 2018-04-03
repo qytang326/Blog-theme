@@ -8,27 +8,75 @@
                     {{ partial  "social.html" . }}
                 </ul>
                     <!-- Copyright -->
-                    <p class="copyright text-muted text-center">
-                        <span class="text-center">Copyright &copy; 2017-{{ dateFormat "2006" now }} <a href="{{ .Site.BaseURL }}">Quanyin Blog</a>
+                    <p class="copyright text-muted text-center ">
+                        Copyright © 2017-{{ dateFormat "2006" now }} <a href="{{ .Site.BaseURL }}">Quanyin Blog</a>
                             <!-- 不蒜子计数 -->
                             {{ if .Site.Params.busuanzi }}
                             <span id="busuanzi_container_site_uv" style='display:none'> | 访客数: <span id="busuanzi_value_site_uv"><em class="fa fa-spinner fa-spin"></em></span></span><span id="busuanzi_container_site_pv" style='display:none'>&nbsp;| 总访问量: <span id="busuanzi_value_site_pv"><em class="fa fa-spinner fa-spin"></em></span></span>
                             {{ end }}
-                        <br/>
-                            <span class="text-center">Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | Powered by <a href="//gohugo.io">Hugo</a></span>
-                        <br/>
-                            <span class="label label-primary label-md text-center"><strong>转载请标明作者和出处并告知</strong></span>
-                            <!-- 网站运行时间统计-->
-                            <p class="copyright text-muted" id="count"></p>
-                        </span>
+                        <br>
+                            Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | Powered by <a href="//gohugo.io">Hugo</a>
+                        <br>
+                            <span class="label label-default">转载请标明作者和出处并告知</span>
+                        <br><br>{{ if .Site.Params.sitefrom.enable }}<!-- 网站运行时间统计-->
+                            <span id="count"></span>{{ end }}
                     </p>
             </div>
         </div>
     </div>
 </footer>
+<a class="back2top" style="display:none;"></a>
 <!-- 下面的这些脚本优先级较高，故放在这里-->
+<!-- 集成到nav.js 失败 -->
+<script>
+    /* Drop Bootstarp low-performance Navbar  Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation */
+    var $body   = document.body;
+    var $toggle = document.querySelector(".navbar-toggle");
+    var $navbar = document.querySelector("#Quanyinblog_navbar");
+    var $collapse = document.querySelector(".navbar-collapse");
+    var __QuanyinNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            /* wait until animation end. */
+            setTimeout(function(){
+                /* prevent frequently toggle */
+                if($navbar.className.indexOf("in") < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto";
+            $navbar.className += " in";
+        }
+    };
+    /* Bind Event */
+    $toggle.addEventListener("click", function(e){
+        if ($navbar.className.indexOf("in") > 0) {
+            __QuanyinNav__.close()
+        }else{
+            __QuanyinNav__.open()
+        }
+    });
+    /**
+     * Since Fastclick is used to delegate "touchstart" globally
+     * to hack 300ms delay in iOS by performing a fake "click",
+     * Using "e.stopPropagation" to stop "touchstart" event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a "e.target" filter to prevent handler
+     * added to document close QuanyinNav.
+     *
+     * Also, we use "click" instead of "touchstart" as compromise
+     */
+    document.addEventListener("click", function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == "icon-bar") return;
+        __QuanyinNav__.close();
+    })
+</script>
 <!-- async load function -->
-<script type="text/javascript">
+<script>
     function async(u, c) {
       var d = document, t = 'script',
           o = d.createElement(t),
@@ -39,17 +87,17 @@
     }
 </script>
 <!-- jQuery -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async" crossorigin="anonymous"></script>
 <!-- Custom Theme JavaScript -->
-<script type="text/javascript" src="{{ .Site.BaseURL }}/js/Quanyin-global.min.js" async="async"></script>
-<!-- Service Worker --><!-- 合并snackbar.min.js sw-registration.min.js-->
-{{ if .Site.Params.service_worker }}
-    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/snackbar-sw-registration.min.js"  async="async"></script>
-{{ end }}
+<script src="{{ .Site.BaseURL }}/js/Quanyin-global.min.js" async="async"></script>
+<!-- Service Worker --><!-- 合并snackbar.min.js sw-registration.min.js--><!-- 合并到Quanyin-global.min.js -->
+<!--{{ if and .Site.Params.service_worker ( not .Site.IsServer ) }}
+    <script src="{{ .Site.BaseURL }}/js/snackbar-sw-registration.min.js"  async="async"></script>
+{{ end }}-->
 <!--fastClick.js -->
-<script type="text/javascript">
+<script>
     async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);

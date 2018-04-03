@@ -1,7 +1,7 @@
 <!--
 {{ if or .Params.reward (and .Site.Params.reward.enable (ne .Params.reward false)) }}
 <div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
+  <input type="checkbox" name="reward" id="reward" hidden >
   <label class="reward-button" for="reward">{{ T "reward" }}</label>
   <div class="qr-code">
     {{ $qrCode := .Site.Params.reward }}
@@ -21,3 +21,47 @@
 </div>
 {{- end }}
 -->
+<!-- 来自http://www.alloyteam.com/-->
+<!-- 样式表在 src/plugin.less 里
+<div class="toolbar">
+    <a class="reward" href='javascript:;' >
+        <div class="paycode">
+            <div style="display: -webkit-box;margin: auto;width: 400px;">
+                <div class="wechatpay"></div>
+                <div class="alipay"></div>
+            </div>
+            <div>请随意<br>有你的支持，我会做得更好！</div>
+        </div>
+    </a>
+</div>
+-->
+{{ if or .Params.reward (and .Site.Params.reward.enable (ne .Params.reward false)) }}
+<hr>
+<!--来自https://coding.metaquant.org/reward.html-->
+<button class="reward" data-toggle="modal" data-target="#myModal">
+    赏
+</button>
+<div class="text-muted text-center"><p>若您觉得我的文章对您有帮助，欢迎点击上方按钮对我打赏</p></div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="myModalLabel">
+                    「真诚赞赏，手留余香」
+                </h2>
+            </div>
+            <div class="modal-body" align="center">
+                <img style="display:inline;margin-right:10px;width:200px;height:258px;" src="{{ .Site.BaseURL }}{{ .Site.Params.reward.Alipay }}" alt="微信">
+                <img style="display:inline;margin-left:10px;width:200px;height:258px;"  src="{{ .Site.BaseURL }}{{ .Site.Params.reward.WechatPay }}" alt="支付宝">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn2 btn2-primary" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+{{ end }}

@@ -1,8 +1,8 @@
 rm -rf public
 
-rm -rf examplesite/public
+rm -rf exampleSite/public
 
-cd examplesite
+cd exampleSite
 
 hugo --baseUrl="https://qytang326.coding.me/Blog-theme" -t Blog-Theme-Hugo
 

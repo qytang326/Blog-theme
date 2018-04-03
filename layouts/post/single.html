@@ -3,7 +3,7 @@
 <!-- Page Header -->
 <!-- KeyNote -->
 {{ if .Params.iframe }}
-<style type="text/css">
+<style>
     header.intro-header{
         height: 500px;
         overflow: hidden;
@@ -31,7 +31,7 @@
                        <div class="tags">{{ partial "post/tags.html" . }}</div>
                        <h1>{{ .Title }}</h1>
                        <h2 class="subheading">{{ .Params.subtitle }}</h2>
-                       <span class="meta">{{ partial "post/readtime.html" . }}<br/>{{ partial "post/meta.html" . }}</span>
+                       <span class="meta">{{ partial "post/readtime.html" . }}<br>{{ partial "post/meta.html" . }}</span>
                      </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
 {{ else }}
 <!-- Common Post -->
 <!-- Set your background image for this header on the line below. -->
-<style type="text/css">
+<style>
 header.intro-header{
     position: relative;
     background-image: url({{ .Site.BaseURL }}{{ if isset .Params "image" }}{{.Params.image  }}{{ else }}{{ .Site.Params.def_post_img }}{{ end }})
@@ -85,7 +85,7 @@ header.intro-header .header-mask{
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> 
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <!-- Multi-Lingual 移植 待完成-->
                 {{ if .Params.multilingual }}
                 <div class="postlist-container">
@@ -97,20 +97,20 @@ header.intro-header .header-mask{
                 <!-- 按钮 -->
                 <a style="font-size:16px;" id="zh1" class="label label-default"  onclick="onLanChange('1')">中文 Chinese </a>
                 <a style="font-size:16px;" id="en1" class="label label-default"  onclick="onLanChange('0')" hidden>英文 English </a></div>
-                {{ end }}                
+                {{ end }}
                 <div class="post-container">
                 {{ .Content }}
-              
+
                 {{ partial "post/copyright.html" . }}
-                <hr style="visibility: hidden;" />
+                <hr style="visibility: hidden;" >
                 <!-- Pager -->
                 {{ partial "post/pager.html" .}}
                 <!-- Comment -->
                 {{ partial "comments.html" .}}
                 <!-- Reward -->
                 {{ partial "post/reward.html" . }}
-                </div>   
-            </div>            
+                </div>
+            </div>
             <!-- Catalog -->
             <!-- TOC -->
             {{ partial "post/toc.html" . }}
