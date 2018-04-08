@@ -1,0 +1,130 @@
+#baseurl = ""                           ##建议在运行hugo是加入,如 hugo --baseUrl="//qytang326.github.io/"
+title = "Quanyin Blog Theme"
+canonifyurls = true
+theme = "Quanyin"
+themesdir = "../.."                     ## 实际使用时请注释掉
+languageCode = "zh-CN"
+hasCJKLanguage = true
+ignoreFiles = ["src"]              ## 排除文件
+pygmentsUseClasses = true
+pygmentsCodefences = true               ## 高亮markdown的代码块
+pygmentsCodefencesGuessSyntax = true    ## 高亮markdown中没有标注语言的代码块
+#pygmentsStyle = 'monokai'              ## 高亮主题
+enableemoji = true
+paginate = 3                            ## 分页设置
+[author]                                ## 作者信息
+    name = "Quanyin Tang"
+    homepage = "https://qytang326.github.io"
+    email = "qytang326@gmail.com"       ## Remove this line if you would prefer not to use an email button in the footer.
+[permalinks]                            ## 页面permalinks设置
+  post = "/:year/:month/:filename/"
+
+# Configure BlackFriday Markdown rendering.
+# See: https://gohugo.io/readfiles/bfconfig/
+[blackfriday]
+  hrefTargetBlank = true                ## `true` opens external links in a new tab.
+  fractions = true                      ## `false` disables smart fractions (e.g. 5/12 formatted as a fraction).
+  smartypants = true                    ## `false` disables all smart punctuation substitutions (e.g. smart quotes, dashes, fractions).
+  plainIDAnchors = true
+
+[params]
+  description = "博学而笃志，切问而近思 | 这里是 @[Quanyin](https://qytang326.github.io)@ 的个人博客主题模板。"
+  def_img = "/img/bg-default.jpg"
+  def_post_img = "/img/post-bg-default.jpg"
+
+  showReadTime = true                   ## set to false to exclude read time from header of post
+  keywords = ["Blog","Quanyin"]
+  chrome_tab_theme_color = "#000000"
+  async_css_all = "false"
+  RSS = "true"
+  busuanzi = true                       ## 不蒜子网页浏览计数
+  busuanzi_fixcount = false             ## 初始计数修正
+
+  #daovoice_appid = "f72737da"
+  #tota11y = "true"
+
+  DateForm = "January 2, 2006"          ## "Mon, Jan 2, 2006" Post文章输出日期格式
+  anchorjs = true
+  service_worker = true                 ## 启用service worker
+  click_love =  true
+  #canvas_nest = true
+### Sidebar settings 侧边栏
+    sidebar = true                      ## whether or not using Sidebar.
+    sidebar_about_description = "自由而无用，<br>离开世界之前，一切都是过程"
+    sidebar_avatar = "/img/avatar.jpg"  ## use absolute URL, seeing it's used in both `/` and `/about/`
+    toc = true                          ## 文章侧边栏目录
+    autoCollapseToc = true
+    keynote_catalog = false
+    featured_tags = true                ## 目前不能正确输出,注释掉 ##问题已解决,2018-03-20
+    featured_condition_size = 2         ## 默认是4
+
+[params.reward]
+    enable = "true"
+    Alipay = "/img/reward/Alipay-QR.jpg"
+    WechatPay = "/img/reward/WechatPay-QR.jpg"
+    
+[params.stat]                           ## 统计与分析 Analytics settings
+# Baidu Analytics
+#ba_track_id = "366e0ea844c9db65fe3dd420933f2677"
+# Google Analytics
+ga_track_id = "UA-105172812-2"          ## Format: UA-xxxxxx-xx
+ga_domain = "auto"                      ## 自定义的域名,默认的是 auto,
+## 站点验证 html标记
+#baidu_verification = "yHqjnTuMbD"       ## origin,与域名有关,在_include/head.html中,下同
+google_verification = "WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4" #使用CNAME验证
+###推送到百度、360等以增加收录
+##百度 需要验证
+#push_to_baidu = "false"
+##360
+#push_to_360 = "false"
+
+[params.gitment]                        ## 评论系统
+    enable = "true"
+    github_username = "qytang326"
+    repo_for_gitment = "Blog-Comment"   ## 存放Issue的地方
+    oauth_client_id = "547ad10017b50756cc95" #Gihub OAuth的 client ID,与CNAME有关
+    oauth_client_secret = "b79e08fb1496dea7decb39b8e9960de6f934078f" #Gihub OAuth的 client secret
+
+[params.APlayer]                        ## about页面背景音乐
+  id = "804530027"                      ## 歌曲/专辑/歌单ID
+  server = "netease"                    ## 可选参数 netease(网易云音乐)tencent(qq音乐)xiami(虾米音乐)kugou(酷狗音乐)baidu(百度音乐)
+  type = "playlist"                     ## 类型:song/album/playlist/search
+  mode = "random"                       ## 播放模式:random/single/circulation/order
+  autoplay = "true"                     ## 自动播放true or false
+#[params.netease_music]                 ## About页背景网易云音乐
+#  url = ""
+
+[params.social]                         ## 社交链接
+    github = "//github.com/qytang326"
+    linkedin = "//www.linkedin.com/in/quanyin-tang-56a543b1"
+[params.sitefrom]
+    enable = true
+    year = 2017
+    mon = 7
+    day = 6
+    hh = 0
+
+## 页顶导航菜单 nav menu
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = -200
+[[menu.main]]
+  name = "Archives"
+  url = "/post/"
+  weight = -180
+[[menu.main]]
+  name = "About Me"
+  url = "/about/"
+  weight = -160
+
+## 友链 Friend's Link
+[[params.friend]]
+  title = "Quanyin"
+  url = "https://qytang326.github.io"
+[[params.friend]]
+  title = "CCMG"
+  url = "https://fudanccmg.github.io"
+[[params.friend]]
+  title = "Hux Blog"
+  url = "https://huangxuan.me/"

@@ -1,4 +1,4 @@
-{{ if .Site.Params.sitefrom.enable }}
+{{ if and .Site.Params.sitefrom.enable ( not .Site.Params.sitefrom.jsfile ) }}
 <!-- 网站运行时间记录 -->
 <script>
     window.setInterval('counter()',1000);
@@ -54,7 +54,6 @@
 <!-- 页面点击小红心 -->
 {{ if .Site.Params.click_love }}
     <!-- <script src="{{ .Site.BaseURL }}/js/click-love.js" async="async"></script> -->
-    <!-- 整合到Quanyin-global里,整合失败。。。-->
     <script>
     !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
     </script>
@@ -62,7 +61,7 @@
 
 <!-- 动态背景-鼠标特效 -->
 {{ if .Site.Params.canvas_nest }}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js"  async="async"></script>
+    <script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"  async="async"></script>
 {{ end }}
 
 {{ if not .Site.IsServer }}<!-- 调试时不计入统计-->
@@ -143,7 +142,7 @@
 {{ end }}
 
 {{ if .Site.Params.tota11y }}
-<script async="async" src="//cdnjs.cloudflare.com/ajax/libs/tota11y/0.1.6/tota11y.min.js"></script>
+<script async="async" src="//cdn.bootcss.com/tota11y/0.1.6/tota11y.min.js"></script>
 {{ end }}
 </body>
 </html>

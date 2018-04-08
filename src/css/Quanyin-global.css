@@ -44,7 +44,8 @@
   border-color: #0085a1;
 }
 .sidebar-container .short-about img {
-  width: 80%;
+  width: 170px;
+  height: 170px;
   display: block;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -61,20 +62,6 @@
   padding: 0px;
 }
 .side-catalog {
-  /*     &.fold{
-        .catalog-toggle::before{
-            content: "+";
-        }
-        .catalog-body{
-            display: none;
-        }
-    }
-    .catalog-toggle::before{
-        content: "−";
-        position: relative;
-        margin-right: 5px;
-        bottom: 1px;
-    } */
   display: block;
   overflow: auto;
   height: 100%;
@@ -84,6 +71,18 @@
 .side-catalog.fixed {
   position: fixed;
   top: -21px;
+}
+.side-catalog.fold .catalog-toggle::before {
+  content: "+";
+}
+.side-catalog.fold .catalog-body {
+  display: none;
+}
+.side-catalog .catalog-toggle::before {
+  content: "−";
+  position: relative;
+  margin-right: 5px;
+  bottom: 1px;
 }
 .side-catalog .catalog-body {
   position: relative;
@@ -528,10 +527,10 @@ pre code {
 }
 @media only screen and (max-width: 767px) {
   /**
-	 * Layout
-	 * Since V1.6 we use absolute positioning to prevent to expand container-fluid
-	 * which would cover tags. A absolute positioning make a new layer.
-	 */
+     * Layout
+     * Since V1.6 we use absolute positioning to prevent to expand container-fluid
+     * which would cover tags. A absolute positioning make a new layer.
+     */
   .navbar-default .navbar-collapse {
     position: absolute;
     right: 0;
@@ -543,13 +542,13 @@ pre code {
     width: 170px;
   }
   /**
-	 * Animation
-	 * QuanyinBlog-Navbar using genuine Material Design Animation
-	 */
+     * Animation
+     * QuanyinBlog-Navbar using genuine Material Design Animation
+     */
   #Quanyinblog_navbar {
     /**
-		 * Sharable code and 'out' function
-		 */
+         * Sharable code and 'out' function
+         */
     opacity: 0;
     transform: scaleX(0);
     transform-origin: top right;
@@ -558,8 +557,8 @@ pre code {
     -webkit-transform-origin: top right;
     -webkit-transition: all 200ms cubic-bezier(0.47, 0, 0.4, 0.99) 0ms;
     /**
-		 *'In' Animation
-		 */
+         *'In' Animation
+         */
   }
   #Quanyinblog_navbar a {
     font-size: 13px;

@@ -27,7 +27,7 @@
 </footer>
 <a class="back2top" style="display:none;"></a>
 <!-- 下面的这些脚本优先级较高，故放在这里-->
-<!-- 集成到nav.js 失败 -->
+<!-- 集成到navbar.js
 <script>
     /* Drop Bootstarp low-performance Navbar  Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation */
     var $body   = document.body;
@@ -74,8 +74,8 @@
         if(e.target.className == "icon-bar") return;
         __QuanyinNav__.close();
     })
-</script>
-<!-- async load function -->
+</script>-->
+<!-- async load function 
 <script>
     function async(u, c) {
       var d = document, t = 'script',
@@ -85,11 +85,11 @@
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
     }
-</script>
+</script>-->
 <!-- jQuery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async" crossorigin="anonymous"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async" crossorigin="anonymous"></script>
 <!-- Custom Theme JavaScript -->
 <script src="{{ .Site.BaseURL }}/js/Quanyin-global.min.js" async="async"></script>
 <!-- Service Worker --><!-- 合并snackbar.min.js sw-registration.min.js--><!-- 合并到Quanyin-global.min.js -->
@@ -97,9 +97,9 @@
     <script src="{{ .Site.BaseURL }}/js/snackbar-sw-registration.min.js"  async="async"></script>
 {{ end }}-->
 <!--fastClick.js -->
-<script>
-    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"  async="async" crossorigin="anonymous">
+(function(){
+  var $nav = document.querySelector("nav");
+  if($nav) FastClick.attach($nav);
+  })
 </script>

@@ -4,24 +4,22 @@
   <meta charset="UTF-8" />
   <title>{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}</title>
   <meta http-equiv="x-dns-prefetch-control" content="on" />
-  <link rel="dns-prefetch" target="_blank" href="//maxcdn.bootstrapcdn.com" />
-  <link rel="dns-prefetch" target="_blank" href="//cdnjs.cloudflare.com" />{{ if .Site.Params.busuanzi }}
+  <link rel="dns-prefetch" target="_blank" href="//cdn.bootcss.com" />{{ if .Site.Params.busuanzi }}
   <link rel="dns-prefetch" target="_blank" href="//busuanzi.ibruce.info" />{{ end }}
-  <link rel="preconnect" target="_blank" href="//maxcdn.bootstrapcdn.com" />
-  <link rel="preconnect" target="_blank" href="//cdnjs.cloudflare.com" />{{ if .Site.Params.busuanzi }}
+  <link rel="preconnect" target="_blank" href="//cdn.bootcss.com" />{{ if .Site.Params.busuanzi }}
   <link rel="preconnect" target="_blank" href="//busuanzi.ibruce.info" />{{ end }}
   {{ if eq .Site.Params.async_css_all "true" }}<!-- 页面可能会抖动-->
-  <link rel="preload" as="style" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" crossOrigin="anonymous" />
-  <noscript><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossOrigin="anonymous" /></noscript>{{ else }}
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossOrigin="anonymous" />{{ end }}
+  <link rel="preload" as="style" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" crossOrigin="anonymous" />
+  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossOrigin="anonymous" /></noscript>{{ else }}
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossOrigin="anonymous" />{{ end }}
   <link rel="preload" as="style" href="{{ .Site.BaseURL }}/css/Quanyin-global.min.css" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/Quanyin-global.min.css"/></noscript>
-  <link rel="preload" as="style" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /></noscript>
-  <link rel="preload" as="font" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" crossOrigin="anonymous" />
-  <link rel="preload" as="script" href="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossOrigin="anonymous" />{{ if .Params.image }}
+  <link rel="preload" as="style" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" /></noscript>
+  <link rel="preload" as="font" href="//cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" crossOrigin="anonymous" />
+  <link rel="prefetch" as="script" href="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossOrigin="anonymous" />{{ if .Params.image }}
   <link rel="preload" as="image" href="{{ .Site.BaseURL }}{{ .Params.image }}" />{{ end }}
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />{{ if not .Site.IsServer }}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />{{ if and ( not .Site.IsServer ) .Site.Params.csp }}
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />{{ end }}
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
   <meta name="renderer" content="webkit" /><!-- 国产高速渲染 -->
@@ -46,22 +44,11 @@
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ or .Params.image .Site.Params.def_img }}" />{{ if .IsPage }}{{ if not .PublishDate.IsZero }}<meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:00" | safeHTML }}" />{{ else if not .Date.IsZero }}
   <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:00" | safeHTML }}" />{{ end }}{{ if not .Lastmod.IsZero }}
   <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:00" | safeHTML }}" />{{ end }}{{ end }}
-<!-- Bootstrap Core CSS
-<link href="{{ .Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
--->
-<!-- Custom CSS
-<link href="{{ .Site.BaseURL }}/css/Quanyin-blog.min.css" rel="stylesheet">
--->
-<!-- Custom Fonts
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
--->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body>
