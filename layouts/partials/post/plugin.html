@@ -124,8 +124,8 @@
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
     processEscapes: true,
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
@@ -145,6 +145,21 @@ MathJax.Hub.Config({
   MathJax.Hub.Queue(() => {
     MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
   });
+</script>
+{{ end }}
+{{ if .Params.katex }}<!-- 比mathjax快，但不完善,待修复，慎用-->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" crossorigin="anonymous">
+<script src="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js" crossorigin="anonymous"></script>
+<script async="async" src="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body,
+  [
+      {left: "$$", right: "$$", display: true},
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: true},
+  ]);
+});
 </script>
 {{ end }}
 
@@ -230,9 +245,12 @@ MathJax.Hub.Config({
             $("#zh1").hide();
             $("#en1").show();
         }
-        _render(_hash)
+        _render(_hash);
     }
     /* init */
     _render();
 </script>
+{{ end }}
+{{ if .Params.mermaid }}
+<script async="async" src="//cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js"></script>
 {{ end }}
