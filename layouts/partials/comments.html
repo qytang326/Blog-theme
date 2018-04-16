@@ -1,9 +1,9 @@
 {{ if and .IsPage (or .Params.comment (and .Site.Params.gitment.enable (ne .Params.comment false))) }}
 <div class="comment">
     <div id="container"></div>
-    <link rel="preload" href="{{ .Site.BaseURL }}/css/gitment.min.css" as="style" onload="this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/gitment.min.css" /></noscript>
-    <script  src="{{ .Site.BaseURL }}/js/gitment.min.js" ></script>
+    <link rel="preload" href="{{ .Site.BaseURL }}/css/gitment.min.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous"/>
+    <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/gitment.min.css" crossorigin="anonymous"/></noscript>
+    <script  src="{{ .Site.BaseURL }}/js/gitment.min.js" crossorigin="anonymous" ></script>
     <!-- 10月8日,gitment改用点击加载的方式-->
     <div class="text-muted text-center">
         <button class="reward" id="load-CommentGitment" onclick="CommentGitment.load();">评</button>

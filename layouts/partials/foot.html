@@ -61,7 +61,7 @@
 
 <!-- 动态背景-鼠标特效 -->
 {{ if .Site.Params.canvas_nest }}
-    <script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"  async="async"></script>
+    <script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"  async="async" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if not .Site.IsServer }}<!-- 调试时不计入统计-->
@@ -130,19 +130,19 @@
 <!-- pageviews-->
 {{ if .Site.Params.hit_kounter }}
     <script src="//cdn1.lncld.net/static/js/av-min-1.5.0.js"  ></script>
-    <script src="//jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.3.0.js"  async="async"></script>
+    <script src="//jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.3.0.js"  async="async" crossorigin="anonymous"></script>
 {{ end }}
 
 <!-- busuanzi -->
 {{ if .Site.Params.busuanzi }}
-    <!--
+    <!-- 已集成到global.js里
     <script async="async"src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script async="async" src="{{ .Site.BaseURL }}/js/busuanzi.pure.mini.js"></script>
     -->
 {{ end }}
 
 {{ if .Site.Params.tota11y }}
-<script async="async" src="//cdn.bootcss.com/tota11y/0.1.6/tota11y.min.js"></script>
+<script async="async" src="//cdn.bootcss.com/tota11y/0.1.6/tota11y.min.js" crossorigin="anonymous"></script>
 {{ end }}
 </body>
 </html>

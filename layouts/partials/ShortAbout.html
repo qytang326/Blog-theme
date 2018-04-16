@@ -5,7 +5,7 @@
     <h5><a href="/about/">ABOUT ME</a></h5>
     <div class="short-about">
         {{ if .Site.Params.sidebar_avatar }}
-        <img src="{{.Site.Params.sidebar_avatar}}" alt=" " />
+        <img src="{{.Site.Params.sidebar_avatar}}" alt=" " crossorigin="anonymous"/>
         {{ end }}
         {{ if .Site.Params.sidebar_about_description }}
         <p>{{ .Site.Params.sidebar_about_description | markdownify }}</p>

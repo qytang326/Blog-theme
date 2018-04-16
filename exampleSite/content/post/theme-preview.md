@@ -3,7 +3,7 @@ title = "Theme Preview | 主题预览"
 subtitle = "主题预览"
 description = "Hugo 主题，支持PWA"
 date = 2018-03-11T12:36:38+08:00
-
+lastmod = 2018-04-15
 authors = "Quanyin Tang"
 homepage = "https://quanyin.eu.org"
 
@@ -14,7 +14,7 @@ tags = ["Github-pages",]
 categories = ["编程",]
 
 image = "/img/bg-default.jpg"
-header_mask = 0.3 
+header_mask = 0.3
 
 multilingual = false
 toc = true
@@ -71,7 +71,7 @@ lazyload = true
 
 外链 [chekun's blog](https://chekun.me)
 
-页面内段落 [图片](#section-07)
+页面内段落 [图片](#7-图片)
 
 *注意：你可以通过 `{#section-id}` 方式自定义段落锚点*
 
@@ -103,8 +103,8 @@ lazyload = true
 
 ### 3.3 定义列表
 
-CSS
-    : 层叠样式表
+CSS:
+: 层叠样式表
 
 ### 3.4 任务列表
 
@@ -140,8 +140,6 @@ function helloWorld () {
 }
 ```
 
-<!--more-->
-
 ```java
 public class HelloWorld {
   public static void main(String[] args) {
@@ -169,10 +167,10 @@ int main(void){
 ```
 
 ```cpp
-// 'Hello World!' program 
- 
+// 'Hello World!' program
+
 #include <iostream>
- 
+
 int main(){
   std::cout << "Hello World!" << std::endl;
   return 0;
@@ -182,7 +180,7 @@ int main(){
 ```cs
 using System;
 class HelloWorld{
-  public static void Main(){ 
+  public static void Main(){
     System.Console.WriteLine("Hello, World!");
   }
 }
@@ -200,7 +198,7 @@ class HelloWorld{
 package main
 import fmt "fmt"
 
-func main() 
+func main()
 {
    fmt.Printf("Hello, World!\n");
 }
@@ -219,7 +217,7 @@ object HelloWorld with Application {
 ```
 
 ```python
-print("Hello, World!") 
+print("Hello, World!")
 ```
 ## 6.分割线
 
@@ -394,7 +392,7 @@ gantt
 | ~~style~~ | "" | ~~Choose between "orange", "grey", "blue" and "green" for nice style~~ |
 | pattern | ".*" | A regular expressions, used to filter the attachments by file name. <br/><br/>The **pattern** parameter value must be [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 
-例子： 
+例子：
 列出所有以`pdf`和`mp4`结尾的文件:
 
 `{{%/*attachments title="相关附件" pattern=".*(pdf|mp4)"/*/%}}`

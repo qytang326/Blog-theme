@@ -9,7 +9,7 @@ body {
 }
 /* -- Typography 段落间距 -- */
 p {
-    margin: 20px 0;
+    margin: 15px 0;
 }
 h1,
 h2,
@@ -18,7 +18,7 @@ h4,
 h5,
 h6 {
     .sans-serif;
-    line-height: 1.1;
+    line-height: 1.125;
     font-weight: 500;
 }
 h1{
@@ -48,7 +48,7 @@ article{
 blockquote {
     color: gray;
     font-size: 0.95em;
-    margin: 20px 0 20px;
+    margin: 15px 0 15px;
     p{
         margin: 0;
     }
@@ -111,6 +111,13 @@ pre code{
     white-space: pre;   // save it but no-wrap;
     word-wrap: normal;  // no-wrap
 }
+code {
+    // padding: 2px 4px;
+    // font-size: 90%;
+    color:@code-color;
+    background-color:@code-bg;
+    border-radius: 6px; // 50px 圆角
+}
 // In the list of posts
 .postlist-container{
     margin-bottom: 15px;
@@ -133,7 +140,7 @@ pre code{
     h4,
     h5,
     h6 {
-        margin: 30px 0 10px;
+        margin: 20px 0 10px;
     }
     h5{
         font-size: 19px;
@@ -152,7 +159,7 @@ pre code{
         }
     }
     ul,ol{
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         @media screen and (max-width: 768px){
             &{
                 padding-left: 30px;
@@ -173,7 +180,7 @@ pre code{
             margin-bottom: 5px;
         }
         h1,h2,h3,h4,h5,h6{
-            line-height: 1.5;
+            line-height: 2;
             margin-top: 20px;
         }
     }
@@ -191,9 +198,24 @@ pre code{
           margin-bottom: 5px;
           padding-left: 15px;
     }
+ }
+/* Drop default definetion style */
+  dl {
+       margin-top: 2rem;
+       margin-bottom: 2rem;
+    dt {
+      color: @gray-mid-dark;
+      margin-top: 1rem;
+      /* &::after {
+        content: ':';
+      } */
+    }
+    dd {
+      // text-indent: 2rem;
+      margin-left: 2rem;
+      margin-top: 0.25rem;
+    }
   }
-
-
     // V1.6 Quanyin display title by default.
     .pager li{
         width: 48%;
@@ -1030,5 +1052,3 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover{
     color: #ddd;
 }
-
-

@@ -9,15 +9,15 @@
   <link rel="preconnect" target="_blank" href="//cdn.bootcss.com" />{{ if .Site.Params.busuanzi }}
   <link rel="preconnect" target="_blank" href="//busuanzi.ibruce.info" />{{ end }}
   {{ if eq .Site.Params.async_css_all "true" }}<!-- 页面可能会抖动-->
-  <link rel="preload" as="style" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" crossOrigin="anonymous" />
-  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossOrigin="anonymous" /></noscript>{{ else }}
-  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossOrigin="anonymous" />{{ end }}
-  <link rel="preload" as="style" href="{{ .Site.BaseURL }}/css/Quanyin-global.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/Quanyin-global.min.css"/></noscript>
-  <link rel="preload" as="style" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" /></noscript>
-  <link rel="preload" as="font" href="//cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2" type="font/woff2" crossOrigin="anonymous" />
-  <link rel="prefetch" as="script" href="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossOrigin="anonymous" />{{ if .Params.image }}
+  <link rel="preload" as="style" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous" /></noscript>{{ else }}
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous" />{{ end }}
+  <link rel="preload" as="style" href="{{ .Site.BaseURL }}/css/Quanyin-global.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}/css/Quanyin-global.min.css" crossorigin="anonymous" /></noscript>
+  <link rel="preload" as="style" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" /></noscript>
+  <link rel="preload" as="font" href="//cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" crossorigin="anonymous" />
+  <link rel="prefetch" as="script" href="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"/>{{ if .Params.image }}
   <link rel="preload" as="image" href="{{ .Site.BaseURL }}{{ .Params.image }}" />{{ end }}
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />{{ if and ( not .Site.IsServer ) .Site.Params.csp }}
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />{{ end }}

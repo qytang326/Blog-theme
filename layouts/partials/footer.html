@@ -87,11 +87,11 @@
     }
 </script>-->
 <!-- jQuery -->
-<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" async="async" crossorigin="anonymous"></script>
 <!-- Custom Theme JavaScript -->
-<script src="{{ .Site.BaseURL }}/js/Quanyin-global.min.js" async="async"></script>
+<script src="{{ .Site.BaseURL }}/js/Quanyin-global.min.js" async="async" crossorigin="anonymous"></script>
 <!-- Service Worker --><!-- 合并snackbar.min.js sw-registration.min.js--><!-- 合并到Quanyin-global.min.js -->
 <!--{{ if and .Site.Params.service_worker ( not .Site.IsServer ) }}
     <script src="{{ .Site.BaseURL }}/js/snackbar-sw-registration.min.js"  async="async"></script>

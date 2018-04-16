@@ -324,7 +324,7 @@ code.has-jax {font: inherit;
       background:#777;
   }
 
-/* notice shortcode */  
+/* notice shortcode */
 div.notices {
     margin: 2rem 0;
     position: relative;
@@ -332,24 +332,27 @@ div.notices {
 div.notices p {
     padding: 15px;
     display: block;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    color: #666;
+    color: @label-file-color;
+    border-top: 30px solid @label-bg;
+    background: @label-file-bg;
 }
 div.notices p:first-child:before {
     position: absolute;
-    top: 2px;
-    color: #fff;
+    top: 5px;
+    color: @label-color;
     font-family: FontAwesome;
     content: '';
     left: 10px;
 }
 div.notices p:first-child:after {
     position: absolute;
-    top: 2px;
-    color: #fff;
+    top: 5px;
+    color: @label-color;
     left: 2rem;
+    content: '提示';
 }
 div.notices.info p {
     border-top: 30px solid #F0B37E;
@@ -378,7 +381,7 @@ div.notices.tip p {
 }
 div.notices.tip p:first-child:after {
     content: 'Tip';
-}  
+}
 /* attachments shortcode */
 label {
   display: block;
@@ -398,18 +401,31 @@ section.attachments label {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
     margin: 0;
-    color: #fff;
-    background: #777;
+    color: @label-color;
+    background: @label-bg;
 }
 
 section.attachments .attachments-files {
+    padding: 10px;
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: @label-file-color;
+    background: @label-file-bg;
+}
+section.attachments .notice-default {
     padding: 15px;
     display: block;
     font-size: 1.5rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    color: #666;
-    background: #f4f4f4;
+    color: @label-file-color;
+    background: @label-file-bg;
+}
+section.attachments .notice-default p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 /* section.attachments.grey label {
     color: #fff;

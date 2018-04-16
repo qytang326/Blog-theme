@@ -19,9 +19,9 @@ https://gohugo.io/content-management/shortcodes/#figure
 <figure{{ with $class }} class="{{ . }}"{{ end }}>
   {{ with $link }}<a href="{{ . }}"{{ if $linktarget }} target="{{ $linktarget }}"{{ end }}{{ if eq $linktarget "_blank" }} rel="external noopener noreferrer"{{ end }}>{{ end }}
     {{ if $lqipsrc }}
-      <img class="lazyload blur-up" src="{{ $lqipsrc }}" data-src="{{ $src }}" {{ if or $alt $caption }}alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption }}{{ end }}"{{ end }} />
+      <img class="lazyload blur-up" src="{{ $lqipsrc }}" data-src="{{ $src }}" {{ if or $alt $caption }}alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption }}{{ end }}"{{ end }} crossorigin="anonymous"/>
     {{ else }}
-      <img class="lazyload" data-src="{{ $src }}" {{ if or $alt $caption }}alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption }}{{ end }}"{{ end }} />
+      <img class="lazyload" data-src="{{ $src }}" {{ if or $alt $caption }}alt="{{ with $alt }}{{ . }}{{ else }}{{ $caption }}{{ end }}"{{ end }} crossorigin="anonymous"/>
     {{ end }}
   {{ if $link }}</a>{{ end }}
   {{ if or (or $title $caption) $attr }}

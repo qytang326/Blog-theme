@@ -76,9 +76,8 @@
                 function ready(e){(document.attachEvent?"complete"===document.readyState:"loading"!==document.readyState)?e():document.addEventListener("DOMContentLoaded",e)}ready(function(){function e(e,t){var a=[],r=e.dataset;a.element=e,a.music=t,a.showlrc=a.music[0].lrc?3:0,a.narrow="true"===r.narrow,a.autoplay="true"===r.autoplay,a.mutex="false"!==r.mutex,a.mode=r.mode||"circulation",a.preload=r.preload||"auto",a.listmaxheight=r.listmaxheight||"340px",a.theme=r.theme||"#e6d0b2",new APlayer(a)}console.log("\n %c Meting 1.1.0 %c https://i-meto.com/ghost-aplayer/ \n\n","color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;","background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");var t="https://api.i-meto.com/meting/api";"undefined"!=typeof meting_api&&(t=meting_api);var a=document.querySelectorAll(".aplayer");Array.prototype.forEach.call(a,function(a){var r=a.dataset.id;if(r){var n=new XMLHttpRequest;n.open("GET",t+"?server="+a.dataset.server+"&type="+a.dataset.type+"&id="+r+"&r="+Math.random(),!0),n.onload=function(){if(n.status>=200&&n.status<400){var t=JSON.parse(n.responseText);e(a,t)}},n.send()}else{var o=[];o.title=a.dataset.title,o.author=a.dataset.author,o.url=a.dataset.url,o.pic=a.dataset.pic,o.lrc=a.dataset.lrc,e(a,[o])}})});
             </script>
             -->
-            <link rel="stylesheet" href="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css">
-            <script src="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-
+            <link rel="stylesheet" href="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" crossorigin="anonymous">
+            <script src="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" crossorigin="anonymous"></script>
             <div class="aplayer post-container"
                 data-id="{{ .Site.Params.APlayer.id }}"
                 data-server="{{ .Site.Params.APlayer.server }}"
@@ -86,7 +85,7 @@
                 data-mode="{{ .Site.Params.APlayer.mode }}"
                 data-autoplay="{{ .Site.Params.APlayer.autoplay }}" >
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/meting@1.1.1/dist/Meting.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/meting@1.1.1/dist/Meting.min.js" crossorigin="anonymous"></script>
             {{ end }}
         {{ partial "comments.html" . }}
         </div>

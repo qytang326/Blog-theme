@@ -120,7 +120,7 @@
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script> -->
 <!-- http://www.gohugo.org/doc/tutorials/mathjax/ -->
-<script async="async" src="//cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossOrigin="anonymous"></script>
+<script async="async" src="//cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" crossorigin="anonymous"></script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
@@ -148,24 +148,24 @@ MathJax.Hub.Config({
 </script>
 {{ end }}
 {{ if .Params.katex }}<!-- 比mathjax快，但不完善,待修复，慎用-->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" crossorigin="anonymous">
-<script src="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.js" crossorigin="anonymous"></script>
-<script async="async" src="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdn.bootcss.com/KaTeX/0.9.0/katex.min.css" crossorigin="anonymous">
+<script src="//cdn.bootcss.com/KaTeX/0.9.0/katex.min.js" crossorigin="anonymous"></script>
+<script src="//cdn.bootcss.com/KaTeX/0.9.0/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  renderMathInElement(document.body,
-  [
-      {left: "$$", right: "$$", display: true},
-      {left: "\\[", right: "\\]", display: true},
-      {left: "\\(", right: "\\)", display: true},
-  ]);
+  renderMathInElement(document.body, {delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "\\(", right: "\\)", display: false},
+  ]});
 });
 </script>
 {{ end }}
 
 {{ if .Params.lazyload }}
 <!-- lazyload img https://github.com/aFarkas/lazysizes -->
-<script async="async" src="//cdn.bootcss.com/lazysizes/4.0.2/lazysizes.min.js" crossOrigin="anonymous" ></script>
+<script async="async" src="//cdn.bootcss.com/lazysizes/4.0.2/lazysizes.min.js" crossorigin="anonymous" ></script>
 {{ end }}
 
 <!-- flowchart 与语法高亮chroma冲突 不能正确显示-->
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <script async="async" src="//cdn.bootcss.com/snap.svg/0.5.1/snap.svg-min.js" crossorigin="anonymous"></script>
 <script async="async" src="//cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js" crossorigin="anonymous"></script>
 <script async="async" src="//cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js" crossorigin="anonymous"></script>
-<!--手写主题<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css"  crossorigin="anonymous">-->
+<!--手写主题<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" crossorigin="anonymous">-->
 {{ end }}
 <!--多语言支持-->
 {{ if .Params.multilingual }}

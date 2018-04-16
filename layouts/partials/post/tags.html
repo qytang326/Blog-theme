@@ -1,8 +1,8 @@
 <!-- 列出Post文章的tag -->
 {{ range $index, $tag :=  .Params.tags }}
     {{- if eq $index 0 -}}
-        <a href="/tags/{{ urlize . }}">{{ . }}</a>
+        <a href="/tags/#{{ urlize . }}">{{ . }}</a>
     {{- else -}}
-        <a href="/tags/{{ urlize . }}">{{ . }}</a>
+        <a href="/tags/#{{ urlize . }}">{{ . }}</a>
     {{- end -}}
 {{ end }}
