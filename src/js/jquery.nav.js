@@ -44,8 +44,7 @@
             scrollThreshold: 0.5,
             begin: false,
             end: false,
-            scrollChange: false,
-            padding: 0
+            scrollChange: false
         },
 
         init: function() {
@@ -200,7 +199,7 @@
         },
 
         scrollTo: function(target, callback) {
-            var offset = $(target).offset().top - this.config.padding;
+            var offset = $(target).offset().top;
 
             $('html, body').animate({
                 scrollTop: offset

@@ -1,12 +1,10 @@
 <!-- 来自 Hugo-theme-learn,有修改 -->
-<!--彩色版，禁掉
-<div class="notices {{ .Get 0 }}" {{ if len .Params | eq 2 }} id="{{ .Get 1 }}" {{ end }}>{{ .Inner }}</div>
--->
 <section class="attachments">
   <label>
-    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-    {{with .Get 0}}{{ . }}{{else}}{{ "提示" }}{{end}}
+    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;
+    {{ with .Get 0 }}{{ . }}{{ else }}{{T "提示" }}{{ end }}
   </label>
   <div class="notice-default">
-  {{.Inner}}
+  notice
+  {{ .Inner }}
 </section>

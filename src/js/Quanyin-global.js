@@ -5,11 +5,11 @@
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
 
- /*!
- * Quanyin Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2017 @Quanyin
- * Licensed under Apache 2.0
- */
+/*!
+* Quanyin Blog v1.0.0 (http://startbootstrap.com)
+* Copyright 2017 @Quanyin
+* Licensed under Apache 2.0
+*/
 
 // Tooltip Init
 // Unuse by Quanyin since V1.0: Titles now display by default so there is no need for tooltip
@@ -29,13 +29,13 @@
 // });
 
 // responsive tables
-$(document).ready(function() {
+$(document).ready(function () {
     $("table").wrap("<div class='table-responsive'></div>");
     $("table").addClass("table");
 });
 
 // responsive embed videos
-$(document).ready(function() {
+$(document).ready(function () {
     $('iframe[src*="youtube.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
     $('iframe[src*="youtube.com"]').addClass('embed-responsive-item');
     $('iframe[src*="vimeo.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
@@ -43,44 +43,42 @@ $(document).ready(function() {
 });
 
 // Navigation Scripts to Show Header on Scroll-Up
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     var MQL = 1170;
 
     //primary navigation slide-in effect
     if ($(window).width() > MQL) {
         var headerHeight = $('.navbar-custom').height(),
-            bannerHeight  = $('.intro-header .container').height();
+            bannerHeight = $('.intro-header .container').height();
         $(window).on('scroll', {
-                previousTop: 0
-            },
-            function() {
-                var currentTop = $(window).scrollTop(),
-                    $catalog = $('.side-catalog');
+            previousTop: 0
+        }, function () {
+            var currentTop = $(window).scrollTop(),
+                $catalog = $('.side-catalog');
 
-                //check if user is scrolling up by mouse or keyborad
-                if (currentTop < this.previousTop) {
-                    //if scrolling up...
-                    if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
-                        $('.navbar-custom').addClass('is-visible');
-                    } else {
-                        $('.navbar-custom').removeClass('is-visible is-fixed');
-                    }
+            //check if user is scrolling up by mouse or keyborad
+            if (currentTop < this.previousTop) {
+                //if scrolling up...
+                if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
+                    $('.navbar-custom').addClass('is-visible');
                 } else {
-                    //if scrolling down...
-                    $('.navbar-custom').removeClass('is-visible');
-                    if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+                    $('.navbar-custom').removeClass('is-visible is-fixed');
                 }
-                this.previousTop = currentTop;
+            } else {
+                //if scrolling down...
+                $('.navbar-custom').removeClass('is-visible');
+                if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+            }
+            this.previousTop = currentTop;
 
-
-                //adjust the appearance of side-catalog
-                $catalog.show();
-                if (currentTop > (bannerHeight + 41)) {
-                    $catalog.addClass('fixed');
-                } else {
-                    $catalog.removeClass('fixed');
-                }
-            });
+            //adjust the appearance of side-catalog
+            $catalog.show();
+            if (currentTop > bannerHeight + 41) {
+                $catalog.addClass('fixed');
+            } else {
+                $catalog.removeClass('fixed');
+            }
+        });
     }
 });
 /**
@@ -90,30 +88,29 @@ jQuery(document).ready(function($) {
  * https://codepen.io/wibblymat/pen/avAjq
  */
 
-
-var createSnackbar = (function() {
+var createSnackbar = function () {
   // Any snackbar that is already shown
   var previous = null;
 
-/*
-<div class="paper-snackbar">
-  <button class="action">Dismiss</button>
-  This is a longer message that won't fit on one line. It is, inevitably, quite a boring thing. Hopefully it is still useful.
-</div>
-*/
+  /*
+  <div class="paper-snackbar">
+    <button class="action">Dismiss</button>
+    This is a longer message that won't fit on one line. It is, inevitably, quite a boring thing. Hopefully it is still useful.
+  </div>
+  */
 
-  return function(config) {
+  return function (config) {
     var message = config.message,
-      actionText = config.actionText,
-      action = config.action,
-      duration = config.duration;
+        actionText = config.actionText,
+        action = config.action,
+        duration = config.duration;
 
     if (previous) {
       previous.dismiss();
     }
     var snackbar = document.createElement('div');
     snackbar.className = 'paper-snackbar';
-    snackbar.dismiss = function() {
+    snackbar.dismiss = function () {
       this.style.opacity = 0;
     };
     var text = document.createTextNode(message);
@@ -128,13 +125,13 @@ var createSnackbar = (function() {
       actionButton.addEventListener('click', action);
       snackbar.appendChild(actionButton);
     }
-    setTimeout(function() {
+    setTimeout(function () {
       if (previous === this) {
         previous.dismiss();
       }
     }.bind(snackbar), duration || 5000);
 
-    snackbar.addEventListener('transitionend', function(event, elapsed) {
+    snackbar.addEventListener('transitionend', function (event, elapsed) {
       if (event.propertyName === 'opacity' && this.style.opacity == 0) {
         this.parentElement.removeChild(this);
         if (previous === this) {
@@ -143,8 +140,6 @@ var createSnackbar = (function() {
       }
     }.bind(snackbar));
 
-
-
     previous = snackbar;
     document.body.appendChild(snackbar);
     // In order for the animations to trigger, I have to force the original style to be computed, and then change it.
@@ -152,8 +147,7 @@ var createSnackbar = (function() {
     snackbar.style.bottom = '0px';
     snackbar.style.opacity = 1;
   };
-})();
-
+}();
 /* ===========================================================
  * sw-registration.js
  * ===========================================================
@@ -164,15 +158,15 @@ var createSnackbar = (function() {
 
 /* SW Version Upgrade Ref: <https://youtu.be/Gb9uI67tqV0> */
 
-function handleRegistration(registration){
+function handleRegistration(registration) {
   console.log('Service Worker Registered. ', registration);
   /**
    * ServiceWorkerRegistration.onupdatefound
    * The service worker registration's installing worker changes.
    */
-  registration.onupdatefound = (e) => {
-    const installingWorker = registration.installing;
-    installingWorker.onstatechange = (e) => {
+  registration.onupdatefound = function (e) {
+    var installingWorker = registration.installing;
+    installingWorker.onstatechange = function (e) {
       if (installingWorker.state !== 'installed') return;
       if (navigator.serviceWorker.controller) {
         console.log('SW is updated');
@@ -187,32 +181,84 @@ function handleRegistration(registration){
   };
 }
 
-if(navigator.serviceWorker){
+if (navigator.serviceWorker) {
   /*  For security reasons, a service worker can only control the pages */
   /* that are in the same directory level or below it. That's why we put sw.js at ROOT level. */
-  navigator.serviceWorker
-    .register('/sw.min.js')
-    .then((registration) => handleRegistration(registration))
-    .catch((error) => {console.log('ServiceWorker registration failed: ', error);});
+  navigator.serviceWorker.register('/sw.min.js').then(function (registration) {
+    return handleRegistration(registration);
+  }).catch(function (error) {
+    console.log('ServiceWorker registration failed: ', error);
+  });
 
   /* register message receiver */
   /*  https://dbwriteups.wordpress.com/2015/11/16/service-workers-part-3-communication-between-sw-and-pages/ */
-  navigator.serviceWorker.onmessage = (e) => {
+  navigator.serviceWorker.onmessage = function (e) {
     console.log('SW: SW Broadcasting:', event);
-    const data = e.data;
+    var data = e.data;
 
-    if(data.command == "UPDATE_FOUND"){
+    if (data.command == "UPDATE_FOUND") {
       console.log("UPDATE_FOUND_BY_SW", data);
       createSnackbar({
         message: "Content updated.",
-        actionText:"refresh",
-        action: function(e){location.reload();}
+        actionText: "refresh",
+        action: function action(e) {
+          location.reload();
+        }
       });
     }
   };
 }
-
-var bszCaller,bszTag;!function(){var c,d,e,a=!1,b=[];ready=function(c){return a||"interactive"===document.readyState||"complete"===document.readyState?c.call(document):b.push(function(){return c.call(this)}),this},d=function(){for(var a=0,c=b.length;c>a;a++)b[a].apply(document);b=[]},e=function(){a||(a=!0,d.call(window),document.removeEventListener?document.removeEventListener("DOMContentLoaded",e,!1):document.attachEvent&&(document.detachEvent("onreadystatechange",e),window==window.top&&(clearInterval(c),c=null)))},document.addEventListener?document.addEventListener("DOMContentLoaded",e,!1):document.attachEvent&&(document.attachEvent("onreadystatechange",function(){/loaded|complete/.test(document.readyState)&&e()}),window==window.top&&(c=setInterval(function(){try{a||document.documentElement.doScroll("left")}catch(b){return}e()},5)))}(),bszCaller={fetch:function(a,b){var c="BusuanziCallback_"+Math.floor(1099511627776*Math.random());window[c]=this.evalCall(b),a=a.replace("=BusuanziCallback","="+c),scriptTag=document.createElement("SCRIPT"),scriptTag.type="text/javascript",scriptTag.defer=!0,scriptTag.src=a,document.getElementsByTagName("HEAD")[0].appendChild(scriptTag)},evalCall:function(a){return function(b){ready(function(){try{a(b),scriptTag.parentElement.removeChild(scriptTag)}catch(c){bszTag.hides()}})}}},bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback",function(a){bszTag.texts(a),bszTag.shows()}),bszTag={bszs:["site_pv","page_pv","site_uv"],texts:function(a){this.bszs.map(function(b){var c=document.getElementById("busuanzi_value_"+b);c&&(c.innerHTML=a[b])})},hides:function(){this.bszs.map(function(a){var b=document.getElementById("busuanzi_container_"+a);b&&(b.style.display="none")})},shows:function(){this.bszs.map(function(a){var b=document.getElementById("busuanzi_container_"+a);b&&(b.style.display="inline")})}};
+var bszCaller, bszTag;!function () {
+  var c,
+      d,
+      _e,
+      a = !1,
+      b = [];ready = function ready(c) {
+    return a || "interactive" === document.readyState || "complete" === document.readyState ? c.call(document) : b.push(function () {
+      return c.call(this);
+    }), this;
+  }, d = function d() {
+    for (var a = 0, c = b.length; c > a; a++) {
+      b[a].apply(document);
+    }b = [];
+  }, _e = function e() {
+    a || (a = !0, d.call(window), document.removeEventListener ? document.removeEventListener("DOMContentLoaded", _e, !1) : document.attachEvent && (document.detachEvent("onreadystatechange", _e), window == window.top && (clearInterval(c), c = null)));
+  }, document.addEventListener ? document.addEventListener("DOMContentLoaded", _e, !1) : document.attachEvent && (document.attachEvent("onreadystatechange", function () {
+    /loaded|complete/.test(document.readyState) && _e();
+  }), window == window.top && (c = setInterval(function () {
+    try {
+      a || document.documentElement.doScroll("left");
+    } catch (b) {
+      return;
+    }_e();
+  }, 5)));
+}(), bszCaller = { fetch: function fetch(a, b) {
+    var c = "BusuanziCallback_" + Math.floor(1099511627776 * Math.random());window[c] = this.evalCall(b), a = a.replace("=BusuanziCallback", "=" + c), scriptTag = document.createElement("SCRIPT"), scriptTag.type = "text/javascript", scriptTag.defer = !0, scriptTag.src = a, document.getElementsByTagName("HEAD")[0].appendChild(scriptTag);
+  }, evalCall: function evalCall(a) {
+    return function (b) {
+      ready(function () {
+        try {
+          a(b), scriptTag.parentElement.removeChild(scriptTag);
+        } catch (c) {
+          bszTag.hides();
+        }
+      });
+    };
+  } }, bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+  bszTag.texts(a), bszTag.shows();
+}), bszTag = { bszs: ["site_pv", "page_pv", "site_uv"], texts: function texts(a) {
+    this.bszs.map(function (b) {
+      var c = document.getElementById("busuanzi_value_" + b);c && (c.innerHTML = a[b]);
+    });
+  }, hides: function hides() {
+    this.bszs.map(function (a) {
+      var b = document.getElementById("busuanzi_container_" + a);b && (b.style.display = "none");
+    });
+  }, shows: function shows() {
+    this.bszs.map(function (a) {
+      var b = document.getElementById("busuanzi_container_" + a);b && (b.style.display = "inline");
+    });
+  } };
 /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -317,13 +363,13 @@ var bszCaller,bszTag;!function(){var c,d,e,a=!1,b=[];ready=function(c){return a|
         w.loadCSS = loadCSS;
     }
 }( typeof global !== "undefined" ? global : this ) );
-window.onscroll=function(){
+window.onscroll = function () {
     var goTop = document.getElementsByClassName("back2top");
-    if(goTop.length>0){
-        goTop[0].style.display = document.documentElement.scrollTop >= 300 || document.body.scrollTop >= 300 ? 'block':'none';
-        goTop[0].onclick=function(){
-            document.body.scrollTop=0;
-            document.documentElement.scrollTop=0;
-        }
+    if (goTop.length > 0) {
+        goTop[0].style.display = document.documentElement.scrollTop >= 300 || document.body.scrollTop >= 300 ? 'block' : 'none';
+        goTop[0].onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
     }
-}
+};

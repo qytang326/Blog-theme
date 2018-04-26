@@ -1,0 +1,53 @@
+{{ if .IsPage }}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ .Permalink | safeJS }}"
+        },
+        "headline": "{{ .Title | safeJS}}",
+        "description": "{{ printf "%s" .Description }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ or .Params.authors .Site.Author.name }}",
+            "url": "{{ or .Params.homepage .Site.Author.homepage }}",
+            "image": {
+              "@type": "ImageObject",
+              "url": "{{ or .Params.portrait .Site.Params.sidebar_avatar }}",
+              "height": 80,
+              "width": 80
+            }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "{{ .Site.BaseURL }}",
+          "name": "{{ .Site.Title }}",
+          "url": "{{ .Site.BaseURL }}",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{{ absURL "/favicon.ico" }}",
+            "height": 80,
+            "width": 80
+          }
+        },
+        {{ if .Params.image }}"image": {
+          "@type": "ImageObject",
+          "url": "{{ absURL .Params.image }}",
+          "height": 133,
+          "width": 200
+        },{{ else }}
+        "image": {
+          "@type": "ImageObject",
+          "url": "{{ .Site.Params.def_post_img }}",
+          "height": 80,
+          "width": 80
+        },{{ end }}
+        "datePublished": "{{ .Date.Format "2006-01-02" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+        "wordCount": {{ .WordCount }},
+        {{ if .Params.keywords }}"keywords": {{ .Params.keywords | jsonify }} {{ end }}
+    }
+    </script>
+{{ end }}

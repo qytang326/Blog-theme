@@ -4,11 +4,11 @@
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
 
- /*!
- * Quanyin Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2017 @Quanyin
- * Licensed under Apache 2.0
- */
+/*!
+* Quanyin Blog v1.0.0 (http://startbootstrap.com)
+* Copyright 2017 @Quanyin
+* Licensed under Apache 2.0
+*/
 
 // Tooltip Init
 // Unuse by Quanyin since V1.0: Titles now display by default so there is no need for tooltip
@@ -28,13 +28,13 @@
 // });
 
 // responsive tables
-$(document).ready(function() {
+$(document).ready(function () {
     $("table").wrap("<div class='table-responsive'></div>");
     $("table").addClass("table");
 });
 
 // responsive embed videos
-$(document).ready(function() {
+$(document).ready(function () {
     $('iframe[src*="youtube.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
     $('iframe[src*="youtube.com"]').addClass('embed-responsive-item');
     $('iframe[src*="vimeo.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
@@ -42,43 +42,41 @@ $(document).ready(function() {
 });
 
 // Navigation Scripts to Show Header on Scroll-Up
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     var MQL = 1170;
 
     //primary navigation slide-in effect
     if ($(window).width() > MQL) {
         var headerHeight = $('.navbar-custom').height(),
-            bannerHeight  = $('.intro-header .container').height();
+            bannerHeight = $('.intro-header .container').height();
         $(window).on('scroll', {
-                previousTop: 0
-            },
-            function() {
-                var currentTop = $(window).scrollTop(),
-                    $catalog = $('.side-catalog');
+            previousTop: 0
+        }, function () {
+            var currentTop = $(window).scrollTop(),
+                $catalog = $('.side-catalog');
 
-                //check if user is scrolling up by mouse or keyborad
-                if (currentTop < this.previousTop) {
-                    //if scrolling up...
-                    if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
-                        $('.navbar-custom').addClass('is-visible');
-                    } else {
-                        $('.navbar-custom').removeClass('is-visible is-fixed');
-                    }
+            //check if user is scrolling up by mouse or keyborad
+            if (currentTop < this.previousTop) {
+                //if scrolling up...
+                if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
+                    $('.navbar-custom').addClass('is-visible');
                 } else {
-                    //if scrolling down...
-                    $('.navbar-custom').removeClass('is-visible');
-                    if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+                    $('.navbar-custom').removeClass('is-visible is-fixed');
                 }
-                this.previousTop = currentTop;
+            } else {
+                //if scrolling down...
+                $('.navbar-custom').removeClass('is-visible');
+                if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+            }
+            this.previousTop = currentTop;
 
-
-                //adjust the appearance of side-catalog
-                $catalog.show();
-                if (currentTop > (bannerHeight + 41)) {
-                    $catalog.addClass('fixed');
-                } else {
-                    $catalog.removeClass('fixed');
-                }
-            });
+            //adjust the appearance of side-catalog
+            $catalog.show();
+            if (currentTop > bannerHeight + 41) {
+                $catalog.addClass('fixed');
+            } else {
+                $catalog.removeClass('fixed');
+            }
+        });
     }
 });

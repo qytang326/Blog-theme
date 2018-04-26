@@ -110,13 +110,15 @@ pre code{
     width: auto;
     white-space: pre;   // save it but no-wrap;
     word-wrap: normal;  // no-wrap
+    border: 0;
 }
 code {
     // padding: 2px 4px;
     // font-size: 90%;
     color:@code-color;
     background-color:@code-bg;
-    border-radius: 6px; // 50px 圆角
+    // border-radius: 4px; // 50px 圆角
+    border: 1px solid #ccc;
 }
 // In the list of posts
 .postlist-container{
@@ -127,12 +129,15 @@ code {
     a{
         // display: inline-block;
         // safari has bugs on word-break on inline elements.
-        color:#337ab7;
+        color:@gray-dark;
         // different to @brand-primary
         &:hover,
         &:focus {
             color: @brand-primary;
         }
+    }
+    blockquote a{
+      color:gray;
     }
     h1,
     h2,
@@ -536,6 +541,7 @@ code {
             margin: 0;
             font-weight: 300;
             margin-bottom: 10px;
+            color:#777;
         }
     }
     > .post-meta {
@@ -582,6 +588,9 @@ code {
     @media only screen and (min-width: 768px) {
         font-size:14px;
     }
+    blockquote a{
+      color:#a3a3a3;
+    }
 }
 
 // Sections
@@ -615,7 +624,7 @@ footer {
         text-align: center;
         margin-bottom: 0;
         a{
-            color:#337ab7;
+            color:#777;
             // different to @brand-primary
             &:hover,
             &:focus {

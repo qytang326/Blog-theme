@@ -55,7 +55,7 @@
 <style>
 header.intro-header{
     position: relative;
-    background-image: url({{ .Site.BaseURL }}{{ if isset .Params "image" }}{{.Params.image  }}{{ else }}{{ .Site.Params.def_post_img }}{{ end }})
+    background-image: url({{ .Site.BaseURL }}{{ if isset .Params "image" }}{{ .Params.image }}{{ else }}{{ .Site.Params.def_post_img }}{{ end }})
 }
 header.intro-header .header-mask{
     width: 100%;
@@ -82,7 +82,7 @@ header.intro-header .header-mask{
 {{ end }}
 
 <!-- Post Content -->
-<article>
+<article itemscope itemtype="//schema.org/BlogPosting">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

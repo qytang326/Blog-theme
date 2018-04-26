@@ -6,7 +6,9 @@
 /* 定义列表的颜色 */
 /* blockquete的颜色 */
 /*边框，sidebar的颜色 */
-/* RGBA(64,64,64,0.5) */
+/*#dbdbdb*/
+/* code字的颜色 */
+/* code底色 */
 /* attachments, notice,tip等label中字等颜色*/
 /* label 底色*/
 /* attachments, notice,tip等label中字等颜色*/
@@ -438,11 +440,12 @@ pre code {
   width: auto;
   white-space: pre;
   word-wrap: normal;
+  border: 0;
 }
 code {
-  color: #eeeeee;
-  background-color: rgba(64, 64, 64, 0.5);
-  border-radius: 6px;
+  color: #404040;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
 }
 .postlist-container {
   margin-bottom: 15px;
@@ -451,11 +454,14 @@ code {
   /* Drop default definetion style */
 }
 .post-container a {
-  color: #337ab7;
+  color: #404040;
 }
 .post-container a:hover,
 .post-container a:focus {
   color: #4a4a4a;
+}
+.post-container blockquote a {
+  color: gray;
 }
 .post-container h1,
 .post-container h2,
@@ -875,6 +881,7 @@ code {
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px;
+  color: #777;
 }
 .post-preview > .post-meta {
   font-family: 'Lora', 'Times New Roman', serif;
@@ -918,6 +925,9 @@ code {
     font-size: 14px;
   }
 }
+.post-content-preview blockquote a {
+  color: #a3a3a3;
+}
 .section-heading {
   font-size: 36px;
   margin-top: 60px;
@@ -947,7 +957,7 @@ footer .copyright {
   margin-bottom: 0;
 }
 footer .copyright a {
-  color: #337ab7;
+  color: #777;
 }
 footer .copyright a:hover,
 footer .copyright a:focus {
@@ -1741,6 +1751,7 @@ section.attachments label {
   margin: 0;
   color: #ffffff;
   background: #777777;
+  border-radius: 6px;
 }
 section.attachments .attachments-files {
   padding: 10px;
@@ -1750,6 +1761,7 @@ section.attachments .attachments-files {
   margin-bottom: 0rem;
   color: #666666;
   background: #f4f4f4;
+  border-radius: 6px;
 }
 section.attachments .notice-default {
   padding: 15px;
@@ -1759,6 +1771,7 @@ section.attachments .notice-default {
   margin-bottom: 0rem;
   color: #666666;
   background: #f4f4f4;
+  border-radius: 6px;
 }
 section.attachments .notice-default p {
   margin-top: 0rem;
