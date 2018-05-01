@@ -1,10 +1,12 @@
-<!-- 来自 Hugo-theme-learn,有修改 -->
+{{/* 
+  Port From Hugo-theme-learn
+*/}}
 <section class="attachments">
   <label>
     <i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;
-    {{ with .Get 0 }}{{ . }}{{ else }}{{T "提示" }}{{ end }}
+    {{ with .Get 0 }}{{ . }}{{ else }}{{ "提示" }}{{ end }}
   </label>
   <div class="notice-default">
-  notice
-  {{ .Inner }}
+    {{ .Inner | markdownify }}
+  </div>
 </section>

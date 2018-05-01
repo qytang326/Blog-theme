@@ -1,0 +1,114 @@
+/* notice shortcode */
+div.notices {
+    margin: 2rem 0;
+    position: relative;
+}
+div.notices p {
+    padding: 15px;
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: @label-file-color;
+    border-top: 30px solid @label-bg;
+    background: @label-file-bg;
+}
+div.notices p:first-child:before {
+    position: absolute;
+    top: 5px;
+    color: @label-color;
+    font-family: FontAwesome;
+    content: '';
+    left: 10px;
+}
+div.notices p:first-child:after {
+    position: absolute;
+    top: 5px;
+    color: @label-color;
+    left: 2rem;
+    content: '提示';
+}
+div.notices.info p {
+    border-top: 30px solid #F0B37E;
+    background: #FFF2DB;
+}
+div.notices.info p:first-child:after {
+    content: 'Info';
+}
+div.notices.warning p {
+    border-top: 30px solid rgba(217, 83, 79, 0.8);
+    background: #FAE2E2;
+}
+div.notices.warning p:first-child:after {
+    content: 'Warning';
+}
+div.notices.note p {
+    border-top: 30px solid #6AB0DE;
+    background: #E7F2FA;
+}
+div.notices.note p:first-child:after {
+    content: 'Note';
+}
+div.notices.tip p {
+    border-top: 30px solid rgba(92, 184, 92, 0.8);
+    background: #E6F9E6;
+}
+div.notices.tip p:first-child:after {
+    content: 'Tip';
+}
+/* attachments shortcode */
+label {
+  display: block;
+  margin-bottom: 0.425rem; }
+  label.required:after {
+    content: "*"; }
+  label abbr {
+    display: none; }
+section.attachments {
+    margin: 2rem 0;
+    position: relative;
+}
+
+section.attachments label {
+    font-weight: 400;
+    padding-left: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    color: @label-color;
+    background: @label-bg;
+    border-radius:6px;
+}
+
+section.attachments .attachments-files {
+    padding: 10px;
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: @label-file-color;
+    background: @label-file-bg;
+    border-radius:6px;
+}
+section.attachments .notice-default {
+    padding: 15px;
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: @label-file-color;
+    background: @label-file-bg;
+    border-radius:6px;
+}
+section.attachments .notice-default p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+/* section.attachments.grey label {
+    color: #fff;
+    background: #505d65;
+}
+
+section.attachments.grey .attachments-files {
+    background: #f4f4f4;
+} */

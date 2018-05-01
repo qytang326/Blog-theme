@@ -1,4 +1,5 @@
 /*! Quanyin Blog Theme v2.0.0 (https://qytang326.github.io) || Copyright 2018 Quanyin Tang <qytang326@gmail.com> */
+@charset "UTF-8";
 /* Variables */
 /*http://zh.spycolor.com */
 /* #0085A1 */
@@ -1350,6 +1351,162 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+/* load-CommentGitment */
+/* #load-CommentGitment {
+    background-color:#FFFFFF;
+    padding:9px;
+    margin:0 auto;
+    position:relative;
+    font-size:16px;
+    color:#555;
+    text-decoration:none;
+    border: solid 2px #2D2D2D;
+}*/
+/* For Mathjax */
+code.has-jax {
+  font: inherit;
+  font-size: 100%;
+  background: inherit;
+  border: inherit;
+  color: #404040;
+}
+/* For anchor-js  */
+/* place left on bigger screen */
+@media all and (min-width: 800px) {
+  .anchorjs-link {
+    position: absolute;
+    left: -0.75em;
+    font-size: 1.1em;
+    margin-top: -0.1em;
+  }
+}
+/* For Shortcode Figure */
+@media sreen {
+  .blur-up {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    transition: filter 400ms, -webkit-filter 400ms;
+  }
+  .blur-up.lazyloaded {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+/* notice shortcode */
+div.notices {
+  margin: 2rem 0;
+  position: relative;
+}
+div.notices p {
+  padding: 15px;
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  color: #666666;
+  border-top: 30px solid #777777;
+  background: #f4f4f4;
+}
+div.notices p:first-child:before {
+  position: absolute;
+  top: 5px;
+  color: #ffffff;
+  font-family: FontAwesome;
+  content: '';
+  left: 10px;
+}
+div.notices p:first-child:after {
+  position: absolute;
+  top: 5px;
+  color: #ffffff;
+  left: 2rem;
+  content: '提示';
+}
+div.notices.info p {
+  border-top: 30px solid #F0B37E;
+  background: #FFF2DB;
+}
+div.notices.info p:first-child:after {
+  content: 'Info';
+}
+div.notices.warning p {
+  border-top: 30px solid rgba(217, 83, 79, 0.8);
+  background: #FAE2E2;
+}
+div.notices.warning p:first-child:after {
+  content: 'Warning';
+}
+div.notices.note p {
+  border-top: 30px solid #6AB0DE;
+  background: #E7F2FA;
+}
+div.notices.note p:first-child:after {
+  content: 'Note';
+}
+div.notices.tip p {
+  border-top: 30px solid rgba(92, 184, 92, 0.8);
+  background: #E6F9E6;
+}
+div.notices.tip p:first-child:after {
+  content: 'Tip';
+}
+/* attachments shortcode */
+label {
+  display: block;
+  margin-bottom: 0.425rem;
+}
+label.required:after {
+  content: "*";
+}
+label abbr {
+  display: none;
+}
+section.attachments {
+  margin: 2rem 0;
+  position: relative;
+}
+section.attachments label {
+  font-weight: 400;
+  padding-left: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  color: #ffffff;
+  background: #777777;
+  border-radius: 6px;
+}
+section.attachments .attachments-files {
+  padding: 10px;
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  color: #666666;
+  background: #f4f4f4;
+  border-radius: 6px;
+}
+section.attachments .notice-default {
+  padding: 15px;
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  color: #666666;
+  background: #f4f4f4;
+  border-radius: 6px;
+}
+section.attachments .notice-default p {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+/* section.attachments.grey label {
+    color: #fff;
+    background: #505d65;
+}
+
+section.attachments.grey .attachments-files {
+    background: #f4f4f4;
+} */
 /* Back to top
 #back-top {
   position: fixed;
@@ -1394,35 +1551,6 @@ img::-moz-selection {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 15px solid #fff;
-}
-/* load-CommentGitment */
-/* #load-CommentGitment {
-    background-color:#FFFFFF;
-    padding:9px;
-    margin:0 auto;
-    position:relative;
-    font-size:16px;
-    color:#555;
-    text-decoration:none;
-    border: solid 2px #2D2D2D;
-}*/
-/* For Mathjax */
-code.has-jax {
-  font: inherit;
-  font-size: 100%;
-  background: inherit;
-  border: inherit;
-  color: #404040;
-}
-/* For anchor-js  */
-/* place left on bigger screen */
-@media all and (min-width: 800px) {
-  .anchorjs-link {
-    position: absolute;
-    left: -0.75em;
-    font-size: 1.1em;
-    margin-top: -0.1em;
-  }
 }
 /* reward */
 /*
@@ -1670,118 +1798,3 @@ code.has-jax {
   /* background: linear-gradient(rgb(252, 205, 96) 0px, rgb(251, 174, 18) 100%, rgb(41, 137, 216) 100%, rgb(32, 124, 202) 100%);*/
   background: #777;
 }
-/* notice shortcode */
-div.notices {
-  margin: 2rem 0;
-  position: relative;
-}
-div.notices p {
-  padding: 15px;
-  display: block;
-  font-size: 1.5rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  color: #666666;
-  border-top: 30px solid #777777;
-  background: #f4f4f4;
-}
-div.notices p:first-child:before {
-  position: absolute;
-  top: 5px;
-  color: #ffffff;
-  font-family: FontAwesome;
-  content: '';
-  left: 10px;
-}
-div.notices p:first-child:after {
-  position: absolute;
-  top: 5px;
-  color: #ffffff;
-  left: 2rem;
-  content: '提示';
-}
-div.notices.info p {
-  border-top: 30px solid #F0B37E;
-  background: #FFF2DB;
-}
-div.notices.info p:first-child:after {
-  content: 'Info';
-}
-div.notices.warning p {
-  border-top: 30px solid rgba(217, 83, 79, 0.8);
-  background: #FAE2E2;
-}
-div.notices.warning p:first-child:after {
-  content: 'Warning';
-}
-div.notices.note p {
-  border-top: 30px solid #6AB0DE;
-  background: #E7F2FA;
-}
-div.notices.note p:first-child:after {
-  content: 'Note';
-}
-div.notices.tip p {
-  border-top: 30px solid rgba(92, 184, 92, 0.8);
-  background: #E6F9E6;
-}
-div.notices.tip p:first-child:after {
-  content: 'Tip';
-}
-/* attachments shortcode */
-label {
-  display: block;
-  margin-bottom: 0.425rem;
-}
-label.required:after {
-  content: "*";
-}
-label abbr {
-  display: none;
-}
-section.attachments {
-  margin: 2rem 0;
-  position: relative;
-}
-section.attachments label {
-  font-weight: 400;
-  padding-left: 0.5em;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  color: #ffffff;
-  background: #777777;
-  border-radius: 6px;
-}
-section.attachments .attachments-files {
-  padding: 10px;
-  display: block;
-  font-size: 1.5rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  color: #666666;
-  background: #f4f4f4;
-  border-radius: 6px;
-}
-section.attachments .notice-default {
-  padding: 15px;
-  display: block;
-  font-size: 1.5rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  color: #666666;
-  background: #f4f4f4;
-  border-radius: 6px;
-}
-section.attachments .notice-default p {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-}
-/* section.attachments.grey label {
-    color: #fff;
-    background: #505d65;
-}
-
-section.attachments.grey .attachments-files {
-    background: #f4f4f4;
-} */

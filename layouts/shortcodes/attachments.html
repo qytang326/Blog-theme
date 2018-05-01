@@ -1,9 +1,12 @@
-<!-- 来自 Hugo-theme-learn -->
+{{/* 
+  Port From Hugo-theme-learn 
+  shortcodes can't end with spaces 
+*/}}
 <section class="attachments">
 <blockquote>
   <label>
     <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;
-    {{ with .Get "title" }}{{ . }}{{ else }}{{T "附件" }}{{ end }}
+    {{ with .Get "title" }}{{ . }}{{ else }}{{ "附件" }}{{ end }}
   </label>
   {{ if eq .Page.File.BaseFileName "index" }}
     {{ $.Scratch.Add "filesName" "files" }}
@@ -16,21 +19,15 @@
     {{ if ($.Get "pattern") }}
       {{ if (findRE ($.Get "pattern") .Name) }}
         <li>
-          <a href="{{ (printf "%s%s/%s" $fileDir ($.Scratch.Get "filesName") .Name) | relURL }}" >
-            {{ .Name }}
-          </a>
-          ({{ div .Size 1024 }} ko)
+          <a href="{{ (printf "%s%s/%s" $fileDir ($.Scratch.Get "filesName") .Name) | relURL }}" >{{ .Name }}</a>
         </li>
       {{ end }}
     {{ else }}
       <li>
-        <a href="{{ (printf "%s%s/%s" $fileDir ($.Scratch.Get "filesName") .Name) | relURL }}" >
-          {{ .Name }}
-        </a>
-        ({{ div .Size 1024 }} ko)
+        <a href="{{ (printf "%s%s/%s" $fileDir ($.Scratch.Get "filesName") .Name) | relURL }}" >{{ .Name }}</a>
       </li>
     {{ end }}
   {{ end }}
-  <div>
-</blockquote>  
+  </div>
+</blockquote>
 </section>
