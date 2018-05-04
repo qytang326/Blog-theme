@@ -7,8 +7,8 @@
           "@type": "WebPage",
           "@id": "{{ .Permalink | safeJS }}"
         },
-        "headline": "{{ .Title | safeJS}}",
-        "description": "{{ printf "%s" .Description }}",
+        "headline": "{{ if ne .URL "/" }} {{ .Title }} - {{ end }} {{ .Site.Title }}",
+        "description": "{{ .Description | default .Summary | html }}",
         "author": {
             "@type": "Person",
             "name": "{{ or .Params.authors .Site.Author.name }}",
@@ -27,7 +27,7 @@
           "url": "{{ .Site.BaseURL }}",
           "logo": {
             "@type": "ImageObject",
-            "url": "{{ absURL "/favicon.ico" }}",
+            "url": "{{ or .Site.Author.publisherLogo "/favicon.ico" }}",
             "height": 80,
             "width": 80
           }

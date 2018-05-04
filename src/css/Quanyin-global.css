@@ -952,6 +952,13 @@ footer .list-inline {
   margin: 0;
   padding: 0;
 }
+footer .list-inline a {
+  color: #777;
+}
+footer .list-inline a:hover,
+footer .list-inline a:focus {
+  color: #4a4a4a;
+}
 footer .copyright {
   font-size: 14px;
   text-align: center;
@@ -963,6 +970,14 @@ footer .copyright a {
 footer .copyright a:hover,
 footer .copyright a:focus {
   color: #4a4a4a;
+}
+footer .note {
+  font-size: 75%;
+  color: #FFF;
+  background-color: #777;
+  text-align: center;
+  border-radius: 0.25em;
+  padding: 0.3em 0.6em;
 }
 .floating-label-form-group {
   font-size: 14px;
@@ -1740,14 +1755,14 @@ section.attachments.grey .attachments-files {
     width: 300px;
   }
 }
-@media (min-width: 992px) {
+@media screen {
   .modal-lg {
     width: 900px;
   }
   .btn2-primary {
     color: #ffffff;
-    background-color: #2fa4e7;
-    border-color: #2fa4e7;
+    background-color: #777777;
+    border-color: #777777;
     font-family: inherit;
   }
   .btn2 {

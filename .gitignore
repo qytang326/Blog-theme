@@ -6,3 +6,4 @@ https.server.py
 TODO.*
 dist
 yarn.lock
+console.js

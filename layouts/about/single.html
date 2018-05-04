@@ -4,7 +4,11 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
+      {{ if .Params.sidebar }}
         <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 postlist-container">
+      {{ else }}
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
+      {{ end }}
             <!-- Language Selector -->
             <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)" hidden>
                 <option value="0" selected> 中文 Chinese </option>
@@ -90,7 +94,14 @@
         {{ partial "comments.html" . }}
         </div>
     <!-- Sidebar Container -->
-    {{ partial "sidebar.html" . }}
+    {{ if .Params.sidebar }}
+      {{ partial "sidebar.html" . }}
+    {{ else }}
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+      {{ partial "FeaturedTags.html" . }}
+      {{ partial "friends.html" . }}
+      </div>
+    {{ end }}
     </div>
 </div>
 {{ partial "footer.html" . }}
