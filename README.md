@@ -1,5 +1,9 @@
 # Quanyin Blog Hugo主题模板
 
+[![Author](https://img.shields.io/badge/author-@qytang326-green.svg?style=flat)](https://qytang326.github.io/)
+[![Hugo Build Status](https://travis-ci.org/qytang326/Blog-theme.svg?branch=hugo-theme "Hugo Build Status")](https://travis-ci.org/qytang326/Blog-theme)
+[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg?style=flat)](LICENSE.md)
+
 >移植自[@Huxpro](https://github.com/Huxpro/huxpro.github.io),感谢！
 
 ### [我的博客在这里 &rarr;](https://qytang326.github.io)
@@ -68,10 +72,22 @@ $ hugo server
 
 详细特性见`config.toml`文件以及原来的 [Jekyll 主题说明](https://github.com/qytang326/Blog-theme/blob/jekyll-theme/README.md)
 
+### LICENSE
 
+[Apache v2.0 © Quanyin Tang](./LICENSE.md)
 
+```
+          Copyright (c) 2018 Quanyin Tang
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+   
+   http://www.apache.org/licenses/LICENSE-2.0
 
-
-
-
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```

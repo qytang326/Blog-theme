@@ -1,0 +1,48 @@
+# .traivs.yml
+# language: node_js
+# node_js:
+  # - "0.12"
+sudo: required
+dist: trusty
+git:
+  depth: false
+
+matrix:
+  allow_failures:
+    - node_js: 0.12
+  fast_finish: true
+branches:
+  only:
+  - hugo-theme  # 只有特定分支的推送才触发构建
+env:
+  - HUGO_VERSION : 0.41
+
+install:
+  - cd $TRAVIS_BUILD_DIR    #回到初始目录
+#  - sudo apt-get update
+#  - sudo apt-get --yes install snapd
+#  - sudo snap install hugo
+  - wget -O hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+  - tar -xzvf hugo.tar.gz
+  - chmod a+x hugo
+#after_install:
+
+before_script:
+  - cd $TRAVIS_BUILD_DIR            
+
+script:
+    - cd exampleSite
+    - ../hugo version
+    - ../hugo --baseUrl="https://theme.quanyin.ml" -t Blog-theme
+
+after_success:
+  - cd public
+  - git config --global user.name "Quanyin Tang"
+  - git config --global user.email "qytang326@gmail.com"
+  - git init
+  - git add .
+  - git commit -m "Travis CI build"
+  - git branch gh-pages
+  - git checkout gh-pages
+  - git remote add origin https://${GH_TOKEN}@github.com/qytang326/Blog-theme.git
+  - git push -f -u origin gh-pages

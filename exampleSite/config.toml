@@ -6,7 +6,7 @@ themesdir = "../.."                     ## 实际使用时请注释掉
 languageCode = "zh-CN"
 hasCJKLanguage = true
 ignoreFiles = ["src"]              ## 排除文件
-#pygmentsUseClasses = true
+pygmentsUseClasses = true
 pygmentsCodefences = true               ## 高亮markdown的代码块
 pygmentsCodefencesGuessSyntax = true    ## 高亮markdown中没有标注语言的代码块
 #pygmentsStyle = 'monokai'              ## 高亮主题
@@ -65,12 +65,12 @@ paginate = 3                            ## 分页设置
     
 [params.stat]                           ## 统计与分析 Analytics settings
 # Baidu Analytics
-#ba_track_id = "366e0ea844c9db65fe3dd420933f2677"
+ba_track_id = "366e0ea844c9db65fe3dd420933f2677"
 # Google Analytics
 ga_track_id = "UA-105172812-2"          ## Format: UA-xxxxxx-xx
 ga_domain = "auto"                      ## 自定义的域名,默认的是 auto,
 ## 站点验证 html标记
-#baidu_verification = "yHqjnTuMbD"       ## origin,与域名有关,在_include/head.html中,下同
+baidu_verification = "yHqjnTuMbD"       ## origin,与域名有关,在_include/head.html中,下同
 google_verification = "WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4" #使用CNAME验证
 ###推送到百度、360等以增加收录
 ##百度 需要验证

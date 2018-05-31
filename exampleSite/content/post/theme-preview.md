@@ -23,6 +23,7 @@ mathjax = true
 Mermaid = true
 lazyload = true
 +++
+
 > 前两天动手把之前博客从Jekyll移植到Hugo上，原因是Hugo又快又方便
 
 > Copy from [《Hugo 主题 Nuo 文章样式预览》](https://laozhu.me/post/hugo-nuo-post-preview/) ， 有部分修改。
@@ -30,8 +31,11 @@ lazyload = true
 这篇文章集中说明主题所支持的 Markdown 语法和 Hugo Shortcodes 插件，你也可以在这里预览到他们的样子。如果你不喜欢某些样式，可以去修改 less/ 文件夹进行调整。
 
 <!--more-->
+
 ## 0.双语功能
+
 使用方法：Front matter 中加入`multilingual = true`
+
 ```html
 <div class="zh post-container">
 {{</* file "content/post/test/test.zh" >}}
@@ -40,15 +44,21 @@ lazyload = true
 {{< file "content/post/test/test.en" */>}}
 </div>
 ```
+
 效果见[多语言测试](https://theme.quanyin.ml/2018/04/multilingual/)
 
 ## 1.标题
 
 # H1
+
 ## H2
+
 ### H3
+
 #### H4
+
 ##### H5
+
 ###### H6
 
 ## 2.段落
@@ -121,10 +131,6 @@ CSS:
   - [x] 购买蓝宝石公主号七月一日的船票
 
 ## 4.引用
-
-> 野火烧不尽，春风吹又生。
->
-> <cite>-- 白居易《赋得古原草送别》</cite>
 
 {{< blockquote cite="白居易《赋得古原草送别》" citelink="https://baike.baidu.com/item/%E8%B5%8B%E5%BE%97%E5%8F%A4%E5%8E%9F%E8%8D%89%E9%80%81%E5%88%AB/2873148" >}}
   <p>野火烧不尽，春风吹又生.</p>
@@ -219,6 +225,7 @@ object HelloWorld with Application {
 ```python
 print("Hello, World!")
 ```
+
 ## 6.分割线
 
 ---
@@ -229,12 +236,18 @@ print("Hello, World!")
 
 不带标题的图片，如下图👇
 
-`{{%/* figure src="/favicon.ico" */%}}`
+```
+{{%/* figure src="/favicon.ico" */%}}
+```
+
 {{% figure src="/favicon.ico" %}}
 
 带标题的图片，如下图👇
 
-`{{%/* figure class="center lazyload" src="/favicon.ico" alt="favicon" title="favicon" */%}}`
+```
+{{%/* figure class="center lazyload" src="/favicon.ico" alt="favicon" title="favicon" */%}}
+```
+
 {{% figure class="center lazyload" src="/favicon.ico" alt="favicon" title="favicon" %}}
 
 ## 8.表格
@@ -262,19 +275,22 @@ Marry has a little matrix `$ ( \begin{smallmatrix} a&b \\ c&d \end{smallmatrix} 
 Just insert your mermaid code in the `mermaid` shortcode and that's it.
 
 ### Flowchart example
-	{{</*mermaid align="left"*/>}}
-	graph LR;
-		A[Hard edge] -->|Link text| B(Round edge)
-    	B --> C{Decision}
-    	C -->|One| D[Result one]
-    	C -->|Two| E[Result two]
-    {{</* /mermaid */>}}
+
+```
+{{</*mermaid align="left"*/>}}
+graph LR;
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+{{</* /mermaid */>}}
+```
 
 效果为：
 
 {{<mermaid align="left">}}
 graph LR;
-	A[Hard edge] -->|Link text| B(Round edge)
+    A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
@@ -282,19 +298,21 @@ graph LR;
 
 ### Sequence example
 
-	{{</*mermaid*/>}}
-	sequenceDiagram
-	    participant Alice
-	    participant Bob
-	    Alice->>John: Hello John, how are you?
-	    loop Healthcheck
-	        John->John: Fight against hypochondria
-	    end
-	    Note right of John: Rational thoughts <br/>prevail...
-	    John-->Alice: Great!
-	    John->Bob: How about you?
-	    Bob-->John: Jolly good!
-	{{</* /mermaid */>}}
+```
+{{</*mermaid*/>}}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+{{</* /mermaid */>}}
+```
 
 效果为：
 
@@ -314,24 +332,25 @@ sequenceDiagram
 
 ### GANTT Example
 
-	{{</*mermaid*/>}}
-	gantt
-	        dateFormat  YYYY-MM-DD
-	        title Adding GANTT diagram functionality to mermaid
-	        section A section
-	        Completed task            :done,    des1, 2014-01-06,2014-01-08
-	        Active task               :active,  des2, 2014-01-09, 3d
-	        Future task               :         des3, after des2, 5d
-	        Future task2               :         des4, after des3, 5d
-	        section Critical tasks
-	        Completed task in the critical line :crit, done, 2014-01-06,24h
-	        Implement parser and jison          :crit, done, after des1, 2d
-	        Create tests for parser             :crit, active, 3d
-	        Future task in critical line        :crit, 5d
-	        Create tests for renderer           :2d
-	        Add to mermaid                      :1d
-	{{</* /mermaid */>}}
-
+```
+{{</*mermaid*/>}}
+gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+{{</* /mermaid */>}}
+```
 
 效果：
 
@@ -353,36 +372,42 @@ gantt
         Add to mermaid                      :1d
 {{</mermaid>}}
 
-
-
 ## 11. 音乐
 
 主题文章中可以轻松插入 各大网站的指定音乐，由[Aplayer](https://github.com/MoePlayer/APlayer)提供支持，你可以根据需要将音乐设置为自动播放，在主题目录 `layouts/shortcodes` 文件夹下的 `music.html` 对该标签进行定义。
 
-`{{%/* music "28196554" */%}}`
+```
+{{%/* music "28196554" */%}}
+```
+
 {{% music "28196554" %}}
-`{{%/* music id="804530027" server="netease" type="playlist" */%}}`
+
+```
+{{%/* music id="804530027" server="netease" type="playlist" */%}}
+```
+
 {{% music id="804530027" server="netease" type="playlist" %}}
 
 ## 12. 附件
+
 > 来自 Hugo-theme-Learn
 
 1. If your page is a markdown file, attachements must be place in a **folder** named like your page and ending with **.files**.
 
-    > * content
-    >   * _index.md
-    >   * page.files
-    >      * attachment.pdf
-    >   * page.md
+    >* content
+    >  * _index.md
+    >  * page.files
+    >     * attachment.pdf
+    >  * page.md
 
 2. If your page is a **folder**, attachements must be place in a nested **'files'** folder.
 
-    > * content
-    >   * _index.md
-    >   * page
-    >      * index.md
-    >      * files
-    >          * attachment.pdf
+    >* content
+    >  * _index.md
+    >  * page
+    >     * index.md
+    >     * files
+    >         * attachment.pdf
 
 参数设置：
 
@@ -395,112 +420,122 @@ gantt
 例子：
 列出所有以`pdf`和`mp4`结尾的文件:
 
-`{{%/*attachments title="相关附件" pattern=".*(pdf|mp4)"/*/%}}`
+```
+{{</* attachments title="相关附件" pattern=".*(png|mp4)" */>}}
+```
+
 
 效果：
 
-{{%attachments title="相关附件" pattern=".*(pdf|mp4)"/%}}
+{{< attachments title="相关附件" pattern=".*(png|mp4)" >}}
 
 ## 13. 展开详细
 
 自定义标题展开：
 
-`{{%/*expand "好看吗?" */%}}Yes !.{{%/* /expand*/%}}`
+```
+{{%/* expand "好看吗?" */%}}Yes !{{%/*  /expand */%}}
+```
 
-{{%expand "好看吗?" %}}Yes !{{% /expand%}}
+{{% expand "好看吗?" %}}Yes !{{% /expand %}}
 
-默认：
+默认为：
 
-`{{%/*expand */%}}Yes !.{{%/* /expand*/%}}`
-
-{{%expand %}}Yes !{{% /expand%}}
+{{% expand %}}Yes !{{% /expand %}}
 
 ## 14. notice 等
 
 Disclaimers to help you structure your page
 
-### Note
+> 禁掉了颜色，如果要使用，请把相关文件复制到`layout`下并进行修改
 
 ```
-{{%/* notice note */%}}
+{{%/*  notice 自定义提示标题 */%}}
+这是一个自定义提示。
+{{%/*  /notice */%}}
+```
+
+效果：
+
+{{% notice 自定义提示标题 %}}
+这是一个自定义提示。
+{{% /notice %}}
+
+默认设置为：
+{{% notice %}}
 A notice disclaimer
-{{%/* /notice */%}}
+{{% /notice %}}
+
+
+## 15.优酷视频
+
+```
+{{</* youku XMjkxMzU2ODE4OA */>}}
 ```
 
 效果：
 
-{{% notice note %}}
-A notice disclaimer
-{{% /notice %}}
-
-### Info
-
-```
-{{%/* notice info */%}}
-An information disclaimer
-{{%/* /notice */%}}
-```
-
-效果:
-
-{{% notice info %}}
-An information disclaimer
-{{% /notice %}}
-
-### Tip
-
-```
-{{%/* notice tip */%}}
-A tip disclaimer
-{{%/* /notice */%}}
-```
-
-效果：
-
-{{% notice tip %}}
-A tip disclaimer
-{{% /notice %}}
-
-### Warning
-
-```
-{{%/* notice warning */%}}
-An warning disclaimer
-{{%/* /notice */%}}
-```
-
-效果：
-
-{{% notice warning %}}
-A warning disclaimer
-{{% /notice %}}
+{{< youku XMjkxMzU2ODE4OA >}}
 
 ## 官方提供的ShortCode
 部分可能由于不明原因无法实现
 
-- gist`{{</* gist spf13 7896402 "img.html" */>}}`
-{{< gist spf13 7896402 "img.html" >}}
+- gist
+
+    ```
+    {{</* gist spf13 7896402 "img.html" */>}}
+    ```
+
+    {{< gist spf13 7896402 "img.html" >}}
+
 - instagram
-`{{</* instagram BWNjjyYFxVx */>}}`
-{{< instagram BWNjjyYFxVx >}}
-`{{</* instagram BWNjjyYFxVx hidecaption */>}}`
-{{< instagram BWNjjyYFxVx hidecaption >}}
+
+    ```
+    {{</* instagram BWNjjyYFxVx */>}}
+    或
+    {{</* instagram BWNjjyYFxVx hidecaption */>}}
+    ```
+
+    {{< instagram BWNjjyYFxVx hidecaption >}}
+
 - 引用与交叉引用
-```
-[About Me]({{</* ref "/about.md" */>}})
-[测试]({{</* relref "multilingual.md#测试" */>}})
-```
+
+    ```
+    [About Me]({{</* ref "/about.md" */>}})
+    [测试]({{</* relref "multilingual.md#测试" */>}})
+    ```
+
 - speakerdeck
-```
-{{</* speakerdeck 4e8126e72d853c0060001f97 */>}}
-```
-{{< speakerdeck 4e8126e72d853c0060001f97 >}}
-- tweet`{{</* tweet 877500564405444608 */>}}`
-- vimeo `{{</* vimeo 146022717 */>}}`
-{{< vimeo 146022717 >}}
-- Youtube`{{</* youtube id="w7Ft2ymGmfc" autoplay="true" */>}}`或`{{%/* youtube "w7Ft2ymGmfc" */%}}`
-{{% youtube "w7Ft2ymGmfc" %}}
-{{< youtube id="w7Ft2ymGmfc" autoplay="true" >}}
+
+    ```
+    {{</* speakerdeck 4e8126e72d853c0060001f97 */>}}
+    ```
+
+    {{< speakerdeck 4e8126e72d853c0060001f97 >}}
+
+- tweet
+
+    ```
+    {{</* tweet 877500564405444608 */>}}
+    ```
+
+- vimeo
+
+    ```
+    {{</* vimeo 146022717 */>}}
+    ```
+
+    {{< vimeo 146022717 >}}
+
+- Youtube
+
+    ```
+    {{</* youtube id="w7Ft2ymGmfc" autoplay="true" */>}}
+    或
+    {{%/* youtube "w7Ft2ymGmfc" */%}}
+    ```
+
+    {{% youtube "w7Ft2ymGmfc" %}}
 
 ## 参考资料
 
