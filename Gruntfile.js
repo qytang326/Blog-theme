@@ -36,14 +36,14 @@ module.exports = function(grunt) {
                 src: 'src/js/snackbar-sw-registration.js',
                 dest: 'static/js/snackbar-sw-registration.min.js'
                     }, */
-            nav: {
+        /*    nav: {
                 src: 'src/js/jquery.nav.js',
                 dest: 'static/js/jquery.nav.min.js'
-                    },
+                    }, 合并到global.js 
             tagcloud: {
                 src: 'src/js/jquery.tagcloud.js',
                 dest: 'static/js/jquery.tagcloud.min.js'
-                    },
+                    },*/
             gitment: {
                 src: 'src/js/gitment.js',
                 dest: 'static/js/gitment.min.js'

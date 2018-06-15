@@ -61,7 +61,6 @@
 
 <!-- Side TOC -->
 {{ if and .IsPage (or .Params.toc (and .Site.Params.toc (ne .Params.toc false))) }}
-<script src="{{ .Site.BaseURL }}/js/jquery.nav.min.js" async="async" crossorigin="anonymous"></script>
 <script>
     function generateCatalog (selector) {
         /* interop with multilangual */
