@@ -21,10 +21,10 @@ h6 {
     line-height: 1.125;
     font-weight: 500;
 }
-h1{
+/* h1{
     // drop V1.1.1
     //font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+} */
 h4{
     font-size: 21px;
 }
@@ -42,7 +42,7 @@ a img {
     }
 }
 article{
-    overflow-x : hidden;
+    overflow : hidden;
 }
 
 blockquote {
@@ -68,8 +68,9 @@ small.img-hint{
 br + small.img-hint{
     margin-top: -40px;
 }
-img.shadow{
-    box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+/* img.shadow{ */
+.shadow{
+    box-shadow: #00000042 0 2px 5px 0; /* rgba(0, 0, 0, 0.258824) */
 }
 // Utils Style End
 // Select
@@ -78,7 +79,7 @@ select{
     margin-top:15px;
     color:#337ab7;
     border-color:#337ab7;
-    padding: 0em 0.4em;
+    padding: 0 0.4em;
     background: white;
     &.sel-lang{
         min-height: 28px;
@@ -94,7 +95,8 @@ select{
     vertical-align: middle;
 }
 
-hr.small {
+/* hr.small { */
+.small {
     max-width: 100px;
     margin: 15px auto;
     border-width: 4px;
@@ -194,8 +196,8 @@ code {
     label { font-weight:400; }
     list-style: none;
     font-weight: normal;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
     list-style: none;
     padding-left: 15px;
         .task-list {
@@ -249,8 +251,9 @@ code {
         right: 0;
         border: none;
         background: white;
-        box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
-        box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
+        box-shadow: 0 5px 10px 2px #00000033; /* rgba(0, 0, 0, 0.2) */
+        box-shadow: #0000001E 0 1px 6px, #0000003D 0 1px 4px;
+        /* rgba(0, 0, 0, 0.117647) rgba(0, 0, 0, 0.239216) */
         border-radius: 2px;
         width: 170px;
     }
@@ -275,7 +278,7 @@ code {
             line-height: 28px;
         }
         .navbar-collapse{   // the navbar do height-transition
-            height: 0px;    // to solve container-mask-tags issue (default state).
+            height: 0;    // to solve container-mask-tags issue (default state).
             transform: scaleY(0);
             transform-origin: top right;
             transition: transform 400ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
@@ -328,7 +331,7 @@ code {
         height: 56px;
         line-height: 25px;
         &:hover{
-            color: rgba(255, 255, 255, 0.8);
+            color: #FFFFFFCC; /* rgba(255, 255, 255, 0.8) */
         }
     }
     .nav {
@@ -341,7 +344,7 @@ code {
                 letter-spacing: 1px;
                 // only highlight in mobile
                 &:active{
-                    background: rgba(0,0,0,0.12)
+                    background: #0000001F; /* rgba(0,0,0,0.12) */
                 }
             }
         }
@@ -436,7 +439,7 @@ code {
     background-attachment: scroll;
     .background-cover;
     // NOTE: Background images are set within the HTML using inline CSS!
-    margin-bottom: 0px;  /* 0 on mobile, modify by Quanyin */
+    margin-bottom: 0;  /* 0 on mobile, modify by Quanyin */
     @media only screen and (min-width: 768px) {
         margin-bottom: 20px;  /* response on desktop */
     }
@@ -730,7 +733,7 @@ form .row:first-child .floating-label-form-group {
     &:hover,
     &:focus {
         background-color: @brand-primary;
-        border: 0px solid @brand-primary;
+        border: 0 solid @brand-primary;
         color: white;
     }
 }
@@ -739,7 +742,8 @@ form .row:first-child .floating-label-form-group {
 
 .pager {
     margin: 20px 0 0 !important;
-    padding:0px !important;
+    padding:0 !important;
+    padding:0 !important;
 
     li {
         > a,
@@ -816,10 +820,10 @@ img::-moz-selection {
     margin-bottom: -5px;
     a,.tag{
         display: inline-block;
-        border: 1px solid rgba(255,255,255,0.8);
+        border: 1px solid #FFFFFFCC; /* rgba(255,255,255,0.8) */
         border-radius: 999em;
         padding: 0 10px;
-        color: rgba(255,255,255,1);
+        color: #FFFFFFFF;/* rgba(255,255,255,1) */
         line-height: 24px;
         font-size: 12px;
         text-decoration: none;
@@ -828,7 +832,7 @@ img::-moz-selection {
         &:hover, &:active{
             color:white;
             border-color: white;
-            background-color: rgba(255,255,255,0.4);
+            background-color: #FFFFFF66;/* rgba(255,255,255,0.4) */
             text-decoration: none;
         }
         @media only screen and (min-width: 768px) {
@@ -873,7 +877,7 @@ img::-moz-selection {
 .t{
     //margin-top: 50px;
     &:first-child{
-        margin-top: 0px;
+        margin-top: 0;
     }
     hr:last-of-type{
         //display: none;
@@ -912,8 +916,8 @@ img::-moz-selection {
         > .post-meta{
             position: absolute;
             right: 5px;
-            bottom: 0px;
-            margin: 0px;
+            bottom: 0;
+            margin: 0;
             font-size: 12px;
             line-height: 12px;
         }
@@ -952,7 +956,7 @@ img::-moz-selection {
         background-color: inherit;
     }
     &:active{
-        background-color: rgba(255, 255, 255, 0.25);
+        background-color: #FFFFFF40; /* rgba(255, 255, 255, 0.25) */
     }
 }
 
@@ -967,7 +971,7 @@ img::-moz-selection {
     border-radius: 50%;
     .icon-bar{
         width: 18px;
-        border-radius: 0px;
+        border-radius: 0;
         // materialize
         background-color: white;
     }
@@ -980,11 +984,11 @@ img::-moz-selection {
 /* Quanyin customize Style for Duoshuo */
 .comment{
     margin-top: 20px;
-    #ds-thread {
+/*     #ds-thread {
         #ds-reset {
             a.ds-like-thread-button{
                 border:1px solid #ddd;
-                border-radius: 0px;
+                border-radius: 0;
                 background: white;
                 box-shadow: none;
                 text-shadow: none;
@@ -994,7 +998,7 @@ img::-moz-selection {
             }
             li.ds-tab a.ds-current{
                 border:1px solid #ddd;
-                border-radius: 0px;
+                border-radius: 0;
                 background: white;
                 box-shadow: none;
                 text-shadow: none;
@@ -1021,11 +1025,11 @@ img::-moz-selection {
                 }
             }
         }
-    }
+    } */
 }
-#ds-smilies-tooltip ul.ds-smilies-tabs li a {
+/* #ds-smilies-tooltip ul.ds-smilies-tabs li a {
     background: white !important;
-}
+} */
 
 
 // Quanyin fullscreen mode in 404.html

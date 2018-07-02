@@ -65,15 +65,15 @@
   margin-bottom: 20px;
 }
 .sidebar-container .short-about p {
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 .sidebar-container .short-about .list-inline > li {
-  padding-left: 0px;
+  padding-left: 0;
 }
 /* Directory Section */
 .catalog-container {
-  padding: 0px;
+  padding: 0;
 }
 .side-catalog {
   display: block;
@@ -103,7 +103,7 @@
   list-style: none;
   height: auto;
   overflow: hidden;
-  padding-left: 0px;
+  padding-left: 0;
   padding-right: 5px;
   text-indent: 0;
 }
@@ -128,7 +128,7 @@
   font-size: 18px;
 }
 .side-catalog .catalog-body .h2_nav {
-  margin-left: 0px;
+  margin-left: 0;
   font-size: 16px;
 }
 .side-catalog .catalog-body .h3_nav {
@@ -185,7 +185,7 @@
   color: white;
   line-height: 22px;
   padding: 18px 24px;
-  bottom: 0px;
+  bottom: 0;
   opacity: 0;
 }
 @media (min-width: 640px) {
@@ -218,8 +218,8 @@
     Action button: Roboto Medium 14 sp, all-caps text
     Default background fill: #323232 100%
   */
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
   }
 }
 .paper-snackbar .action {
@@ -229,10 +229,10 @@
   font-size: inherit;
   text-transform: uppercase;
   color: #ffeb3b;
-  margin: 0px 0px 0px 24px;
-  padding: 0px;
+  margin: 0 0 0 24px;
+  padding: 0;
   min-width: min-content;
-  outline: 0px;
+  outline: 0;
 }
 /* Everything from here down is actually just for the demo - the material buttons and card, and various other pieces of styling */
 /* Variables */
@@ -367,6 +367,10 @@ h6 {
   line-height: 1.125;
   font-weight: 500;
 }
+/* h1{
+    // drop V1.1.1
+    //font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+} */
 h4 {
   font-size: 21px;
 }
@@ -382,7 +386,7 @@ a img:focus {
   cursor: zoom-in;
 }
 article {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 blockquote {
   color: gray;
@@ -403,15 +407,17 @@ small.img-hint {
 br + small.img-hint {
   margin-top: -40px;
 }
-img.shadow {
-  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+/* img.shadow{ */
+.shadow {
+  box-shadow: #00000042 0 2px 5px 0;
+  /* rgba(0, 0, 0, 0.258824) */
 }
 select {
   -webkit-appearance: none;
   margin-top: 15px;
   color: #337ab7;
   border-color: #337ab7;
-  padding: 0em 0.4em;
+  padding: 0 0.4em;
   background: white;
 }
 select.sel-lang {
@@ -426,7 +432,8 @@ select.sel-lang {
   border: 1px solid #eee !important;
   vertical-align: middle;
 }
-hr.small {
+/* hr.small { */
+.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
@@ -525,8 +532,8 @@ code {
 }
 .post-container .task-list {
   font-weight: normal;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   list-style: none;
   padding-left: 15px;
 }
@@ -581,8 +588,10 @@ code {
     right: 0;
     border: none;
     background: white;
-    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
+    box-shadow: 0 5px 10px 2px #00000033;
+    /* rgba(0, 0, 0, 0.2) */
+    box-shadow: #0000001E 0 1px 6px, #0000003D 0 1px 4px;
+    /* rgba(0, 0, 0, 0.117647) rgba(0, 0, 0, 0.239216) */
     border-radius: 2px;
     width: 170px;
   }
@@ -610,7 +619,7 @@ code {
     line-height: 28px;
   }
   #Quanyinblog_navbar .navbar-collapse {
-    height: 0px;
+    height: 0;
     transform: scaleY(0);
     transform-origin: top right;
     transition: transform 400ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
@@ -664,7 +673,8 @@ code {
   line-height: 25px;
 }
 .navbar-custom .navbar-brand:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFFCC;
+  /* rgba(255, 255, 255, 0.8) */
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
@@ -674,7 +684,8 @@ code {
   letter-spacing: 1px;
 }
 .navbar-custom .nav li a:active {
-  background: rgba(0, 0, 0, 0.12);
+  background: #0000001F;
+  /* rgba(0,0,0,0.12) */
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
@@ -760,7 +771,7 @@ code {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   /* 0 on mobile, modify by Quanyin */
 }
 @media only screen and (min-width: 768px) {
@@ -1050,12 +1061,12 @@ form .row:first-child .floating-label-form-group {
 .btn-default:hover,
 .btn-default:focus {
   background-color: #4a4a4a;
-  border: 0px solid #4a4a4a;
+  border: 0 solid #4a4a4a;
   color: white;
 }
 .pager {
   margin: 20px 0 0 !important;
-  padding: 0px !important;
+  padding: 0 !important;
 }
 .pager li > a,
 .pager li > span {
@@ -1126,10 +1137,12 @@ img::-moz-selection {
 .tags a,
 .tags .tag {
   display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid #FFFFFFCC;
+  /* rgba(255,255,255,0.8) */
   border-radius: 999em;
   padding: 0 10px;
-  color: #ffffff;
+  color: #FFFFFFFF;
+  /* rgba(255,255,255,1) */
   line-height: 24px;
   font-size: 12px;
   text-decoration: none;
@@ -1142,7 +1155,8 @@ img::-moz-selection {
 .tags .tag:active {
   color: white;
   border-color: white;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #FFFFFF66;
+  /* rgba(255,255,255,0.4) */
   text-decoration: none;
 }
 @media only screen and (min-width: 768px) {
@@ -1191,7 +1205,7 @@ img::-moz-selection {
   }
 }
 .t:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 .listing-seperator {
   color: #0085a1;
@@ -1229,8 +1243,8 @@ img::-moz-selection {
 .one-tag-list .post-preview > .post-meta {
   position: absolute;
   right: 5px;
-  bottom: 0px;
-  margin: 0px;
+  bottom: 0;
+  margin: 0;
   font-size: 12px;
   line-height: 12px;
 }
@@ -1263,7 +1277,8 @@ img::-moz-selection {
   background-color: inherit;
 }
 .navbar-default .navbar-toggle:active {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: #FFFFFF40;
+  /* rgba(255, 255, 255, 0.25) */
 }
 /* Quanyin customize Style for navBar button */
 .navbar-default .navbar-toggle {
@@ -1276,7 +1291,7 @@ img::-moz-selection {
 }
 .navbar-default .navbar-toggle .icon-bar {
   width: 18px;
-  border-radius: 0px;
+  border-radius: 0;
   background-color: white;
 }
 .navbar-default .navbar-toggle .icon-bar + .icon-bar {
@@ -1285,43 +1300,52 @@ img::-moz-selection {
 /* Quanyin customize Style for Duoshuo */
 .comment {
   margin-top: 20px;
+  /*     #ds-thread {
+        #ds-reset {
+            a.ds-like-thread-button{
+                border:1px solid #ddd;
+                border-radius: 0;
+                background: white;
+                box-shadow: none;
+                text-shadow: none;
+            }
+            a.ds-thread-liked{
+
+            }
+            li.ds-tab a.ds-current{
+                border:1px solid #ddd;
+                border-radius: 0;
+                background: white;
+                box-shadow: none;
+                text-shadow: none;
+            }
+            .ds-textarea-wrapper{
+                //border:1px solid #ddd;
+                background: none;
+            }
+            .ds-gradient-bg{
+                background: none;
+            }
+            .ds-post-options{
+                border-bottom: 1px solid #ccc;
+            }
+            .ds-post-button{
+                border-bottom: 1px solid #ccc;
+            }
+            //v1.6 flatten button
+            .ds-post-button{
+                background: white;
+                box-shadow: none;
+                &:hover{
+                    background: @gray-light;
+                }
+            }
+        }
+    } */
 }
-.comment #ds-thread #ds-reset a.ds-like-thread-button {
-  border: 1px solid #ddd;
-  border-radius: 0px;
-  background: white;
-  box-shadow: none;
-  text-shadow: none;
-}
-.comment #ds-thread #ds-reset li.ds-tab a.ds-current {
-  border: 1px solid #ddd;
-  border-radius: 0px;
-  background: white;
-  box-shadow: none;
-  text-shadow: none;
-}
-.comment #ds-thread #ds-reset .ds-textarea-wrapper {
-  background: none;
-}
-.comment #ds-thread #ds-reset .ds-gradient-bg {
-  background: none;
-}
-.comment #ds-thread #ds-reset .ds-post-options {
-  border-bottom: 1px solid #ccc;
-}
-.comment #ds-thread #ds-reset .ds-post-button {
-  border-bottom: 1px solid #ccc;
-}
-.comment #ds-thread #ds-reset .ds-post-button {
-  background: white;
-  box-shadow: none;
-}
-.comment #ds-thread #ds-reset .ds-post-button:hover {
-  background: #eeeeee;
-}
-#ds-smilies-tooltip ul.ds-smilies-tabs li a {
-  background: white !important;
-}
+/* #ds-smilies-tooltip ul.ds-smilies-tabs li a {
+    background: white !important;
+} */
 .page-fullscreen .intro-header {
   position: fixed;
   left: 0;
@@ -1416,8 +1440,8 @@ div.notices p {
   padding: 15px;
   display: block;
   font-size: 1.5rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-top: 0;
+  margin-bottom: 0;
   color: #666666;
   border-top: 30px solid #777777;
   background: #f4f4f4;
@@ -1494,8 +1518,8 @@ section.attachments .attachments-files {
   padding: 10px;
   display: block;
   font-size: 1.5rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-top: 0;
+  margin-bottom: 0;
   color: #666666;
   background: #f4f4f4;
   border-radius: 6px;
@@ -1504,15 +1528,15 @@ section.attachments .notice-default {
   padding: 15px;
   display: block;
   font-size: 1.5rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-top: 0;
+  margin-bottom: 0;
   color: #666666;
   background: #f4f4f4;
   border-radius: 6px;
 }
 section.attachments .notice-default p {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 /* section.attachments.grey label {
     color: #fff;
@@ -1683,6 +1707,7 @@ section.attachments.grey .attachments-files {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -1749,6 +1774,7 @@ section.attachments.grey .attachments-files {
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
   .modal-sm {
@@ -1803,8 +1829,8 @@ section.attachments.grey .attachments-files {
   border-image-width: initial;
   border-image-outset: initial;
   border-image-repeat: initial;
-  margin: 0px auto;
-  padding: 0px;
+  margin: 0 auto;
+  padding: 0;
   border-width: 1px;
   border-style: solid;
   /* border-color: rgb(241, 182, 14);*/
