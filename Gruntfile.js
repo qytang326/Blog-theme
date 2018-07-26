@@ -18,11 +18,11 @@ module.exports = function(grunt) {
                 dest: 'src/js/snackbar-sw-registration.js',
                     }, */
             plugin: {
-                src: ['src/js/snackbar.js','src/js/sw-registration.js','src/js/busuanzi.pure.js','src/js/cssrelpreload.js','src/js/back2top.js'], /* 移除 analytic.js , loadcss.js ,不再依赖 */
+                src: ['src/js/navbar.js','src/js/snackbar.js','src/js/sw-registration.js','src/js/busuanzi.pure.js','src/js/cssrelpreload.js','src/js/back2top.js'], /* 移除 analytic.js , loadcss.js ,不再依赖 */
                 dest: 'src/js/plugin.js',
                     },
             global: {
-                src: ['src/js/Quanyin-Blog.js','src/js/plugin.js'],
+                src: ['src/js/Quanyin-Blog.js','src/js/plugin.js','src/js/bootstrap.js'],
                 dest: 'src/js/Quanyin-global.js',
                     },
                 },

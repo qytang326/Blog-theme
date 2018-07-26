@@ -31,23 +31,11 @@
   width: 219px;
   height: 80px;
   border: 1px solid #ccc;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
   border-radius: 10px;
-  -webkit-transition: border 500ms ease-in 0ms;
-  -moz-transition: border 500ms ease-in 0ms;
-  -ms-transition: border 500ms ease-in 0ms;
-  -o-transition: border 500ms ease-in 0ms;
   transition: border 500ms ease-in 0ms;
 }
 .reward:hover {
   border: 1px solid orange;
-  -webkit-transition: border 300ms ease-in 0ms;
-  -moz-transition: border 300ms ease-in 0ms;
-  -ms-transition: border 300ms ease-in 0ms;
-  -o-transition: border 300ms ease-in 0ms;
   transition: border 300ms ease-in 0ms;
 }
 .reward .paycode{
@@ -58,10 +46,9 @@
   padding:20px;
   width:617px;
   text-align:center;
-  box-shadow:5px 5px 40px rgba(0,0,0,0.5);
+  box-shadow:5px 5px 40px rgba(0,0,0, .5);
   background:white;
   overflow:hidden;
-
 }
 .reward:hover .paycode{
   display:block;
@@ -81,22 +68,14 @@
   bottom: 0;
   left: 0;
   z-index: 1050;
-  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
   outline: 0;
 }
 .modal.fade .modal-dialog {
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  -o-transform: translate(0, -25%);
   transform: translate(0, -25%);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
+  transition: transform .3s ease-out;
 }
 .modal.in .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
   transform: translate(0, 0);
 }
 .modal-open .modal {
@@ -112,13 +91,10 @@
   position: relative;
   background-color: #ffffff;
   border: 1px solid #999999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 6px;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  -webkit-background-clip: padding-box;
-          background-clip: padding-box;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  background-clip: padding-box;
   outline: 0;
 }
 .modal-backdrop {
@@ -135,7 +111,7 @@
   filter: alpha(opacity=0);
 }
 .modal-backdrop.in {
-  opacity: 0.5;
+  opacity: .5;
   filter: alpha(opacity=50);
 }
 .modal-header {
@@ -181,9 +157,7 @@
     margin: 30px auto;
   }
   .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   }
   .modal-sm {
     width: 300px;
@@ -207,7 +181,6 @@
       font-weight: normal;
       text-align: center;
       vertical-align: middle;
-      -ms-touch-action: manipulation;
       touch-action: manipulation;
       cursor: pointer;
       background-image: none;
@@ -217,9 +190,7 @@
       font-size: 14px;
       line-height: 1.42857143;
       border-radius: 4px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
+      user-select: none;
       }
 }
 .reward {
@@ -230,7 +201,7 @@
       display: block;
       width: 60px;
       height: 60px;
-      -webkit-user-select: none;
+      user-select: none;
       text-align: center;
       vertical-align: middle;
       color: rgb(255, 255, 255);

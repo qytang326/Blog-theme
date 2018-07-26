@@ -7,7 +7,7 @@
         {{ $featured := or .Site.Params.featured_condition_size 4 }}
         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
             {{ if ge (len $taxonomy.Pages) $featured }}
-            <a href="{{ "/tags/#" | relLangURL }}{{ $name | urlize }}" rel="{{ len $taxonomy.Pages }}">{{ $name | humanize }}</a>
+            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" rel="{{ len $taxonomy.Pages }}">{{ $name | humanize }}</a>
             {{ end }}
         {{ end }}
     </div>

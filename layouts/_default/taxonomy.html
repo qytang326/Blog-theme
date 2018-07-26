@@ -1,0 +1,42 @@
+<!-- tags,categories 等分类下子页-->
+{{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") (.Site.Params.archivePaginate |default 15)}}
+
+{{ if not $paginator.HasPrev }}
+  {{ if eq .Data.Plural "tags" }}
+  <!--tags-->
+  {{ else if eq .Data.Plural "categories" }}
+  <!--categories-->
+  {{ end }}
+{{ end }}
+
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+{{ partial "header.html" . }}
+<!-- Main Content -->
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center">
+<section>
+  <h2>{{ .Title }}</h2><hr>
+  <ul class="list-unstyled">
+    {{ range $paginator.Pages }}
+    <div class="postlist-container">
+      <li>
+        <a href="{{ .URL }}">{{ .Title }}</a><span> &raquo; {{ dateFormat "2006-01-02" .Date }}</span>
+      </li>
+    </div>
+    {{ end }}
+  </ul>
+</section>
+<!-- pagination -->
+<ul class="pager">
+{{ with $paginator.Prev }}
+<li class="previous"><a href="{{ .URL }}">&larr; Newer Posts</a></li>
+{{  end }}
+{{ with $paginator.Next }}
+<li class="next"><a href="{{ .URL }}">Older Posts &rarr;</a></li>
+{{ end }}
+</ul> 
+</div></div></div>
+{{ partial "footer.html" . }}
+{{ partial "foot.html" . }}

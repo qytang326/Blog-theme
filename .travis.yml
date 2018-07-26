@@ -38,7 +38,7 @@ script:
 after_success:
   - cd public
   - git config --global user.name "Quanyin Tang"
-  - git config --global user.email "qytang326@gmail.com"
+  - git config --global user.email "robot@travis-ci.com"
   - git init
   - git add .
   - git commit -m "Travis CI build"

@@ -11,32 +11,32 @@
 }*/
 
 /* For Mathjax */
-code.has-jax {font: inherit;
-              font-size: 100%;
-              background: inherit;
-              border: inherit;
-              color: @gray-dark;}
+code.has-jax {
+  font: inherit;
+  font-size: 100%;
+  background: inherit;
+  border: inherit;
+  color: @gray-dark;
+}
 
 
 /* For anchor-js  */
 /* place left on bigger screen */
 @media all and (min-width: 800px) {
-    .anchorjs-link{
-        position: absolute;
-        left: -0.75em;
-        font-size: 1.1em;
-        margin-top : -0.1em;
-    }
+  .anchorjs-link {
+    position: absolute;
+    left: -0.75em;
+    font-size: 1.1em;
+    margin-top : -0.1em;
+  }
 }
 /* For Shortcode Figure */
 @media sreen {
   .blur-up {
-    -webkit-filter: blur(5px);
     filter: blur(5px);
-    transition: filter 400ms, -webkit-filter 400ms;
+    transition: filter 400ms;
   }
   .blur-up.lazyloaded {
-    -webkit-filter: blur(0);
     filter: blur(0);
   }
 }

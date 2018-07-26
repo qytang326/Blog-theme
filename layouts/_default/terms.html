@@ -1,40 +1,72 @@
+<!-- tags,categories 等分类页-->
 {{ partial "head.html" . }}
 {{ partial "navbar.html" . }}
 {{ partial "header.html" . }}
-<!-- Main Content -->
-<div class="col-sm-2 col-sm-offset-2 col-xs-5">
-    <ul class="nav nav-tabs-vertical">
-    {{ $data := .Data.Plural }}
-    {{ $terms := .Data.Terms.ByCount }}
-    {{ $length := len $terms }}
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center">
+{{ $name := .Data.Plural }}
+
+{{ if eq $name "categories" }}
+  <!-- Main Content -->
+  <ul class="nav nav-tabs nav-justified">
+  {{ $data := .Data.Plural }}
+  {{ $terms := .Data.Terms.ByCount }}
+  {{ $length := len $terms }}
     {{ range $key, $value := $terms }}
-            <li>
-                <a href="{{ $data | relLangURL }}#{{ $key | urlize }}" data-toggle="tab">
-                     {{ $value.Term | humanize}} <span class="badge pull-right">{{ len $value.Pages }}</span>
-               </a>
-            </li>
+    <li>
+      <a href="{{ $data | relLangURL }}#{{ $key | urlize }}" data-toggle="tab">
+           {{ $value.Term | humanize}} <span class="badge pull-right">{{ len $value.Pages }}</span>
+      </a>
+    </li>
     {{ end }}
-    </ul>
-</div>
-<!-- Tab panes -->
-<div class="tab-content col-sm-8 col-xs-7">
-    {{ $data := .Data.Plural }}
-    {{ $terms := .Data.Terms.ByCount }}
-    {{ $length := len $terms }}
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+  {{ $data := .Data.Plural }}
+  {{ $terms := .Data.Terms.ByCount }}
+  {{ $length := len $terms }}
     {{ range $key, $value := $terms }}
     <div class="tab-pane" id="{{ $key | urlize }}">
-      <h3 style="margin-top: 0px">Posts in {{ $value.Term | humanize}}</h3>
-        <ul class="list-unstyled">
-            {{ range $value.Pages }}
-            <div class="postlist-container">
-                <li>
-                    <a href="{{ .URL }}">{{ .Title }}</a><span> &raquo; {{ dateFormat "2006-01-02" .Date }}</span>
-                </li>
-            </div>
-            {{ end }}
-        </ul>
+      <h2>Posts in {{ $value.Term | humanize}}</h2><hr>
+      <ul class="list-unstyled">
+        {{ range $value.Pages }}
+        <div class="postlist-container">
+          <li>
+            <a href="{{ .URL }}">{{ .Title }}</a><span> &raquo; {{ dateFormat "2006-01-02" .Date }}</span>
+          </li>
+        </div>
+        {{ end }}
+      </ul>
     </div>
     {{ end }}
+  </div>
+
+  {{ else if eq $name "tags" }}
+  {{ $name := .Data.Plural }}
+  {{ $terms := .Data.Terms.ByCount }}
+  {{ $length := len $terms }}
+
+  {{ if eq $length 0 }}
+    {{ T "zeroTagCounter" }}
+  {{ else }}
+    {{ T "tagCounter" $length }}
+  {{ end }}
+    <div class="tag-cloud">
+    <ul>
+      {{ range $key, $value := $terms }}
+      <li>
+        <a href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}/">
+          {{ $value.Term | humanize }}
+          <span>{{ len $value.Pages }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div>
+</div>
 </div>
 {{ partial "footer.html" . }}
 {{ partial "foot.html" . }}
