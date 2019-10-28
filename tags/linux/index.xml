@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Quanyin Blog Theme</title>
+    <link>https://theme.quanyin.ml/tags/linux/</link>
+    <description>Recent content in Linux on Quanyin Blog Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>qytang326@gmail.com (Quanyin Tang)</managingEditor>
+    <webMaster>qytang326@gmail.com (Quanyin Tang)</webMaster>
+    <author>
+        <name>Quanyin Tang</name>
+        <email>qytang326@gmail.com</email>
+        <uri>https://qytang326.github.io</uri>
+    </author>
+    <lastBuildDate>Fri, 08 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/linux/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在CentOS 7 上打造Linux开发环境</title>
+      <link>https://theme.quanyin.ml/2017/12/linux-environment-under-centos/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
+      <author>qytang326@gmail.com (Quanyin Tang)</author>
+      <guid>https://theme.quanyin.ml/2017/12/linux-environment-under-centos/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;前段时间,组里的一台GPU服务器宕机了,在我的强烈要求下,管理老师让机器售后服务方安装了CentOS 7系统;然后就直接甩锅给我,让我自己去安装
+相应的软件&amp;hellip;
+
+看到一篇比较好的博客,转载并更新了一些东西,形成了这篇博客,以期记录下相关过程以及一些坑。。。&lt;/p&gt;
+
+&lt;p&gt;本文大部分内容来自于&lt;a href=&#34;http://seisman.info/linux-environment-for-seismology-research.html&#34; target=&#34;_blank&#34;&gt;SeisMan&lt;/a&gt;,仅做了一点点修改。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;阅读须知：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;不推荐刚接触 Linux 的人使用 CentOS 发行版&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;本文只为记录，但要求读者掌握 Linux 基础知识；&lt;/li&gt;
+&lt;li&gt;本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;安装-centos&#34;&gt;安装 CentOS&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;由于已经由售后安装好了系统,系统安装部分未实验。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。&lt;/p&gt;
+
+&lt;h3 id=&#34;准备工作&#34;&gt;准备工作&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;准备材料&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;U 盘：容量 2GB 以上，用于制作 U 盘启动盘，因为在制作启动盘时会格式化 U 盘，所以 U 盘内不要包含重要资料&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mirrors.ustc.edu.cn/centos/7/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1511.iso&#34; target=&#34;_blank&#34;&gt;CentOS 7.2 LiveCD ISO 镜像文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/&#34; target=&#34;_blank&#34;&gt;Universal USB installer&lt;/a&gt;：Windows 下的 U 盘启动盘制作工具&lt;/li&gt;
+&lt;li&gt;一个已安装 Windows 的电脑：用于制作 U 盘启动盘&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;运行 Universal USB installer 并制作 U 盘启动盘&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;将 U 盘插入计算机，重启，进入 BIOS 选择从 U 盘启动，即可进入 CentOS 的 LiveCD&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;进入 LiveCD 后，点击桌面的 “Install to Hard Drive” 即可安装&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;注：Linux 下可以通过 &lt;code&gt;dd&lt;/code&gt; 命令制作启动盘，但由于对原理不够了解，偶尔会导致制作失败，
+或制作成功后 U 盘容量有问题，还是用 Windows 下的 Universal USB installer 比较靠谱。&lt;/p&gt;
+
+&lt;h3 id=&#34;安装过程&#34;&gt;安装过程&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择安装过程中使用的语言，这里应 &lt;strong&gt;使用英语，不要使用汉语&lt;/strong&gt;。若安装界面使用汉语，最终安装的系统中会出现两个比较麻烦的问题：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;家目录下的系统文件夹如 Downloads、Desktop 等会以中文表示，这使得在命令行 &lt;code&gt;cd&lt;/code&gt; 变得很麻烦；&lt;/li&gt;
+&lt;li&gt;终端中某些字符用英文字体，某些字符用中文字体，效果非常差，需要自己修改终端字体方可；&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;选择区域和城市：Asia 和 Shanghai&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;键盘使用 English(US) 而不是 English(UK)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Hostname 可以改也可以不改，我用 &lt;code&gt;saturn.geolab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装的目的地，选择要使用的硬盘，在 “Other Storage Options” 处选择“I will configure partioning”，即手动分区&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;分区&#34;&gt;分区&lt;/h3&gt;
+
+&lt;p&gt;CentOS7 的分区似乎比较特别，自认为经验很丰富的我在第一次安装 CentOS7 时还是在分区上耽误了很多时间。后来找到比较合适的分区方法，如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;点击 “Click here to create them automatically”，即让安装程序帮忙分区&lt;/li&gt;
+&lt;li&gt;默认的分区方案是使用 LVM，其好处在于 “当机器有多块硬盘时，在使用的时候看上去只有一块”&lt;/li&gt;
+&lt;li&gt;默认的文件系统为 XFS 而不是以前常用的 EXT4；&lt;/li&gt;
+&lt;li&gt;自动分区完成后，再根据自己的需求，手动修改分区细节
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/boot&lt;/code&gt; ：CentOS 自动分配，一定不要乱改；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/&lt;/code&gt; ：根目录，合理使用并及时清理的话 15G 就够了，不过建议 30G 以上；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;swap&lt;/code&gt; ：与物理内存大小一致即可&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/opt&lt;/code&gt; ：个人习惯是将第三方软件都安装在 &lt;code&gt;/opt&lt;/code&gt; 下，所以分了 70G&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/home&lt;/code&gt; ：余下的全部空间&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;点击 “Begin to Install” 开始安装&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;真正的安装&#34;&gt;真正的安装&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;设置 root 密码&lt;/li&gt;
+&lt;li&gt;创建一般用户&lt;/li&gt;
+&lt;li&gt;等待安装完成&lt;/li&gt;
+&lt;li&gt;安装完成，重启&lt;/li&gt;
+&lt;li&gt;重启后，同意 License 即可&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;对系统的若干修改&#34;&gt;对系统的若干修改&lt;/h2&gt;
+
+&lt;h3 id=&#34;若干原则&#34;&gt;若干原则&lt;/h3&gt;
+
+&lt;p&gt;为了搭建一个稳定的系统，尽量避免因为各种瞎折腾而导致的系统问题，特订立了一些软件安装的原则。
+具体参见《&lt;a href=&#34;http://seisman.info/how-to-install-softwares-under-centos-7.html&#34; target=&#34;_blank&#34;&gt;CentOS7 下的软件安装方法与策略&lt;/a&gt;》。&lt;/p&gt;
+
+&lt;h3 id=&#34;给一般账号-root-权限&#34;&gt;给一般账号 root 权限&lt;/h3&gt;
+
+&lt;p&gt;默认情况下，一般账号是没有 root 权限的。为什么不直接用 root 账号，而是要给一般账号 root 权限呢？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;日常工作中使用 root 账号，是非常糟糕且危险的习惯！无论是服务器还是个人电脑都是如此。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;安装软件时需要 root 权限，只能 &lt;code&gt;su&lt;/code&gt; 切换到 root 账户再安装。对于习惯使用 &lt;code&gt;sudo&lt;/code&gt; 的人来说，还是有些麻烦。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;假设账户名为 seisman，要授予他 root 权限，则要修改配置文件 &lt;code&gt;/etc/sudoers&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;$ su
+# echo &amp;#39;seisman ALL=(ALL) ALL&amp;#39;&amp;gt;&amp;gt; /etc/sudoers # 向配置文件中加入语句
+# tail -1 /etc/sudoers  # 检查一下是否正确
+seisman ALL=(ALL) ALL&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中 seisman 为当前用户名。&lt;/p&gt;
+
+&lt;h3 id=&#34;添加第三方源&#34;&gt;添加第三方源&lt;/h3&gt;
+
+&lt;p&gt;CentOS 由于很追求稳定性，所以官方源中自带的软件不多，因而需要一些第三方源，比如
+EPEL、&lt;del&gt;ATrpms&lt;/del&gt;、&lt;del&gt;ELRepo&lt;/del&gt;、&lt;del&gt;Nux Dextop&lt;/del&gt;、&lt;del&gt;RepoForge&lt;/del&gt; 等。根据上面提到的软件安装原则，为了尽
+可能保证系统的稳定性，此处大型第三方源只添加 EPEL 源、&lt;del&gt;Nux Dextop&lt;/del&gt; 和 &lt;del&gt;ELRepo&lt;/del&gt; 源。&lt;/p&gt;
+
+&lt;h4 id=&#34;epel&#34;&gt;EPEL&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://fedoraproject.org/wiki/EPEL&#34; target=&#34;_blank&#34;&gt;EPEL&lt;/a&gt; 即 Extra Packages for Enterprise Linux，
+为 CentOS 提供了额外的 10000 多个软件包，而且在不替换系统组件方面下了很多功夫，因而可以放心使用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo yum install epel-release&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;执行完该命令后，在 &lt;code&gt;/etc/yum.repos.d&lt;/code&gt; 目录下会多一个 &lt;code&gt;epel.repo&lt;/code&gt; 文件。&lt;/p&gt;
+
+&lt;!-- #### Nux Dextop
+
+[Nux Dextop](http://li.nux.ro/repos.html) 中包含了一些与多媒体相关的软件包，作者尽量
+保证不覆盖 base 源。官方说明中说该源与 EPEL 兼容，实际上个别软件包存在冲突，但基本不会造成影响:
+
+    sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+
+完成该命令后，在 `/etc/yum.repos.d` 目录下会多一个 `nux-dextop.repo` 文件。--&gt;
+
+&lt;h4 id=&#34;elrepo&#34;&gt;&lt;del&gt;ELRepo&lt;/del&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;del&gt;ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:&lt;/del&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;    sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+    sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;完成该命令后，在 &lt;code&gt;/etc/yum.repos.d&lt;/code&gt; 目录下会多一个 &lt;code&gt;elrepo.repo&lt;/code&gt; 文件。&lt;/p&gt;
+
+&lt;h3 id=&#34;安装-yum-axelget&#34;&gt;&lt;del&gt;安装 yum-axelget&lt;/del&gt;&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;实测对于校园网环境下,此插件效果不好,反而影响搜索速度&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;del&gt;&lt;a href=&#34;https://dl.fedoraproject.org/pub/epel/7/x86_64/repoview/yum-axelget.html&#34; target=&#34;_blank&#34;&gt;yum-axelget&lt;/a&gt; 是 EPEL&lt;/del&gt;
+&lt;del&gt;提供的一个 yum 插件。使用该插件后用 yum 安装软件时可以并行下载，大大提高了软件的下载速度，减少了下载的等待时间:&lt;/del&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install yum-axelget        #安装
+sudo yum uninstall yum-axelget      #卸载&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装该插件的同时会安装另一个软件 axel。axel 是一个并行下载工具，在下载 http、ftp 等简单协议的文件时非常好用。&lt;/p&gt;
+
+&lt;h3 id=&#34;安装-yum-fastestmirror&#34;&gt;安装 yum-fastestmirror&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;fastestmirror&lt;/code&gt;会自动选择速度比较快的站点,亲测效果很好。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install yum-fastestmirror        #安装
+sudo yum uninstall yum-fastestmirror      #卸载&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;第一次全面更新&#34;&gt;第一次全面更新&lt;/h3&gt;
+
+&lt;p&gt;在进一步操作之前，先把已经安装的软件包都升级到最新版:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum update
+sudo yum update kernel-devel&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;要更新的软件包有些多，可能需要一段时间。&lt;/p&gt;
+
+&lt;h3 id=&#34;重启&#34;&gt;重启&lt;/h3&gt;
+
+&lt;p&gt;第一次全面更新完之后建议重启。&lt;/p&gt;
+
+&lt;h3 id=&#34;删除多余的-kernel&#34;&gt;删除多余的 kernel&lt;/h3&gt;
+
+&lt;p&gt;在前面的 &lt;code&gt;yum update&lt;/code&gt; 执行之后，可能会将 kernel 也一起更新，则在启动 CentOS 时启动项中会有很多项。&lt;/p&gt;
+
+&lt;p&gt;确认当前使用的 kernel 版本号:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;$ uname -r
+3.10.0-123.9.3.el7.x86_64&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;查找当前系统安装的所有 kernel:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;$ rpm -qa | grep kernel | sort
+kernel-3.10.0-123.8.1.el7.x86_64
+kernel-3.10.0-123.9.2.el7.x86_64
+kernel-3.10.0-123.9.3.el7.x86_64
+kernel-devel-3.10.0-123.8.1.el7.x86_64
+kernel-devel-3.10.0-123.9.2.el7.x86_64
+kernel-devel-3.10.0-123.9.3.el7.x86_64
+kernel-headers-3.10.0-123.9.3.el7.x86_64
+kernel-tools-3.10.0-123.9.3.el7.x86_64
+kernel-tools-libs-3.10.0-123.9.3.el7.x86_64&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。除了最新的 kernel 外，建议多保留一个旧 kernel，以免新 kernel 出现问题时可以通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
+sudo yum remove kernel-devel-3.10.0-123.8.1.el7.x86_64&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;基础开发环境&#34;&gt;基础开发环境&lt;/h2&gt;
+
+&lt;h3 id=&#34;gcc-系列&#34;&gt;GCC 系列&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    sudo yum install gcc                     &lt;span class=&#34;c1&#34;&gt;# C 编译器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install gcc-c++                 &lt;span class=&#34;c1&#34;&gt;# C++ 编译器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install gcc-gfortran            &lt;span class=&#34;c1&#34;&gt;# Fortran 编译器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install compat-gcc-44           &lt;span class=&#34;c1&#34;&gt;# 兼容 gcc 4.4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install compat-gcc-44-c++       &lt;span class=&#34;c1&#34;&gt;# 兼容 gcc-c++ 4.4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install compat-gcc-44-gfortran  &lt;span class=&#34;c1&#34;&gt;# 兼容 gcc-fortran 4.4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install compat-libf2c-34        # g77 &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;.4.x 兼容库&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于服务器上已经mount了intel编译器,不需要我去安装了;如果需要,可以去intel官网上申请并下载安装,然后设置compiler、mkl的环境即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;软件开发辅助工具&#34;&gt;软件开发辅助工具&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    sudo yum install make
+    sudo yum install gdb                    &lt;span class=&#34;c1&#34;&gt;# 代码调试器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install cmake                  &lt;span class=&#34;c1&#34;&gt;# Cmake
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install git                    &lt;span class=&#34;c1&#34;&gt;# 版本控制
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install openssl openssl-devel  &lt;span class=&#34;c1&#34;&gt;# ssl模块
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install blas blas-devel        &lt;span class=&#34;c1&#34;&gt;# 矩阵运算库
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install atlas atlas-devel 
+    sudo yum install openblas openblas-devel
+    sudo yum install lapack lapack-devel 
+    sudo yum install bzip2 bzip2-devel
+    sudo yum install readline readline-devel
+    sudo yum install zlib zlib-devel
+    sudo yum install glibc glibc-devel glib2 glib2-devel &lt;span class=&#34;c1&#34;&gt;# glibc支持与升级
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install sqlite sqlite-devel                &lt;span class=&#34;c1&#34;&gt;# sqlit 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install boost boost-devel                  # 编译安装torque需要&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;其他工具&#34;&gt;其他工具&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    sudo yum install curl wget
+    sudo yum install screen
+    sudo yum install htop
+    sudo yum install colordiff&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;驱动程序&#34;&gt;驱动程序&lt;/h2&gt;
+
+&lt;h3 id=&#34;显卡驱动&#34;&gt;显卡驱动&lt;/h3&gt;
+
+&lt;p&gt;由于显卡驱动依赖内核版本,应该在内核升级之后再安装,否则内核升级之后需要重新安装。
+在Nvidia官网上下载相应的型号以及对应系统版本的安装包,一键安装即可。可通过运行&lt;code&gt;nvidia-smi&lt;/code&gt;查看是否安装成功。&lt;/p&gt;
+
+&lt;h3 id=&#34;ntfs-驱动&#34;&gt;NTFS 驱动&lt;/h3&gt;
+
+&lt;p&gt;CentOS 下默认无法挂载 NTFS 格式的硬盘。需安装 nfts-3g 即可实现即插即用:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install ntfs-3g&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;进阶开发环境&#34;&gt;进阶开发环境&lt;/h2&gt;
+
+&lt;h3 id=&#34;gpu-开发环境&#34;&gt;GPU 开发环境&lt;/h3&gt;
+
+&lt;p&gt;在安装了GPU驱动之后,从&lt;code&gt;Nvidia&lt;/code&gt;网站上下载&lt;code&gt;cuda&lt;/code&gt;安装包,同样要与GPU型号和系统匹配,一键安装即可,或许会有
+提示是否安装驱动,如果前面没有安装,那么这里就可以选择安装了;否则就没有必要安装了,因为这里的版本略老。
+安装成功后设置一下&lt;code&gt;PATH&lt;/code&gt;和&lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt;:(写进&lt;code&gt;.bashrc&lt;/code&gt;或者&lt;code&gt;/etc/profile.d/cuda.sh&lt;/code&gt;(建议)均可)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:/usr/local/cuda/bin
+    &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$LD_LIBRARY_PATH&lt;/span&gt;:/usr/local/cuda/lib64
+    &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CUDADIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/cuda&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;测试下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$  nvcc --version
+    nvcc: NVIDIA &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;R&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; Cuda compiler driver
+    Copyright &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;c&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2005&lt;/span&gt;-2016 NVIDIA Corporation
+    Built on Tue_Jan_10_13:22:03_CST_2017
+    Cuda compilation tools, release &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;.0, V8.0.61&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;java-环境&#34;&gt;Java 环境&lt;/h3&gt;
+
+&lt;p&gt;Java 的一大特色在于跨平台，安装了 Java 运行环境，即可运行 Java 程序:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install java                        # java 运行环境&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;clang-系列&#34;&gt;Clang 系列&lt;/h3&gt;
+
+&lt;p&gt;Clang 可以认为是 GCC 的替代品，可以用于编译 C、C++、Objective-C 和 Objective-C++。其提供了更友好的
+报错信息，在有些方面比 GCC 更友好，同时其提供了一个代码静态分析器，可以用于分析代码中可能出现的 bug 和内存溢出问题。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install clang             # clang 编译器
+sudo yum install clang-analyzer    # clang 静态分析器&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;intel-系列&#34;&gt;Intel 系列&lt;/h3&gt;
+
+&lt;p&gt;Intel 的大部分软件都是非开源且收费的，但同时部分软件也提供了 Linux 下的非商业免费版。
+比如 icc、mkl 数学库以及代码性能分析工具等。
+Intel 软件的申请以及安装参考《&lt;a href=&#34;https://theme.quanyin.ml/intel-non-commercial-software.html&#34;&gt;Intel 非商业免费开发工具&lt;/a&gt;》。
+&amp;gt;需要注意的是，Intel 也提供了并行相关的几个命令，比如 mpicc、mpirun。所以 openmpi、mpich
+和 intel 三者，在并行时只能用其中一个。&lt;/p&gt;
+
+&lt;h3 id=&#34;并行计算&#34;&gt;并行计算&lt;/h3&gt;
+
+&lt;p&gt;并行可以用 openmpi，也可以用 mpich，二者的功能可以认为是完全相同的。由于二者提供了几乎一样的命令，
+所以二者可以同时安装，但是不可以同时处于使用状态。
+&amp;gt; 建议: mpi通过源码编译安装或者使用intel的impi&lt;/p&gt;
+
+&lt;h4 id=&#34;openmpi&#34;&gt;openmpi&lt;/h4&gt;
+
+&lt;p&gt;安装 openmpi:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install openmpi openmpi-devel&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装后，二进制文件位于 &lt;code&gt;/usr/lib64/openmpi/bin&lt;/code&gt; 下，动态库文件位于 &lt;code&gt;/usr/lib64/openmpi/lib&lt;/code&gt;
+下，因而实际使用的话还需要额外的配置，在 &lt;code&gt;.bashrc&lt;/code&gt; 中加入如下语句:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;export PATH=/usr/lib64/openmpi/bin/:${PATH}
+module load mpi/openmpi-x86_64&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;PS：要使用 &lt;code&gt;module&lt;/code&gt; 命令需要先安装 &lt;code&gt;environment-modules&lt;/code&gt; 包。&lt;/p&gt;
+
+&lt;h4 id=&#34;mpich&#34;&gt;mpich&lt;/h4&gt;
+
+&lt;p&gt;安装 mpich:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install mpich mpich-devel&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装后，二进制文件位于 &lt;code&gt;/usr/lib64/mpich/bin&lt;/code&gt; 下，动态库文件位于 &lt;code&gt;/usr/lib64/mpich/lib&lt;/code&gt; 下，
+因而实际使用的话还需要额外的配置，在 &lt;code&gt;.bashrc&lt;/code&gt; 中加入如下语句:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;export PATH=/usr/lib64/mpich/bin/:${PATH}
+module load mpi/mpich-x86_64&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;脚本语言环境&#34;&gt;脚本语言环境&lt;/h2&gt;
+
+&lt;h3 id=&#34;perl&#34;&gt;Perl&lt;/h3&gt;
+
+&lt;p&gt;CentOS 7.0 自带了 Perl 5.16.3（2013 年 03 月 11 日发布），目前的最新版本为 5.20.1（2014 年 09 月 14 日发布）。&lt;/p&gt;
+
+&lt;h4 id=&#34;系统自带-perl&#34;&gt;系统自带 Perl&lt;/h4&gt;
+
+&lt;p&gt;系统自带 Perl，就目前来看，版本不算老，基本够用。官方源和 EPEL 源中提供了 1000 多个模块，可以直接用 yum 安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install perl-Parallel-ForkManager  # 并行模块&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;若源中没有已打包好的模块，也可以使用 perl 自带的 cpan 来安装模块。&lt;/p&gt;
+
+&lt;p&gt;优先级：yum &amp;gt; cpan。&lt;/p&gt;
+
+&lt;h4 id=&#34;plenv-管理新版本&#34;&gt;plenv 管理新版本&lt;/h4&gt;
+
+&lt;p&gt;若需要使用最新版本的 perl，可以使用 &lt;a href=&#34;https://theme.quanyin.ml/perl-plenv.html&#34;&gt;plenv&lt;/a&gt; 安装新版本的 perl，并使用 plenv 提供的 cpanm 命令安装模块:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;cpanm install Parallel::ForkManager # 并行模块&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt;
+
+&lt;p&gt;CentOS 7.0 自带 Python 2.7.5，目前 Python 2 的最新版本为 2.7.8，Python 3 的最新版本为 3.4.2。&lt;/p&gt;
+
+&lt;h4 id=&#34;系统自带-python&#34;&gt;系统自带 Python&lt;/h4&gt;
+
+&lt;p&gt;系统自带的 Python 2.7.5，基本已经够用，Python 2 常用的模块在官方源或 EPEL 源中也有有编译好的包，
+&lt;del&gt;因而直接通过 yum 安装即可:&lt;/del&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    不建议：
+    sudo yum install python-matplotlib  &lt;span class=&#34;c1&#34;&gt;# 2D 绘图库
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install PyQt4  &lt;span class=&#34;c1&#34;&gt;# Qt4 的 Python 绑定
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install numpy  &lt;span class=&#34;c1&#34;&gt;# 数组操作库
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install scipy  &lt;span class=&#34;c1&#34;&gt;# 科学计算库
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install python-requests  &lt;span class=&#34;c1&#34;&gt;# 网页请求
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install python-docopt  &lt;span class=&#34;c1&#34;&gt;# 命令行参数分析器
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    sudo yum install gdal-python    # gdal 的 Python 绑定&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;建议通过pip安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    sudo yum install python-devel
+    sudo pip install &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;--upgrade&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;需要的包&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;pyenv-管理-python3&#34;&gt;&lt;del&gt;pyenv 管理 Python3&lt;/del&gt;&lt;/h4&gt;
+
+&lt;p&gt;Python2 与 Python3 之间是不完全兼容的，而我以 Python3 为主，所以需要安装一个 Python3。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;首先，安装 &lt;a href=&#34;https://theme.quanyin.ml/python-pyenv.html&#34;&gt;pyenv&lt;/a&gt; 来管理多个 Python 版本，然后利用 pyenv 安装 anaconda3
+（即 Python3.4）。anaconda 自带了众多科学计算所需的包，免去了安装的麻烦，对于其他包，
+则可以利用 Python 自带的 pip 安装:&lt;/del&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;pip install requests
+pip install docopt&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;yum安装的python版本较老,建议通过源码编译安装&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    tar -xzvf Python-3.6.3.tgz
+    &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; Python-3.6.3
+    ./configure --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/Python3 --enable-optimizations --enable-profiling --with-lto --enable-loadable-sqlite-extensions --enable-big-dig
+    make
+    sudo make install &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;建议: 在configure之前,修改&lt;code&gt;Module/Setup.dist&lt;/code&gt;:开启 &lt;code&gt;readline&lt;/code&gt;,开启 &lt;code&gt;ssl&lt;/code&gt;,并复制为 &lt;code&gt;Setup&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;编程相关软件&#34;&gt;编程相关软件&lt;/h2&gt;
+
+&lt;h3 id=&#34;编辑器&#34;&gt;编辑器&lt;/h3&gt;
+
+&lt;p&gt;写代码的时候选一个好用的编辑器很重要，用的比较多的编辑器如下：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;vim&lt;/li&gt;
+&lt;li&gt;emacs&lt;/li&gt;
+&lt;li&gt;atom&lt;/li&gt;
+&lt;li&gt;sublime text 3&lt;/li&gt;
+&lt;li&gt;Visual Studio Code&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;ide&#34;&gt;IDE&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Python IDE：&lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34; target=&#34;_blank&#34;&gt;PyCharm Community Edition&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;日常软件&#34;&gt;日常软件&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;以下部分对于服务器而言基本没什么用,但由于原博文是针对桌面环境,仍然保留,万一以后用的上呢&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;office-套件&#34;&gt;Office 套件&lt;/h3&gt;
+
+&lt;h4 id=&#34;libreoffice&#34;&gt;LibreOffice&lt;/h4&gt;
+
+&lt;p&gt;大多数 Linux 发行版都自带 LibreOffice:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install libreoffice&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;LibreOffice 与 Microsoft Office 的兼容性不太好，操作界面与 MS Office 也有较大差异，让人不太习惯。&lt;/p&gt;
+
+&lt;h4 id=&#34;wps-office&#34;&gt;WPS Office&lt;/h4&gt;
+
+&lt;p&gt;若在 Linux 下对于文档处理有更高一些的要求，可以尝试目前还处于测试版的 WPS Office for Linux。
+WPS Office 的兼容性以及界面都比 LibreOffice 要好很多，值得期待，当然还是不能做到完全兼容 MS
+Office。&lt;/p&gt;
+
+&lt;p&gt;安装过程参考 &lt;a href=&#34;https://theme.quanyin.ml/wps-office-for-centos7.html&#34;&gt;CentOS 下安装 WPS Office&lt;/a&gt; 一文。&lt;/p&gt;
+
+&lt;h3 id=&#34;ps-pdf-阅读器&#34;&gt;PS/PDF 阅读器&lt;/h3&gt;
+
+&lt;p&gt;系统自带的 evince 阅读器，可以打开 PS 和 PDF 文件，基本足够日常的使用了。&lt;/p&gt;
+
+&lt;h4 id=&#34;zathura&#34;&gt;zathura&lt;/h4&gt;
+
+&lt;p&gt;zathura 可以查看 PS、PDF、djvu 格式的文件，可以作为 evince 的替代品:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install zathura zathura-plugins-all&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;ghostscript&#34;&gt;ghostscript&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install ghostscript&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;master-pdf-editor&#34;&gt;master-pdf-editor&lt;/h4&gt;
+
+&lt;p&gt;官方网站: &lt;a href=&#34;https://code-industry.net/free-pdf-editor/&#34; target=&#34;_blank&#34;&gt;https://code-industry.net/free-pdf-editor/&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum localinstall http://get.code-industry.net/public/master-pdf-editor3-3.2.62-1.x86_64.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;tex-live-2015&#34;&gt;TeX Live 2015&lt;/h3&gt;
+
+&lt;p&gt;系统是自带了 TeXLive，版本较老，还是安装最新版比较好。&lt;/p&gt;
+
+&lt;p&gt;参考 &lt;a href=&#34;https://theme.quanyin.ml/install-texlive-under-linux.html&#34;&gt;Linux 下安装 TeXLive&lt;/a&gt; 一文。&lt;/p&gt;
+
+&lt;h3 id=&#34;mendeley&#34;&gt;Mendeley&lt;/h3&gt;
+
+&lt;p&gt;Mendeley 是一个跨平台的文献管理软件，其内部自带了一个可以添加注释的 PDF 阅读器。&lt;/p&gt;
+
+&lt;p&gt;下载 Generic Linux (64 bits)：&lt;a href=&#34;http://www.mendeley.com/download-mendeley-desktop&#34; target=&#34;_blank&#34;&gt;http://www.mendeley.com/download-mendeley-desktop&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;tar -xvf mendeleydesktop-1.12.3-linux-x86_64.tar.bz2  # 解压
+sudo mv mendeleydesktop /opt  # 复制到 / opt 下
+cd /opt/mendeleydesktop/bin   # cd 进去
+./install-mendeley-link-handler.sh /opt/mendeleydesktop/bin/mendeleydesktop
+sudo yum install qtwebkit  # 安装依赖包&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;注销重新登陆，在 Application-&amp;gt;Education 下即可看到 mendeley 的相关项目。不过是
+没有软件的图标的，强迫症不能忍，用下面的命令解决:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;cp /opt/mendeleydesktop/share/icons/hicolor/128x128/apps/mendeleydesktop.png ~/.local/share/icons/&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;google-chrome-浏览器&#34;&gt;Google Chrome 浏览器&lt;/h3&gt;
+
+&lt;p&gt;默认的浏览器是 Firefox，还是更喜欢 Chrome 浏览器。&lt;/p&gt;
+
+&lt;p&gt;Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区提供的镜像源:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install google-chrome-stable&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;opera-浏览器&#34;&gt;Opera 浏览器&lt;/h3&gt;
+
+&lt;p&gt;也可以选择 Opera 浏览器。&lt;/p&gt;
+
+&lt;p&gt;下载地址：&lt;a href=&#34;http://www.opera.com/download/guide/?os=linux&#34; target=&#34;_blank&#34;&gt;http://www.opera.com/download/guide/?os=linux&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;选择 CentOS RPM package 进行下载。下载完成后，执行:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum localinstall opera-12.16-1860.x86_64.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;想要卸载的话，就执行:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum remove opera&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;flash-插件&#34;&gt;Flash 插件&lt;/h3&gt;
+
+&lt;p&gt;Flash 插件主要是看在线视频的时候要用。Google 浏览器自带了 Flash 插件，所以这里安装的 flash 插件主要是为了 firefox。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+sudo yum install flash-plugin&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;解压软件&#34;&gt;解压软件&lt;/h3&gt;
+
+&lt;p&gt;解压 7z 或 zip 格式需要 p7zip，由 EPEL 提供:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install p7zip&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;解压 rar 格式可以使用 &lt;a href=&#34;https://unarchiver.c3.cx/commandline&#34; target=&#34;_blank&#34;&gt;unar&lt;/a&gt;，该软件位于 EPEL 源中：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install unar&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;ftp-客户端&#34;&gt;FTP 客户端&lt;/h3&gt;
+
+&lt;p&gt;FTP 客户端，还是有界面的 filezilla 比较方便些。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install filezilla&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;google-earth&#34;&gt;Google Earth&lt;/h3&gt;
+
+&lt;p&gt;到 &lt;a href=&#34;https://www.google.com/earth/download/ge/agree.html&#34; target=&#34;_blank&#34;&gt;https://www.google.com/earth/download/ge/agree.html&lt;/a&gt; 下载64位rpm包，执行如下命令安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum localinstall google-earth-stable_current_x86_64.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;效率类软件&#34;&gt;效率类软件&lt;/h2&gt;
+
+&lt;p&gt;这一类工具能够在不同方面提高科研的效率，也提高了使用者的体验。&lt;/p&gt;
+
+&lt;h3 id=&#34;终端模拟器&#34;&gt;终端模拟器&lt;/h3&gt;
+
+&lt;p&gt;Gnome 自带的终端模拟器是 gnome-terminal。经常会需要开十几个终端，切换和管理起来比较麻烦。&lt;/p&gt;
+
+&lt;h4 id=&#34;terminator&#34;&gt;terminator&lt;/h4&gt;
+
+&lt;p&gt;terminator 有很多功能，我只用到了终端分割的功能。 &lt;code&gt;Ctrl+Shift+O&lt;/code&gt; 对终端水平分隔，
+&lt;code&gt;Ctrl+Shift+E&lt;/code&gt; 对终端垂直分隔， &lt;code&gt;Alt + 上下左右&lt;/code&gt; 可以在各子终端中切换。terminator 由 Nux Dextop 提供:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install terminator&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&#34;guake&#34;&gt;guake&lt;/h4&gt;
+
+&lt;p&gt;有些时候需要临时执行一两个命令，但是又不想额外启动一个终端的情况下，guake 是个不错的选择。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install guake&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装完成后，在 Application-&amp;gt;System Tools 里找到 guake Terminal 即可启动。按下 F12
+即可呼出 guake，再次按下 F12 即可隐藏。也可在终端执行 &lt;code&gt;guake-prefs&lt;/code&gt; 对 gauke 进行配置。&lt;/p&gt;
+
+&lt;h3 id=&#34;zsh-与-oh-my-zsh&#34;&gt;zsh 与 oh my zsh&lt;/h3&gt;
+
+&lt;p&gt;Linux 下有很多 shell，比如最常见的 bash，除此之外还有 csh、ksh。zsh 也是一个 shell。&lt;/p&gt;
+
+&lt;p&gt;zsh 的特点在于：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;语法基本完全兼容于 bash，一般用户完全体会不到其区别&lt;/li&gt;
+&lt;li&gt;zsh 提供命令补全特性，比 bash 的补全要更好用&lt;/li&gt;
+&lt;li&gt;可配置性强&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;完全不经配置的 zsh 已经很好用了，一般用户也没必要花时间研究配置。
+&lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh&#34; target=&#34;_blank&#34;&gt;oh my zsh&lt;/a&gt; 是一群人一起维护的一套 zsh 配置文件。
+直接用这个配置文件，稍稍了解一点会有更好的体验。&lt;/p&gt;
+
+&lt;p&gt;安装 zsh:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install zsh&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装 oh my zsh:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;curl -L http://install.ohmyz.sh | sh&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;上面的命令，做了如下几件事情：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;下载 &lt;code&gt;oh my zsh&lt;/code&gt; 到 &lt;code&gt;~/.oh-my-zsh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;备份已有的 zsh 配置文件 &lt;code&gt;~/.zshrc&lt;/code&gt; ，并复制新的 &lt;code&gt;.zshrc&lt;/code&gt; 文件&lt;/li&gt;
+&lt;li&gt;将当前用户的默认 shell 由 bash 改成 zsh&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第三步中，会报错如下： &lt;code&gt;chsh: &amp;quot;/usr/bin/zsh&amp;quot; is not listed in /etc/shells.&lt;/code&gt; ，需要手动修改默认 shell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;chsh -s /bin/zsh&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;chsh 命令修改的是 login shell，因而需要退出当前用户并重新登陆，以后用户的默认 shell
+就从 bash 变成了 zsh，所有的配置都不用写到 &lt;code&gt;.bashrc&lt;/code&gt; 而要写到 &lt;code&gt;.zshrc&lt;/code&gt; 中。&lt;/p&gt;
+
+&lt;p&gt;在 &lt;code&gt;.zshrc&lt;/code&gt; 中可以选择喜欢的主题，以及适当数量的插件。下面列出我在用的插件:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;git&lt;/p&gt;
+
+&lt;p&gt;该插件为 git 的众多常用命令提供了更简单的别名，比如 &lt;code&gt;git status&lt;/code&gt; 的别名是 &lt;code&gt;gst&lt;/code&gt;，
+大大减少了击键数。但该插件中 &lt;code&gt;git mergetool --no-prompt&lt;/code&gt; 的别名是 &lt;code&gt;gmt&lt;/code&gt;，
+与 GMT 软件冲突，需要将该插件的目录 git 复制到 custom/plugins 下，然后删除其中的 gmt 别名；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;命令补全插件: pip, pyenv&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;sudo：按两下 &lt;code&gt;ESC&lt;/code&gt; 即可在当前命令前加上 &lt;code&gt;sudo&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;yum：为常见的 yum 命令提供别名&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;autojump&#34;&gt;autojump&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/joelthelion/autojump&#34; target=&#34;_blank&#34;&gt;autojump&lt;/a&gt; 是一个非常智能的目录快速切换的工具。简单演示如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;$ pwd
+/home/seisman
+$ cd Desktop
+$ cd /opt
+$ cd /usr/local
+
+# 用 j 命令迅速从 / usr/local 跳转到与 des 匹配的目录，这里只有 Desktop 可以匹配
+$ j des
+$ pwd
+/home/seisman/Desktop&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;用法差不多就这样，具体看项目主页。&lt;/p&gt;
+
+&lt;p&gt;安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install autojump
+sudo yum install autojump-zsh&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;中文输入法&#34;&gt;中文输入法&lt;/h3&gt;
+
+&lt;p&gt;由于使用的是全英文安装，所以默认是没有中文输入法的。&lt;/p&gt;
+
+&lt;p&gt;在“Application”-&amp;gt;“Settings”-&amp;gt;“Region &amp;amp; Language” 中将“Chinese（Intelligent Pinyin）”添加到“Input Sources” 中即可使用中文输入法。默认使用“Shift”键切换中文输入法。&lt;/p&gt;
+
+&lt;h3 id=&#34;等宽字体&#34;&gt;等宽字体&lt;/h3&gt;
+
+&lt;p&gt;编程要用等宽字体，这点是常识了。一款适合编程的等宽字体，至少要满足如下几个要求：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;易于区分 “1”、“i” 和“l”&lt;/li&gt;
+&lt;li&gt;易于区分 “0”、“o” 和“O”&lt;/li&gt;
+&lt;li&gt;易于区分中文下的左引号和右引号&lt;/li&gt;
+&lt;li&gt;美观&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;目前选择的 Source Code Pro。将解压后的字体文件放在 &lt;code&gt;~/.fonts&lt;/code&gt; 目录下，并修改终端、gedit 以及其他编辑器、IDE 等的默认字体。&lt;/p&gt;
+
+&lt;h2 id=&#34;虚拟机&#34;&gt;虚拟机&lt;/h2&gt;
+
+&lt;p&gt;有时候可能需要在 Windows 下做一些操作，如果机器性能足够好的话，可以安装虚拟机。&lt;/p&gt;
+
+&lt;h3 id=&#34;virtualbox-虚拟机&#34;&gt;VirtualBox 虚拟机&lt;/h3&gt;
+
+&lt;p&gt;VirtuabBox 的安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+sudo mv virtualbox.repo /etc/yum.repos.d/
+sudo yum install VirtualBox-5.0&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;需要注意两点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;若机器性能不够，虚拟机的使用体验会非常差，所以不建议在老机器上使用；&lt;/li&gt;
+&lt;li&gt;更新 kernel 之后需要执行 &lt;code&gt;sudo /sbin/rcvboxdrv setup&lt;/code&gt; ；&lt;/li&gt;
+&lt;li&gt;在 VirtualBox 安装虚拟系统后，记得使用 “设备”-&amp;gt;“安装增强功能”，使用效果会更好；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;gnome-boxes&#34;&gt;gnome-boxes&lt;/h3&gt;
+
+&lt;p&gt;gnome-boxes 是 GNOME3 开发的一个虚拟机工具，使用体验不如 VirtualBox:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install gnome-boxes&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;wine&#34;&gt;Wine&lt;/h3&gt;
+
+&lt;p&gt;Wine 是一个可以让 Windows 程序运行在 Linux 下的软件。类似虚拟机，但跟虚拟机又不太一样:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install wine&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;同步网盘&#34;&gt;同步网盘&lt;/h2&gt;
+
+&lt;p&gt;网盘根据功能大概可以分为两类：同步网盘和备份网盘。既然是同步网盘，Linux 下
+的客户端必不可少。就目前已知的情况来看，CentOS7 下能使用的同步网盘只有三个：
+Dropbox、MEGA 和坚果云。&lt;/p&gt;
+
+&lt;p&gt;我主要用同步网盘将 Linux 机器上的 PDF 文献同步到 iPad 上。&lt;/p&gt;
+
+&lt;h3 id=&#34;dropbox&#34;&gt;Dropbox&lt;/h3&gt;
+
+&lt;p&gt;又是一个被墙的工具，熟练掌握科学上网技巧的人可以使用，一般人还是不要用了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-1.6.2-1.fedora.x86_64.rpm
+sudo rpm -i nautilus-dropbox-1.6.2-1.fedora.x86_64.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;mega&#34;&gt;MEGA&lt;/h3&gt;
+
+&lt;p&gt;MEGA： &lt;a href=&#34;https://mega.co.nz/&#34; target=&#34;_blank&#34;&gt;https://mega.co.nz/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;免费容量 50G，作为同步盘来说基本是够用了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;# 下载主程序
+wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/megasync-CentOS_7.x86_64.rpm
+# 下载文件管理器扩展（可选）
+wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/nautilus-megasync-CentOS_7.x86_64.rpm
+sudo yum localinstall megasync-CentOS_7.x86_64.rpm
+sudo yum localinstall nautilus-megasync-CentOS_7.x86_64.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;坚果云&#34;&gt;坚果云&lt;/h3&gt;
+
+&lt;p&gt;国内的全平台同步网盘，不限空间，但限制每月上传流量 1G，下载流量 3G。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;# 坚果云依赖于 notify-python
+sudo yum install notify-python
+# 下载
+wget https://jianguoyun.com/static/exe/installer/fedora/nautilus_nutstore_amd64.rpm
+sudo rpm -i nautilus_nutstore_amd64.rpm&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;工具软件&#34;&gt;工具软件&lt;/h2&gt;
+
+&lt;h3 id=&#34;视频下载工具&#34;&gt;视频下载工具&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/soimort/you-get&#34; target=&#34;_blank&#34;&gt;you-get&lt;/a&gt; 和 &lt;a href=&#34;https://github.com/rg3/youtube-dl&#34; target=&#34;_blank&#34;&gt;youtube-dl&lt;/a&gt;
+是两个用于从视频网站上下载视频文件的工具。其中，后者支持的网站更多，但前者对国内的视频网站支持更好。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;pip install you-get
+pip install youtube-dl
+# EPEL 中提供了 youtube-dl 包，因而也可以使用 yum 安装。一般来说，pip 安装的版本更新一些&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;pdf-处理工具&#34;&gt;PDF 处理工具&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://community.coherentpdf.com/&#34; target=&#34;_blank&#34;&gt;cpdf&lt;/a&gt; 是一个跨平台的 PDF 处理工具，可以完成常见的 PDF 合并、
+切割、加密解密、书签、水印等功能。&lt;/p&gt;
+
+&lt;p&gt;下载已编译好的 &lt;a href=&#34;https://github.com/coherentgraphics/cpdf-binaries/archive/master.zip&#34; target=&#34;_blank&#34;&gt;二进制包&lt;/a&gt;，
+解压，并将与自己的平台对应的二进制文件复制到 &lt;code&gt;${HOME}/bin&lt;/code&gt; 目录下即可使用。&lt;/p&gt;
+
+&lt;h3 id=&#34;bt-软件&#34;&gt;BT 软件&lt;/h3&gt;
+
+&lt;p&gt;transmission 是 Linux 下常用的 Torrent 下载软件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install transmission&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在 “Application”-&amp;gt;“Internet”-&amp;gt; 中可以启动 transmission。&lt;/p&gt;
+
+&lt;h3 id=&#34;uget&#34;&gt;uGet&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ugetdm.com/&#34; target=&#34;_blank&#34;&gt;http://ugetdm.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;uGet 是 Linux 下的一个下载工具，支持 HTTP、HTTPS、FTP、Torrent 等，支持多连接，并可以监视剪贴板:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum --enablerepo=epel-testing install uget aria2&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;截图软件-shutter&#34;&gt;截图软件 shutter&lt;/h3&gt;
+
+&lt;p&gt;GNOME 自带了截图工具。 &lt;code&gt;PrtScn&lt;/code&gt; 为截取整个屏幕； &lt;code&gt;Alt+PrtScn&lt;/code&gt; 为截取当前窗口；
+&lt;code&gt;Shift+PrtScn&lt;/code&gt; 为自定义截屏区域。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://shutter-project.org/&#34; target=&#34;_blank&#34;&gt;shutter&lt;/a&gt; 是一个功能更强大的截图工具，支持不同的截图方式、
+图片格式，还支持图片的简单编辑与注释:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install shutter&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;可以通过 &lt;a href=&#34;http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/&#34; target=&#34;_blank&#34;&gt;修改快捷键使 shutter 成为默认的截图工具&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;其他工具-1&#34;&gt;其他工具&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install nfs-utils     # 挂载 NFS 文件系统所必须
+sudo yum install xclip         # 终端的文本复制工具
+sudo yum install ImageMagick   # 其中的 import 和 convert 命令很有用
+sudo yum install dos2unix unix2dos  # Windows 和 Linux 换行符互相转换
+sudo yum install meld          # 图形界面下的文件差异比较工具&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;娱乐&#34;&gt;娱乐&lt;/h2&gt;
+
+&lt;h3 id=&#34;影音播放器&#34;&gt;影音播放器&lt;/h3&gt;
+
+&lt;p&gt;Nux Dextop 提供了 mplayer 和 VLC，可以用于播放常见格式的音频和视频，二者选其一安装即可:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install mplayer
+sudo yum install vlc&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;游戏&#34;&gt;游戏&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;sudo yum install 2048-cli   # 2048 命令行版&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://elrepo.org/tiki/tiki-index.php&#34; target=&#34;_blank&#34;&gt;ELRepo 官方网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://elrepo.org/tiki/kmod-nvidia&#34; target=&#34;_blank&#34;&gt;ELRepo kmod-nvidia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.centos.org/zh/AdditionalResources/Repositories/GoogleYumRepos&#34; target=&#34;_blank&#34;&gt;CentOS Yum 软件库样例&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;修订历史&#34;&gt;修订历史&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;原文&lt;/li&gt;
+&lt;li&gt;2014-07-15：初稿；&lt;/li&gt;
+&lt;li&gt;2014-09-05：EPEL 已经发布正式版；修改了 epel-release 的下载链接；修订了 import 步骤的错误；&lt;/li&gt;
+&lt;li&gt;2014-09-20：将小小输入法改为搜狗输入法；&lt;/li&gt;
+&lt;li&gt;2014-11-20：使用 zsh；&lt;/li&gt;
+&lt;li&gt;2014-11-24：加入了 VirtualBox 虚拟机；&lt;/li&gt;
+&lt;li&gt;2014-12-01：从 ELRepo 源中安装显卡驱动；&lt;/li&gt;
+&lt;li&gt;2014-12-02：新增 Opera 浏览器和 unrar；&lt;/li&gt;
+&lt;li&gt;2014-12-27：新增 pointdownload 下载工具；google chrome 采用非官方源镜像；&lt;/li&gt;
+&lt;li&gt;2014-12-28：修订 unrar 的 rpm 文件链接；&lt;/li&gt;
+&lt;li&gt;2015-01-03：新增同步网盘 Dropbox 和坚果云；删除 pointdownload；&lt;/li&gt;
+&lt;li&gt;2015-01-05：autojump 直接从 epel 中安装；新增 youtube-dl、you-get 和 2048-cli；&lt;/li&gt;
+&lt;li&gt;2015-01-07：新增 terminator 和 guake；&lt;/li&gt;
+&lt;li&gt;2015-01-27：新增 cpdf；&lt;/li&gt;
+&lt;li&gt;2015-03-03：新增 filezilla 和 transmission；&lt;/li&gt;
+&lt;li&gt;2015-03-26：安装过程中不应使用中文安装界面；&lt;/li&gt;
+&lt;li&gt;2015-05-11：新增 MEGA 同步网盘；&lt;/li&gt;
+&lt;li&gt;2015-05-16：新增 gnome-boxes；&lt;/li&gt;
+&lt;li&gt;2015-06-26：新增 zathura 和 ghostscript；&lt;/li&gt;
+&lt;li&gt;2015-07-14：新增 Nux Dextop 源，uGet、shutter；&lt;/li&gt;
+&lt;li&gt;2015-09-03：删除地球物理相关软件；&lt;/li&gt;
+&lt;li&gt;2015-09-18：删除显卡驱动安装的具体步骤，直接链接到相关博文；&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;2016-09-12：新增google earth的安装；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;转载&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;2017-12-08: 转载并更新部分内容&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;2017-12-08: 删除elrepo,建议驱动从官网安装;
+            删除yum-axelget;
+            增加部分软件开发辅助工具和其他工具;
+            显卡驱动改为官网安装,增加GPU开发环境;
+            建议mpi,python3源码安装&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

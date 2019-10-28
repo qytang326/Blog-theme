@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github Pages on Quanyin Blog Theme</title>
+    <link>https://theme.quanyin.ml/tags/github-pages/</link>
+    <description>Recent content in Github Pages on Quanyin Blog Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>qytang326@gmail.com (Quanyin Tang)</managingEditor>
+    <webMaster>qytang326@gmail.com (Quanyin Tang)</webMaster>
+    <author>
+        <name>Quanyin Tang</name>
+        <email>qytang326@gmail.com</email>
+        <uri>https://qytang326.github.io</uri>
+    </author>
+    <lastBuildDate>Sun, 11 Mar 2018 12:36:38 +0800</lastBuildDate>
+    <atom:link href="/tags/github-pages/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Theme Preview | 主题预览</title>
+      <link>https://theme.quanyin.ml/2018/03/theme-preview/</link>
+      <pubDate>Sun, 11 Mar 2018 12:36:38 +0800</pubDate>
+      <author>qytang326@gmail.com (Quanyin Tang)</author>
+      <guid>https://theme.quanyin.ml/2018/03/theme-preview/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;前两天动手把之前博客从Jekyll移植到Hugo上，原因是Hugo又快又方便&lt;/p&gt;
+
+&lt;p&gt;Copy from &lt;a href=&#34;https://laozhu.me/post/hugo-nuo-post-preview/&#34; target=&#34;_blank&#34;&gt;《Hugo 主题 Nuo 文章样式预览》&lt;/a&gt; ， 有部分修改。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这篇文章集中说明主题所支持的 Markdown 语法和 Hugo Shortcodes 插件，你也可以在这里预览到他们的样子。如果你不喜欢某些样式，可以去修改 less/ 文件夹进行调整。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;0-双语功能&#34;&gt;0.双语功能&lt;/h2&gt;
+
+&lt;p&gt;使用方法：Front matter 中加入&lt;code&gt;multilingual = true&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;zh post-container&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;post&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;zh&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;en post-container&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;post&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;en&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果见&lt;a href=&#34;https://theme.quanyin.ml/2018/04/multilingual/&#34; target=&#34;_blank&#34;&gt;多语言测试&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-标题&#34;&gt;1.标题&lt;/h2&gt;
+
+&lt;h1 id=&#34;h1&#34;&gt;H1&lt;/h1&gt;
+
+&lt;h2 id=&#34;h2&#34;&gt;H2&lt;/h2&gt;
+
+&lt;h3 id=&#34;h3&#34;&gt;H3&lt;/h3&gt;
+
+&lt;h4 id=&#34;h4&#34;&gt;H4&lt;/h4&gt;
+
+&lt;h5 id=&#34;h5&#34;&gt;H5&lt;/h5&gt;
+
+&lt;h6 id=&#34;h6&#34;&gt;H6&lt;/h6&gt;
+
+&lt;h2 id=&#34;2-段落&#34;&gt;2.段落&lt;/h2&gt;
+
+&lt;p&gt;使用单引号 &lt;code&gt;*&lt;/code&gt; 或者单下划线 &lt;code&gt;_&lt;/code&gt; 标记 &lt;em&gt;斜体强调&lt;/em&gt; 或者 &lt;em&gt;斜体强调&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;使用两个引号 &lt;code&gt;**&lt;/code&gt; 或者两个下划线 &lt;code&gt;__&lt;/code&gt; 标记 &lt;strong&gt;加粗强调&lt;/strong&gt; 或者 &lt;strong&gt;加粗强调&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;引号和下划线可叠加使用 → &lt;strong&gt;只是加粗 &lt;em&gt;斜体并加粗&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;使用两个波浪线 &lt;code&gt;~~&lt;/code&gt; 标记 &lt;del&gt;已删除文字&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;插入文字暂无 &lt;code&gt;Markdown&lt;/code&gt; 标记，直接使用 &lt;code&gt;HTML&lt;/code&gt; 标签 &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt; 标记 &lt;ins&gt;插入文字&lt;/ins&gt;&lt;/p&gt;
+
+&lt;p&gt;行内代码使用反引号标记 → &lt;code&gt;print(&amp;quot;hello world&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;上标 X&lt;sup&gt;2&lt;/sup&gt; / 下标 X&lt;sub&gt;2&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;按键 &lt;kbd&gt;Ctrl&lt;/kbd&gt;&lt;/p&gt;
+
+&lt;p&gt;外链 &lt;a href=&#34;https://chekun.me&#34; target=&#34;_blank&#34;&gt;chekun&amp;rsquo;s blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;页面内段落 &lt;a href=&#34;#7-图片&#34;&gt;图片&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;注意：你可以通过 &lt;code&gt;{#section-id}&lt;/code&gt; 方式自定义段落锚点&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;参考资料 &lt;sup&gt;&lt;a href=&#34;#ref01&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;sup&gt;&lt;a href=&#34;#ref02&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-列表&#34;&gt;3.列表&lt;/h2&gt;
+
+&lt;p&gt;以下的无序、有序和任务列表均支持二级嵌套，不建议使用二级以上嵌套。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-1-无序列表&#34;&gt;3.1 无序列表&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无序列表
+
+&lt;ul&gt;
+&lt;li&gt;嵌套的无序列表&lt;/li&gt;
+&lt;li&gt;嵌套的无序列表&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;无序列表
+
+&lt;ol&gt;
+&lt;li&gt;嵌套的有序列表&lt;/li&gt;
+&lt;li&gt;嵌套的有序列表&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;无序列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;3-2-有序列表&#34;&gt;3.2 有序列表&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;有序列表
+
+&lt;ol&gt;
+&lt;li&gt;嵌套的有序列表&lt;/li&gt;
+&lt;li&gt;嵌套的有序列表&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;有序列表
+
+&lt;ul&gt;
+&lt;li&gt;嵌套的无序列表&lt;/li&gt;
+&lt;li&gt;嵌套的无序列表&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;有序列表&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;3-3-定义列表&#34;&gt;3.3 定义列表&lt;/h3&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;CSS:&lt;/dt&gt;
+&lt;dd&gt;层叠样式表&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h3 id=&#34;3-4-任务列表&#34;&gt;3.4 任务列表&lt;/h3&gt;
+
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; Cmd Markdown 开发
+
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; 支持以 PDF 格式导出文稿&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; checked disabled class=&#34;task-list-item&#34;&gt; 新增Todo列表功能 &lt;a href=&#34;https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments&#34; target=&#34;_blank&#34;&gt;语法参考&lt;/a&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; checked disabled class=&#34;task-list-item&#34;&gt; 改进 LaTex 功能&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; checked disabled class=&#34;task-list-item&#34;&gt; 修复 LaTex 公式渲染问题&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; checked disabled class=&#34;task-list-item&#34;&gt; 新增 LaTex 公式编号功能 &lt;a href=&#34;http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers&#34; target=&#34;_blank&#34;&gt;语法参考&lt;/a&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; 七月旅行准备
+
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; 准备邮轮上需要携带的物品&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; disabled class=&#34;task-list-item&#34;&gt; 浏览日本免税店的物品&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&#34;checkbox&#34; checked disabled class=&#34;task-list-item&#34;&gt; 购买蓝宝石公主号七月一日的船票&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;4-引用&#34;&gt;4.引用&lt;/h2&gt;
+
+
+&lt;blockquote  cite=&#34;https://baike.baidu.com/item/%E8%B5%8B%E5%BE%97%E5%8F%A4%E5%8E%9F%E8%8D%89%E9%80%81%E5%88%AB/2873148&#34;&gt;
+  &lt;p&gt;&lt;p&gt;野火烧不尽，春风吹又生.&lt;/p&gt;&lt;/p&gt;
+
+  
+    &lt;cite&gt;&lt;a target=&#34;_blank&#34; href=&#34;https://baike.baidu.com/item/%E8%B5%8B%E5%BE%97%E5%8F%A4%E5%8E%9F%E8%8D%89%E9%80%81%E5%88%AB/2873148&#34;&gt;白居易《赋得古原草送别》&lt;/a&gt;&lt;/cite&gt;
+  
+&lt;/blockquote&gt;
+
+
+&lt;h2 id=&#34;5-代码&#34;&gt;5.代码&lt;/h2&gt;
+
+&lt;p&gt;代码语法高亮演示。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;helloWorld&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;HelloWorld&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span class=&#34;k&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;hello&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;fun&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;cm&#34;&gt;/* Hello */&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// &amp;#39;Hello World!&amp;#39; program
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cs&#34; data-lang=&#34;cs&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;HelloWorld&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WriteLine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  Hello, World!
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+   &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-scala&#34; data-lang=&#34;scala&#34;&gt;&lt;span class=&#34;k&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;HelloWorld&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Application&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nc&#34;&gt;Console&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello, World!&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;cp&#34;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;6-分割线&#34;&gt;6.分割线&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;中间能写字的分割线，如果你修改了分割线中字的内容，请配合修改 &lt;code&gt;CSS&lt;/code&gt; 样式。&lt;/p&gt;
+
+&lt;h2 id=&#34;7-图片&#34;&gt;7.图片&lt;/h2&gt;
+
+&lt;p&gt;不带标题的图片，如下图👇&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{% figure src=&amp;#34;/favicon.ico&amp;#34; %}}&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+  
+    
+      &lt;img class=&#34;lazyload&#34; data-src=&#34;/favicon.ico&#34;  crossorigin=&#34;anonymous&#34;/&gt;
+    
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;带标题的图片，如下图👇&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{% figure class=&amp;#34;center lazyload&amp;#34; src=&amp;#34;/favicon.ico&amp;#34; alt=&amp;#34;favicon&amp;#34; title=&amp;#34;favicon&amp;#34; %}}&lt;/pre&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure class=&#34;center lazyload&#34;&gt;
+  
+    
+      &lt;img class=&#34;lazyload&#34; data-src=&#34;/favicon.ico&#34; alt=&#34;favicon&#34; crossorigin=&#34;anonymous&#34;/&gt;
+    
+  
+  
+  &lt;figcaption&gt;
+    &lt;center&gt;&lt;p class=&#34;text-muted text-align:center&#34;&gt;favicon&lt;/p&gt;&lt;/center&gt;
+    
+  &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;8-表格&#34;&gt;8.表格&lt;/h2&gt;
+
+&lt;p&gt;使用 &lt;code&gt;Markdown&lt;/code&gt; 画的表格，如下表👇&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Tables&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Are&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Cool&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;col 3 is&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;right-aligned&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$1600&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;col 2 is&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;centered&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$12&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;zebra stripes&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;are neat&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;$1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;9-数学公式&#34;&gt;9.数学公式&lt;/h2&gt;
+
+&lt;p&gt;主题使用了 &lt;a href=&#34;https://www.mathjax.org/&#34; target=&#34;_blank&#34;&gt;MathJax&lt;/a&gt; 开源库来实现对数学公式的支持，使用 &lt;code&gt;$$&lt;/code&gt; 标记。&lt;/p&gt;
+
+&lt;p&gt;$$ evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i} $$&lt;/p&gt;
+
+&lt;p&gt;Marry has a little matrix &lt;code&gt;$ ( \begin{smallmatrix} a&amp;amp;b \\ c&amp;amp;d \end{smallmatrix} ) $&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;10-流程图&#34;&gt;10.流程图&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://mermaidjs.github.io/&#34; target=&#34;_blank&#34;&gt;Mermaid&lt;/a&gt; is a library helping you to generate diagram and flowcharts from text, in a similar manner as Markdown.&lt;/p&gt;
+
+&lt;p&gt;Just insert your mermaid code in the &lt;code&gt;mermaid&lt;/code&gt; shortcode and that&amp;rsquo;s it.&lt;/p&gt;
+
+&lt;h3 id=&#34;flowchart-example&#34;&gt;Flowchart example&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt;mermaid align=&amp;#34;left&amp;#34;&amp;gt;}}
+graph LR;
+    A[Hard edge] --&amp;gt;|Link text| B(Round edge)
+    B --&amp;gt; C{Decision}
+    C --&amp;gt;|One| D[Result one]
+    C --&amp;gt;|Two| E[Result two]
+{{&amp;lt; /mermaid &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果为：&lt;/p&gt;
+
+&lt;div class=&#34;mermaid&#34; align=&#34;left&#34;&gt;
+graph LR;
+    A[Hard edge] --&gt;|Link text| B(Round edge)
+    B --&gt; C{Decision}
+    C --&gt;|One| D[Result one]
+    C --&gt;|Two| E[Result two]
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;sequence-example&#34;&gt;Sequence example&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt;mermaid&amp;gt;}}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&amp;gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &amp;lt;br/&amp;gt;prevail...
+    John--&amp;gt;Alice: Great!
+    John-&amp;gt;Bob: How about you?
+    Bob--&amp;gt;John: Jolly good!
+{{&amp;lt; /mermaid &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果为：&lt;/p&gt;
+
+&lt;div class=&#34;mermaid&#34; align=&#34;center&#34;&gt;
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &lt;br/&gt;prevail...
+    John--&gt;Alice: Great!
+    John-&gt;Bob: How about you?
+    Bob--&gt;John: Jolly good!
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;gantt-example&#34;&gt;GANTT Example&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt;mermaid&amp;gt;}}
+gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+{{&amp;lt; /mermaid &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果：&lt;/p&gt;
+
+&lt;div class=&#34;mermaid&#34; align=&#34;center&#34;&gt;
+gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;11-音乐&#34;&gt;11. 音乐&lt;/h2&gt;
+
+&lt;p&gt;主题文章中可以轻松插入 各大网站的指定音乐，由&lt;a href=&#34;https://github.com/MoePlayer/APlayer&#34; target=&#34;_blank&#34;&gt;Aplayer&lt;/a&gt;提供支持，你可以根据需要将音乐设置为自动播放，在主题目录 &lt;code&gt;layouts/shortcodes&lt;/code&gt; 文件夹下的 &lt;code&gt;music.html&lt;/code&gt; 对该标签进行定义。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{% music &amp;#34;28196554&amp;#34; %}}&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css&#34; crossorigin=&#34;anonymous&#34;&gt;
+  &lt;script src=&#34;//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;aplayer post-container&#34;
+      data-id=&#34;28196554&#34;
+      data-type=&#34;song&#34;
+      data-server=&#34;netease&#34;
+      data-mode=&#34;random&#34;
+      data-autoplay=&#34;true&#34; &gt;
+  &lt;/div&gt;
+  &lt;script src=&#34;//cdn.jsdelivr.net/npm/meting@1.1.1/dist/Meting.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{% music id=&amp;#34;804530027&amp;#34; server=&amp;#34;netease&amp;#34; type=&amp;#34;playlist&amp;#34; %}}&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css&#34; crossorigin=&#34;anonymous&#34;&gt;
+  &lt;script src=&#34;//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;aplayer post-container&#34;
+      data-id=&#34;804530027&#34;
+      data-server=&#34;netease&#34;
+      data-type=&#34;playlist&#34;
+      data-mode=&#34;random&#34;
+      data-autoplay=&#34;true&#34; &gt;
+  &lt;/div&gt;
+
+&lt;h2 id=&#34;12-附件&#34;&gt;12. 附件&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;来自 Hugo-theme-Learn&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;If your page is a markdown file, attachements must be place in a &lt;strong&gt;folder&lt;/strong&gt; named like your page and ending with &lt;strong&gt;.files&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;content
+
+&lt;ul&gt;
+&lt;li&gt;_index.md&lt;/li&gt;
+&lt;li&gt;page.files&lt;/li&gt;
+&lt;li&gt;attachment.pdf&lt;/li&gt;
+&lt;li&gt;page.md&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If your page is a &lt;strong&gt;folder&lt;/strong&gt;, attachements must be place in a nested &lt;strong&gt;&amp;lsquo;files&amp;rsquo;&lt;/strong&gt; folder.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;content
+
+&lt;ul&gt;
+&lt;li&gt;_index.md&lt;/li&gt;
+&lt;li&gt;page&lt;/li&gt;
+&lt;li&gt;index.md&lt;/li&gt;
+&lt;li&gt;files
+
+&lt;ul&gt;
+&lt;li&gt;attachment.pdf&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;参数设置：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Parameter&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Default&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;title&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&amp;ldquo;附件&amp;rdquo;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;List&amp;rsquo;s title&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;del&gt;style&lt;/del&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&amp;rdquo;&amp;rdquo;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;del&gt;Choose between &amp;ldquo;orange&amp;rdquo;, &amp;ldquo;grey&amp;rdquo;, &amp;ldquo;blue&amp;rdquo; and &amp;ldquo;green&amp;rdquo; for nice style&lt;/del&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;pattern&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&amp;rdquo;.*&amp;rdquo;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;A regular expressions, used to filter the attachments by file name. &lt;br/&gt;&lt;br/&gt;The &lt;strong&gt;pattern&lt;/strong&gt; parameter value must be &lt;a href=&#34;https://en.wikipedia.org/wiki/Regular_expression&#34; target=&#34;_blank&#34;&gt;regular expressions&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;例子：
+列出所有以&lt;code&gt;pdf&lt;/code&gt;和&lt;code&gt;mp4&lt;/code&gt;结尾的文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; attachments title=&amp;#34;相关附件&amp;#34; pattern=&amp;#34;.*(png|mp4)&amp;#34; &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果：&lt;/p&gt;
+
+
+&lt;section class=&#34;attachments&#34;&gt;
+&lt;blockquote&gt;
+  &lt;label&gt;
+    &lt;i class=&#34;fa fa-paperclip&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&amp;nbsp;
+    相关附件
+  &lt;/label&gt;
+  
+    
+  
+  &lt;div class=&#34;attachments-files&#34;&gt;
+  
+    
+    
+      
+        &lt;li&gt;
+          &lt;a href=&#34;https://theme.quanyin.ml/post/theme-preview.files/%e9%99%84%e4%bb%b6%e6%b5%8b%e8%af%95.mp4&#34; &gt;附件测试.mp4&lt;/a&gt;
+        &lt;/li&gt;
+      
+    
+  
+    
+    
+      
+    
+  
+    
+    
+      
+        &lt;li&gt;
+          &lt;a href=&#34;https://theme.quanyin.ml/post/theme-preview.files/%e9%99%84%e4%bb%b6%e6%b5%8b%e8%af%95.png&#34; &gt;附件测试.png&lt;/a&gt;
+        &lt;/li&gt;
+      
+    
+  
+  &lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/section&gt;
+
+
+&lt;h2 id=&#34;13-展开详细&#34;&gt;13. 展开详细&lt;/h2&gt;
+
+&lt;p&gt;自定义标题展开：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{% expand &amp;#34;好看吗?&amp;#34; %}}Yes !{{%  /expand %}}&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;expand&#34;&gt;
+    &lt;div class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34;
+    onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fa fa-chevron-down&#39; : &#39;fa fa-chevron-right&#39;;});});&#34;&gt;
+        &lt;i style=&#34;font-size:x-small;&#34; class=&#34;fa fa-chevron-right&#34;&gt;&lt;/i&gt;
+        &lt;span&gt;
+        
+        
+          好看吗?
+        
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;expand-content&#34; style=&#34;display: none;&#34;&gt;
+        Yes !
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;默认为：&lt;/p&gt;
+
+
+&lt;div class=&#34;expand&#34;&gt;
+    &lt;div class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34;
+    onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fa fa-chevron-down&#39; : &#39;fa fa-chevron-right&#39;;});});&#34;&gt;
+        &lt;i style=&#34;font-size:x-small;&#34; class=&#34;fa fa-chevron-right&#34;&gt;&lt;/i&gt;
+        &lt;span&gt;
+        
+        
+          展开详细 ...
+        
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;expand-content&#34; style=&#34;display: none;&#34;&gt;
+        Yes !
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;14-notice-等&#34;&gt;14. notice 等&lt;/h2&gt;
+
+&lt;p&gt;Disclaimers to help you structure your page&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;禁掉了颜色，如果要使用，请把相关文件复制到&lt;code&gt;layout&lt;/code&gt;下并进行修改&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{%  notice 自定义提示标题 %}}
+这是一个自定义提示。
+{{%  /notice %}}&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果：&lt;/p&gt;
+
+
+&lt;section class=&#34;attachments&#34;&gt;
+  &lt;label&gt;
+    &lt;i class=&#34;fa fa-exclamation-circle&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&amp;nbsp;
+    自定义提示标题
+  &lt;/label&gt;
+  &lt;div class=&#34;notice-default&#34;&gt;
+    这是一个自定义提示。
+  &lt;/div&gt;
+&lt;/section&gt;
+
+
+&lt;p&gt;默认设置为：
+
+&lt;section class=&#34;attachments&#34;&gt;
+  &lt;label&gt;
+    &lt;i class=&#34;fa fa-exclamation-circle&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&amp;nbsp;
+    提示
+  &lt;/label&gt;
+  &lt;div class=&#34;notice-default&#34;&gt;
+    A notice disclaimer
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;15-优酷视频&#34;&gt;15.优酷视频&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; youku XMjkxMzU2ODE4OA &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果：&lt;/p&gt;
+
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//player.youku.com/embed/XMjkxMzU2ODE4OA?autoplay=0&#34;
+  style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34;
+  allowfullscreen frameborder=&#34;0&#34; title=&#34;YouKu Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+
+&lt;h2 id=&#34;官方提供的shortcode&#34;&gt;官方提供的ShortCode&lt;/h2&gt;
+
+&lt;p&gt;部分可能由于不明原因无法实现&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;gist&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; gist spf13 7896402 &amp;#34;img.html&amp;#34; &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+&lt;script src=&#34;//gist.github.com/spf13/7896402.js?file=img.html&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;instagram&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; instagram BWNjjyYFxVx &amp;gt;}}
+或
+{{&amp;lt; instagram BWNjjyYFxVx hidecaption &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-permalink=&#34;https://www.instagram.com/p/BWNjjyYFxVx/?utm_source=ig_embed&amp;amp;utm_campaign=loading&#34; data-instgrm-version=&#34;12&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:16px;&#34;&gt; &lt;a href=&#34;https://www.instagram.com/p/BWNjjyYFxVx/?utm_source=ig_embed&amp;amp;utm_campaign=loading&#34; style=&#34; background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;&#34; target=&#34;_blank&#34;&gt; &lt;div style=&#34; display: flex; flex-direction: row; align-items: center;&#34;&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: column; flex-grow: 1; justify-content: center;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;padding: 19% 0;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display:block; height:50px; margin:0 auto 12px; width:50px;&#34;&gt;&lt;svg width=&#34;50px&#34; height=&#34;50px&#34; viewBox=&#34;0 0 60 60&#34; version=&#34;1.1&#34; xmlns=&#34;https://www.w3.org/2000/svg&#34; xmlns:xlink=&#34;https://www.w3.org/1999/xlink&#34;&gt;&lt;g stroke=&#34;none&#34; stroke-width=&#34;1&#34; fill=&#34;none&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;g transform=&#34;translate(-511.000000, -20.000000)&#34; fill=&#34;#000000&#34;&gt;&lt;g&gt;&lt;path d=&#34;M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631&#34;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div style=&#34;padding-top: 8px;&#34;&gt; &lt;div style=&#34; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;&#34;&gt; View this post on Instagram&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;padding: 12.5% 0;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;&#34;&gt;&lt;div&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34;background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;margin-left: 8px;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;margin-left: auto;&#34;&gt; &lt;div style=&#34; width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);&#34;&gt;&lt;/div&gt; &lt;div style=&#34; width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div style=&#34;display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;&#34;&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;&#34;&gt;&lt;/div&gt; &lt;div style=&#34; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BWNjjyYFxVx/?utm_source=ig_embed&amp;amp;utm_campaign=loading&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;A post shared by Bjørn Erik Pedersen (@bepsays)&lt;/a&gt; on &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2017-07-06T16:27:46+00:00&#34;&gt;Jul 6, 2017 at 9:27am PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//www.instagram.com/embed.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;引用与交叉引用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;[About Me]({{&amp;lt; ref &amp;#34;/about.md&amp;#34; &amp;gt;}})
+[测试]({{&amp;lt; relref &amp;#34;multilingual.md#测试&amp;#34; &amp;gt;}})&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;speakerdeck&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; speakerdeck 4e8126e72d853c0060001f97 &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+
+&lt;script async class=&#39;speakerdeck-embed&#39; data-id=&#39;4e8126e72d853c0060001f97&#39; data-ratio=&#39;1.33333333333333&#39; src=&#39;//speakerdeck.com/assets/embed.js&#39;&gt;&lt;/script&gt;	
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;tweet&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; tweet 877500564405444608 &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;vimeo&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; vimeo 146022717 &amp;gt;}}&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//player.vimeo.com/video/146022717&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Youtube&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;{{&amp;lt; youtube id=&amp;#34;w7Ft2ymGmfc&amp;#34; autoplay=&amp;#34;true&amp;#34; &amp;gt;}}
+或
+{{% youtube &amp;#34;w7Ft2ymGmfc&amp;#34; %}}&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/w7Ft2ymGmfc&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34; title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a id=&#34;ref01&#34;&gt;&lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34; target=&#34;_blank&#34;&gt;Markdown Cheatsheet&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a id=&#34;ref02&#34;&gt;&lt;a href=&#34;https://www.zybuluo.com/EncyKe/note/120103&#34; target=&#34;_blank&#34;&gt;Markdown 语法手册&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

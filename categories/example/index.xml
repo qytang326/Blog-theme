@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Example on Quanyin Blog Theme</title>
+    <link>https://theme.quanyin.ml/categories/example/</link>
+    <description>Recent content in Example on Quanyin Blog Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>qytang326@gmail.com (Quanyin Tang)</managingEditor>
+    <webMaster>qytang326@gmail.com (Quanyin Tang)</webMaster>
+    <author>
+        <name>Quanyin Tang</name>
+        <email>qytang326@gmail.com</email>
+        <uri>https://qytang326.github.io</uri>
+    </author>
+    <lastBuildDate>Thu, 12 Apr 2018 13:37:38 +0800</lastBuildDate>
+    <atom:link href="/categories/example/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>多语言测试</title>
+      <link>https://theme.quanyin.ml/2018/04/multilingual/</link>
+      <pubDate>Thu, 12 Apr 2018 13:37:38 +0800</pubDate>
+      <author>qytang326@gmail.com (Quanyin Tang)</author>
+      <guid>https://theme.quanyin.ml/2018/04/multilingual/</guid>
+      <description>&lt;div class=&#34;zh post-container&#34;&gt;
+&lt;h2 id=&#34;这里是中文页&#34;&gt;这里是中文页&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;中文&lt;/li&gt;
+&lt;li&gt;Chinese&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;测试目录是否正常&#34;&gt;测试目录是否正常&lt;/h3&gt;
+
+&lt;h3 id=&#34;有问题吗&#34;&gt;有问题吗？&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&#34;en post-container&#34;&gt;
+&lt;h2 id=&#34;here-is-english&#34;&gt;Here is English&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;英文&lt;/li&gt;
+&lt;li&gt;English&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;test-catalog&#34;&gt;Test Catalog&lt;/h3&gt;
+
+&lt;h3 id=&#34;bug&#34;&gt;Bug?&lt;/h3&gt;
+
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTML5幻灯片测试</title>
+      <link>https://theme.quanyin.ml/2018/03/keynote/</link>
+      <pubDate>Sat, 10 Mar 2018 19:46:40 +0800</pubDate>
+      <author>qytang326@gmail.com (Quanyin Tang)</author>
+      <guid>https://theme.quanyin.ml/2018/03/keynote/</guid>
+      <description>&lt;p&gt;测试keynote是否正常显示&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

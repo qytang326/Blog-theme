@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+  <meta charset="UTF-8" />
+  <title> JS Sequence Diagrams and Flowchart Diagrams -  Quanyin Blog Theme</title>
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <link rel="dns-prefetch" target="_blank" href="//cdn.bootcss.com" />
+  <link rel="dns-prefetch" target="_blank" href="//busuanzi.ibruce.info" />
+  <link rel="preconnect" target="_blank" href="//cdn.bootcss.com" />
+  <link rel="preconnect" target="_blank" href="//busuanzi.ibruce.info" />
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="preload" as="style" href="https://theme.quanyin.ml/css/Quanyin-global.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="https://theme.quanyin.ml/css/Quanyin-global.min.css" crossorigin="anonymous" /></noscript>
+  
+  <link rel="preload" as="style" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" /></noscript>
+  <link rel="prefetch" as="font" href="//cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" crossorigin="anonymous" />
+  
+  <link rel="prefetch" as="script" href="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"/>
+  <link rel="prefetch" as="script" href="https://theme.quanyin.ml/js/Quanyin-global.min.js" type="text/javascript" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://theme.quanyin.ml/2015/03/js-sequence-diagrams-flowchart-diagrams/" />
+  <link rel="manifest" href="https://theme.quanyin.ml/pwa/manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <link rel="shortcut icon" href="https://theme.quanyin.ml/favicon.ico" type="image/x-icon" />
+  <meta name="robots" content="all" />
+  <meta http-equiv="X-XSS-Protection" content="1;mode=block" />
+  <link href="https://theme.quanyin.ml/index.xml" rel="alternate" type="application/rss+xml" title="Quanyin Blog Theme" />
+  <link href="https://theme.quanyin.ml/index.xml" rel="feed" type="application/rss+xml" title="Quanyin Blog Theme" />
+  <meta name="google-site-verification" content="WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4" />
+  <meta name="baidu-site-verification" content="yHqjnTuMbD" />
+  <meta name="description" content="博学而笃志，切问而近思 | 这里是 @[Quanyin](https://qytang326.github.io)@ 的个人博客主题模板。" />
+  <meta name="author" content="Quanyin Tang" />
+  <meta name="keywords" content="Blog,Quanyin" />
+  <meta property="og:site_name" content="Quanyin Blog Theme" />
+  <meta property="og:url" content="https://theme.quanyin.ml/2015/03/js-sequence-diagrams-flowchart-diagrams/" />
+  <meta property="og:title" content=" JS Sequence Diagrams and Flowchart Diagrams -  Quanyin Blog Theme" />
+  <meta property="og:description" content="博学而笃志，切问而近思 | 这里是 @[Quanyin](https://qytang326.github.io)@ 的个人博客主题模板。" />
+  <meta property="og:image" content="https://theme.quanyin.ml/img/bg-default.jpg" /><meta property="article:published_time" content="2015-03-04T21:57:00" />
+  <meta property="article:modified_time" content="2015-03-04T21:57:00" />
+
+
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://theme.quanyin.ml/2015/03/js-sequence-diagrams-flowchart-diagrams/"
+        },
+        "headline": " JS Sequence Diagrams and Flowchart Diagrams -  Quanyin Blog Theme",
+        "description": "&lt;h2 id=&#34;sequence-usage&#34;&gt;Sequence Usage&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Andrew-&amp;gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&amp;gt;Andrew: How are you?
+Andrew-&amp;gt;&amp;gt;China: I am good thanks!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;",
+        "author": {
+            "@type": "Person",
+            "name": "Quanyin Tang",
+            "url": "https://qytang326.github.io",
+            "image": {
+              "@type": "ImageObject",
+              "url": "/img/avatar.jpg",
+              "height": 80,
+              "width": 80
+            }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://theme.quanyin.ml",
+          "name": "Quanyin Blog Theme",
+          "url": "https://theme.quanyin.ml",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "/favicon.ico",
+            "height": 80,
+            "width": 80
+          }
+        },
+        
+        "image": {
+          "@type": "ImageObject",
+          "url": "/img/post-bg-default.jpg",
+          "height": 80,
+          "width": 80
+        },
+        "datePublished": "2015-03-04",
+        "dateModified": "2015-03-04",
+        "wordCount": 408,
+        
+    }
+    </script>
+
+</head>
+<body ontouchstart="">
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://theme.quanyin.ml">Quanyin Blog Theme</a>
+        </div>
+        
+        <div id="Quanyinblog_navbar">
+          <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li><a href="https://theme.quanyin.ml/">Home</a></li>
+                
+                <li><a href="https://theme.quanyin.ml/post/">Archives</a></li>
+                
+                <li><a href="https://theme.quanyin.ml/about/">About Me</a></li>
+                
+            </ul>
+          </div>
+        </div>
+        
+    </div>
+
+</nav>
+
+
+
+
+
+<header class="intro-header " style='background-image:url(https://theme.quanyin.ml/img/post-bg-default.jpg)' >
+<div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+         <div class="post-heading">
+           <div class="tags">
+</div>
+           <h1>JS Sequence Diagrams and Flowchart Diagrams</h1>
+           <h2 class="subheading"></h2>
+           <span class="meta">
+    Posted by Quanyin Tang on March 4, 2015
+
+</span>
+         </div>
+       </div>
+    </div>
+  </div>
+</header>
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                
+                <div class="post-container">
+                <h2 id="sequence-usage">Sequence Usage</h2>
+<div class="highlight"><pre class="chroma"><code class="language-sequence" data-lang="sequence">Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!</code></pre></div>
+<p></p>
+<div class="highlight"><pre class="chroma">```sequence
+Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!
+```</pre></div>
+<h2 id="configuration">Configuration</h2>
+
+<p>Configure for all home and regular pages:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">sequenceDiagrams</span><span class="p">]</span>
+  <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+  <span class="nx">options</span> <span class="p">=</span> <span class="s2">&#34;{theme: &#39;hand&#39;}&#34;</span></code></pre></div>
+<p>Configure for a single post in the front matter (<strong>Params in front matter have higher precedence</strong>):</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml">sequenceDiagrams<span class="p">:</span><span class="w"> 
+</span><span class="w">  </span>enable<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>options<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{theme: &#39;hand&#39;}&#34;</span></code></pre></div>
+<h3 id="options">Options</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// Change the styling of the diagram, typically one of &#39;simple&#39;, &#39;hand&#39;. New themes can be registered with registerTheme(...).
+</span><span class="c1"></span>  <span class="nx">theme</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span>
+
+  <span class="c1">// CSS style to apply to the diagram&#39;s svg tag. (Only supported if using snap.svg)
+</span><span class="c1"></span>  <span class="nx">css_class</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>See more information from <a href="https://github.com/bramp/js-sequence-diagrams" target="_blank">https://github.com/bramp/js-sequence-diagrams</a>.</p>
+
+<h2 id="sequence-examples">Sequence Examples</h2>
+<div class="highlight"><pre class="chroma"><code class="language-sequence" data-lang="sequence">Title: Here is a title
+A-&gt;B: Normal line
+B--&gt;C: Dashed line
+C-&gt;&gt;D: Open arrow
+D--&gt;&gt;A: Dashed open arrow</code></pre></div><div class="highlight"><pre class="chroma">```sequence
+Title: Here is a title
+A-&gt;B: Normal line
+B--&gt;C: Dashed line
+C-&gt;&gt;D: Open arrow
+D--&gt;&gt;A: Dashed open arrow
+```</pre></div>
+<hr />
+<div class="highlight"><pre class="chroma"><code class="language-sequence" data-lang="sequence"># Example of a comment.
+Note left of A: Note to the\n left of A
+Note right of A: Note to the\n right of A
+Note over A: Note over A
+Note over A,B: Note over both A and B</code></pre></div><div class="highlight"><pre class="chroma">```sequence
+# Example of a comment.
+Note left of A: Note to the\n left of A
+Note right of A: Note to the\n right of A
+Note over A: Note over A
+Note over A,B: Note over both A and B
+```</pre></div>
+<h2 id="flowchart-usage">Flowchart Usage</h2>
+<div class="highlight"><pre class="chroma"><code class="language-flowchart" data-lang="flowchart">st=&gt;start: Start|past:&gt;http://www.google.com[blank]
+e=&gt;end: End:&gt;http://www.google.com
+op1=&gt;operation: My Operation|past
+op2=&gt;operation: Stuff|current
+sub1=&gt;subroutine: My Subroutine|invalid
+cond=&gt;condition: Yes
+or No?|approved:&gt;http://www.google.com
+c2=&gt;condition: Good idea|rejected
+io=&gt;inputoutput: catch something...|request
+
+st-&gt;op1(right)-&gt;cond
+cond(yes, right)-&gt;c2
+cond(no)-&gt;sub1(left)-&gt;op1
+c2(yes)-&gt;io-&gt;e
+c2(no)-&gt;op2-&gt;e</code></pre></div>
+<!--more-->
+<div class="highlight"><pre class="chroma">```flowchart
+st=&gt;start: Start|past:&gt;http://www.google.com[blank]
+e=&gt;end: End:&gt;http://www.google.com
+op1=&gt;operation: My Operation|past
+op2=&gt;operation: Stuff|current
+sub1=&gt;subroutine: My Subroutine|invalid
+cond=&gt;condition: Yes
+or No?|approved:&gt;http://www.google.com
+c2=&gt;condition: Good idea|rejected
+io=&gt;inputoutput: catch something...|request
+
+st-&gt;op1(right)-&gt;cond
+cond(yes, right)-&gt;c2
+cond(no)-&gt;sub1(left)-&gt;op1
+c2(yes)-&gt;io-&gt;e
+c2(no)-&gt;op2-&gt;e
+```</pre></div>
+<h2 id="flowchart-configuration">Flowchart Configuration</h2>
+
+<p>Configure for all home and regular pages:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">flowchartDiagrams</span><span class="p">]</span>
+  <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+  <span class="nx">options</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span></code></pre></div>
+<p>Configure for a single post in the front matter (<strong>Params in front matter have higher precedence</strong>):</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml">flowchartDiagrams<span class="p">:</span><span class="w">
+</span><span class="w">  </span>enable<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span>options<span class="p">:</span><span class="w"> </span><span class="s2">&#34;{
+</span><span class="s2">              &#39;x&#39;: 0,
+</span><span class="s2">              &#39;y&#39;: 0,
+</span><span class="s2">              &#39;line-width&#39;: 3,
+</span><span class="s2">              &#39;line-length&#39;: 50,
+</span><span class="s2">              &#39;text-margin&#39;: 10,
+</span><span class="s2">              &#39;font-size&#39;: 14,
+</span><span class="s2">              &#39;font-color&#39;: &#39;black&#39;,
+</span><span class="s2">              &#39;line-color&#39;: &#39;black&#39;,
+</span><span class="s2">              &#39;element-color&#39;: &#39;black&#39;,
+</span><span class="s2">              &#39;fill&#39;: &#39;white&#39;,
+</span><span class="s2">              &#39;yes-text&#39;: &#39;yes&#39;,
+</span><span class="s2">              &#39;no-text&#39;: &#39;no&#39;,
+</span><span class="s2">              &#39;arrow-end&#39;: &#39;block&#39;,
+</span><span class="s2">              &#39;scale&#39;: 1,
+</span><span class="s2">              &#39;i-am-a-comment-1&#39;: &#39;Do not use /​/!&#39;,
+</span><span class="s2">              &#39;i-am-a-comment-2&#39;: &#39;style symbol types&#39;,
+</span><span class="s2">              &#39;symbols&#39;: {
+</span><span class="s2">                  &#39;start&#39;: {
+</span><span class="s2">                    &#39;font-color&#39;: &#39;red&#39;,
+</span><span class="s2">                    &#39;element-color&#39;: &#39;green&#39;,
+</span><span class="s2">                    &#39;fill&#39;: &#39;yellow&#39;
+</span><span class="s2">                  },
+</span><span class="s2">                  &#39;end&#39;: {
+</span><span class="s2">                      &#39;class&#39;: &#39;end-element&#39;
+</span><span class="s2">                  }
+</span><span class="s2">              },
+</span><span class="s2">              &#39;i-am-a-comment-3&#39;: &#39;even flowstate support ;-)&#39;,
+</span><span class="s2">              &#39;flowstate&#39;: {
+</span><span class="s2">                &#39;request&#39;: {&#39;fill&#39;: &#39;blue&#39;}
+</span><span class="s2">              }
+</span><span class="s2">            }&#34;</span></code></pre></div>
+<p>See more information from <a href="https://github.com/adrai/flowchart.js" target="_blank">https://github.com/adrai/flowchart.js</a>.</p>
+
+                <p class="text-right">
+    <a href="https://qytang326.github.io">Quanyin Tang</a>
+    <span class="time"> / <time>2015-03-04</time></span>
+    
+    <br>
+    <span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong></span>
+</p>
+                <hr style="visibility: hidden;" >
+                
+                
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="https://theme.quanyin.ml/2017/12/linux-environment-under-centos/" data-toggle="tooltip" data-placement="top" title="在CentOS 7 上打造Linux开发环境">
+        Next
+        <br>
+        <span>在CentOS 7 上打造Linux开发环境</span>
+        </a>
+    </li>
+    
+</ul>
+                
+                
+<div class="comment">
+    <div id="container"></div>
+    <link rel="preload" href="https://theme.quanyin.ml/css/gitment.min.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous"/>
+    <noscript><link rel="stylesheet" href="https://theme.quanyin.ml/css/gitment.min.css" crossorigin="anonymous"/></noscript>
+    <script  src="https://theme.quanyin.ml/js/gitment.min.js" crossorigin="anonymous" ></script>
+    
+    <div class="text-muted text-center">
+        <button class="reward" id="load-CommentGitment" onclick="CommentGitment.load();">评</button>
+    </div>
+    
+    <script >
+    var CommentGitment = {
+        load:function CommentGitment(){
+            (function () {
+            var gitment = new Gitment({
+              id: 'js-sequence-diagrams-flowchart-diagrams',  
+              owner: 'qytang326',  
+              repo: 'Blog-Comment',  
+              title: 'JS Sequence Diagrams and Flowchart Diagrams', 
+              oauth: {
+                client_id: '547ad10017b50756cc95',  
+                client_secret: 'b79e08fb1496dea7decb39b8e9960de6f934078f',  
+              },
+            });
+            gitment.render('container');
+            }());
+        $('#load-CommentGitment').remove();  
+          }
+      }
+    </script>
+</div>
+
+                
+                
+
+
+
+<hr>
+
+<button class="reward" data-toggle="modal" data-target="#myModal">
+    赏
+</button>
+<div class="text-muted text-center"><p>若您觉得我的文章对您有帮助，欢迎点击上方按钮对我打赏</p></div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="text-center modal-title" id="myModalLabel">
+                    「真诚赞赏，手留余香」
+                </p>
+            </div>
+            <div class="modal-body" align="center">
+                <img style="display:inline;margin-right:10px;width:200px;height:258px;" src="https://theme.quanyin.ml/img/reward/Alipay-QR.jpg" alt="微信">
+                <img style="display:inline;margin-left:10px;width:200px;height:258px;"  src="https://theme.quanyin.ml/img/reward/WechatPay-QR.jpg" alt="支付宝">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn2 btn2-primary" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+            
+            
+            
+<div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
+    <div class="side-catalog">
+        <hr class="hidden-sm hidden-xs" >
+        
+        <ul class="catalog-body"></ul>
+    </div>
+</div>
+
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+                
+
+<hr>
+<section>
+    <h5><a href="https://theme.quanyin.ml/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+            
+            <a href="https://theme.quanyin.ml/tags/example" rel="3">Example</a>
+            
+        
+            
+        
+            
+        
+    </div>
+</section>
+
+                
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    <li><a target="_blank" rel="noreferrer"  href="https://qytang326.github.io">Quanyin</a></li>
+
+    <li><a target="_blank" rel="noreferrer"  href="https://fudanccmg.github.io">CCMG</a></li>
+
+    <li><a target="_blank" rel="noreferrer"  href="https://huangxuan.me/">Hux Blog</a></li>
+
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+<li>
+  <a target="_blank" rel="noreferrer" href="https://theme.quanyin.ml/index.xml">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-rss fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="mailto:qytang326@gmail.com">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-envelope-o fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a target="_blank" rel="noreferrer" href="//github.com/qytang326">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-github fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a target="_blank" rel="noreferrer" href="//www.linkedin.com/in/quanyin-tang-56a543b1">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-linkedin fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+
+
+                </ul>
+                    
+                    <p class="copyright text-muted text-center ">
+                        Copyright © 2017-2019 <a href="https://theme.quanyin.ml">Quanyin Blog</a>
+                            
+                            
+                            <span id="busuanzi_container_site_uv" style='display:none'> | 访客数: <span id="busuanzi_value_site_uv"><em class="fa fa-spinner fa-spin"></em></span></span><span id="busuanzi_container_site_pv" style='display:none'>&nbsp;| 总访问量: <span id="busuanzi_value_site_pv"><em class="fa fa-spinner fa-spin"></em></span></span>
+                            
+                        <br>
+                            Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | Powered by <a href="//gohugo.io">Hugo</a>
+                        <br>
+                            <span class="note">转载请标明作者和出处并告知</span>
+                        <br><br>
+                            <span id="count"></span>
+                    </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<a class="back2top" style="display:none;"></a>
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+
+
+<script src="https://theme.quanyin.ml/js/Quanyin-global.min.js" async="async" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/anchor-js/4.1.0/anchor.min.js" crossorigin="anonymous"></script>
+<script>
+    anchors.options = {
+      
+      placement: 'right',
+      
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+</script>
+
+
+
+
+
+
+
+<script>
+    function generateCatalog (selector) {
+         
+        
+            _containerSelector = 'div.post-container'
+        
+         
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+         
+        $(selector).html('');
+         
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+    generateCatalog(".catalog-body");
+     
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }));
+    
+
+        (function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+          });
+        });
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  
+  window.flowchartDiagramsOptions = { 'x': 0, 'y': 0, 'line-width': 3, 'line-length': 50, 'text-margin': 10, 'font-size': 14, 'font-color': 'black', 'line-color': 'black', 'element-color': 'black', 'fill': 'white', 'yes-text': 'yes', 'no-text': 'no', 'arrow-end': 'block', 'scale': 1, 'i-am-a-comment-1': 'Do not use //!', 'i-am-a-comment-2': 'style symbol types', 'symbols': { 'start': { 'font-color': 'red', 'element-color': 'green', 'fill': 'yellow' }, 'end': { 'class': 'end-element' } }, 'i-am-a-comment-3': 'even flowstate support ;-)', 'flowstate': { 'request': {'fill': 'blue'} } };
+  
+</script>
+<script async="async" src="//cdn.bootcss.com/raphael/2.2.7/raphael.min.js" crossorigin="anonymous"></script>
+<script async="async" src="//cdn.bootcss.com/flowchart/1.10.0/flowchart.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<script>
+  
+  window.sequenceDiagramsOptions = {theme: 'string',css_class: 'string'};
+  
+</script>
+<script async="async" src="//cdn.bootcss.com/webfont/1.6.28/webfontloader.js" crossorigin="anonymous"></script>
+<script async="async" src="//cdn.bootcss.com/snap.svg/0.5.1/snap.svg-min.js" crossorigin="anonymous"></script>
+<script async="async" src="//cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js" crossorigin="anonymous"></script>
+<script async="async" src="//cdn.bootcss.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script>
+    window.setInterval('counter()',1000);
+    function counter(){
+        var date=new Date();
+        var startDate=new Date( 2017 , 7 , 6 , 0 , 0 , 0 );
+        var time=(date-startDate)/1000;
+        var day=Math.floor(time/(24*60*60));
+        var hour=Math.floor(time%(24*60*60)/(60*60));
+        var minute=Math.floor(time%(24*60*60)%(60*60)/60);
+        var second=Math.floor(time%(24*60*60)%(60*60)%60);
+        var str="我的博客已经默默运行了" + day + "天" + hour +"时" + minute + "分" + second + "秒";
+        document.getElementById('count').innerHTML=str;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+    
+    <script>
+    !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+    </script>
+
+
+
+
+
+
+
+
+
+    <script>
+    window.onload=function(){
+         
+        var _gaId = 'UA-105172812-2';
+        var _gaDomain = 'auto';
+         
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https:\/\/theme.quanyin.ml/js/Quanyin-global.min.js','ga');
+        ga('create', _gaId, _gaDomain);
+        ga('send', 'pageview');
+        }
+    </script>
+
+
+
+    <script>
+         
+        var _baId = '366e0ea844c9db65fe3dd420933f2677';
+         
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?"+ _baId;
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm,s);
+        })();
+    </script>
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+    
+
+
+
+</body>
+</html>

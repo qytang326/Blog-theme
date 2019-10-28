@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+  <meta charset="UTF-8" />
+  <title> 在CentOS 7 上打造Linux开发环境 -  Quanyin Blog Theme</title>
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <link rel="dns-prefetch" target="_blank" href="//cdn.bootcss.com" />
+  <link rel="dns-prefetch" target="_blank" href="//busuanzi.ibruce.info" />
+  <link rel="preconnect" target="_blank" href="//cdn.bootcss.com" />
+  <link rel="preconnect" target="_blank" href="//busuanzi.ibruce.info" />
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="preload" as="style" href="https://theme.quanyin.ml/css/Quanyin-global.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="https://theme.quanyin.ml/css/Quanyin-global.min.css" crossorigin="anonymous" /></noscript>
+  
+  <link rel="preload" as="style" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" />
+  <noscript><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" /></noscript>
+  <link rel="prefetch" as="font" href="//cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" type="font/woff2" crossorigin="anonymous" />
+  
+  <link rel="prefetch" as="script" href="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"/>
+  <link rel="prefetch" as="script" href="https://theme.quanyin.ml/js/Quanyin-global.min.js" type="text/javascript" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://theme.quanyin.ml/2017/12/linux-environment-under-centos/" />
+  <link rel="manifest" href="https://theme.quanyin.ml/pwa/manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <link rel="shortcut icon" href="https://theme.quanyin.ml/favicon.ico" type="image/x-icon" />
+  <meta name="robots" content="all" />
+  <meta http-equiv="X-XSS-Protection" content="1;mode=block" />
+  <link href="https://theme.quanyin.ml/index.xml" rel="alternate" type="application/rss+xml" title="Quanyin Blog Theme" />
+  <link href="https://theme.quanyin.ml/index.xml" rel="feed" type="application/rss+xml" title="Quanyin Blog Theme" />
+  <meta name="google-site-verification" content="WJPMznpuQTcjxU8Hv0alquVA6FGlxrrFuOI_wPNeEO4" />
+  <meta name="baidu-site-verification" content="yHqjnTuMbD" />
+  <meta name="description" content="CentOS 开发环境的软件安装合集 - 博学而笃志，切问而近思 | 这里是 @[Quanyin](https://qytang326.github.io)@ 的个人博客主题模板。" />
+  <meta name="author" content="Quanyin Tang" />
+  <meta name="keywords" content="Linux,CentOS," />
+  <meta property="og:site_name" content="Quanyin Blog Theme" />
+  <meta property="og:url" content="https://theme.quanyin.ml/2017/12/linux-environment-under-centos/" />
+  <meta property="og:title" content=" 在CentOS 7 上打造Linux开发环境 -  Quanyin Blog Theme" />
+  <meta property="og:description" content="CentOS 开发环境的软件安装合集 - 博学而笃志，切问而近思 | 这里是 @[Quanyin](https://qytang326.github.io)@ 的个人博客主题模板。" />
+  <meta property="og:image" content="https://theme.quanyin.ml/img/bg-default.jpg" /><meta property="article:published_time" content="2017-12-08T00:00:00" />
+  <meta property="article:modified_time" content="2017-12-08T00:00:00" />
+
+
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://theme.quanyin.ml/2017/12/linux-environment-under-centos/"
+        },
+        "headline": " 在CentOS 7 上打造Linux开发环境 -  Quanyin Blog Theme",
+        "description": "CentOS 开发环境的软件安装合集",
+        "author": {
+            "@type": "Person",
+            "name": "Quanyin Tang",
+            "url": "https://quanyin.eu.org",
+            "image": {
+              "@type": "ImageObject",
+              "url": "/img/avatar.jpg",
+              "height": 80,
+              "width": 80
+            }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://theme.quanyin.ml",
+          "name": "Quanyin Blog Theme",
+          "url": "https://theme.quanyin.ml",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "/favicon.ico",
+            "height": 80,
+            "width": 80
+          }
+        },
+        
+        "image": {
+          "@type": "ImageObject",
+          "url": "/img/post-bg-default.jpg",
+          "height": 80,
+          "width": 80
+        },
+        "datePublished": "2017-12-08",
+        "dateModified": "2017-12-08",
+        "wordCount": 8105,
+        "keywords": ["Linux,CentOS,"] 
+    }
+    </script>
+
+</head>
+<body ontouchstart="">
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://theme.quanyin.ml">Quanyin Blog Theme</a>
+        </div>
+        
+        <div id="Quanyinblog_navbar">
+          <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li><a href="https://theme.quanyin.ml/">Home</a></li>
+                
+                <li><a href="https://theme.quanyin.ml/post/">Archives</a></li>
+                
+                <li><a href="https://theme.quanyin.ml/about/">About Me</a></li>
+                
+            </ul>
+          </div>
+        </div>
+        
+    </div>
+
+</nav>
+
+
+
+
+
+<header class="intro-header " style='background-image:url(https://theme.quanyin.ml/img/post-bg-default.jpg)' >
+<div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+         <div class="post-heading">
+           <div class="tags">
+<a href="https://theme.quanyin.ml/tags/linux">Linux</a><a href="https://theme.quanyin.ml/tags/example">Example</a></div>
+           <h1>在CentOS 7 上打造Linux开发环境</h1>
+           <h2 class="subheading"></h2>
+           <span class="meta">
+    Posted by Quanyin Tang on December 8, 2017
+
+</span>
+         </div>
+       </div>
+    </div>
+  </div>
+</header>
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                
+                <div class="post-container">
+                <blockquote>
+<p>前段时间,组里的一台GPU服务器宕机了,在我的强烈要求下,管理老师让机器售后服务方安装了CentOS 7系统;然后就直接甩锅给我,让我自己去安装
+相应的软件&hellip;
+
+看到一篇比较好的博客,转载并更新了一些东西,形成了这篇博客,以期记录下相关过程以及一些坑。。。</p>
+
+<p>本文大部分内容来自于<a href="http://seisman.info/linux-environment-for-seismology-research.html" target="_blank">SeisMan</a>,仅做了一点点修改。</p>
+</blockquote>
+
+<p>阅读须知：</p>
+
+<ol>
+<li><strong>不推荐刚接触 Linux 的人使用 CentOS 发行版</strong>；</li>
+<li>本文只为记录，但要求读者掌握 Linux 基础知识；</li>
+<li>本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；</li>
+</ol>
+
+<h2 id="安装-centos">安装 CentOS</h2>
+
+<blockquote>
+<p>由于已经由售后安装好了系统,系统安装部分未实验。</p>
+</blockquote>
+
+<p>CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。</p>
+
+<h3 id="准备工作">准备工作</h3>
+
+<ol>
+<li><p>准备材料</p>
+
+<ul>
+<li>U 盘：容量 2GB 以上，用于制作 U 盘启动盘，因为在制作启动盘时会格式化 U 盘，所以 U 盘内不要包含重要资料</li>
+<li><a href="http://mirrors.ustc.edu.cn/centos/7/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1511.iso" target="_blank">CentOS 7.2 LiveCD ISO 镜像文件</a></li>
+<li><a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/" target="_blank">Universal USB installer</a>：Windows 下的 U 盘启动盘制作工具</li>
+<li>一个已安装 Windows 的电脑：用于制作 U 盘启动盘</li>
+</ul></li>
+
+<li><p>运行 Universal USB installer 并制作 U 盘启动盘</p></li>
+
+<li><p>将 U 盘插入计算机，重启，进入 BIOS 选择从 U 盘启动，即可进入 CentOS 的 LiveCD</p></li>
+
+<li><p>进入 LiveCD 后，点击桌面的 “Install to Hard Drive” 即可安装</p></li>
+</ol>
+
+<p>注：Linux 下可以通过 <code>dd</code> 命令制作启动盘，但由于对原理不够了解，偶尔会导致制作失败，
+或制作成功后 U 盘容量有问题，还是用 Windows 下的 Universal USB installer 比较靠谱。</p>
+
+<h3 id="安装过程">安装过程</h3>
+
+<ol>
+<li><p>选择安装过程中使用的语言，这里应 <strong>使用英语，不要使用汉语</strong>。若安装界面使用汉语，最终安装的系统中会出现两个比较麻烦的问题：</p>
+
+<ol>
+<li>家目录下的系统文件夹如 Downloads、Desktop 等会以中文表示，这使得在命令行 <code>cd</code> 变得很麻烦；</li>
+<li>终端中某些字符用英文字体，某些字符用中文字体，效果非常差，需要自己修改终端字体方可；</li>
+</ol></li>
+
+<li><p>选择区域和城市：Asia 和 Shanghai</p></li>
+
+<li><p>键盘使用 English(US) 而不是 English(UK)</p></li>
+
+<li><p>Hostname 可以改也可以不改，我用 <code>saturn.geolab</code></p></li>
+
+<li><p>安装的目的地，选择要使用的硬盘，在 “Other Storage Options” 处选择“I will configure partioning”，即手动分区</p></li>
+</ol>
+
+<h3 id="分区">分区</h3>
+
+<p>CentOS7 的分区似乎比较特别，自认为经验很丰富的我在第一次安装 CentOS7 时还是在分区上耽误了很多时间。后来找到比较合适的分区方法，如下：</p>
+
+<ul>
+<li>点击 “Click here to create them automatically”，即让安装程序帮忙分区</li>
+<li>默认的分区方案是使用 LVM，其好处在于 “当机器有多块硬盘时，在使用的时候看上去只有一块”</li>
+<li>默认的文件系统为 XFS 而不是以前常用的 EXT4；</li>
+<li>自动分区完成后，再根据自己的需求，手动修改分区细节
+
+<ul>
+<li><code>/boot</code> ：CentOS 自动分配，一定不要乱改；</li>
+<li><code>/</code> ：根目录，合理使用并及时清理的话 15G 就够了，不过建议 30G 以上；</li>
+<li><code>swap</code> ：与物理内存大小一致即可</li>
+<li><code>/opt</code> ：个人习惯是将第三方软件都安装在 <code>/opt</code> 下，所以分了 70G</li>
+<li><code>/home</code> ：余下的全部空间</li>
+</ul></li>
+<li>点击 “Begin to Install” 开始安装</li>
+</ul>
+
+<h3 id="真正的安装">真正的安装</h3>
+
+<ol>
+<li>设置 root 密码</li>
+<li>创建一般用户</li>
+<li>等待安装完成</li>
+<li>安装完成，重启</li>
+<li>重启后，同意 License 即可</li>
+</ol>
+
+<h2 id="对系统的若干修改">对系统的若干修改</h2>
+
+<h3 id="若干原则">若干原则</h3>
+
+<p>为了搭建一个稳定的系统，尽量避免因为各种瞎折腾而导致的系统问题，特订立了一些软件安装的原则。
+具体参见《<a href="http://seisman.info/how-to-install-softwares-under-centos-7.html" target="_blank">CentOS7 下的软件安装方法与策略</a>》。</p>
+
+<h3 id="给一般账号-root-权限">给一般账号 root 权限</h3>
+
+<p>默认情况下，一般账号是没有 root 权限的。为什么不直接用 root 账号，而是要给一般账号 root 权限呢？</p>
+
+<ul>
+<li><strong>日常工作中使用 root 账号，是非常糟糕且危险的习惯！无论是服务器还是个人电脑都是如此。</strong></li>
+<li>安装软件时需要 root 权限，只能 <code>su</code> 切换到 root 账户再安装。对于习惯使用 <code>sudo</code> 的人来说，还是有些麻烦。</li>
+</ul>
+
+<p>假设账户名为 seisman，要授予他 root 权限，则要修改配置文件 <code>/etc/sudoers</code> :</p>
+<div class="highlight"><pre class="chroma">$ su
+# echo &#39;seisman ALL=(ALL) ALL&#39;&gt;&gt; /etc/sudoers # 向配置文件中加入语句
+# tail -1 /etc/sudoers  # 检查一下是否正确
+seisman ALL=(ALL) ALL</pre></div>
+<p>其中 seisman 为当前用户名。</p>
+
+<h3 id="添加第三方源">添加第三方源</h3>
+
+<p>CentOS 由于很追求稳定性，所以官方源中自带的软件不多，因而需要一些第三方源，比如
+EPEL、<del>ATrpms</del>、<del>ELRepo</del>、<del>Nux Dextop</del>、<del>RepoForge</del> 等。根据上面提到的软件安装原则，为了尽
+可能保证系统的稳定性，此处大型第三方源只添加 EPEL 源、<del>Nux Dextop</del> 和 <del>ELRepo</del> 源。</p>
+
+<h4 id="epel">EPEL</h4>
+
+<p><a href="https://fedoraproject.org/wiki/EPEL" target="_blank">EPEL</a> 即 Extra Packages for Enterprise Linux，
+为 CentOS 提供了额外的 10000 多个软件包，而且在不替换系统组件方面下了很多功夫，因而可以放心使用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install epel-release</code></pre></div>
+<p>执行完该命令后，在 <code>/etc/yum.repos.d</code> 目录下会多一个 <code>epel.repo</code> 文件。</p>
+
+<!-- #### Nux Dextop
+
+[Nux Dextop](http://li.nux.ro/repos.html) 中包含了一些与多媒体相关的软件包，作者尽量
+保证不覆盖 base 源。官方说明中说该源与 EPEL 兼容，实际上个别软件包存在冲突，但基本不会造成影响:
+
+    sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+
+完成该命令后，在 `/etc/yum.repos.d` 目录下会多一个 `nux-dextop.repo` 文件。-->
+
+<h4 id="elrepo"><del>ELRepo</del></h4>
+
+<p><del>ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:</del></p>
+<div class="highlight"><pre class="chroma">    sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+    sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm</pre></div>
+<p>完成该命令后，在 <code>/etc/yum.repos.d</code> 目录下会多一个 <code>elrepo.repo</code> 文件。</p>
+
+<h3 id="安装-yum-axelget"><del>安装 yum-axelget</del></h3>
+
+<blockquote>
+<p>实测对于校园网环境下,此插件效果不好,反而影响搜索速度</p>
+</blockquote>
+
+<p><del><a href="https://dl.fedoraproject.org/pub/epel/7/x86_64/repoview/yum-axelget.html" target="_blank">yum-axelget</a> 是 EPEL</del>
+<del>提供的一个 yum 插件。使用该插件后用 yum 安装软件时可以并行下载，大大提高了软件的下载速度，减少了下载的等待时间:</del></p>
+<div class="highlight"><pre class="chroma">sudo yum install yum-axelget        #安装
+sudo yum uninstall yum-axelget      #卸载</pre></div>
+<p>安装该插件的同时会安装另一个软件 axel。axel 是一个并行下载工具，在下载 http、ftp 等简单协议的文件时非常好用。</p>
+
+<h3 id="安装-yum-fastestmirror">安装 yum-fastestmirror</h3>
+
+<p><code>fastestmirror</code>会自动选择速度比较快的站点,亲测效果很好。</p>
+<div class="highlight"><pre class="chroma">sudo yum install yum-fastestmirror        #安装
+sudo yum uninstall yum-fastestmirror      #卸载</pre></div>
+<h3 id="第一次全面更新">第一次全面更新</h3>
+
+<p>在进一步操作之前，先把已经安装的软件包都升级到最新版:</p>
+<div class="highlight"><pre class="chroma">sudo yum update
+sudo yum update kernel-devel</pre></div>
+<p>要更新的软件包有些多，可能需要一段时间。</p>
+
+<h3 id="重启">重启</h3>
+
+<p>第一次全面更新完之后建议重启。</p>
+
+<h3 id="删除多余的-kernel">删除多余的 kernel</h3>
+
+<p>在前面的 <code>yum update</code> 执行之后，可能会将 kernel 也一起更新，则在启动 CentOS 时启动项中会有很多项。</p>
+
+<p>确认当前使用的 kernel 版本号:</p>
+<div class="highlight"><pre class="chroma">$ uname -r
+3.10.0-123.9.3.el7.x86_64</pre></div>
+<p>查找当前系统安装的所有 kernel:</p>
+<div class="highlight"><pre class="chroma">$ rpm -qa | grep kernel | sort
+kernel-3.10.0-123.8.1.el7.x86_64
+kernel-3.10.0-123.9.2.el7.x86_64
+kernel-3.10.0-123.9.3.el7.x86_64
+kernel-devel-3.10.0-123.8.1.el7.x86_64
+kernel-devel-3.10.0-123.9.2.el7.x86_64
+kernel-devel-3.10.0-123.9.3.el7.x86_64
+kernel-headers-3.10.0-123.9.3.el7.x86_64
+kernel-tools-3.10.0-123.9.3.el7.x86_64
+kernel-tools-libs-3.10.0-123.9.3.el7.x86_64</pre></div>
+<p>可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。除了最新的 kernel 外，建议多保留一个旧 kernel，以免新 kernel 出现问题时可以通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:</p>
+<div class="highlight"><pre class="chroma">sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
+sudo yum remove kernel-devel-3.10.0-123.8.1.el7.x86_64</pre></div>
+<h2 id="基础开发环境">基础开发环境</h2>
+
+<h3 id="gcc-系列">GCC 系列</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    sudo yum install gcc                     <span class="c1"># C 编译器
+</span><span class="c1"></span>    sudo yum install gcc-c++                 <span class="c1"># C++ 编译器
+</span><span class="c1"></span>    sudo yum install gcc-gfortran            <span class="c1"># Fortran 编译器
+</span><span class="c1"></span>    sudo yum install compat-gcc-44           <span class="c1"># 兼容 gcc 4.4
+</span><span class="c1"></span>    sudo yum install compat-gcc-44-c++       <span class="c1"># 兼容 gcc-c++ 4.4
+</span><span class="c1"></span>    sudo yum install compat-gcc-44-gfortran  <span class="c1"># 兼容 gcc-fortran 4.4
+</span><span class="c1"></span>    sudo yum install compat-libf2c-34        # g77 <span class="m">3</span>.4.x 兼容库</code></pre></div>
+<blockquote>
+<p>由于服务器上已经mount了intel编译器,不需要我去安装了;如果需要,可以去intel官网上申请并下载安装,然后设置compiler、mkl的环境即可。</p>
+</blockquote>
+
+<h3 id="软件开发辅助工具">软件开发辅助工具</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    sudo yum install make
+    sudo yum install gdb                    <span class="c1"># 代码调试器
+</span><span class="c1"></span>    sudo yum install cmake                  <span class="c1"># Cmake
+</span><span class="c1"></span>    sudo yum install git                    <span class="c1"># 版本控制
+</span><span class="c1"></span>    sudo yum install openssl openssl-devel  <span class="c1"># ssl模块
+</span><span class="c1"></span>    sudo yum install blas blas-devel        <span class="c1"># 矩阵运算库
+</span><span class="c1"></span>    sudo yum install atlas atlas-devel 
+    sudo yum install openblas openblas-devel
+    sudo yum install lapack lapack-devel 
+    sudo yum install bzip2 bzip2-devel
+    sudo yum install readline readline-devel
+    sudo yum install zlib zlib-devel
+    sudo yum install glibc glibc-devel glib2 glib2-devel <span class="c1"># glibc支持与升级
+</span><span class="c1"></span>    sudo yum install sqlite sqlite-devel                <span class="c1"># sqlit 
+</span><span class="c1"></span>    sudo yum install boost boost-devel                  # 编译安装torque需要</code></pre></div>
+<h3 id="其他工具">其他工具</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    sudo yum install curl wget
+    sudo yum install screen
+    sudo yum install htop
+    sudo yum install colordiff</code></pre></div>
+<h2 id="驱动程序">驱动程序</h2>
+
+<h3 id="显卡驱动">显卡驱动</h3>
+
+<p>由于显卡驱动依赖内核版本,应该在内核升级之后再安装,否则内核升级之后需要重新安装。
+在Nvidia官网上下载相应的型号以及对应系统版本的安装包,一键安装即可。可通过运行<code>nvidia-smi</code>查看是否安装成功。</p>
+
+<h3 id="ntfs-驱动">NTFS 驱动</h3>
+
+<p>CentOS 下默认无法挂载 NTFS 格式的硬盘。需安装 nfts-3g 即可实现即插即用:</p>
+<div class="highlight"><pre class="chroma">sudo yum install ntfs-3g</pre></div>
+<h2 id="进阶开发环境">进阶开发环境</h2>
+
+<h3 id="gpu-开发环境">GPU 开发环境</h3>
+
+<p>在安装了GPU驱动之后,从<code>Nvidia</code>网站上下载<code>cuda</code>安装包,同样要与GPU型号和系统匹配,一键安装即可,或许会有
+提示是否安装驱动,如果前面没有安装,那么这里就可以选择安装了;否则就没有必要安装了,因为这里的版本略老。
+安装成功后设置一下<code>PATH</code>和<code>LD_LIBRARY_PATH</code>:(写进<code>.bashrc</code>或者<code>/etc/profile.d/cuda.sh</code>(建议)均可)</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/cuda/bin
+    <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/usr/local/cuda/lib64
+    <span class="nb">export</span> <span class="nv">CUDADIR</span><span class="o">=</span>/usr/local/cuda</code></pre></div>
+<p>测试下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$  nvcc --version
+    nvcc: NVIDIA <span class="o">(</span>R<span class="o">)</span> Cuda compiler driver
+    Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2005</span>-2016 NVIDIA Corporation
+    Built on Tue_Jan_10_13:22:03_CST_2017
+    Cuda compilation tools, release <span class="m">8</span>.0, V8.0.61</code></pre></div>
+<h3 id="java-环境">Java 环境</h3>
+
+<p>Java 的一大特色在于跨平台，安装了 Java 运行环境，即可运行 Java 程序:</p>
+<div class="highlight"><pre class="chroma">sudo yum install java                        # java 运行环境</pre></div>
+<h3 id="clang-系列">Clang 系列</h3>
+
+<p>Clang 可以认为是 GCC 的替代品，可以用于编译 C、C++、Objective-C 和 Objective-C++。其提供了更友好的
+报错信息，在有些方面比 GCC 更友好，同时其提供了一个代码静态分析器，可以用于分析代码中可能出现的 bug 和内存溢出问题。</p>
+<div class="highlight"><pre class="chroma">sudo yum install clang             # clang 编译器
+sudo yum install clang-analyzer    # clang 静态分析器</pre></div>
+<h3 id="intel-系列">Intel 系列</h3>
+
+<p>Intel 的大部分软件都是非开源且收费的，但同时部分软件也提供了 Linux 下的非商业免费版。
+比如 icc、mkl 数学库以及代码性能分析工具等。
+Intel 软件的申请以及安装参考《<a href="https://theme.quanyin.ml/intel-non-commercial-software.html">Intel 非商业免费开发工具</a>》。
+&gt;需要注意的是，Intel 也提供了并行相关的几个命令，比如 mpicc、mpirun。所以 openmpi、mpich
+和 intel 三者，在并行时只能用其中一个。</p>
+
+<h3 id="并行计算">并行计算</h3>
+
+<p>并行可以用 openmpi，也可以用 mpich，二者的功能可以认为是完全相同的。由于二者提供了几乎一样的命令，
+所以二者可以同时安装，但是不可以同时处于使用状态。
+&gt; 建议: mpi通过源码编译安装或者使用intel的impi</p>
+
+<h4 id="openmpi">openmpi</h4>
+
+<p>安装 openmpi:</p>
+<div class="highlight"><pre class="chroma">sudo yum install openmpi openmpi-devel</pre></div>
+<p>安装后，二进制文件位于 <code>/usr/lib64/openmpi/bin</code> 下，动态库文件位于 <code>/usr/lib64/openmpi/lib</code>
+下，因而实际使用的话还需要额外的配置，在 <code>.bashrc</code> 中加入如下语句:</p>
+<div class="highlight"><pre class="chroma">export PATH=/usr/lib64/openmpi/bin/:${PATH}
+module load mpi/openmpi-x86_64</pre></div>
+<p>PS：要使用 <code>module</code> 命令需要先安装 <code>environment-modules</code> 包。</p>
+
+<h4 id="mpich">mpich</h4>
+
+<p>安装 mpich:</p>
+<div class="highlight"><pre class="chroma">sudo yum install mpich mpich-devel</pre></div>
+<p>安装后，二进制文件位于 <code>/usr/lib64/mpich/bin</code> 下，动态库文件位于 <code>/usr/lib64/mpich/lib</code> 下，
+因而实际使用的话还需要额外的配置，在 <code>.bashrc</code> 中加入如下语句:</p>
+<div class="highlight"><pre class="chroma">export PATH=/usr/lib64/mpich/bin/:${PATH}
+module load mpi/mpich-x86_64</pre></div>
+<h2 id="脚本语言环境">脚本语言环境</h2>
+
+<h3 id="perl">Perl</h3>
+
+<p>CentOS 7.0 自带了 Perl 5.16.3（2013 年 03 月 11 日发布），目前的最新版本为 5.20.1（2014 年 09 月 14 日发布）。</p>
+
+<h4 id="系统自带-perl">系统自带 Perl</h4>
+
+<p>系统自带 Perl，就目前来看，版本不算老，基本够用。官方源和 EPEL 源中提供了 1000 多个模块，可以直接用 yum 安装:</p>
+<div class="highlight"><pre class="chroma">sudo yum install perl-Parallel-ForkManager  # 并行模块</pre></div>
+<p>若源中没有已打包好的模块，也可以使用 perl 自带的 cpan 来安装模块。</p>
+
+<p>优先级：yum &gt; cpan。</p>
+
+<h4 id="plenv-管理新版本">plenv 管理新版本</h4>
+
+<p>若需要使用最新版本的 perl，可以使用 <a href="https://theme.quanyin.ml/perl-plenv.html">plenv</a> 安装新版本的 perl，并使用 plenv 提供的 cpanm 命令安装模块:</p>
+<div class="highlight"><pre class="chroma">cpanm install Parallel::ForkManager # 并行模块</pre></div>
+<h3 id="python">Python</h3>
+
+<p>CentOS 7.0 自带 Python 2.7.5，目前 Python 2 的最新版本为 2.7.8，Python 3 的最新版本为 3.4.2。</p>
+
+<h4 id="系统自带-python">系统自带 Python</h4>
+
+<p>系统自带的 Python 2.7.5，基本已经够用，Python 2 常用的模块在官方源或 EPEL 源中也有有编译好的包，
+<del>因而直接通过 yum 安装即可:</del></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    不建议：
+    sudo yum install python-matplotlib  <span class="c1"># 2D 绘图库
+</span><span class="c1"></span>    sudo yum install PyQt4  <span class="c1"># Qt4 的 Python 绑定
+</span><span class="c1"></span>    sudo yum install numpy  <span class="c1"># 数组操作库
+</span><span class="c1"></span>    sudo yum install scipy  <span class="c1"># 科学计算库
+</span><span class="c1"></span>    sudo yum install python-requests  <span class="c1"># 网页请求
+</span><span class="c1"></span>    sudo yum install python-docopt  <span class="c1"># 命令行参数分析器
+</span><span class="c1"></span>    sudo yum install gdal-python    # gdal 的 Python 绑定</code></pre></div>
+<p>建议通过pip安装:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    sudo yum install python-devel
+    sudo pip install <span class="o">[</span>--upgrade<span class="o">]</span> <span class="o">[</span>需要的包<span class="o">]</span></code></pre></div>
+<h4 id="pyenv-管理-python3"><del>pyenv 管理 Python3</del></h4>
+
+<p>Python2 与 Python3 之间是不完全兼容的，而我以 Python3 为主，所以需要安装一个 Python3。</p>
+
+<p><del>首先，安装 <a href="https://theme.quanyin.ml/python-pyenv.html">pyenv</a> 来管理多个 Python 版本，然后利用 pyenv 安装 anaconda3
+（即 Python3.4）。anaconda 自带了众多科学计算所需的包，免去了安装的麻烦，对于其他包，
+则可以利用 Python 自带的 pip 安装:</del></p>
+<div class="highlight"><pre class="chroma">pip install requests
+pip install docopt</pre></div>
+<blockquote>
+<p>yum安装的python版本较老,建议通过源码编译安装</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    tar -xzvf Python-3.6.3.tgz
+    <span class="nb">cd</span> Python-3.6.3
+    ./configure --prefix<span class="o">=</span>/usr/local/Python3 --enable-optimizations --enable-profiling --with-lto --enable-loadable-sqlite-extensions --enable-big-dig
+    make
+    sudo make install </code></pre></div>
+<blockquote>
+<p>建议: 在configure之前,修改<code>Module/Setup.dist</code>:开启 <code>readline</code>,开启 <code>ssl</code>,并复制为 <code>Setup</code></p>
+</blockquote>
+
+<h2 id="编程相关软件">编程相关软件</h2>
+
+<h3 id="编辑器">编辑器</h3>
+
+<p>写代码的时候选一个好用的编辑器很重要，用的比较多的编辑器如下：</p>
+
+<ol>
+<li>vim</li>
+<li>emacs</li>
+<li>atom</li>
+<li>sublime text 3</li>
+<li>Visual Studio Code</li>
+</ol>
+
+<h3 id="ide">IDE</h3>
+
+<ul>
+<li>Python IDE：<a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm Community Edition</a></li>
+</ul>
+
+<h2 id="日常软件">日常软件</h2>
+
+<blockquote>
+<p>以下部分对于服务器而言基本没什么用,但由于原博文是针对桌面环境,仍然保留,万一以后用的上呢</p>
+</blockquote>
+
+<h3 id="office-套件">Office 套件</h3>
+
+<h4 id="libreoffice">LibreOffice</h4>
+
+<p>大多数 Linux 发行版都自带 LibreOffice:</p>
+<div class="highlight"><pre class="chroma">sudo yum install libreoffice</pre></div>
+<p>LibreOffice 与 Microsoft Office 的兼容性不太好，操作界面与 MS Office 也有较大差异，让人不太习惯。</p>
+
+<h4 id="wps-office">WPS Office</h4>
+
+<p>若在 Linux 下对于文档处理有更高一些的要求，可以尝试目前还处于测试版的 WPS Office for Linux。
+WPS Office 的兼容性以及界面都比 LibreOffice 要好很多，值得期待，当然还是不能做到完全兼容 MS
+Office。</p>
+
+<p>安装过程参考 <a href="https://theme.quanyin.ml/wps-office-for-centos7.html">CentOS 下安装 WPS Office</a> 一文。</p>
+
+<h3 id="ps-pdf-阅读器">PS/PDF 阅读器</h3>
+
+<p>系统自带的 evince 阅读器，可以打开 PS 和 PDF 文件，基本足够日常的使用了。</p>
+
+<h4 id="zathura">zathura</h4>
+
+<p>zathura 可以查看 PS、PDF、djvu 格式的文件，可以作为 evince 的替代品:</p>
+<div class="highlight"><pre class="chroma">sudo yum install zathura zathura-plugins-all</pre></div>
+<h4 id="ghostscript">ghostscript</h4>
+<div class="highlight"><pre class="chroma">sudo yum install ghostscript</pre></div>
+<h4 id="master-pdf-editor">master-pdf-editor</h4>
+
+<p>官方网站: <a href="https://code-industry.net/free-pdf-editor/" target="_blank">https://code-industry.net/free-pdf-editor/</a></p>
+<div class="highlight"><pre class="chroma">sudo yum localinstall http://get.code-industry.net/public/master-pdf-editor3-3.2.62-1.x86_64.rpm</pre></div>
+<h3 id="tex-live-2015">TeX Live 2015</h3>
+
+<p>系统是自带了 TeXLive，版本较老，还是安装最新版比较好。</p>
+
+<p>参考 <a href="https://theme.quanyin.ml/install-texlive-under-linux.html">Linux 下安装 TeXLive</a> 一文。</p>
+
+<h3 id="mendeley">Mendeley</h3>
+
+<p>Mendeley 是一个跨平台的文献管理软件，其内部自带了一个可以添加注释的 PDF 阅读器。</p>
+
+<p>下载 Generic Linux (64 bits)：<a href="http://www.mendeley.com/download-mendeley-desktop" target="_blank">http://www.mendeley.com/download-mendeley-desktop</a></p>
+
+<p>安装:</p>
+<div class="highlight"><pre class="chroma">tar -xvf mendeleydesktop-1.12.3-linux-x86_64.tar.bz2  # 解压
+sudo mv mendeleydesktop /opt  # 复制到 / opt 下
+cd /opt/mendeleydesktop/bin   # cd 进去
+./install-mendeley-link-handler.sh /opt/mendeleydesktop/bin/mendeleydesktop
+sudo yum install qtwebkit  # 安装依赖包</pre></div>
+<p>注销重新登陆，在 Application-&gt;Education 下即可看到 mendeley 的相关项目。不过是
+没有软件的图标的，强迫症不能忍，用下面的命令解决:</p>
+<div class="highlight"><pre class="chroma">cp /opt/mendeleydesktop/share/icons/hicolor/128x128/apps/mendeleydesktop.png ~/.local/share/icons/</pre></div>
+<h3 id="google-chrome-浏览器">Google Chrome 浏览器</h3>
+
+<p>默认的浏览器是 Firefox，还是更喜欢 Chrome 浏览器。</p>
+
+<p>Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区提供的镜像源:</p>
+<div class="highlight"><pre class="chroma">sudo wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/</pre></div>
+<p>安装:</p>
+<div class="highlight"><pre class="chroma">sudo yum install google-chrome-stable</pre></div>
+<h3 id="opera-浏览器">Opera 浏览器</h3>
+
+<p>也可以选择 Opera 浏览器。</p>
+
+<p>下载地址：<a href="http://www.opera.com/download/guide/?os=linux" target="_blank">http://www.opera.com/download/guide/?os=linux</a></p>
+
+<p>选择 CentOS RPM package 进行下载。下载完成后，执行:</p>
+<div class="highlight"><pre class="chroma">sudo yum localinstall opera-12.16-1860.x86_64.rpm</pre></div>
+<p>想要卸载的话，就执行:</p>
+<div class="highlight"><pre class="chroma">sudo yum remove opera</pre></div>
+<h3 id="flash-插件">Flash 插件</h3>
+
+<p>Flash 插件主要是看在线视频的时候要用。Google 浏览器自带了 Flash 插件，所以这里安装的 flash 插件主要是为了 firefox。</p>
+<div class="highlight"><pre class="chroma">sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+sudo yum install flash-plugin</pre></div>
+<h3 id="解压软件">解压软件</h3>
+
+<p>解压 7z 或 zip 格式需要 p7zip，由 EPEL 提供:</p>
+<div class="highlight"><pre class="chroma">sudo yum install p7zip</pre></div>
+<p>解压 rar 格式可以使用 <a href="https://unarchiver.c3.cx/commandline" target="_blank">unar</a>，该软件位于 EPEL 源中：</p>
+<div class="highlight"><pre class="chroma">sudo yum install unar</pre></div>
+<h3 id="ftp-客户端">FTP 客户端</h3>
+
+<p>FTP 客户端，还是有界面的 filezilla 比较方便些。</p>
+<div class="highlight"><pre class="chroma">sudo yum install filezilla</pre></div>
+<h3 id="google-earth">Google Earth</h3>
+
+<p>到 <a href="https://www.google.com/earth/download/ge/agree.html" target="_blank">https://www.google.com/earth/download/ge/agree.html</a> 下载64位rpm包，执行如下命令安装:</p>
+<div class="highlight"><pre class="chroma">sudo yum localinstall google-earth-stable_current_x86_64.rpm</pre></div>
+<h2 id="效率类软件">效率类软件</h2>
+
+<p>这一类工具能够在不同方面提高科研的效率，也提高了使用者的体验。</p>
+
+<h3 id="终端模拟器">终端模拟器</h3>
+
+<p>Gnome 自带的终端模拟器是 gnome-terminal。经常会需要开十几个终端，切换和管理起来比较麻烦。</p>
+
+<h4 id="terminator">terminator</h4>
+
+<p>terminator 有很多功能，我只用到了终端分割的功能。 <code>Ctrl+Shift+O</code> 对终端水平分隔，
+<code>Ctrl+Shift+E</code> 对终端垂直分隔， <code>Alt + 上下左右</code> 可以在各子终端中切换。terminator 由 Nux Dextop 提供:</p>
+<div class="highlight"><pre class="chroma">sudo yum install terminator</pre></div>
+<h4 id="guake">guake</h4>
+
+<p>有些时候需要临时执行一两个命令，但是又不想额外启动一个终端的情况下，guake 是个不错的选择。</p>
+<div class="highlight"><pre class="chroma">sudo yum install guake</pre></div>
+<p>安装完成后，在 Application-&gt;System Tools 里找到 guake Terminal 即可启动。按下 F12
+即可呼出 guake，再次按下 F12 即可隐藏。也可在终端执行 <code>guake-prefs</code> 对 gauke 进行配置。</p>
+
+<h3 id="zsh-与-oh-my-zsh">zsh 与 oh my zsh</h3>
+
+<p>Linux 下有很多 shell，比如最常见的 bash，除此之外还有 csh、ksh。zsh 也是一个 shell。</p>
+
+<p>zsh 的特点在于：</p>
+
+<ul>
+<li>语法基本完全兼容于 bash，一般用户完全体会不到其区别</li>
+<li>zsh 提供命令补全特性，比 bash 的补全要更好用</li>
+<li>可配置性强</li>
+</ul>
+
+<p>完全不经配置的 zsh 已经很好用了，一般用户也没必要花时间研究配置。
+<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh my zsh</a> 是一群人一起维护的一套 zsh 配置文件。
+直接用这个配置文件，稍稍了解一点会有更好的体验。</p>
+
+<p>安装 zsh:</p>
+<div class="highlight"><pre class="chroma">sudo yum install zsh</pre></div>
+<p>安装 oh my zsh:</p>
+<div class="highlight"><pre class="chroma">curl -L http://install.ohmyz.sh | sh</pre></div>
+<p>上面的命令，做了如下几件事情：</p>
+
+<ul>
+<li>下载 <code>oh my zsh</code> 到 <code>~/.oh-my-zsh</code></li>
+<li>备份已有的 zsh 配置文件 <code>~/.zshrc</code> ，并复制新的 <code>.zshrc</code> 文件</li>
+<li>将当前用户的默认 shell 由 bash 改成 zsh</li>
+</ul>
+
+<p>第三步中，会报错如下： <code>chsh: &quot;/usr/bin/zsh&quot; is not listed in /etc/shells.</code> ，需要手动修改默认 shell:</p>
+<div class="highlight"><pre class="chroma">chsh -s /bin/zsh</pre></div>
+<p>chsh 命令修改的是 login shell，因而需要退出当前用户并重新登陆，以后用户的默认 shell
+就从 bash 变成了 zsh，所有的配置都不用写到 <code>.bashrc</code> 而要写到 <code>.zshrc</code> 中。</p>
+
+<p>在 <code>.zshrc</code> 中可以选择喜欢的主题，以及适当数量的插件。下面列出我在用的插件:</p>
+
+<ol>
+<li><p>git</p>
+
+<p>该插件为 git 的众多常用命令提供了更简单的别名，比如 <code>git status</code> 的别名是 <code>gst</code>，
+大大减少了击键数。但该插件中 <code>git mergetool --no-prompt</code> 的别名是 <code>gmt</code>，
+与 GMT 软件冲突，需要将该插件的目录 git 复制到 custom/plugins 下，然后删除其中的 gmt 别名；</p></li>
+
+<li><p>命令补全插件: pip, pyenv</p></li>
+
+<li><p>sudo：按两下 <code>ESC</code> 即可在当前命令前加上 <code>sudo</code></p></li>
+
+<li><p>yum：为常见的 yum 命令提供别名</p></li>
+</ol>
+
+<h3 id="autojump">autojump</h3>
+
+<p><a href="https://github.com/joelthelion/autojump" target="_blank">autojump</a> 是一个非常智能的目录快速切换的工具。简单演示如下:</p>
+<div class="highlight"><pre class="chroma">$ pwd
+/home/seisman
+$ cd Desktop
+$ cd /opt
+$ cd /usr/local
+
+# 用 j 命令迅速从 / usr/local 跳转到与 des 匹配的目录，这里只有 Desktop 可以匹配
+$ j des
+$ pwd
+/home/seisman/Desktop</pre></div>
+<p>用法差不多就这样，具体看项目主页。</p>
+
+<p>安装:</p>
+<div class="highlight"><pre class="chroma">sudo yum install autojump
+sudo yum install autojump-zsh</pre></div>
+<h3 id="中文输入法">中文输入法</h3>
+
+<p>由于使用的是全英文安装，所以默认是没有中文输入法的。</p>
+
+<p>在“Application”-&gt;“Settings”-&gt;“Region &amp; Language” 中将“Chinese（Intelligent Pinyin）”添加到“Input Sources” 中即可使用中文输入法。默认使用“Shift”键切换中文输入法。</p>
+
+<h3 id="等宽字体">等宽字体</h3>
+
+<p>编程要用等宽字体，这点是常识了。一款适合编程的等宽字体，至少要满足如下几个要求：</p>
+
+<ol>
+<li>易于区分 “1”、“i” 和“l”</li>
+<li>易于区分 “0”、“o” 和“O”</li>
+<li>易于区分中文下的左引号和右引号</li>
+<li>美观</li>
+</ol>
+
+<p>目前选择的 Source Code Pro。将解压后的字体文件放在 <code>~/.fonts</code> 目录下，并修改终端、gedit 以及其他编辑器、IDE 等的默认字体。</p>
+
+<h2 id="虚拟机">虚拟机</h2>
+
+<p>有时候可能需要在 Windows 下做一些操作，如果机器性能足够好的话，可以安装虚拟机。</p>
+
+<h3 id="virtualbox-虚拟机">VirtualBox 虚拟机</h3>
+
+<p>VirtuabBox 的安装:</p>
+<div class="highlight"><pre class="chroma">wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+sudo mv virtualbox.repo /etc/yum.repos.d/
+sudo yum install VirtualBox-5.0</pre></div>
+<p>需要注意两点：</p>
+
+<ul>
+<li>若机器性能不够，虚拟机的使用体验会非常差，所以不建议在老机器上使用；</li>
+<li>更新 kernel 之后需要执行 <code>sudo /sbin/rcvboxdrv setup</code> ；</li>
+<li>在 VirtualBox 安装虚拟系统后，记得使用 “设备”-&gt;“安装增强功能”，使用效果会更好；</li>
+</ul>
+
+<h3 id="gnome-boxes">gnome-boxes</h3>
+
+<p>gnome-boxes 是 GNOME3 开发的一个虚拟机工具，使用体验不如 VirtualBox:</p>
+<div class="highlight"><pre class="chroma">sudo yum install gnome-boxes</pre></div>
+<h3 id="wine">Wine</h3>
+
+<p>Wine 是一个可以让 Windows 程序运行在 Linux 下的软件。类似虚拟机，但跟虚拟机又不太一样:</p>
+<div class="highlight"><pre class="chroma">sudo yum install wine</pre></div>
+<h2 id="同步网盘">同步网盘</h2>
+
+<p>网盘根据功能大概可以分为两类：同步网盘和备份网盘。既然是同步网盘，Linux 下
+的客户端必不可少。就目前已知的情况来看，CentOS7 下能使用的同步网盘只有三个：
+Dropbox、MEGA 和坚果云。</p>
+
+<p>我主要用同步网盘将 Linux 机器上的 PDF 文献同步到 iPad 上。</p>
+
+<h3 id="dropbox">Dropbox</h3>
+
+<p>又是一个被墙的工具，熟练掌握科学上网技巧的人可以使用，一般人还是不要用了。</p>
+<div class="highlight"><pre class="chroma">wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-1.6.2-1.fedora.x86_64.rpm
+sudo rpm -i nautilus-dropbox-1.6.2-1.fedora.x86_64.rpm</pre></div>
+<h3 id="mega">MEGA</h3>
+
+<p>MEGA： <a href="https://mega.co.nz/" target="_blank">https://mega.co.nz/</a></p>
+
+<p>免费容量 50G，作为同步盘来说基本是够用了。</p>
+<div class="highlight"><pre class="chroma"># 下载主程序
+wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/megasync-CentOS_7.x86_64.rpm
+# 下载文件管理器扩展（可选）
+wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/nautilus-megasync-CentOS_7.x86_64.rpm
+sudo yum localinstall megasync-CentOS_7.x86_64.rpm
+sudo yum localinstall nautilus-megasync-CentOS_7.x86_64.rpm</pre></div>
+<h3 id="坚果云">坚果云</h3>
+
+<p>国内的全平台同步网盘，不限空间，但限制每月上传流量 1G，下载流量 3G。</p>
+<div class="highlight"><pre class="chroma"># 坚果云依赖于 notify-python
+sudo yum install notify-python
+# 下载
+wget https://jianguoyun.com/static/exe/installer/fedora/nautilus_nutstore_amd64.rpm
+sudo rpm -i nautilus_nutstore_amd64.rpm</pre></div>
+<h2 id="工具软件">工具软件</h2>
+
+<h3 id="视频下载工具">视频下载工具</h3>
+
+<p><a href="https://github.com/soimort/you-get" target="_blank">you-get</a> 和 <a href="https://github.com/rg3/youtube-dl" target="_blank">youtube-dl</a>
+是两个用于从视频网站上下载视频文件的工具。其中，后者支持的网站更多，但前者对国内的视频网站支持更好。</p>
+<div class="highlight"><pre class="chroma">pip install you-get
+pip install youtube-dl
+# EPEL 中提供了 youtube-dl 包，因而也可以使用 yum 安装。一般来说，pip 安装的版本更新一些</pre></div>
+<h3 id="pdf-处理工具">PDF 处理工具</h3>
+
+<p><a href="http://community.coherentpdf.com/" target="_blank">cpdf</a> 是一个跨平台的 PDF 处理工具，可以完成常见的 PDF 合并、
+切割、加密解密、书签、水印等功能。</p>
+
+<p>下载已编译好的 <a href="https://github.com/coherentgraphics/cpdf-binaries/archive/master.zip" target="_blank">二进制包</a>，
+解压，并将与自己的平台对应的二进制文件复制到 <code>${HOME}/bin</code> 目录下即可使用。</p>
+
+<h3 id="bt-软件">BT 软件</h3>
+
+<p>transmission 是 Linux 下常用的 Torrent 下载软件:</p>
+<div class="highlight"><pre class="chroma">sudo yum install transmission</pre></div>
+<p>在 “Application”-&gt;“Internet”-&gt; 中可以启动 transmission。</p>
+
+<h3 id="uget">uGet</h3>
+
+<p><a href="http://ugetdm.com/" target="_blank">http://ugetdm.com/</a></p>
+
+<p>uGet 是 Linux 下的一个下载工具，支持 HTTP、HTTPS、FTP、Torrent 等，支持多连接，并可以监视剪贴板:</p>
+<div class="highlight"><pre class="chroma">sudo yum --enablerepo=epel-testing install uget aria2</pre></div>
+<h3 id="截图软件-shutter">截图软件 shutter</h3>
+
+<p>GNOME 自带了截图工具。 <code>PrtScn</code> 为截取整个屏幕； <code>Alt+PrtScn</code> 为截取当前窗口；
+<code>Shift+PrtScn</code> 为自定义截屏区域。</p>
+
+<p><a href="http://shutter-project.org/" target="_blank">shutter</a> 是一个功能更强大的截图工具，支持不同的截图方式、
+图片格式，还支持图片的简单编辑与注释:</p>
+<div class="highlight"><pre class="chroma">sudo yum install shutter</pre></div>
+<p>可以通过 <a href="http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/" target="_blank">修改快捷键使 shutter 成为默认的截图工具</a>。</p>
+
+<h3 id="其他工具-1">其他工具</h3>
+<div class="highlight"><pre class="chroma">sudo yum install nfs-utils     # 挂载 NFS 文件系统所必须
+sudo yum install xclip         # 终端的文本复制工具
+sudo yum install ImageMagick   # 其中的 import 和 convert 命令很有用
+sudo yum install dos2unix unix2dos  # Windows 和 Linux 换行符互相转换
+sudo yum install meld          # 图形界面下的文件差异比较工具</pre></div>
+<h2 id="娱乐">娱乐</h2>
+
+<h3 id="影音播放器">影音播放器</h3>
+
+<p>Nux Dextop 提供了 mplayer 和 VLC，可以用于播放常见格式的音频和视频，二者选其一安装即可:</p>
+<div class="highlight"><pre class="chroma">sudo yum install mplayer
+sudo yum install vlc</pre></div>
+<h3 id="游戏">游戏</h3>
+<div class="highlight"><pre class="chroma">sudo yum install 2048-cli   # 2048 命令行版</pre></div>
+<h2 id="参考">参考</h2>
+
+<ol>
+<li><a href="http://elrepo.org/tiki/tiki-index.php" target="_blank">ELRepo 官方网站</a></li>
+<li><a href="http://elrepo.org/tiki/kmod-nvidia" target="_blank">ELRepo kmod-nvidia</a></li>
+<li><a href="http://wiki.centos.org/zh/AdditionalResources/Repositories/GoogleYumRepos" target="_blank">CentOS Yum 软件库样例</a></li>
+</ol>
+
+<h2 id="修订历史">修订历史</h2>
+
+<ol>
+<li>原文</li>
+<li>2014-07-15：初稿；</li>
+<li>2014-09-05：EPEL 已经发布正式版；修改了 epel-release 的下载链接；修订了 import 步骤的错误；</li>
+<li>2014-09-20：将小小输入法改为搜狗输入法；</li>
+<li>2014-11-20：使用 zsh；</li>
+<li>2014-11-24：加入了 VirtualBox 虚拟机；</li>
+<li>2014-12-01：从 ELRepo 源中安装显卡驱动；</li>
+<li>2014-12-02：新增 Opera 浏览器和 unrar；</li>
+<li>2014-12-27：新增 pointdownload 下载工具；google chrome 采用非官方源镜像；</li>
+<li>2014-12-28：修订 unrar 的 rpm 文件链接；</li>
+<li>2015-01-03：新增同步网盘 Dropbox 和坚果云；删除 pointdownload；</li>
+<li>2015-01-05：autojump 直接从 epel 中安装；新增 youtube-dl、you-get 和 2048-cli；</li>
+<li>2015-01-07：新增 terminator 和 guake；</li>
+<li>2015-01-27：新增 cpdf；</li>
+<li>2015-03-03：新增 filezilla 和 transmission；</li>
+<li>2015-03-26：安装过程中不应使用中文安装界面；</li>
+<li>2015-05-11：新增 MEGA 同步网盘；</li>
+<li>2015-05-16：新增 gnome-boxes；</li>
+<li>2015-06-26：新增 zathura 和 ghostscript；</li>
+<li>2015-07-14：新增 Nux Dextop 源，uGet、shutter；</li>
+<li>2015-09-03：删除地球物理相关软件；</li>
+<li>2015-09-18：删除显卡驱动安装的具体步骤，直接链接到相关博文；</li>
+
+<li><p>2016-09-12：新增google earth的安装；</p></li>
+
+<li><p>转载</p></li>
+
+<li><p>2017-12-08: 转载并更新部分内容</p></li>
+
+<li><p>2017-12-08: 删除elrepo,建议驱动从官网安装;
+            删除yum-axelget;
+            增加部分软件开发辅助工具和其他工具;
+            显卡驱动改为官网安装,增加GPU开发环境;
+            建议mpi,python3源码安装</p></li>
+</ol>
+
+                <p class="text-right">
+    <a href="https://quanyin.eu.org"> Quanyin Tang</a>
+    <span class="time"> / <time>2017-12-08</time></span>
+    
+    <br>
+    <span><strong><em>Published under <a href="//creativecommons.org/licenses/by-nc-sa/4.0/">(CC) BY-NC-SA 4.0</a></em></strong></span>
+</p>
+                <hr style="visibility: hidden;" >
+                
+                
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="https://theme.quanyin.ml/2015/03/js-sequence-diagrams-flowchart-diagrams/" data-toggle="tooltip" data-placement="top" title="JS Sequence Diagrams and Flowchart Diagrams">
+        Previous
+        <br>
+        <span>JS Sequence Diagrams and Flowchart Diagrams</span>
+        </a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="https://theme.quanyin.ml/2018/03/keynote/" data-toggle="tooltip" data-placement="top" title="HTML5幻灯片测试">
+        Next
+        <br>
+        <span>HTML5幻灯片测试</span>
+        </a>
+    </li>
+    
+</ul>
+                
+                
+<div class="comment">
+    <div id="container"></div>
+    <link rel="preload" href="https://theme.quanyin.ml/css/gitment.min.css" as="style" onload="this.rel='stylesheet'" crossorigin="anonymous"/>
+    <noscript><link rel="stylesheet" href="https://theme.quanyin.ml/css/gitment.min.css" crossorigin="anonymous"/></noscript>
+    <script  src="https://theme.quanyin.ml/js/gitment.min.js" crossorigin="anonymous" ></script>
+    
+    <div class="text-muted text-center">
+        <button class="reward" id="load-CommentGitment" onclick="CommentGitment.load();">评</button>
+    </div>
+    
+    <script >
+    var CommentGitment = {
+        load:function CommentGitment(){
+            (function () {
+            var gitment = new Gitment({
+              id: 'Linux-Environment-under-Centos',  
+              owner: 'qytang326',  
+              repo: 'Blog-Comment',  
+              title: '在CentOS 7 上打造Linux开发环境', 
+              oauth: {
+                client_id: '547ad10017b50756cc95',  
+                client_secret: 'b79e08fb1496dea7decb39b8e9960de6f934078f',  
+              },
+            });
+            gitment.render('container');
+            }());
+        $('#load-CommentGitment').remove();  
+          }
+      }
+    </script>
+</div>
+
+                
+                
+
+
+
+<hr>
+
+<button class="reward" data-toggle="modal" data-target="#myModal">
+    赏
+</button>
+<div class="text-muted text-center"><p>若您觉得我的文章对您有帮助，欢迎点击上方按钮对我打赏</p></div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="text-center modal-title" id="myModalLabel">
+                    「真诚赞赏，手留余香」
+                </p>
+            </div>
+            <div class="modal-body" align="center">
+                <img style="display:inline;margin-right:10px;width:200px;height:258px;" src="https://theme.quanyin.ml/img/reward/Alipay-QR.jpg" alt="微信">
+                <img style="display:inline;margin-left:10px;width:200px;height:258px;"  src="https://theme.quanyin.ml/img/reward/WechatPay-QR.jpg" alt="支付宝">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn2 btn2-primary" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+            
+            
+            
+<div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
+    <div class="side-catalog">
+        <hr class="hidden-sm hidden-xs" >
+        
+        <ul class="catalog-body"></ul>
+    </div>
+</div>
+
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+                
+
+<hr>
+<section>
+    <h5><a href="https://theme.quanyin.ml/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+            
+            <a href="https://theme.quanyin.ml/tags/example" rel="3">Example</a>
+            
+        
+            
+        
+            
+        
+    </div>
+</section>
+
+                
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    <li><a target="_blank" rel="noreferrer"  href="https://qytang326.github.io">Quanyin</a></li>
+
+    <li><a target="_blank" rel="noreferrer"  href="https://fudanccmg.github.io">CCMG</a></li>
+
+    <li><a target="_blank" rel="noreferrer"  href="https://huangxuan.me/">Hux Blog</a></li>
+
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+<li>
+  <a target="_blank" rel="noreferrer" href="https://theme.quanyin.ml/index.xml">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-rss fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="mailto:qytang326@gmail.com">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-envelope-o fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a target="_blank" rel="noreferrer" href="//github.com/qytang326">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-github fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+<li>
+  <a target="_blank" rel="noreferrer" href="//www.linkedin.com/in/quanyin-tang-56a543b1">
+    <span class="fa-stack fa-lg">
+      <em class="fa fa-circle fa-stack-2x"></em>
+      <em class="fa fa-linkedin fa-stack-1x fa-inverse"></em>
+    </span>
+  </a>
+</li>
+
+
+
+                </ul>
+                    
+                    <p class="copyright text-muted text-center ">
+                        Copyright © 2017-2019 <a href="https://theme.quanyin.ml">Quanyin Blog</a>
+                            
+                            
+                            <span id="busuanzi_container_site_uv" style='display:none'> | 访客数: <span id="busuanzi_value_site_uv"><em class="fa fa-spinner fa-spin"></em></span></span><span id="busuanzi_container_site_pv" style='display:none'>&nbsp;| 总访问量: <span id="busuanzi_value_site_pv"><em class="fa fa-spinner fa-spin"></em></span></span>
+                            
+                        <br>
+                            Theme by <a href="//github.com/qytang326">Quanyin Tang</a> | Powered by <a href="//gohugo.io">Hugo</a>
+                        <br>
+                            <span class="note">转载请标明作者和出处并告知</span>
+                        <br><br>
+                            <span id="count"></span>
+                    </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<a class="back2top" style="display:none;"></a>
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+
+
+<script src="https://theme.quanyin.ml/js/Quanyin-global.min.js" async="async" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/anchor-js/4.1.0/anchor.min.js" crossorigin="anonymous"></script>
+<script>
+    anchors.options = {
+      
+      placement: 'right',
+      
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+</script>
+
+
+
+
+
+
+
+<script>
+    function generateCatalog (selector) {
+         
+        
+            _containerSelector = 'div.post-container'
+        
+         
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+         
+        $(selector).html('');
+         
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+    generateCatalog(".catalog-body");
+     
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }));
+    
+
+        (function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+          });
+        });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    window.setInterval('counter()',1000);
+    function counter(){
+        var date=new Date();
+        var startDate=new Date( 2017 , 7 , 6 , 0 , 0 , 0 );
+        var time=(date-startDate)/1000;
+        var day=Math.floor(time/(24*60*60));
+        var hour=Math.floor(time%(24*60*60)/(60*60));
+        var minute=Math.floor(time%(24*60*60)%(60*60)/60);
+        var second=Math.floor(time%(24*60*60)%(60*60)%60);
+        var str="我的博客已经默默运行了" + day + "天" + hour +"时" + minute + "分" + second + "秒";
+        document.getElementById('count').innerHTML=str;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+    
+    <script>
+    !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+    </script>
+
+
+
+
+
+
+
+
+
+    <script>
+    window.onload=function(){
+         
+        var _gaId = 'UA-105172812-2';
+        var _gaDomain = 'auto';
+         
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https:\/\/theme.quanyin.ml/js/Quanyin-global.min.js','ga');
+        ga('create', _gaId, _gaDomain);
+        ga('send', 'pageview');
+        }
+    </script>
+
+
+
+    <script>
+         
+        var _baId = '366e0ea844c9db65fe3dd420933f2677';
+         
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?"+ _baId;
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm,s);
+        })();
+    </script>
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+    
+
+
+
+</body>
+</html>
